@@ -1,4 +1,3 @@
- 
 import { Routes, Route } from "react-router-dom";
 import Landing from "./pages/Landing";
 
@@ -11,8 +10,7 @@ function App() {
         {/* <Route path={"*"} element={<Page404 />} /> */}
       </Routes>
     </>
- 
   );
-};
+}
 
 export default App;
