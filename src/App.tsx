@@ -7,16 +7,10 @@ function App() {
     <>
       <Routes>
         <Route index path="/" element={<Landing />} />
-<<<<<<< HEAD
-
-=======
->>>>>>> d7fc4fc450bada7352fb89eefffbca8e2452790b
         <Route path={"*"} element={<Page404 />} />
       </Routes>
     </>
   );
 }
-
-
 
 export default App;
