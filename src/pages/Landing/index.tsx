@@ -1,5 +1,30 @@
-const Landing = () => {
-  return <h1>Welcome</h1>;
-};
+import React, { useEffect, useState } from 'react'
 
-export default Landing;
+const Landing = () => {
+
+
+
+
+ const getJobs = async () =>{
+        const res = await fetch('/api/jobs',{
+          method: 'GET',
+          headers:{
+            'Content-Type': 'application/json'
+          },
+        
+        });
+        const jobs =  res.json()
+        console.log(jobs)
+ }
+
+getJobs()
+
+  return (
+    <div>
+  
+    </div>
+  )
+}
+
+export default Landing
+
