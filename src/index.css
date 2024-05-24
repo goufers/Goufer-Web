@@ -3,22 +3,21 @@
 @tailwind utilities;
 
 /* width*/
-::-webkit-scrollbar{
-    width: 10px;
+::-webkit-scrollbar {
+  width: 8px;
 }
 
 /* Track */
-::-webkit-scrollbar-track{
-    background: rgb(128, 238, 19);
+::-webkit-scrollbar-track {
+  background: rgb(205, 243, 167);
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #028d0d;
 }
 
 /* Handle */
-::-webkit-scrollbar-thumb{
-    background: #c2efb9 ;
-    border-radius: 5px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover{
-    background: #bcf756;
+::-webkit-scrollbar-thumb {
+  background: #1d9e03;
+  border-radius: 5px;
 }
