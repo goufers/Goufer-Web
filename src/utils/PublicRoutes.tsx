@@ -1,5 +1,5 @@
 const PUBLIC_ROUTES = {
-  LANDINGPAGE: "/landing_page",
+  LANDINGPAGE: "/",
 
   //NAV BAR
   ABOUT_US: "about/",
