@@ -14,7 +14,7 @@ const Trustedby = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 6,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
@@ -24,11 +24,11 @@ const Trustedby = () => {
   return (
     <div className="w-full h-auto mb-10 bg-white flex flex-col">
       {/* Card Section */}
-      <div className="flex justify-center mt-8">
-        <Slider {...settings} className="w-4/5">
+      <div className="flex flex-row justify-center my-12">
+        <Slider {...settings} className="w-full">
           {cardContents.map((card) => (
             <div key={card.id} className="p-2">
-              <div className="bg-[#007F00] bg-opacity-50 text-white rounded-lg h-[180px] flex items-center justify-center p-2">
+              <div className="bg-[#007F00] w-[110px]  h-[80px]  mx-auto bg-opacity-50 text-white rounded-lg  flex items-center justify-center p-2">
                 <img
                   src={card.imgSrc}
                   alt={`Card ${card.id}`}
