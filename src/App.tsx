@@ -10,16 +10,24 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 
+import PUBLIC_ROUTES from "./utils/PublicRoutes"; Develop
+
 function App() {
   return (
     <>
       <Routes>
+        Trusted-by
         <Route index path="/" element={<Landing />} />
         <Route path={"/aboutus"} element={<AboutUs/>}/>
         <Route path={"/faq"} element={<Faq/>}/>
         <Route path={"/home"} element={<Home/>} />
         <Route path={"/trustedby"} element={<Trustedby/>} />
         <Route path={"/contactus"} element={<ContactUs/>} />
+        <Route index path={PUBLIC_ROUTES.LANDINGPAGE} element={<Landing />} />
+        <Route path={"/aboutus"} element={<AboutUs />} />
+        <Route path={"/faq"} element={<Faq />} />
+        <Route path={"/home"} element={<Home />} />
+        <Route path={"/contactus"} element={<ContactUs />} />
         <Route path={"*"} element={<Page404 />} />
       </Routes>
     </>
