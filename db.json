@@ -1,0 +1,54 @@
+        {
+         "users":[
+                {
+                    "id":"1",
+                    "firstName":"John",
+                    "lastName": "Doe",
+                    "email":"john@gmail.com",
+                    "age":34,
+                    "company":{
+                            "id":"1",
+                            "name":"Apple",
+                            "description":"Apple is a leading American tech company known for its innovative consumer electronics,software, and services. They're famous for products like iPhones, Mac computers, and iPads. They also developed popular software like iOS and macOS. Apple is a major player in the technology industry, known for sleek designs and user-friendly products."
+                    }
+                    
+                },
+                {
+                    "id":"2",
+                    "firstName":"Garland",
+                    "lastName": "Thompson",
+                    "email":"garland@gmail.com",
+                    "age":35,
+                    "company":{
+                            "id":"3",
+                            "name":"Nasa",
+                            "description":"NASA, the National Aeronautics and Space Administration, is the United States government agency responsible for the nation's civilian space program and for aeronautics and aerospace research. Established in 1958, NASA conducts space exploration, scientific discovery, and technological innovation, and is known for missions like the Apollo moon landings, the Mars rovers, and the Hubble Space Telescope. NASA also collaborates with international partners on various space missions and endeavors."
+                    }
+                },
+                {
+                    "id":"2",
+                    "firstName":"John",
+                    "lastName": "Paul",
+                    "email":"paul@gmail.com",
+                    "age":40,
+                    "company":{
+                            "id":"4",
+                            "name":"Facebook",
+                            "description":"Facebook is a social media platform founded by Mark Zuckerberg in 2004. It allows users to create profiles, connect with friends and family, share updates, photos, and videos, join groups, and follow pages of interest. Over the years, Facebook has expanded its services to include messaging, marketplace, and various multimedia sharing features. It is part of Meta Platforms, Inc., which also owns Instagram, WhatsApp, and Oculus VR. Facebook has been influential in connecting people globally but has faced scrutiny over privacy, data security, and its impact on society and politics."
+                    }
+                },
+                {
+                    "id":"4",
+                    "firstName":"Karen",
+                    "lastName": "Williamson",
+                    "email":"karen@gmail.com",
+                    "age":27,
+                    "company":{
+                            "id":"4",
+                            "name":"Google",
+                            "description":" Google is a major force in the tech world,aiming to organize the world's information and make it universally accessible"
+                    }
+                }
+        
+            ] 
+}
