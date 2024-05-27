@@ -1,6 +1,6 @@
 const Nav = () => {
   return (
-    <div className="w-full h-auto px-4 py-4 bg-white items-center flex flex-row">
+    <div className=" fixed top-0 left-0 right-0 w-full h-auto px-4 py-4 bg-white items-center flex flex-row">
       <img
         src="/images/mainlogo.png"
         alt="goufer logo"
