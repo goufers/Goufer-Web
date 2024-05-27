@@ -20,11 +20,7 @@ function Home() {
 
   return (
     <div>
-    {dbData.map((item, index) => (
-      <div key={index}>
-        <p>{item.firstName}</p>
-      </div>
-    ))}
+   <p>Home</p>
   </div>
   )
 }
