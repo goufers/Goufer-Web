@@ -35,7 +35,7 @@ const Banner = () => {
               <path
                 d="M6.16669 3.16666C5.50365 3.16666 4.86776 3.43006 4.39892 3.8989C3.93008 4.36774 3.66669 5.00362 3.66669 5.66666M13.6667 13.1667L11.1667 10.6667"
                 stroke="#605D64"
-                stroke-linecap="round"
+                strokeLinecap="round"
               />
             </svg>
           </h3>
@@ -60,7 +60,7 @@ const Banner = () => {
         </div>
         <div className="w-[380px] mx-16  py-2 ">
           <h2 className="text-xs font-roboto  text-[#49454F] ">
-            Popular Searches: Real Estate, Event Planer{" "}
+            Popular Searches: Real Estate, Event Planer
           </h2>
         </div>
       </div>
