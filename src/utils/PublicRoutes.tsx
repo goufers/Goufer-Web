@@ -1,6 +1,6 @@
 const PUBLIC_ROUTES = {
-  LANDINGPAGE: "/landing_page",
-
+  LANDINGPAGE: "/",
+  HOME: "/home",
   //NAV BAR
   ABOUT_US: "about/",
   CONTACT_US: "/contact",
