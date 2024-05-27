@@ -60,7 +60,7 @@ const Banner = () => {
         </div>
         <div className="w-[380px] mx-16  py-2 ">
           <h2 className="text-xs font-roboto  text-[#49454F] ">
-            Popular Searches: Real Estate, Event Planer{" "}
+            Popular Searches: Real Estate, Event Planer
           </h2>
         </div>
       </div>

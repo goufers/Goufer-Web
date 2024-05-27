@@ -29,7 +29,7 @@ const Trustedby = () => {
         <Slider {...settings} className="w-4/5">
           {cardContents.map((card) => (
             <div key={card.id} className="p-2">
-              <div className="bg-green-600 bg-opacity-50 text-white rounded-lg h-[180px] flex items-center justify-center p-2">
+              <div className="bg-[#007F00] bg-opacity-50 text-white rounded-lg h-[180px] flex items-center justify-center p-2">
                 <img
                   src={card.imgSrc}
                   alt={`Card ${card.id}`}
@@ -48,7 +48,7 @@ const Trustedby = () => {
           <div>
             <div className="flex gap-2">
               <img className="border-slate-400 h-[75px]" src="./images/topline.svg" alt="" />
-              <h1 className="text-4xl w-[385px] h-[94px] text-green-600">
+              <h1 className="text-4xl w-[385px] h-[94px] text-[#007F00]">
                 Trust us through our Reviews
               </h1>
             </div>
@@ -79,7 +79,7 @@ const Trustedby = () => {
       </div>
 
       <div className="w-[1440px] h-[392px] mx-auto flex mt-12">
-        <div className="bg-green-600 w-[720px] flex flex-col justify-center items-center">
+        <div className="bg-[#007F00] w-[720px] flex flex-col justify-center items-center">
           <div className="w-[437px] gap-4">
             <p className="text-white text-2xl">Boost Your Business with Goufer</p>
             <h1 className="text-white font-medium text-4xl mt-2 mb-5">
@@ -122,7 +122,7 @@ const Trustedby = () => {
             />
           </div>
           <img className="border-slate-400" src="./images/demcate.svg" alt="" />
-          <button className="bg-green-600 w-[99px] h-[40px] rounded-full text-white px-4 py-2 hover:bg-green-700 m-2 ">
+          <button className="bg-[#007F00] w-[99px] h-[40px] rounded-full text-white px-4 py-2 hover:bg-green-700 m-2 ">
             Search
           </button>
         </div>
