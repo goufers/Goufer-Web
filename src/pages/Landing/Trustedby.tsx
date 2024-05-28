@@ -111,8 +111,8 @@ const Trustedby = () => {
             </p>
           </div>
         </div>
-        <div className="flex items-center w-[483px] h-[50px] rounded-full border border-slate-400 justify-between ">
-          <div className="flex flex-row ml-5">
+        
+          <div className="flex flex-row ml-5"><div className="flex items-center w-[483px] h-[50px] rounded-full border border-slate-400 justify-between ">
             <img className="mx-1" src="./images/emailc.svg" alt="email" />
             <input
               type="text"

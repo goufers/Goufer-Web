@@ -14,6 +14,7 @@
     "server": "json-server --watch db.json port 3000"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.5.2",
     "@fortawesome/fontawesome-free-solid": "^5.0.13",
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",

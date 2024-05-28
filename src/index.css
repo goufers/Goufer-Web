@@ -1,6 +1,26 @@
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
 
 /* width*/
 ::-webkit-scrollbar {
