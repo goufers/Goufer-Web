@@ -1,5 +1,9 @@
+import NewOppurtunities from "./NewOppurtunities";
+
 const Landing = () => {
-  return <div></div>;
+  return <div className="w-full h-auto">
+<NewOppurtunities />
+  </div>;
 };
 
 export default Landing;
