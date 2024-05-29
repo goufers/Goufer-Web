@@ -63,7 +63,7 @@ const Sliders = () => {
       
       <Slider {...settings}>
         {data.map((d) => (
-          <div className="bg-[#ffffff] rounded-3xl flex flex-col justify-between mx-auto w-10/12 h-full px-6 py-10 mt-10  ">
+          <div className="bg-[#ffffff]  rounded-3xl flex flex-col justify-between mx-auto w-10/12 h-full px-6 py-10 mt-10  ">
             <div className=" flex flex-row justify-center ">
              <div className='py-12 my-19 mx-auto '>
              <h1 className="text-[#007f00] text-3xl justify-normal font-semibold py-2  ">
@@ -107,7 +107,7 @@ const Sliders = () => {
               </p>
              </div>
               <div className="px-4 w-1/2 h-full rounded-2xl justify-center">
-            <img src={d.img} className='mx-auto w-[400px] h-[350px]' alt="" />
+            <img src={d.img} className='mx-auto w-[320px] h-[350px] object-cover rounded-md' alt="" />
             </div>
             </div>
             
