@@ -12,13 +12,13 @@ const Banner = () => {
           </h2>
         </div>
 
-        <div className="w-[480px]   mx-auto  pt-2 ">
-          <h2 className="text-xs font-roboto text-[#49454F] ">
+        <div className="w-[480px]   mx-auto  pb-2 ">
+          <h2 className="text-xs  font-roboto text-[#49454F] ">
             Easily find the perfect expert for your next task with our powerful search engine.
           </h2>
         </div>
 
-        <div className="w-[480px] h-auto p-4 bg-white rounded-full shadow-md hover:shadow-lg flex flex-row items-center">
+        <div className="w-[480px] h-auto p-4 py-2 bg-white rounded-full shadow-md hover:shadow-lg flex flex-row items-center">
           <h3>
             <svg
               width="15"
