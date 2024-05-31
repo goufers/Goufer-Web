@@ -1,231 +1,260 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useState } from "react";
 import Slider from "./Sliders";
 
-
 const NewOppurtunities = () => {
+  const [showExpertPop, setShowExpertPop] = useState<any>();
   const infos = [
     {
       id: 1,
-      Categories: 'Food & Beverage',
+      Categories: "Food & Beverage",
       Shopimage:
-        'https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png',
+        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
       Gouferimage:
-        'https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png',
-      Goufername: 'Azeez Ibrahim',
-      Rate: '4.8',
-      City: 'Lagos,Nigeria',
-      Task: 'Task Complete',
+        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+      Goufername: "Azeez Ibrahim",
+      text: " These are professional goufer which are expertise in resturant knowledge and update",
+      Rate: "4.8",
+      City: "Lagos,Nigeria",
+      Task: " 50+ ",
     },
     {
       id: 2,
-      GouferCategories: 'Transport',
+      GouferCategories: "Transport",
       Shopimage:
-        'https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png',
+        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
       Gouferimage:
-        'https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png',
-      Goufername: 'Pius Lucky',
-      Rate: '4.8',
-      City: 'Lagos,Nigeria',
-      Task: 'Task Complete',
+        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+      Goufername: "Pius Lucky",
+      text: " These are professional goufer which are expertise in resturant knowledge and update",
+      Rate: "4.8",
+      City: "Lagos,Nigeria",
+      Task: " 50+",
     },
     {
       id: 3,
-      GouferCategories: 'Entertainment',
+      GouferCategories: "Entertainment",
       Shopimage:
-        'https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png',
+        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
       Gouferimage:
-        'https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png',
-      Goufername: 'Chika Chime',
+        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+      Goufername: "Chika Chime",
 
-      Rate: '4.8',
-      City: 'Lagos,Nigeria',
-      Task: 'Task Complete',
+      text: " These are professional goufer which are expertise in resturant knowledge and update",
+      Rate: "4.8",
+      City: "Lagos,Nigeria",
+      Task: " 50+",
     },
     {
       id: 4,
-      GouferCategories: 'Donation',
+      GouferCategories: "Donation",
       Shopimage:
-        'https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png',
+        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
       Gouferimage:
-        'https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png',
-      Goufername: 'Choosen Abdullahi',
-      Rate: '4.8',
-      City: 'Lagos,Nigeria',
-      Task: 'Task Complete',
+        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+      Goufername: "Choosen Abdullahi",
+      text: " These are professional goufer which are expertise in resturant knowledge and update",
+      Rate: "4.8",
+      City: "Lagos,Nigeria",
+      Task: " 50+",
+    },
+    // {
+    //   id: 5,
+    //   GouferCategories: "Shopper",
+    //   Shopimage:
+    //     "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
+    //   Gouferimage:
+    //     "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+    //   Goufername: "Oladosu Teslimat",
+    //   text: " These are professional goufer which are expertise in resturant knowledge and update",
+    //   Rate: "4.8",
+    //   City: "Lagos,Nigeria",
+    //   Task: " 50+",
+    // },
+  ];
+
+  const JoinUs = [
+    {
+      icon: "https://res.cloudinary.com/dxnznpglg/image/upload/v1716812814/Goufer/wpf_happy_eklxev.png",
+      title: "35,000+",
+      text: "Happy Global Client",
     },
     {
-      id: 5,
-      GouferCategories: 'Shopper',
-      Shopimage:
-        'https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png',
-      Gouferimage:
-        'https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png',
-      Goufername: 'Oladosu Teslimat',
-      Rate: '4.8',
-      City: 'Lagos,Nigeria',
-      Task: 'Task Complete',
+      icon: "https://res.cloudinary.com/dxnznpglg/image/upload/v1716813478/Goufer/Union_kere7l.png",
+      title: "Flexible",
+      text: " Task that fit your schedule and skill set",
     },
-
-   
+    {
+      icon: "https://res.cloudinary.com/dxnznpglg/image/upload/v1716814001/Goufer/Group_ozomfy.png",
+      title: "Secure Payment",
+      text: "Enjoy peace of mind with our secure payment system",
+    },
+    {
+      icon: "https://res.cloudinary.com/dxnznpglg/image/upload/v1716814175/Goufer/carbon_star-review_qrs56u.svg",
+      title: "Build Reputation",
+      text: "Collecting to showcase your expertise and more clients",
+    },
   ];
-  
 
-  
   return (
-    <div className="mx-auto">
-      <div className="bg-[url(https://res.cloudinary.com/dxnznpglg/image/upload/v1716810848/Goufer/Rectangle_10_3_f1j8j4.svg)] bg-cover bg-center flex flex-row justify-around pt-5 text-white py-5 space-y-12 ">
-        <div>
-          <div className="bg-[#333E78] w-[200px] h-[30px] mb-4 pl-1 text-xl ">
-            Goufer is growing fast
-          </div>
-          <div className="font-medium text-2xl mb-2">
+    <div className=" items-center   ">
+      <div className="px-16 bg-[url(https://res.cloudinary.com/dxnznpglg/image/upload/v1716810848/Goufer/Rectangle_10_3_f1j8j4.svg)] w-full bg-center flex flex-col ">
+        <div className="bg-[#333E78] w-72 h-auto my-5 text-white px-4 py-3 text-2xl text-center ">
+          Goufer is growing fast
+        </div>
+        <div className=" w-full">
+          <h3 className=" text-[32px]  text-white font-Roboto font-bold mb-2">
             Unlock New Opportunities and Grow Your Business
-          </div>
-          <p className="text-sm mb-3">
-            Are you an experience professional looking to expand your client
-            base? Join Goufer today and
-            <br />
-            Connect with individuals and businesses seeking your expertise.
-          </p>
-          <div className="flex flex-row">
-            <div className="flex flex-row justify-start items-start mt-4">
-              <img
-                src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716812814/Goufer/wpf_happy_eklxev.png"
-                className="w-9 h-9 mx-2 object-contain p-1 bg-white rounded-full"
-                alt=""
-              />
-              <div className=" ">
-                <h1 className="text-sm font-semibold">35,000+</h1>
-                <p className="text-xs">Happy Global Clinet</p>
-              </div>
-            </div>
-            <div className="flex flex-row justify-start items-start mt-4">
-              <img
-                src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716813478/Goufer/Union_kere7l.png"
-                className="w-9 h-9 mx-2 object-contain p-1 bg-white rounded-full"
-                alt=""
-              />
-              <div className=" ">
-                <h1 className="text-sm font-semibold">Flexible</h1>
-                <p className="text-xs">
-                  Task that fit your <br />
-                  schedule and skill set
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-row justify-start items-start mt-4">
-              <img
-                src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716814001/Goufer/Group_ozomfy.png"
-                className="w-9 h-9 mx-2 object-contain p-1 bg-white rounded-full"
-                alt=""
-              />
-              <div className=" ">
-                <h1 className="text-sm font-semibold">Secure Payment</h1>
-                <p className="text-xs">
-                  Enjoy peace of mind with our
-                  <br />
-                  secure payment system
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-row justify-start items-start mt-4">
-              <img
-                src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716814175/Goufer/carbon_star-review_qrs56u.svg"
-                className="w-9 h-9 mx-2 object-contain p-1 bg-white rounded-full"
-                alt=""
-              />
-              <div className=" ">
-                <h1 className="text-sm">Build Reputation</h1>
-                <p className="text-xs">
-                  Collectrating to showcase your <br />
-                  expertise and more clients
-                </p>
-              </div>
-            </div>
+          </h3>
+
+          <div className="w-full  text-white flex flex-row items-center">
+            <p className="w-3/5 mr-auto text-sm mb-3 text-[16px] font-Roboto">
+              Are you an experience professional looking to expand your client base? Join
+              Goufer today and Connect with individuals and businesses seeking your expertise.
+            </p>
+            <button className=" mx-auto py-1.5 px-6 items-end  text-[18px]  text-white border border-white rounded-full hover:border-b-2 ">
+              Become a Goufer Now!
+            </button>
           </div>
         </div>
-        <div>
-          <button className="border border-white rounded-full text-white p-2.5 mt-8 hover:border-2 ">
-            Become a Goufer Now!
-          </button>
+
+        <div className="flex flex-row my-6 mt-10 items-center">
+          {JoinUs.map((i, n) => (
+            <div className="flex flex-row mx-auto justify-start items-start " key={n}>
+              <img
+                src={i.icon}
+                className="w-10 h-10 mx-2 object-contain p-1 bg-white rounded-full"
+                alt=""
+              />
+              <div className="flex flex-col ">
+                <h1 className="text-sm  text-white font-semibold font-Roboto">{i.title}</h1>
+                <p className="text-xs  text-white font-Roboto">{i.text}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
-
-
-     <div>
-        <h1 className="text-4xl tex-start mt-16 pl-20  ">
+      <div className=" pl-12 ">
+        <h1 className="text-[40px] font-bold pl-2 tex-start mt-16   border-l-4 border-blue-gray-800 ">
           Meet Some of Our Esteem Team <br />
-          of Expertise on{' '}
-          <span className="text-[#007F00] text-5xl">Goufers</span>
+          of Expertise on <span className="text-[#007F00] text-5xl">Goufers</span>
         </h1>
-        <p className="text-sm tex-start mt-1 pl-20">
+        <p className="text-sm tex-start   mt-2 mx-2">
           Over 20k Professional Categories - 15+ Subcategories Goufers
         </p>
       </div>
-       <div className="flex flex-row justify-evenly mt-6 mx-4 rounded-xl shadow-black">
+
+      <div className="flex flex-row justify-evenly my-10 items-center relative  ">
         {infos &&
           infos.map((info: any, index: number) => (
-            <div className="" key={index}>
+            <div
+              className="mx-auto flex flex-col relative items-center w-64 pb-4 rounded-xl  shadow-sm shadow-blue-gray-300  "
+              key={index}
+              onMouseOver={() => setShowExpertPop(index)}
+              onMouseLeave={() => setShowExpertPop("")}
+            >
               <div className="">
                 <img
                   src={info.Shopimage}
                   alt=""
-                  className="w-44 h-20 absolute"
+                  className="w-full h-28 p-1 rounded-md  object-cover"
                 />
                 <img
                   src={info.Gouferimage}
                   alt=""
-                  className="w-22 h-10 rounded-full relative top-14 outline-white"
+                  className="w-16 h-16 rounded-full absolute left-4 top-16 border border-white outline-white"
                 />
               </div>
-              <div className="mt-14 pb-2 mb-2">
-                <h1 className="text-[#007F00] font-semibold ml-1">
+              <div className=" pt-5 pl-3">
+                <h1 className="text-[#007F00] text-[16px] font-semibold font-Roboto ">
                   {info.Goufername}
                 </h1>
-                <p className=" text-xs mb-2">
-                  These are professional goufer which are <br />
-                  expertise in resturant knowledge and update
-                </p>
-                <div className="flex flex-row justify-start items-start text-xs">
+                <p className=" pr-2 text-[11px] mb-2">{info.text}</p>
+                <div className="flex flex-row justify-start items-center pb-1 ">
                   <img
                     src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716881835/Goufer/Union_1_jrxj8w.png"
                     className="w-4 h-4 object-contain"
                     alt=""
                   />
-                  <span className="text-[#007F00]">50+</span>
-                  {info.Task}
+                  <p className="text-[#2e332e] px-2 text-[12px]">
+                    <span className="text-[#007F00] pr-0.5  ">{info.Task}</span>Task Complete
+                  </p>
                 </div>
-                <div className="flex flex-row justify-start items-start text-xs">
+                <div className="flex flex-row justify-start items-center pb-1 ">
                   <img
                     src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716880091/Goufer/Vector_kvuvlc.svg"
                     className="w-5 h-5 object-contain"
                     alt=""
                   />
-                  {info.City}
+                  <p className="text-[#2a2b2a] px-2 text-[12px]">{info.City}</p>
                 </div>
-                <div className="flex flex-row justify-start items-start text-xs">
+                <div className="flex flex-row justify-start items-center pb-1 ">
                   <img
                     src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716880090/Goufer/Vector_1_zcbinz.png"
                     className="w-5 h-5 object-contain"
                     alt=""
                   />
-                  {info.Rate}
+                  <p className="text-[#2a2b2a] px-2 text-[12px]">{info.Rate}</p>
                 </div>
               </div>
+              {showExpertPop === index && (
+                <div className=" transition delay-100 duration-0 hover:duration-300 ease-in-out w-full h-[130px] absolute bottom-0 hover:top-39 left-0 right-0 pt-4 pl-2 rounded-b-lg bg-[#007F00]   flex flex-col ">
+                  <div className="flex flex-row justify-start items-center pb-1 ">
+                    <img
+                      src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716881835/Goufer/Union_1_jrxj8w.png"
+                      className="w-5 h-5 object-contain bg-white rounded-full p-1"
+                      alt=""
+                    />
+                    <p className="text-white px-2 text-[12px]">{info.Task} Task Complete</p>
+                  </div>
+                  <div className="flex flex-row justify-start items-center pb-1 ">
+                    <img
+                      src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716880091/Goufer/Vector_kvuvlc.svg"
+                      className="w-5 h-5 object-contain bg-white rounded-full p-1"
+                      alt=""
+                    />
+                    <p className="text-white px-2 text-[12px]">{info.City}</p>
+                  </div>
+                  <div className="flex flex-row justify-start items-center pb-1 ">
+                    <img
+                      src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716880090/Goufer/Vector_1_zcbinz.png"
+                      className="w-5 h-5 object-contain bg-white rounded-full p-1"
+                      alt=""
+                    />
+                    <p className="text-white px-2 text-[12px]">{info.Rate}</p>
+                  </div>
+                  <div className=" w-full pr-3 justify-end  flex flex-row ">
+                    <div className=" w-4/5  px-0 py-1 text-[] flex flex-row  bg-white items-center  rounded-full ">
+                      <p className=" mx-5 text-sm text-[#007F00] font-bold bg-white cursor-pointer">
+                        View Gofer Profile
+                      </p>
+                      <img
+                        src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716892672/Goufer/Vector_2_cq2qn3.png"
+                        className="w-2 h-4    justify-end"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           ))}
-        <button>
+        <div className="  w-8 h-8 bg-white items-center flex flex-col rounded-full shadow-lg shadow-gray-600 ">
           <img
             src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716892672/Goufer/Vector_2_cq2qn3.png"
-            className="w-4 h-5"
+            className="w-4 h-5  m-auto"
             alt=""
           />
+        </div>
+      </div>
+
+      <div className="mx-7 items-center  flex flex-row justify-end  ">
+        <button className=" text-right  px-8 py-4  text-white my-6 bg-[#007F00] hover:bg-[#30a730] shadow rounded-full">
+          Search for a Goufer
         </button>
       </div>
-      <button className="ml-[1000px] mb-5 py-2 px-3 border bg-[#007F00] hover:bg-[#476b47] text-white rounded-xl">
-        Search for a Goufer
-      </button>
-        <Slider/>
+      <Slider />
     </div>
   );
 };
