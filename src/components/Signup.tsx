@@ -11,7 +11,7 @@ const SignUp: React.FC = () => {
   };
 
   return (
-    <div className="mx-auto fixed top-8 left-0 right-0 w-[1006px] h-[800px] justify-center flex flex-row items-center min-h-screen z-30">
+    <div className="mx-auto fixed top-6 left-0 right-0 w-[1006px] h-[800px] justify-center flex flex-row items-center min-h-screen z-30">
       <div className="bg-white p-8 shadow-md w-[503px] h-[700px] rounded-tl-[25px] rounded-bl-[25px] gap-4">
         <div className="flex justify-between w-[446px]">
           <h1 className="text-[#1D1A22] text-2xl w-full h-[28px] font-roboto font-medium text-[22px] leading-[28px] mb-6">
@@ -139,8 +139,8 @@ const SignUp: React.FC = () => {
           </span>
         </p>
       </div>
-      <div className="bg-gray-400 bg-opacity-50 backdrop-filter backdrop-blur-lg p-8 shadow-md w-[503px] h-[700px] rounded-tr-[25px] rounded-br-[25px]">
-        <div className="w-[351px] flex flex-col items-center mx-auto mt-14 gap-3">
+      <div className="bg-gray-400 bg-opacity-50 backdrop-filter flex flex-col items-center backdrop-blur-lg  shadow-md w-[503px] h-[700px] rounded-r-[25px]  ">
+        <div className="w-[351px] flex flex-col items-center my-auto ">
           <img className="w-[264.5px]" src="./images/gouferbig.svg" alt="goufer" />
           <h1 className="w-[351px] ml-14 text-white">
             Experienced Assistance at your fingertips

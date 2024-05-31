@@ -114,18 +114,17 @@ const Trustedby = () => {
         </div>
 
         <div className="flex flex-row ml-5">
-          <div className="flex items-center w-[483px] h-[50px] rounded-full border border-slate-400 justify-between ">
-            <img className="mx-1" src="./images/emailc.svg" alt="email" />
+          <div className="flex items-center w-[483px] h-[50px] rounded-full border border-gray-400 justify-between ">
+            <img className=" w-7 h-7 mx-auto" src="./images/emailc.svg" alt="email" />
             <input
               type="text"
               placeholder="Input Your Email Address"
-              className="px-4 py-2 focus:outline-none"
-            />
+              className="px-4 py-2 w-4/6 focus:outline-none"
+            />{" "}
+            <button className="bg-[#007F00] w-[99px] h-[40px] rounded-full text-white px-4 py-2 hover:bg-green-700 m-2 ">
+              Send
+            </button>
           </div>
-          <img className="border-slate-400" src="./images/demcate.svg" alt="" />
-          <button className="bg-[#007F00] w-[99px] h-[40px] rounded-full text-white px-4 py-2 hover:bg-green-700 m-2 ">
-            Search
-          </button>
         </div>
       </div>
     </div>
