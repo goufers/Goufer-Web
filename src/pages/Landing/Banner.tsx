@@ -1,12 +1,12 @@
 const Banner = () => {
   return (
     <div className="w-full h-screen pt-[150px] bg-[#FAFFFA] flex flex-row">
-      <div className="w-[596px] mx-0 px-28 h-auto   flex flex-col">
-        <div className=" w-[300px] px-5 py-2 text-[14px] bg-[#46528f] text-white">
+      <div className="  mx-auto px-28 h-auto   flex flex-col">
+        <div className=" w-[340px] px-5 py-3 text-[16px] bg-[#46528f] text-white">
           Experienced Assistance at your finger tips
         </div>
         <div className="w-[480px] mx-auto  py-4 pb-10  ">
-          <h2 className="text-5xl font-semibold font-roboto text-[#322F37] ">
+          <h2 className="text-[50px] font-bold font-roboto text-[#322F37] ">
             Achieve excellence with <span className="text-[#007F00] font-bold">Goufer,</span>{" "}
             by using our platform.
           </h2>
@@ -65,7 +65,11 @@ const Banner = () => {
         </div>
       </div>
       <div className="w-1/2 mx-auto h-auto items-center flex flex-col">
-        <img src="/images/side image1.svg" alt="banner image" className="w-9/12 h-auto" />
+        <img
+          src="/images/side image1.svg"
+          alt="banner image"
+          className="w-8/12 h-auto object-cover"
+        />
       </div>
     </div>
   );

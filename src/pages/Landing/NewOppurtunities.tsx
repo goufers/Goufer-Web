@@ -95,9 +95,146 @@ const NewOppurtunities = () => {
       text: "Collecting to showcase your expertise and more clients",
     },
   ];
-
+  const Categories = [
+    "Food & Beverages",
+    "Housing",
+    "Entertainment",
+    "Medical",
+    "Employment",
+    "Beauty & Fashion",
+    "Car Rental",
+    "Services",
+  ];
   return (
-    <div className=" items-center   ">
+    <div className=" items-center ">
+      <div className="pl-10 w-full h-auto bg-white">
+        <div className="w-full h-auto py-4 flex flex-row items-center">
+          <div className="w-4/5 pl-12 flex  flex-col">
+            <h1 className="text-[40px] font-bold pl-2 tex-start mt-16   border-l-4 border-blue-gray-800 ">
+              Popular Categories of Expertise on
+            </h1>
+            <p className="text-[14px] tex-start text-[#605D64]  mt-2 mx-2">
+              Over 20 categories - 15+ Subcategogries
+            </p>
+          </div>
+
+          <div className=" pl-12 flex flex-row items-center">
+            <p className="px-3 text-16 text-[#322F35] hover:text-black font-Roboto ">
+              View All Categories
+            </p>
+            <img src="/images/arrow right black.svg" alt="arrow" className="w-5 h-4 " />
+          </div>
+        </div>
+
+        <div className="  w-11/12 h-auto py-4 flex flex-col items-center">
+          <div className="w-full   flex  flex-row border-b-4 border-gray-600">
+            {Categories.map((i, n) => (
+              <h1 className=" mx-auto text-[25px]  text-[#605D66]     " key={n}>
+                {i}
+              </h1>
+            ))}
+          </div>
+
+          <div className="w-full flex flex-row   my-10 items-center   ">
+            {infos &&
+              infos.map((info: any, index: number) => (
+                <div
+                  className="mx-auto flex flex-col relative items-center w-72 pb-4 rounded-xl bg-white  shadow-sm shadow-blue-gray-300  "
+                  key={index}
+                  onMouseOver={() => setShowExpertPop(index)}
+                  onMouseLeave={() => setShowExpertPop("")}
+                >
+                  <div className="">
+                    <img
+                      src={info.Shopimage}
+                      alt=""
+                      className="w-full h-28  rounded-md  object-cover"
+                    />
+                    <p className="px-5 py-1 rounded-full shadow-md text-[#48464C] absolute left-4 top-4 bg-white">
+                      Food
+                    </p>
+                  </div>
+                  <div className=" pt-5 pl-3">
+                    <h1 className="text-[#007F00] text-[16px] font-semibold font-Roboto ">
+                      Restaurants Goufers
+                    </h1>
+                    <p className=" pr-2 text-[11px] text-[#605D66] mb-2">{info.text}</p>
+                    <div className="flex flex-row justify-start items-center pb-1 ">
+                      <img
+                        src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716880091/Goufer/Vector_kvuvlc.svg"
+                        className="w-5 h-5 object-contain"
+                        alt=""
+                      />
+                      <p className="text-[#605D66] px-2 text-[12px]">
+                        Available in your location
+                      </p>
+                    </div>
+                    <div className="flex flex-row justify-start items-center pb-1 ">
+                      <img
+                        src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716881835/Goufer/Union_1_jrxj8w.png"
+                        className="w-4 h-4 object-contain"
+                        alt=""
+                      />
+                      <p className="text-[#605D66] px-2 text-[12px]">
+                        <span className="text-[#007F00] pr-0.5  ">{info.Task}</span>Available
+                        Gofers
+                      </p>
+                    </div>
+                  </div>
+                  {showExpertPop === index && (
+                    <div className=" transition delay-100 duration-0 hover:duration-300 ease-in-out w-full h-[130px] absolute bottom-0 hover:top-39 left-0 right-0 pt-4 pl-2 rounded-b-lg bg-[#007F00]   flex flex-col ">
+                      <div className="flex flex-row justify-start items-center pb-1 ">
+                        <img
+                          src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716881835/Goufer/Union_1_jrxj8w.png"
+                          className="w-5 h-5 object-contain bg-white rounded-full p-1"
+                          alt=""
+                        />
+                        <p className="text-white px-2 text-[12px]">
+                          {info.Task} Task Complete
+                        </p>
+                      </div>
+                      <div className="flex flex-row justify-start items-center pb-1 ">
+                        <img
+                          src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716880091/Goufer/Vector_kvuvlc.svg"
+                          className="w-5 h-5 object-contain bg-white rounded-full p-1"
+                          alt=""
+                        />
+                        <p className="text-white px-2 text-[12px]">{info.City}</p>
+                      </div>
+                      <div className="flex flex-row justify-start items-center pb-1 ">
+                        <img
+                          src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716880090/Goufer/Vector_1_zcbinz.png"
+                          className="w-5 h-5 object-contain bg-white rounded-full p-1"
+                          alt=""
+                        />
+                        <p className="text-white px-2 text-[12px]">{info.Rate}</p>
+                      </div>
+                      <div className=" w-full pr-3 justify-end  flex flex-row ">
+                        <div className=" w-4/5  px-0 py-1 text-[] flex flex-row  bg-white items-center  rounded-full ">
+                          <p className=" mx-5 text-sm text-[#007F00] font-bold bg-white cursor-pointer">
+                            View Gofer Profile
+                          </p>
+                          <img
+                            src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716892672/Goufer/Vector_2_cq2qn3.png"
+                            className="w-2 h-4    justify-end"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            <div className="  w-8 h-8 bg-white items-center flex flex-col rounded-full shadow-lg shadow-gray-600 ">
+              <img
+                src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716892672/Goufer/Vector_2_cq2qn3.png"
+                className="w-4 h-5  m-auto"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="px-16 bg-[url(https://res.cloudinary.com/dxnznpglg/image/upload/v1716810848/Goufer/Rectangle_10_3_f1j8j4.svg)] w-full bg-center flex flex-col ">
         <div className="bg-[#333E78] w-72 h-auto my-5 text-white px-4 py-3 text-2xl text-center ">
           Goufer is growing fast
@@ -145,11 +282,11 @@ const NewOppurtunities = () => {
         </p>
       </div>
 
-      <div className="flex flex-row justify-evenly my-10 items-center relative  ">
+      <div className="w-11/10 flex flex-row justify-evenly my-10 items-center relative  ">
         {infos &&
           infos.map((info: any, index: number) => (
             <div
-              className="mx-auto flex flex-col relative items-center w-64 pb-4 rounded-xl  shadow-sm shadow-blue-gray-300  "
+              className="mx-auto flex flex-col relative items-center w-72 pb-4 rounded-xl  shadow-sm shadow-blue-gray-300  "
               key={index}
               onMouseOver={() => setShowExpertPop(index)}
               onMouseLeave={() => setShowExpertPop("")}
@@ -158,7 +295,7 @@ const NewOppurtunities = () => {
                 <img
                   src={info.Shopimage}
                   alt=""
-                  className="w-full h-28 p-1 rounded-md  object-cover"
+                  className="w-full h-28   rounded-md  object-cover"
                 />
                 <img
                   src={info.Gouferimage}
