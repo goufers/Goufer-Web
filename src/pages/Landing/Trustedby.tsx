@@ -39,6 +39,7 @@ const Trustedby = () => {
         </Slider>
       </div>
 
+
       <div className="bg-white flex gap-20 mt-12 mx-auto">
         <img className="w-[559px] h-[559px]" src="./images/ppl.svg" alt="" />
 
@@ -75,6 +76,7 @@ const Trustedby = () => {
           </div>
         </div>
       </div>
+      
 
       <div className="w-[1440px] h-auto mx-auto flex flex-row mt-12">
         <div className="bg-[#007400] w-[720px] py-16 flex flex-col justify-center items-center">

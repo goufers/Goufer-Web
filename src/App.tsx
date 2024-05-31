@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import PUBLIC_ROUTES from "./utils/PublicRoutes";
+import SignUp from "./components/Signup";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path={"/aboutus"} element={<AboutUs />} />
         <Route path={"/faq"} element={<Faq />} />
         <Route path={"/home"} element={<Home />} />
+        <Route path={"/signUp"} element={<SignUp />} />
         <Route path={"/contactus"} element={<ContactUs />} />
         <Route path={"*"} element={<Page404 />} />
       </Routes>
