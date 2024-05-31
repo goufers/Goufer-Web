@@ -1,4 +1,8 @@
+import { useState } from "react";
+import SignUp from "./Signup";
+
 const Nav = () => {
+  const [login, setLogin] = useState(false);
   return (
     <div className=" fixed top-0 left-0 right-0 flex flex-row  w-full h-auto px-4 py-4 bg-white items-center z-20">
       <img
@@ -16,8 +20,11 @@ const Nav = () => {
         <p className="text-[16px]  text-[#322F35] px-2  font-roboto">Contact Us</p>
       </div>
 
-      <div className=" mx-auto  h-full  pl-12 w-1/3   flex flex-row  ">
-        <p className="text-[16px] text-[#007F00] text-center mx-auto px-10 py-2 bg-white hover:bg-gray-100 font-roboto font-semibold rounded-full border border-[#322F35] cursor-pointer">
+      <div className=" mx-auto h-full  pl-12 w-1/3 flex flex-row  ">
+        <p
+          className="text-[16px] text-[#007F00] text-center mx-auto px-10 py-2 bg-white hover:bg-gray-100 font-roboto font-semibold rounded-full border border-[#322F35] cursor-pointer"
+          onClick={() => setLogin(true)}
+        >
           Login
         </p>
 
@@ -25,6 +32,8 @@ const Nav = () => {
           Use a Goufer
         </p>
       </div>
+
+      {login && <SignUp />}
     </div>
   );
 };

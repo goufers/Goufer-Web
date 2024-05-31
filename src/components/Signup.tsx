@@ -11,7 +11,7 @@ const SignUp: React.FC = () => {
   };
 
   return (
-    <div className="mx-auto w-[1006px] h-[800px] justify-center flex flex-row items-center min-h-screen">
+    <div className="mx-auto fixed top-8 left-0 right-0 w-[1006px] h-[800px] justify-center flex flex-row items-center min-h-screen z-30">
       <div className="bg-white p-8 shadow-md w-[503px] h-[700px] rounded-tl-[25px] rounded-bl-[25px] gap-4">
         <div className="flex justify-between w-[446px]">
           <h1 className="text-[#1D1A22] text-2xl w-full h-[28px] font-roboto font-medium text-[22px] leading-[28px] mb-6">
