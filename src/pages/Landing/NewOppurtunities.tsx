@@ -112,7 +112,7 @@ const NewOppurtunities = () => {
               Are you an experience professional looking to expand your client base? Join
               Goufer today and Connect with individuals and businesses seeking your expertise.
             </p>
-            <button className=" mx-auto py-1.5 px-6 items-end  text-[18px]  text-white border border-white rounded-full hover:border-b-2 ">
+            <button className=" mx-auto py-1.5 px-6 items-end  text-[18px]  text-white border border-white rounded-full hover:border-b-2 hover:border-l-4">
               Become a Goufer Now!
             </button>
           </div>
