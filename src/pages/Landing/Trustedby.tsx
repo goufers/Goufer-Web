@@ -39,7 +39,6 @@ const Trustedby = () => {
         </Slider>
       </div>
 
-
       <div className="bg-white flex gap-20 mt-12 mx-auto">
         <img className="w-[559px] h-[559px]" src="./images/ppl.svg" alt="" />
 
@@ -76,7 +75,6 @@ const Trustedby = () => {
           </div>
         </div>
       </div>
-      
 
       <div className="w-[1440px] h-auto mx-auto flex flex-row mt-12">
         <div className="bg-[#007400] w-[720px] py-16 flex flex-col justify-center items-center">
@@ -114,8 +112,9 @@ const Trustedby = () => {
             </p>
           </div>
         </div>
-        <div className="flex items-center w-[483px] h-[50px] rounded-full border border-slate-400 justify-between ">
-          <div className="flex flex-row ml-5">
+
+        <div className="flex flex-row ml-5">
+          <div className="flex items-center w-[483px] h-[50px] rounded-full border border-slate-400 justify-between ">
             <img className="mx-1" src="./images/emailc.svg" alt="email" />
             <input
               type="text"
