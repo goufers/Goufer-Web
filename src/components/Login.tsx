@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 interface component {
   auth: boolean;
   setAuth: (data: any) => void;
@@ -18,7 +19,7 @@ const Login = ({ auth, setAuth }: component) => {
     <div
       className={` ${
         auth == true ? "flex" : "hidden"
-      } fixed top-24 left-0 right-0  mx-auto w-[1006px] h-[730px] justify-center    flex-row items-center`}
+      } fixed top-24 left-0 right-0  mx-auto w-[1006px] h-[730px] justify-center flex-row items-center`}
     >
       {authComponent === "login" && (
         <div className="bg-white p-8 shadow-md w-[503px] h-full rounded-tl-[25px] rounded-bl-[25px]">
@@ -148,11 +149,11 @@ const Login = ({ auth, setAuth }: component) => {
           </div>
 
           <div className="mb-4 relative flex flex-col">
-            <span>
+            {/* <span>
               <p className="text-[#344054] text-left w-[74px] h-[20px] font-inter font-medium text-[14px] leading-[20px] mb-2">
                 Phone
               </p>
-            </span>
+            </span> */}
             <PhoneInput
               country={"us"}
               value={phone}
@@ -175,6 +176,7 @@ const Login = ({ auth, setAuth }: component) => {
                 alignItems: "center",
                 paddingLeft: "10px", // Ensuring enough space for the flag and country code
                 paddingRight: "10px",
+                outline: "none",
               }}
               containerClass="phone-input-container"
               buttonClass="phone-input-button"
@@ -201,15 +203,15 @@ const Login = ({ auth, setAuth }: component) => {
             <input
               type={showPassword ? "password" : "text"}
               placeholder="Password"
-              className="w-[455px] h-[44px] pl-10 pr-10 py-2 rounded-full border border-gray-300"
+              className="w-[455px] h-[44px] pl-10 pr-10 py-2 rounded-full border border-gray-300 outline-none"
             />
             <button
               type="button"
               onClick={togglePasswordVisibility}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500"
+              className="absolute right-4 top-10   text-gray-500"
             >
               {showPassword ? (
-                <i className="fas fa-eye-slash"></i>
+                <i className="fas fa-eye-slash "></i>
               ) : (
                 <i className="fas fa-eye"></i>
               )}
@@ -253,9 +255,9 @@ const Login = ({ auth, setAuth }: component) => {
         </div>
       )}
 
-      <div className="bg-gray-400 bg-opacity-50 backdrop-filter backdrop-blur-lg p-8 shadow-md w-[503px] h-full rounded-r-[25px]  ">
-        <div className="w-[351px] flex flex-col items-center mx-auto mt-14 gap-3">
-          <img className="w-[264.5px]" src="./images/gouferbig.svg" alt="gouferl" />
+      <div className="bg-gray-400 flex flex-col items-center bg-opacity-80  backdrop-blur-sm p-8 shadow-md w-[503px] h-full rounded-r-[25px]  ">
+        <div className="w-[351px] flex flex-col items-center m-auto ">
+          <img className="w-[374.5px]" src="./images/gouferbig.svg" alt="gouferl" />
           <h1 className="w-[351px] ml-14 text-white">
             Experienced Assistance at your finger tips
           </h1>

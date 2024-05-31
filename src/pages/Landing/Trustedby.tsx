@@ -100,33 +100,6 @@ const Trustedby = () => {
         </div>
         <img src="./images/gofffice.svg" alt="office" />
       </div>
-      <div className="flex mt-12 mx-auto justify-between gap-[150px] items-center">
-        <div className="flex mx-auto justify-between gap-9">
-          <img src="./images/mailbox.svg" alt="mailbox" />
-          <div className="flex flex-col justify-between">
-            <h1 className="text-2xl">Be the first to hear the gist</h1>
-            <p className="text-[#605D66]">
-              Subscribe to our newsletter to stay in the loop with <br />
-              everything happening at Goufer. Receive: Expert Insights,
-              <br /> Exclusive Offers, Latest Updates, Success Stories.
-            </p>
-          </div>
-        </div>
-
-        <div className="flex flex-row ml-5">
-          <div className="flex items-center w-[483px] h-[50px] rounded-full border border-gray-400 justify-between ">
-            <img className=" w-7 h-7 mx-auto" src="./images/emailc.svg" alt="email" />
-            <input
-              type="text"
-              placeholder="Input Your Email Address"
-              className="px-4 py-2 w-4/6 focus:outline-none"
-            />{" "}
-            <button className="bg-[#007F00] w-[99px] h-[40px] rounded-full text-white px-4 py-2 hover:bg-green-700 m-2 ">
-              Send
-            </button>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };

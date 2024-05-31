@@ -282,6 +282,8 @@ const NewOppurtunities = () => {
         </p>
       </div>
 
+      {/* // Goufer Card */}
+
       <div className="w-11/10 flex flex-row justify-evenly my-10 items-center relative  ">
         {infos &&
           infos.map((info: any, index: number) => (
