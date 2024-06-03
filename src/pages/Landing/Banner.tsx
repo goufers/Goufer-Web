@@ -39,6 +39,8 @@ const Banner = () => {
               />
             </svg>
           </h3>
+
+          
           <input
             type="text"
             placeholder="Profession or Keyword"
