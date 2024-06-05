@@ -7,7 +7,7 @@ const Banner = () => {
         </div>
         <div className="w-[480px] mx-auto  py-4 pb-10  ">
           <h2 className="text-[50px] font-bold font-roboto text-[#322F37] ">
-            Achieve excellence with <span className="text-[#007F00] font-bold">Goufer,</span>{" "}
+            Achieve excellence with <span className="text-[#007F00] font-bold">Goufer,</span>
             by using our platform.
           </h2>
         </div>
