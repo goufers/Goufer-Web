@@ -72,7 +72,28 @@ const NewOppurtunities = () => {
     //   Task: " 50+",
     // },
   ];
-
+  const steps = [
+    {
+      url: "https://res.cloudinary.com/dyjo2mvqb/image/upload/v1717413819/Frame_58_p7uxrw.svg",
+      title: "Log on to Goufer.com",
+      text: "Visit Goufer.com and create your account. Signing up is quick and easy, giving you access to access to a wide network of experts ready to assist with needs.",
+    },
+    {
+      url: "https://res.cloudinary.com/dyjo2mvqb/image/upload/v1717413819/Frame_60_poeeil.svg",
+      title: "Search for a Goufer",
+      text: "Use our power search engine to search the perfect expert for your task. Browser through detailed profiles, read reviews and select the best match for your requirements",
+    },
+    {
+      url: "https://res.cloudinary.com/dyjo2mvqb/image/upload/v1717413819/Frame_60_1_lakltd.svg",
+      title: "Negotiation",
+      text: "Enter negotiation and discuss your project details with your chosen expert through our secure platform. Reach a mutually beneficial agreement quickly and efficiently",
+    },
+    {
+      url: "https://res.cloudinary.com/dyjo2mvqb/image/upload/v1717413819/Frame_60_2_lenkg4.svg",
+      title: "Rate your Goufer",
+      text: "After experience seamless service, return to Goufer to rate and review your expert, YOur feedback helps maintain our standards and assist others in finding top-notch service providers.",
+    },
+  ];
   const JoinUs = [
     {
       icon: "https://res.cloudinary.com/dxnznpglg/image/upload/v1716812814/Goufer/wpf_happy_eklxev.png",
@@ -235,6 +256,40 @@ const NewOppurtunities = () => {
           </div>
         </div>
       </div>
+      <div className="flex flex-row justify-around items-center w-full mx-auto mt-10">
+        <div className="w-[500px] h-[500px] ml-[180px]">
+          <img
+            src="https://res.cloudinary.com/dyjo2mvqb/image/upload/v1717150319/Frame_70_1_xmtogr.png"
+            alt=""
+          />
+        </div>
+        <div className="flex flex-col justify-evenly items-center mx-auto w-full">
+          <div className="w-[600px] py-[1px]">
+            <h1 className="text-[40px] text-[#322F35] font-bold border-l-2  border-blue-gray-800">
+              Seamless Step Of
+              <br /> getting a <span className="text-[#007F00]">Goufer</span> Service
+            </h1>
+            <p className="text-[14px]">
+              on Goufer we get connected with the Best Experts in Four Simple Steps
+            </p>
+          </div>
+
+          {steps.map((item, index) => (
+            <div
+              key={index}
+              className="flex flex-row justify-evenly items-center ml-[30px] my-[10px] w-[600px]"
+            >
+              <div className="flex w-[100px] h-[100px]">
+                <img src={item.url} alt="" />
+              </div>
+              <div className="flex flex-col">
+                <div className="font-bold text-[16px]">{item.title}</div>
+                <div className="text-[14px]">{item.text}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
       <div className="px-16 bg-[url(https://res.cloudinary.com/dxnznpglg/image/upload/v1716810848/Goufer/Rectangle_10_3_f1j8j4.svg)] w-full bg-center flex flex-col ">
         <div className="bg-[#333E78] w-72 h-auto my-5 text-white px-4 py-3 text-2xl text-center ">
           Goufer is growing fast
@@ -281,8 +336,6 @@ const NewOppurtunities = () => {
           Over 20k Professional Categories - 15+ Subcategories Goufers
         </p>
       </div>
-
-      {/* // Goufer Card */}
 
       <div className="w-11/10 flex flex-row justify-evenly my-10 items-center relative  ">
         {infos &&
