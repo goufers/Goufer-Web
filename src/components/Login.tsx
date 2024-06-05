@@ -19,7 +19,7 @@ const Login = ({ auth, setAuth }: component) => {
     <div
       className={` ${
         auth == true ? "flex" : "hidden"
-      } fixed top-24 left-0 right-0  mx-auto w-[1006px] h-[730px] justify-center flex-row items-center`}
+      } fixed top-[89px] left-0 right-0  mx-auto w-[1006px] h-[730px] justify-center flex-row items-center`}
     >
       {authComponent === "login" && (
         <div className="bg-white p-8 shadow-md w-[503px] h-full rounded-tl-[25px] rounded-bl-[25px]">
@@ -74,7 +74,7 @@ const Login = ({ auth, setAuth }: component) => {
             Log In
           </button>
           <h3 className="text-[#344054] text-[16px]">
-            Don't have ann account?
+            Don't have an account?
             <span
               className="px-2 text-[#007F00] cursor-pointer"
               onClick={() => setAuthComponent("signup")}
@@ -255,7 +255,7 @@ const Login = ({ auth, setAuth }: component) => {
         </div>
       )}
 
-      <div className="bg-gray-400 flex flex-col items-center bg-opacity-80  backdrop-blur-sm p-8 shadow-md w-[503px] h-full rounded-r-[25px]  ">
+      <div className="bg-gray-700 flex flex-col items-center bg-opacity-70  backdrop-blur-sm p-8 shadow-md w-[503px] h-full rounded-r-[25px]  ">
         <div className="w-[351px] flex flex-col items-center m-auto ">
           <img className="w-[374.5px]" src="./images/gouferbig.svg" alt="gouferl" />
           <h1 className="w-[351px] ml-14 text-white">

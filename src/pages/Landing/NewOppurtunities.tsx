@@ -4,6 +4,7 @@ import Slider from "./Sliders";
 
 const NewOppurtunities = () => {
   const [showExpertPop, setShowExpertPop] = useState<any>();
+  const [selectedCategory, setSelectedCategory] = useState<any>();
   const infos = [
     {
       id: 1,
@@ -135,32 +136,42 @@ const NewOppurtunities = () => {
               Popular Categories of Expertise on
             </h1>
             <p className="text-[14px] tex-start text-[#605D64]  mt-2 mx-2">
-              Over 20 categories - 15+ Subcategogries
+              Over 20 categories - 15+ Subcategories
             </p>
           </div>
 
           <div className=" pl-12 flex flex-row items-center">
-            <p className="px-3 text-16 text-[#322F35] hover:text-black font-Roboto ">
+            <p className="px-3 text-16 text-[#322F35] hover:text-[#007F00] font-Roboto ">
               View All Categories
             </p>
-            <img src="/images/arrow right black.svg" alt="arrow" className="w-5 h-4 " />
+            <img
+              src="/images/arrow right black.svg"
+              alt="arrow"
+              className="w-5 h-4 hover:text-[#007F00]"
+            />
           </div>
         </div>
 
         <div className="  w-11/12 h-auto py-4 flex flex-col items-center">
-          <div className="w-full   flex  flex-row border-b-4 border-gray-600">
+          <div className="w-full   flex  md:flex-row pb-4 border-b-2 border-gray-600">
             {Categories.map((i, n) => (
-              <h1 className=" mx-auto text-[25px]  text-[#605D66]     " key={n}>
+              <h1
+                className={` mx-auto text-[17px] hover:text-[#007F00] hover:font-bold cursor-pointer ${
+                  selectedCategory === i ? "text-[#007F00] font-bold " : "text-[#46444b]"
+                }`}
+                key={n}
+                onClick={() => setSelectedCategory(i)}
+              >
                 {i}
               </h1>
             ))}
           </div>
 
-          <div className="w-full flex flex-row   my-10 items-center   ">
+          <div className="w-full flex flex-col md:flex-row   my-10 items-center   ">
             {infos &&
-              infos.map((info: any, index: number) => (
+              infos.slice(0, 4).map((info: any, index: number) => (
                 <div
-                  className="mx-auto flex flex-col relative items-center w-72 pb-4 rounded-xl bg-white  shadow-sm shadow-blue-gray-300  "
+                  className="mx-auto flex flex-col relative items-center w-60 pb-4 rounded-xl bg-white  shadow-sm shadow-blue-gray-300  "
                   key={index}
                   onMouseOver={() => setShowExpertPop(index)}
                   onMouseLeave={() => setShowExpertPop("")}
@@ -265,9 +276,8 @@ const NewOppurtunities = () => {
         </div>
         <div className="flex flex-col justify-evenly items-center mx-auto w-full">
           <div className="w-[600px] py-[1px]">
-            <h1 className="text-[40px] text-[#322F35] font-bold border-l-2  border-blue-gray-800">
-              Seamless Step Of
-              <br /> getting a <span className="text-[#007F00]">Goufer</span> Service
+            <h1 className="text-[40px] text-[#322F35] font-bold pl-3 border-l-4  border-blue-gray-800">
+              Seamless Step Of getting a <span className="text-[#007F00]">Goufer</span> Service
             </h1>
             <p className="text-[14px]">
               on Goufer we get connected with the Best Experts in Four Simple Steps
@@ -294,7 +304,7 @@ const NewOppurtunities = () => {
         <div className="bg-[#333E78] w-72 h-auto my-5 text-white px-4 py-3 text-2xl text-center ">
           Goufer is growing fast
         </div>
-        <div className=" w-full">
+        <div className=" w-full py-8">
           <h3 className=" text-[32px]  text-white font-Roboto font-bold mb-2">
             Unlock New Opportunities and Grow Your Business
           </h3>
