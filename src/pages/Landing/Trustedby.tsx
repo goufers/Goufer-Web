@@ -23,7 +23,6 @@ const Trustedby = () => {
 
   return (
     <div className="w-full h-auto mb-10 bg-white flex flex-col">
-      {/* Card Section */}
       <div className="flex flex-row justify-center my-12">
         <Slider {...settings} className="w-full">
           {cardContents.map((card) => (
@@ -77,54 +76,29 @@ const Trustedby = () => {
         </div>
       </div>
 
-      <div className="w-[1440px] h-[392px] mx-auto flex mt-12">
-        <div className="bg-[#007F00] w-[720px] flex flex-col justify-center items-center">
-          <div className="w-[437px] gap-4">
-            <p className="text-white text-2xl">Boost Your Business with Goufer</p>
-            <h1 className="text-white font-medium text-4xl mt-2 mb-5">
+      <div className="w-[1440px] h-auto mx-auto flex flex-row mt-12">
+        <div className="bg-[#007400] w-[720px] py-16 flex flex-col justify-center items-center">
+          <div className="w-[437px]  ">
+            <p className="text-white text-[22px] font-Roboto ">
+              Boost Your Business with Goufer
+            </p>
+            <h1 className="text-white  text-[32px] font-bold mt-2 mb-5">
               Expand Your Reach and Increase Sales
             </h1>
 
             <div className="mt-12">
-              <p className="mt-6 text-white w-[488px]">
+              <p className="mt-6 text-white text-[14px] font-Roboto w-[488px]">
                 Partner with Goufer to showcase your products to a targeted audience of experts
                 and clients. Enjoy increased visibility, connect with professionals who need
                 your products, and grow your business on our trusted and secure platform.
               </p>
-              <button className="border border-white rounded-[50px] w-[227px] h-[24px] text-[14px] text-white mt-12 hover:bg-white hover:text-black hover:shadow-lg">
+              <button className=" border-white rounded-[50px] py-3 px-8 text-[14px] text-white mt-12   border hover:border-b-2">
                 Become a Vendor on Goufer
               </button>
             </div>
           </div>
         </div>
         <img src="./images/gofffice.svg" alt="office" />
-      </div>
-      <div className="flex mt-12 mx-auto justify-between gap-[150px] items-center">
-        <div className="flex mx-auto justify-between gap-9">
-          <img src="./images/mailbox.svg" alt="mailbox" />
-          <div className="flex flex-col justify-between">
-            <h1 className="text-2xl">Be the first to hear the gist</h1>
-            <p className="text-[#605D66]">
-              Subscribe to our newsletter to stay in the loop with <br />
-              everything happening at Goufer. Receive: Expert Insights,
-              <br /> Exclusive Offers, Latest Updates, Success Stories.
-            </p>
-          </div>
-        </div>
-        <div className="flex items-center w-[483px] h-[50px] rounded-full border border-slate-400 justify-between ">
-          <div className="flex flex-row ml-5">
-            <img className="mx-1" src="./images/emailc.svg" alt="email" />
-            <input
-              type="text"
-              placeholder="Input Your Email Address"
-              className="px-4 py-2 focus:outline-none"
-            />
-          </div>
-          <img className="border-slate-400" src="./images/demcate.svg" alt="" />
-          <button className="bg-[#007F00] w-[99px] h-[40px] rounded-full text-white px-4 py-2 hover:bg-green-700 m-2 ">
-            Search
-          </button>
-        </div>
       </div>
     </div>
   );
