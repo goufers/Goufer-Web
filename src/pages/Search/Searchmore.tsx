@@ -318,7 +318,6 @@ const Searchmore: React.FC = () => {
 
             <select className="w-[230px] h-[30px] rounded-[50px] border-none pl-4 bg-white">
               <option value="" disabled selected>
-                {" "}
                 Select Categories
               </option>
               <option value="hurr">Food</option>
@@ -411,7 +410,7 @@ const Searchmore: React.FC = () => {
         {/* ---------------------4 cards sections----------------- */}
 
         <div className="w-[930] h-[2000px] flex flex-col gap-6 items-center">
-          <div className="w-11/10 grid grid-cols-3 items-center w-[842px] gap-3">
+          <div className="w-full grid grid-cols-3 items-center  gap-5">
             {infos &&
               infos.map((info: any, index: number) => (
                 <div
