@@ -9,10 +9,9 @@ import Footer from "./components/Footer";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import PUBLIC_ROUTES from "./utils/PublicRoutes";
-import Search from "./components/Search/Search-1";
-import Searchmore from "./components/Searchmore";
+import Search from "./pages/Search/Search-1";
+import Searchmore from "./pages/Search/Searchmore";
 import Verifyemail from "./components/Verifyemail";
-
 
 function App() {
   return (
