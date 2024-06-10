@@ -9,9 +9,9 @@ import Footer from "./components/Footer";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import PUBLIC_ROUTES from "./utils/PublicRoutes";
-import Search from "./pages/Search/Search-1";
-import Searchmore from "./pages/Search/Searchmore";
-import Verifyemail from "./components/Verifyemail";
+import ProfileNav from "./pages/Profile/ProfileNavbar";
+import ProfileBody from "./pages/Profile/ProfileBody";
+
 
 function App() {
   return (
@@ -22,9 +22,8 @@ function App() {
         <Route path={"/faq"} element={<Faq />} />
         <Route path={"/home"} element={<Home />} />
         <Route path={"/contactus"} element={<ContactUs />} />
-        <Route path={"/search"} element={<Search />} />
-        <Route path={"/searchmore"} element={<Searchmore />} />
-        <Route path={"/verifyemail"} element={<Verifyemail />} />
+        <Route path={"/profilenav"} element={<ProfileNav />} />
+        <Route path={"/profilebody"} element={<ProfileBody />} />
         <Route path={"*"} element={<Page404 />} />
       </Routes>
       <Footer />
