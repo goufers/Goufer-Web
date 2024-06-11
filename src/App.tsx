@@ -12,18 +12,21 @@ import PUBLIC_ROUTES from "./utils/PublicRoutes";
 import Search from "./pages/Search/Search-1";
 import Searchmore from "./pages/Search/Searchmore";
 import Verifyemail from "./components/Verifyemail";
+import GouferProfile from "./pages/Profile/GouferProfile";
 
 function App() {
   return (
     <>
       <Routes>
         <Route index path={PUBLIC_ROUTES.LANDINGPAGE} element={<Landing />} />
+        <Route path={"/search"} element={<Search />} />
+        <Route path={"/searchmore"} element={<Searchmore />} />
+        <Route path={PUBLIC_ROUTES.GOUFER_PROFILE} element={<GouferProfile />} />
         <Route path={"/aboutus"} element={<AboutUs />} />
         <Route path={"/faq"} element={<Faq />} />
         <Route path={"/home"} element={<Home />} />
         <Route path={"/contactus"} element={<ContactUs />} />
-        <Route path={"/search"} element={<Search />} />
-        <Route path={"/searchmore"} element={<Searchmore />} />
+
         <Route path={"/verifyemail"} element={<Verifyemail />} />
         <Route path={"*"} element={<Page404 />} />
       </Routes>
