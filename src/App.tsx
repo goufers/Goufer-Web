@@ -19,15 +19,16 @@ function App() {
     <>
       <Routes>
         <Route index path={PUBLIC_ROUTES.LANDINGPAGE} element={<Landing />} />
-        <Route path={"/search"} element={<Search />} />
-        <Route path={"/searchmore"} element={<Searchmore />} />
         <Route path={PUBLIC_ROUTES.GOUFER_PROFILE} element={<GouferProfile />} />
-        <Route path={"/aboutus"} element={<AboutUs />} />
+        <Route path={"/search"} element={<Search />} />
+        <Route path={"/search_more"} element={<Searchmore />} />
+
+        <Route path={"/about_us"} element={<AboutUs />} />
         <Route path={"/faq"} element={<Faq />} />
         <Route path={"/home"} element={<Home />} />
-        <Route path={"/contactus"} element={<ContactUs />} />
+        <Route path={"/contact_us"} element={<ContactUs />} />
 
-        <Route path={"/verifyemail"} element={<Verifyemail />} />
+        <Route path={"/verify_email"} element={<Verifyemail />} />
         <Route path={"*"} element={<Page404 />} />
       </Routes>
       <Footer />

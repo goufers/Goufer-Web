@@ -4,37 +4,52 @@ import Login from "./Login";
 
 const Nav = () => {
   const [auth, setAuth] = useState(false);
-
+  const Menu = [
+    { title: "About", url: "" },
+    { title: "Expert Categories", url: "" },
+    { title: "Faq", url: "" },
+    { title: "Contact Us", url: "" },
+  ];
   return (
     <div className=" fixed top-0 left-0 right-0 flex flex-row  w-full h-auto px-4 py-4 shadow-md bg-white items-center z-20">
       <img
         src="/images/mainlogo.png"
         alt="goufer logo"
-        className="mx-6 py-auto w-44 h-auto object-cover"
+        className="mx-3 md:mx-6 py-auto w-28 md:w-44 h-auto object-cover"
       />
 
-      <div className="w-auto mx-auto flex flex-row">
-        <p className="text-[16px] text-[#322F35] px-2 font-roboto">About</p>
-
-        <p className="text-[16px] text-[#007F00] px-2  font-roboto">Expert Categories</p>
-        <p className="text-[16px] text-[#007F00] px-2  font-roboto">Faq</p>
-
-        <p className="text-[16px]  text-[#322F35] px-2  font-roboto">Contact Us</p>
+      <div className="w-auto mx-auto hidden md:flex flex-row">
+        {Menu.map((i, n) => (
+          <p
+            className={`{ text-[16px]   px-2 font-roboto cursor-pointer hover:text-green-800 ${
+              i.title == ("Expert Categories" || "Faq") ? "text-[#007F00]" : " text-[#322F35]"
+            }}`}
+            key={n}
+          >
+            {i.title}
+          </p>
+        ))}
       </div>
 
-      <div className=" mx-auto h-full  pl-12 w-1/3 flex flex-row  ">
+      <div className=" mx-auto h-full  pl-12 w-auto md:w-1/3 flex flex-row  ">
         <p
-          className="text-[16px] text-[#007F00] text-center mx-auto px-10 py-2 bg-white hover:bg-gray-100 font-roboto font-semibold rounded-full border border-[#322F35] cursor-pointer"
+          className="hidden lg:flex text-[12px] md:text-[16px] text-[#007F00] text-center mx-auto px-10 md:py-2 bg-white hover:bg-gray-100 font-roboto font-semibold rounded-full border border-[#322F35] cursor-pointer"
           onClick={() => setAuth(true)}
         >
           Login
         </p>
 
-        <p className="text-[16px] text-white text-center mx-auto px-10 py-2 bg-[#007F00]  hover:bg-[#158815]  font-roboto font-semibold rounded-full  cursor-pointer">
+        <p className="text-[12px] md:text-[16px] text-white text-center mx-auto px-3 md:px-10 py-1.5 md:py-2 bg-[#007F00]  hover:bg-[#158815]  font-roboto font-semibold rounded-full  cursor-pointer">
           Use a Goufer
         </p>
       </div>
-
+      <div className="mx-0 md:mx-auto h-full  pl-4 w-auto flex md:hidden flex-row cursor-pointer ">
+        <img
+          src="/images/sidenaveIcon.svg"
+          alt=""
+          className="w-[35px] h-[35px] object-cover "
+        />
+      </div>
       <Login auth={auth} setAuth={setAuth} />
     </div>
   );

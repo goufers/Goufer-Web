@@ -13,7 +13,6 @@ const Landing = () => {
       <Trustedby />
     </div>
   );
- 
 };
 
 export default Landing;
