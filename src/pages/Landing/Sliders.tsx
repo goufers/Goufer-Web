@@ -6,11 +6,11 @@ const Sliders = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 700,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 7000,
     pauseOnHover: true,
   };
 
@@ -41,8 +41,8 @@ const Sliders = () => {
   return (
     <div className="mx-0 w-full h-auto bg-[#007F00] rounded-3xl  flex flex-col">
       <div className=" pt-10  flex flex-row  ">
-        <h1 className=" mx-16 mr-auto text-[47px] font-semibold text-[#ffffff]">
-          <span className="px-0.5  text-[#312566]"> |</span>Why People Choose Goufer
+        <h1 className="mx-8 md:mx-16 mr-auto text-[23px] md:text-[47px] font-semibold text-[#ffffff]">
+          <span className="px-2 md:px-0.5  text-[#312566]"> |</span>Why People Choose Goufer
         </h1>
 
         {/* <div className=" w-44 rounded-full cursor-pointer flex flex-row items-end  ">
@@ -60,52 +60,53 @@ const Sliders = () => {
         </div> */}
       </div>
 
-      <Slider {...settings} className=" mx-auto my-4 w-11/12 rounded-xl">
+      <Slider {...settings} className=" mx-auto my-4 w-11/12 rounded-l md:rounded-xl">
         {data.map((d) => (
-          <div className="bg-[#ffffff]  rounded-3xl flex flex-col justify-between mx-auto w-10/12 h-full px-6 py-10 mt-10  ">
-            <div className=" flex flex-row justify-center ">
+          <div className="bg-[#ffffff]  rounded-3xl flex  flex-col justify-between mx-auto w-10/12 h-full px-6 py-10 mt-10  ">
+            <div className=" flex flex-col-reverse md:flex-row justify-center ">
               <div className="py-12 my-19 mx-auto ">
-                <h1 className="text-[#007f00] text-3xl justify-normal font-semibold py-2  ">
+                <h1 className="text-[#007f00] text-3xl font-Roboto justify-normal font-semibold py-2  ">
                   Experience Assisted at your finger tips
                 </h1>
-                <p className="text-xl ml-10   py-2">
-                  Discover the best professsionals for <br />
+                <p className="text-lg md:ml-10   py-2">
+                  Discover the best professionals for <br />
                   every tasks with ease
                 </p>
-                <p className="flex flex-row px-5 text-[#007f00] ml-3">
+
+                <p className="flex flex-row px-5 text-[#1d771d] py-2 items-center md:ml-3">
                   <img
                     src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716970212/Goufer/game-icons_check-mark_wey9d3.png"
-                    className="w-5 h-5 rounded-full bg-white shadow-xl shadow-[#007f00] border-2"
+                    className="w-6 h-6 mx-1 p-1 rounded-full bg-white shadow-xl shadow-[#98a398] "
                     alt=""
                   />
                   {d.Para1}
                 </p>
-                <p className="flex flex-row px-5 text-[#007f00] ml-3">
+                <p className="flex flex-row px-5 text-[#007f00] py-2 items-center md:ml-3">
                   <img
                     src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716970212/Goufer/game-icons_check-mark_wey9d3.png"
-                    className="w-5 h-5 rounded-full bg-white shadow-xl shadow-[#007f00] border-2"
+                    className="w-6 h-6 mx-1 p-1 rounded-full bg-white shadow-lg shadow-[#98a398] "
                     alt=""
                   />
                   {d.Para2}
                 </p>
-                <p className="flex flex-row px-5 text-[#007f00] ml-3">
+                <p className="flex flex-row px-5 text-[#007f00] py-2 items-center md:ml-3">
                   <img
                     src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716970212/Goufer/game-icons_check-mark_wey9d3.png"
-                    className="w-5 h-5 rounded-full bg-white shadow-xl shadow-[#007f00] border-2"
+                    className="w-6 h-6 mx-1 p-1 rounded-full bg-white shadow-lg shadow-[#98a398] "
                     alt=""
                   />
                   {d.Para3}
                 </p>
-                <p className="flex flex-row px-5 text-[#007f00] ml-3">
+                <p className="flex flex-row px-5 text-[#007f00] py-2 items-center md:ml-3">
                   <img
                     src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716970212/Goufer/game-icons_check-mark_wey9d3.png"
-                    className="w-5 h-5 rounded-full bg-white shadow-xl shadow-[#007f00] border-2"
+                    className="w-6 h-6 mx-1 p-1 rounded-full bg-white shadow-lg shadow-[#98a398] "
                     alt=""
                   />
                   {d.Para4}
                 </p>
               </div>
-              <div className="px-4 w-1/2 h-full rounded-2xl justify-center">
+              <div className="px-4 w-full md:w-1/2 h-full rounded-2xl justify-center">
                 <img
                   src={d.img}
                   className="mx-auto w-[320px] h-[350px] object-cover rounded-md"

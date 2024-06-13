@@ -1,27 +1,45 @@
-import {useState} from 'react'
-import Data from './Data';
-import Card from './Card';
+import { useState } from "react";
+import Data from "./Data";
+import Card from "./Card";
 
 function Mainbar() {
-    const [active, setActive] = useState("FirstCard");
+  const [active, setActive] = useState("FirstCard");
+  const Menu = [
+    { title: "About" },
+    { title: "Work Experience" },
+    { title: "Honours & Awards" },
+    { title: "Reviews" },
+    { title: "Media" },
+  ];
+
   return (
-    <div className=''>
-      <nav className='flex flex-row gap-4 mt-[30px] rounded-t-xl ml-[40px] bg-white hover-shadow-lg shadow-md pt-1 pl-3 border-[-3px] border-[#007F00] shadow-[#969595] animate-none duration-150 transition-shadow '>
-        <button className='hover:border-b-2 border-[#007F00]' onClick={() => setActive("FirstCard")}>About</button>
-        <button className='hover:border-b-2 border-[#007F00]' onClick={() => setActive("SecondCard")}>Work Experience</button>
-        <button className='hover:border-b-2 border-[#007F00]' onClick={() => setActive("ThirdCard")}>Honours & Awards</button>
-        <button className='hover:border-b-2 border-[#007F00]' onClick={() => setActive("FourCard")}>Reviews</button>
-        <button className='hover:border-b-2 border-[#007F00]' onClick={() => setActive("ThirdCard")}>Media</button>
-      </nav>
-      <div className='flex justify-center items-center h-[375px] w-[650px]  ml-[40px] bg-white hover-shadow-lg shadow-md rounded-b-xl px-[20px] py-[20px] pb-[100px] '>
-        {active === "FirstCard" && <Card data={Data} cardIndex={0} />}
-        {active === "SecondCard" && <Card data={Data} cardIndex={1}/>}
-        {active === "ThirdCard" && <Card data={Data} cardIndex={2}/>}
-        {active === "FourCard" && <Card data={Data} cardIndex={3}/>}
-        {active === "FiveCard" && <Card data={Data} cardIndex={4}/>}
+    <div className="mx-16 p-4 w-[650px] justify-center items-center h-[410px]  flex flex-col bg-white shadow-md rounded-xl shadow-[#c6c6c788]">
+      <div className="mx-auto flex flex-row bg-white gap-6  w-auto items-center  mt-[10px] border-[#007F00]   ">
+        {Menu.map((i, n) => (
+          <h2
+            className={`{mx-auto border-b-2 text-center items-center border-[#007F00] hover:text-[#007F00] cursor-pointer rounded-t-xl
+          ${
+            active == i.title
+              ? "border-[#007F00] text-[#007F00] font-semibold"
+              : "border-[#ffffff]"
+          }
+          `}
+            key={n}
+            onClick={() => setActive(i.title)}
+          >
+            {i.title}
+          </h2>
+        ))}
+      </div>
+      <div className=" m-auto flex justify-center items-center h-full   w-full   bg-white   px-[20px] py-[20px] ">
+        {active === "About" && <Card data={Data} cardIndex={0} />}
+        {active === "Work Experience" && <Card data={Data} cardIndex={1} />}
+        {active === "Honours & Awards" && <Card data={Data} cardIndex={2} />}
+        {active === "Reviews" && <Card data={Data} cardIndex={3} />}
+        {active === "Media" && <Card data={Data} cardIndex={4} />}
       </div>
     </div>
-  )
+  );
 }
 
-export default Mainbar
+export default Mainbar;
