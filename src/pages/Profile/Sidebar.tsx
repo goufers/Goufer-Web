@@ -7,7 +7,7 @@ const Sidebar = () => {
   const [hover, setHover] = useState<any>(null);
 
   return (
-    <div className="flex w-[250px] h-[460px] mt-[30px] ml-[100px] bg-white border rounded-xl hover-shadow-md shadow-md">
+    <div className="flex w-[250px] h-[460px]  ml-[100px] bg-white border rounded-xl hover-shadow-md shadow-md">
       <div className="flex flex-col pt-[10px]">
         <img
           src="https://res.cloudinary.com/dyjo2mvqb/image/upload/v1717508622/Mask_group_t0yya0.svg"
