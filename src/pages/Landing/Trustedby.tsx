@@ -1,4 +1,5 @@
 import Slider from "react-slick";
+import Testimonials from "./Testimonials";
 
 const Trustedby = () => {
   const cardContents = [
@@ -40,42 +41,10 @@ const Trustedby = () => {
         </Slider>
       </div>
 
-      <div className="bg-white flex gap-20 mt-12 mx-auto">
-        <img className="w-[559px] h-[559px]" src="./images/ppl.svg" alt="" />
-
-        <div className="flex flex-col gap-[145px]">
-          <div>
-            <div className="flex gap-2">
-              <img className="border-slate-400 h-[75px]" src="./images/topline.svg" alt="" />
-              <h1 className="text-4xl w-[385px] h-[94px] text-[#007F00]">
-                Trust us through our Reviews
-              </h1>
-            </div>
-            <p className="text-[16px]">Hear from Our Satisfied Clients and Experts</p>
-          </div>
-          <div className="flex flex-col gap-2">
-            <h1 className="font-bold">"Exceptional Service Every Time!"</h1>
-            <p className="w-[453px]">
-              I've used Goufer multiple times for various tasks, and each expert I've hired has
-              been top-notch. The platform makes it easy to find exactly who I need, and the
-              quality of service is always exceptional. Highly recommended!
-            </p>
-
-            <div className="flex gap-4 mt-6">
-              <img
-                className="rounded-[50px] w-[53.57px] h-[53.57px]"
-                src="./images/man.svg"
-                alt=""
-              />
-
-              <div>
-                <h1 className="font-bold">Kamorudeen K.solo</h1>
-                <p>Digital Marketer</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+     
+     <Testimonials />
+    
+      
 
       <div className="w-[1440px] h-[392px] mx-auto flex mt-12">
         <div className="bg-[#007F00] w-[720px] flex flex-col justify-center items-center">
