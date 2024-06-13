@@ -65,7 +65,7 @@ const Banner = () => {
         </div>
       </div>
       <div className="w-1/2 mx-auto h-auto items-center flex flex-col">
-        <img src="/images/side image1.svg" alt="banner image" className="w-9/12 h-auto" />
+        <img src="/images/Component 2@2x.png" alt="banner image" className="w-9/12 h-auto" />
       </div>
     </div>
   );

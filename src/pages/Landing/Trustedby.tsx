@@ -23,7 +23,7 @@ const Trustedby = () => {
   };
 
   return (
-    <div className="w-full h-auto mb-10 bg-white flex flex-col">
+    <div className="w-full h-auto mb-10  bg-white flex flex-col">
       {/* Card Section */}
       <div className="flex flex-row justify-center my-12">
         <Slider {...settings} className="w-full">
@@ -41,8 +41,24 @@ const Trustedby = () => {
         </Slider>
       </div>
 
-     
-     <Testimonials />
+      <div className="min-h-screen flex items-center justify-center">
+  <div className="bg-white flex gap-20 mt-12 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <img className="w-[559px] h-[559px]" src="./images/ppl.svg" alt="" />
+    <div className="flex flex-col gap-[145px]">
+      <div>
+        <div className="flex gap-2">
+          <img className="border-slate-400 h-[75px]" src="./images/topline.svg" alt="" />
+          <h1 className="text-4xl w-[385px] h-[94px] text-[#007F00]">Trust us through our Reviews</h1>
+        </div>
+        <p className="text-[16px]">Hear from Our Satisfied Clients and Experts</p>
+      </div>
+      <Testimonials />
+    </div>
+  </div>
+</div>
+
+
+
     
       
 
@@ -91,7 +107,7 @@ const Trustedby = () => {
           </div>
           <img className="border-slate-400" src="./images/demcate.svg" alt="" />
           <button className="bg-[#007F00] w-[99px] h-[40px] rounded-full text-white px-4 py-2 hover:bg-green-700 m-2 ">
-            Search
+            Subscribe
           </button>
         </div>
       </div>
