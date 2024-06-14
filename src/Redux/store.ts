@@ -10,10 +10,12 @@ const reducers = combineReducers({
   counter: counterSlice,
   Auth: authSlice,
 });
+
 const persistConfig = {
   key: "root",
   storage: storage,
 };
+
 const persistedReducer = persistReducer(persistConfig, reducers);
 
 const store = configureStore({
