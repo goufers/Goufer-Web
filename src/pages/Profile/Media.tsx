@@ -1,6 +1,6 @@
 const Media = () => {
     return ( 
-        <div className="grid grid-cols-4 gap-2">
+        <div className="grid grid-cols-4 gap-2 ">
             <img src="https://res.cloudinary.com/dyjo2mvqb/image/upload/v1718282501/image_17_fq7kgb.png" alt="" />
             <img src="https://res.cloudinary.com/dyjo2mvqb/image/upload/v1718282500/image_16_u21nec.png" alt="" />
             <img src="https://res.cloudinary.com/dyjo2mvqb/image/upload/v1718282499/image_3_q8nvi8.png" alt="" />

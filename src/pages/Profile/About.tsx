@@ -1,6 +1,6 @@
 function About() {
   return (
-    <div className="">
+    <div className="h-[350px]">
       <div className="flex flex-col space-y-7">
         <p className="font-semibold text-[20px] text-left">Bio</p>
         <p className=" font-Roboto text-[14px] mt-10 ">

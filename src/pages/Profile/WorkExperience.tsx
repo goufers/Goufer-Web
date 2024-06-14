@@ -1,7 +1,7 @@
 const WorkExperience = () => {
   return (
-    <div className="w-fit h-fit mx-auto my-[-10px]">
-      <h1 className="font-semibold text-[13px] ">Expertise</h1>
+    <div className="w-fit h-fit mx-auto my-[16px]">
+      <h1 className="font-semibold text-[13px]  ">Expertise</h1>
       <div className="flex flex-row justify-center gap-8  border-b border-[#E6F2E6] w-full py-3 text-[12px] ">
         <div className="rounded-full bg-[#E6F2E6] text-[#007F00]  px-2 py-2 ">
           Food & Beverage
@@ -16,7 +16,7 @@ const WorkExperience = () => {
           Animal Husbandry
         </div>
       </div>
-      <h1 className="font-semibold text-[13px]">Experience</h1>
+      <h1 className="font-semibold text-[13px] py-3 ">Experience</h1>
       <div className="h-full border-l-2 border-dotted border-gray-400 px-4">
       
       <div className="w-5 h-5 border rounded-full border-[#008307] ml-[-29px] bg-[white]"></div>

@@ -6,7 +6,7 @@ import Reviews from "./Reviews";
 import Media from "./Media";
  
 function Mainbar() {
-  const [active, setActive] = useState("FirstCard");
+  const [active, setActive] = useState("About");
   const Menu = [
     { title: "About" },
     { title: "Work Experience" },
@@ -16,7 +16,7 @@ function Mainbar() {
   ];
 
   return (
-    <div className="mx-16 p-4 w-[650px] justify-center items-center h-[500px]  flex flex-col bg-white shadow-md rounded-xl shadow-[#c6c6c788] mt-[40px] ">
+    <div className="mx-16 p-4 w-[650px] justify-center items-center h-auto  flex flex-col bg-white shadow-md rounded-xl shadow-[#c6c6c788] mt-[40px] ">
       <div className="mx-auto flex flex-row bg-white gap-6  w-auto items-center  mt-[10px] border-[#007F00]   ">
         {Menu.map((i, n) => (
           <h2
