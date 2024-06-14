@@ -61,8 +61,11 @@ const Sliders = () => {
       </div>
 
       <Slider {...settings} className=" mx-auto my-4 w-11/12 rounded-l md:rounded-xl">
-        {data.map((d) => (
-          <div className="bg-[#ffffff]  rounded-3xl flex  flex-col justify-between mx-auto w-10/12 h-full px-6 py-10 mt-10  ">
+        {data.map((d, i) => (
+          <div
+            className="bg-[#ffffff]  rounded-3xl flex  flex-col justify-between mx-auto w-10/12 h-full px-6 py-10 mt-10  "
+            key={i}
+          >
             <div className=" flex flex-col-reverse md:flex-row justify-center ">
               <div className="py-12 my-19 mx-auto ">
                 <h1 className="text-[#007f00] text-3xl font-Roboto justify-normal font-semibold py-2  ">
