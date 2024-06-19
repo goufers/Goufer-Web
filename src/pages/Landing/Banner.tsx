@@ -1,24 +1,24 @@
 const Banner = () => {
   return (
-    <div className="w-full h-screen pt-[150px] bg-[#FAFFFA] flex flex-row">
-      <div className="w-[596px] mx-0 px-28 h-auto   flex flex-col">
-        <div className=" w-[300px] px-5 py-2 text-[14px] bg-[#46528f] text-white">
+    <div className="w-full h-auto md:h-screen pt-16 md:pt-[150px] bg-[#FAFFFA] flex flex-col-reverse md:flex-row">
+      <div className="w-full md:w-1/2  mx-auto px-4 md:px-10 h-auto flex flex-col">
+        <div className="mx-2 md:mx-10 w-[280px] md:w-[340px] px-5 py-3 text-[12px] md:text-[16px] bg-[#46528f] text-white">
           Experienced Assistance at your finger tips
         </div>
-        <div className="w-[480px] mx-auto  py-4 pb-10  ">
-          <h2 className="text-5xl font-semibold font-roboto text-[#322F37] ">
-            Achieve excellence with <span className="text-[#007F00] font-bold">Goufer,</span>{" "}
+        <div className="w-full md:w-[480px] mx-auto  py-4 pb-10">
+          <h2 className="text-[35px] md:text-[50px] font-bold font-roboto text-[#322F37] ">
+            Achieve excellence with <span className="text-[#007F00] font-bold">Goufer, </span>
             by using our platform.
           </h2>
         </div>
 
-        <div className="w-[480px]   mx-auto  pt-2 ">
-          <h2 className="text-xs font-roboto text-[#49454F] ">
+        <div className="w-[380px] md:w-[480px]   md:mx-auto  pb-2 ">
+          <h2 className="text-[10px] md:text-xs  font-roboto text-[#49454F] ">
             Easily find the perfect expert for your next task with our powerful search engine.
           </h2>
         </div>
 
-        <div className="w-[480px] h-auto p-4 bg-white rounded-full shadow-md hover:shadow-lg flex flex-row items-center">
+        <div className="w-[350px] md:w-[480px] mx-auto md:mx-0 h-auto p-4 py-2 bg-white rounded-full shadow-md hover:shadow-lg flex flex-row items-center">
           <h3>
             <svg
               width="15"
@@ -42,19 +42,19 @@ const Banner = () => {
           <input
             type="text"
             placeholder="Profession or Keyword"
-            className="w-36 px-2 text-xs text-slate-800 border-none focus:outline-none"
+            className="w-28 md:w-36 px-2 text-xs text-slate-800 border-none focus:outline-none"
           />
           <input
             type="text"
             placeholder="City / Location"
-            className="w-36 px-1 text-xs text-slate-800 border-none focus:outline-none"
+            className="w-28 md:w-36 px-1 text-xs text-slate-800 border-none focus:outline-none"
           />
-          <div className="w-1/4 ml-2 border border-white border-l-slate-400 ">
+          <div className="w-1/4 md:ml-2 border border-white border-l-slate-400 ">
             <input
               type="button"
               value={"search"}
               placeholder="Profession or Keyword"
-              className="w-full px-6 ml-6 py-2 text-sm text-center text-white bg-[#007F00] hover:bg-[#148a14] rounded-full"
+              className="w-full px-4 md:px-6 md:ml-6 py-2 text-sm text-center text-white bg-[#007F00] hover:bg-[#148a14] rounded-full"
             />
           </div>
         </div>
@@ -64,8 +64,12 @@ const Banner = () => {
           </h2>
         </div>
       </div>
-      <div className="w-1/2 mx-auto h-auto items-center flex flex-col">
-        <img src="/images/side image1.svg" alt="banner image" className="w-9/12 h-auto" />
+      <div className="md:w-1/2 mx-auto h-auto items-center flex flex-col">
+        <img
+          src="/images/side image1.svg"
+          alt="banner image"
+          className="w-full md:w-8/12 h-72 md:h-auto my-6 md:my-0 object-cover"
+        />
       </div>
     </div>
   );
