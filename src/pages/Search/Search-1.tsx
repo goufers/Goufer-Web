@@ -123,7 +123,7 @@ const Search: React.FC = () => {
       <Nav />
 
       {/* --------------------------------1 image----------------- */}
-      <div className="flex flex-row w-full md:w-[1440px] h-[181px] mt-20">
+      <div className="flex flex-row w-full md:w-full h-[181px] mt-20">
         <div
           className="bg-cover bg-center w-3/5 h-full flex flex-col text-white mx-auto items-center justify-center"
           style={{
@@ -145,10 +145,15 @@ const Search: React.FC = () => {
       <div className="w-full px-1 md:w-[1127px] flex flex-col md:flex-row  item-center md:justify-between mx-auto md:gap[206px] mt-10">
         <h1 className="text-gray-800 w-full md:w-[79px] py-10 md:py-5 ">Filter by</h1>
 
-        <div className="w-screen md:w-[842px] h-[55px] flex flex-col-reverse md:flex-row md:items-center justify-around md:gap[73px]">
+        <div className="w-screen md:w-[842px] h-[55px] flex flex-col-reverse md:flex-row md:items-center justify-around md:gap[73px] mt-2">
+        <div className="flex flex-row justify-between w-[390px]  items-center p-2">
           <p className="text-gray-800 w-auto py-4 md:py-auto md:w-[125px] h-[24px]">
             Found 8 Goufers
           </p>
+
+          <button className="flex item-center h-[24px] w-[100px] border border-green-500 rounded-[50px] font-[400] text-xs gap-2 p-1 md:hidden mt-3"><img src="/images/Filters lines.svg" alt="filter"  className="w-[11px] h-[11px]"/> Filter Search</button>
+
+          </div>
 
           <div className="mx-auto w-full md:w-[644px] h-[55px] p-4 bg-white rounded-full shadow-md hover:shadow-lg flex flex-row items-center">
             <div className="w-4/5 flex flex-row justify-center md:gap-3 items-center  ">
@@ -213,25 +218,25 @@ const Search: React.FC = () => {
       </div>
 
       {/* ----------------------3 filter and categories----------------------------------- */}
-
+    
       <div className="w-full md:w-[1140px] flex flex-col md:flex-row item-center justify-center mx-auto md:gap-6 mt-10">
         <div className="hidden md:flex  flex-col gap-6 items-center mx-auto rounded-[15px] h-[816px] w-[264px] mb-14 hover:shadow-lg bg-white shadow-md">
-          <div className="flex flex-col w-[245px] h-[78px] bg-gray-300 items-center justify-center gap-2 rounded-[15px]  mt-4">
+          <div className="flex flex-col w-[245px] h-[78px] bg-gray-200 items-center justify-center gap-2 rounded-[15px]  mt-4">
             <div className="flex justify-between w-[233px]">
               <h1 className="w-[65px] h-[24px]">Keyword</h1>
             </div>
             <input
               type="text"
-              className="w-[230px] h-[30px] rounded-[50px] border-none pl-4"
+              className="w-[230px] h-[30px] rounded-[25px] border-none pl-4 outline-green-400"
             />
           </div>
 
-          <div className="flex flex-col w-[245px] h-[78px] bg-gray-300 items-center justify-center gap-2 rounded-[15px]  mt-4">
+          <div className="flex flex-col w-[245px] h-[78px] bg-gray-200 items-center justify-center gap-2 rounded-[15px]  mt-4">
             <div className="flex justify-between w-[233px]">
               <h1 className="w-[65px] h-[24px]">Categories</h1>
             </div>
 
-            <select className="w-[230px] h-[30px] rounded-[50px] border-none pl-4 bg-white">
+            <select className="w-[230px] h-[30px] rounded-[25px] border-none pl-4 bg-white outline-none">
               <option value="" disabled selected>
                 Select Categories
               </option>
@@ -241,17 +246,17 @@ const Search: React.FC = () => {
             </select>
           </div>
 
-          <div className="flex flex-col w-[245px] h-[78px] bg-gray-300 items-center justify-center gap-2 rounded-[15px]  mt-4">
+          <div className="flex flex-col w-[245px] h-[78px] bg-gray-200 items-center justify-center gap-2 rounded-[15px]  mt-4">
             <div className="flex justify-between w-[233px]">
               <h1 className="w-[65px] h-[24px]">Location</h1>
             </div>
             <input
               type="text"
-              className="w-[230px] h-[30px] rounded-[50px] border-none pl-4"
+              className="w-[230px] h-[30px] rounded-[25px] border-none pl-4  outline-green-400"
             />
           </div>
 
-          <div className="flex flex-col w-[245px] bg-gray-300 items-start justify-center gap-2 rounded-[15px] h-[85px]">
+          <div className="flex flex-col w-[245px] bg-gray-200 items-start justify-center gap-2 rounded-[15px] h-[85px]">
             <h1 className="w-[65px] h-[24px] ml-4">Ratings</h1>
             <div className="flex flex-row w-[230px] items-center">
               <div className="flex justify-end space-x-1 w-[233px] mr-5">
@@ -259,7 +264,7 @@ const Search: React.FC = () => {
                   <svg
                     key={index}
                     className={`w-6 h-6 cursor-pointer ${
-                      index < rating ? "text-green-500" : "text-slate-400"
+                      index < rating ? "text-green-500" : "text-green-300"
                     }`}
                     fill={index < rating ? "currentColor" : "none"}
                     stroke="currentColor"
@@ -280,12 +285,12 @@ const Search: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex flex-col w-[245px] h-[78px] bg-gray-300 items-center justify-center gap-2 rounded-[15px]  mt-4">
+          <div className="flex flex-col w-[245px] h-[78px] bg-gray-200 items-center justify-center gap-2 rounded-[15px]  mt-4">
             <div className="flex justify-between w-[233px]">
               <h1 className="w-[65px] h-[24px]">Gender</h1>
             </div>
 
-            <select className="w-[230px] h-[30px] rounded-[50px] border-none pl-4 bg-white">
+            <select className="w-[230px] h-[30px] rounded-[25px] border-none pl-4 bg-white">
               <option value="" disabled selected>
                 Select gender
               </option>
@@ -295,7 +300,7 @@ const Search: React.FC = () => {
             </select>
           </div>
 
-          <div className="flex flex-col w-[245px] bg-gray-300 items-center justify-center gap-2 rounded-[15px] h-[140px]">
+          <div className="flex flex-col w-[245px] bg-gray-200 items-center justify-center gap-2 rounded-[15px] h-[140px]">
             <div className="flex justify-between w-[233px]">
               <h1 className="w-[65px] h-[24px]">Urgency</h1>
             </div>
@@ -336,7 +341,7 @@ const Search: React.FC = () => {
               >
                 <div className=" ">
                   <div className="relative ">
-                    <div className="absolute z-10 flex justify-between w-[255px] h-[26px] items-center  m-3">
+                    <div className="absolute z-10 flex justify-between gap-12 w-[300px]  md:w-[230px] h-[26px] items-center  m-3">
                       <div className=" text-black text-xs h-[26px] w-[116px] rounded-full bg-white flex items-center justify-center">
                         <p>Food and Beverage</p>
                       </div>
@@ -349,7 +354,7 @@ const Search: React.FC = () => {
                     <img
                       src={info.Shopimage}
                       alt=""
-                      className="w-full h-28   rounded-md  object-cover relative"
+                      className="w-[400px] md:w-full h-28 rounded-md  object-cover relative "
                     />
                   </div>
                   <img
