@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
 import Nav from "../../components/Nav";
+import Footer from "../../components/Footer";
 
 const Search: React.FC = () => {
   const [rating, setRating] = useState(0);
@@ -499,7 +500,7 @@ const Search: React.FC = () => {
       </div>
 
       {/* <div className="h-12 mt-12"></div> */}
-
+      <Footer />
       {/* ----------------------button banner----------------- */}
     </div>
   );
