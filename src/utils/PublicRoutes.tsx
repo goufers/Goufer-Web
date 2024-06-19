@@ -1,9 +1,10 @@
 const PUBLIC_ROUTES = {
   LANDINGPAGE: "/",
   HOME: "/home",
+  GOUFER_PROFILE: "/goufer_profile",
 
   //NAV BAR
-  ABOUT_US: "about/",
+  ABOUT_US: "/about",
   CONTACT_US: "/contact",
   CATEGORIES: "/categories",
 
