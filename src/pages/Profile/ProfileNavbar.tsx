@@ -1,4 +1,8 @@
+
+
+
 const Nav = () => {
+  
   return (
     <div className=" fixed top-0 left-0 right-0 flex flex-row  w-full h-auto px-4 py-4 bg-white items-center z-20">
       <img
@@ -7,7 +11,7 @@ const Nav = () => {
         className="mx-6 py-auto w-44 h-auto object-cover"
       />
 
-      <div className="w-auto mx-auto flex flex-row">
+      <div className=" w-auto mx-auto flex flex-row">
         <p className="text-[16px] text-[#322F35] px-2 font-roboto">About</p>
 
         <p className="text-[16px] text-[#007F00] px-2  font-roboto">
@@ -29,6 +33,7 @@ const Nav = () => {
           Use a Goufer
         </p>
       </div>
+      
       
     </div>
   );
