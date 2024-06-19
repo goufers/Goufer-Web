@@ -66,7 +66,7 @@ const Nav = () => {
         <div className={
           nav
             ? 'absolute right-0 top-[72px] w-1/2 h-screen bg-white px-5 flex flex-col pl-8 z-10 duration-200 '
-            : 'absolute left-[-100%] z-10 duration-100'
+            : 'absolute left-[-100%] z-10 duration-200'
         }>
           <ul className='space-y-4 pt-3 text-[16px] text-black cursor-pointer '>
           <li className="transition-opacity hover:text-[#007f00]">About</li>
