@@ -145,14 +145,20 @@ const Search: React.FC = () => {
       <div className="w-full px-1 md:w-[1127px] flex flex-col md:flex-row  item-center md:justify-between mx-auto md:gap[206px] mt-10">
         <h1 className="text-gray-800 w-full md:w-[79px] py-10 md:py-5 ">Filter by</h1>
 
-        <div className="w-screen md:w-[842px] h-[55px] flex flex-col-reverse md:flex-row md:items-center justify-around md:gap[73px] mt-2">
-        <div className="flex flex-row justify-between w-[390px]  items-center p-2">
-          <p className="text-gray-800 w-auto py-4 md:py-auto md:w-[125px] h-[24px]">
-            Found 8 Goufers
-          </p>
+        <div className="mx-1 w-full md:w-[842px] h-[55px] flex flex-col-reverse md:flex-row md:items-center justify-around md:gap[73px] mt-2">
+          <div className="flex flex-row justify-between w-[390px]  items-center p-2">
+            <p className="text-gray-800 w-auto py-4 md:py-auto md:w-[125px] h-[24px]">
+              Found 8 Goufers
+            </p>
 
-          <button className="flex item-center h-[24px] w-[100px] border border-green-500 rounded-[50px] font-[400] text-xs gap-2 p-1 md:hidden mt-3"><img src="/images/Filters lines.svg" alt="filter"  className="w-[11px] h-[11px]"/> Filter Search</button>
-
+            <button className="flex item-center h-[24px] w-[100px] border border-green-500 rounded-[50px] font-[400] text-xs gap-2 p-1 md:hidden mt-3">
+              <img
+                src="/images/Filters lines.svg"
+                alt="filter"
+                className="w-[11px] h-[11px]"
+              />{" "}
+              Filter Search
+            </button>
           </div>
 
           <div className="mx-auto w-full md:w-[644px] h-[55px] p-4 bg-white rounded-full shadow-md hover:shadow-lg flex flex-row items-center">
@@ -218,7 +224,7 @@ const Search: React.FC = () => {
       </div>
 
       {/* ----------------------3 filter and categories----------------------------------- */}
-    
+
       <div className="w-full md:w-[1140px] flex flex-col md:flex-row item-center justify-center mx-auto md:gap-6 mt-10">
         <div className="hidden md:flex  flex-col gap-6 items-center mx-auto rounded-[15px] h-[816px] w-[264px] mb-14 hover:shadow-lg bg-white shadow-md">
           <div className="flex flex-col w-[245px] h-[78px] bg-gray-200 items-center justify-center gap-2 rounded-[15px]  mt-4">
@@ -451,6 +457,45 @@ const Search: React.FC = () => {
         </div>
 
         {/* ------------------buttons at the bottom to go to at prev and next page--------> */}
+        <div className="w-11/12 md:w-[846px] h-[68px] mx-auto items-center justify-center mb-12 mt-6">
+          <div className="flex flex-row w-full md:w-[497px] h-[40px] mx-auto item-center justify-center hover:shadow-lg shadow-md bg-white rounded-[15px] border-[#E6F2E6]">
+            <div className="w-[119px] h-[40px] flex items-center justify-center border-[#E6F2E6]">
+              <img
+                src="https://res.cloudinary.com/dspkk9qlz/image/upload/v1717681157/arrow-left_cq1gnw.svg"
+                alt="previous"
+              />
+              Previous
+            </div>
+            <div className="flex flex-row items-center justify-center w-[40px] h-[40px] border border-[#E6F2E6]">
+              1
+            </div>
+            <div className="flex flex-row items-center justify-center w-[40px] h-[40px] border border-[#E6F2E6]">
+              2
+            </div>
+            <div className="flex flex-row items-center justify-center w-[40px] h-[40px] border border-[#E6F2E6]">
+              3
+            </div>
+            <div className="flex flex-row items-center justify-center w-[40px] h-[40px] border border-[#E6F2E6]">
+              ...
+            </div>
+            <div className="flex flex-row items-center justify-center w-[40px] h-[40px] border border-[#E6F2E6]">
+              8
+            </div>
+            <div className="flex flex-row items-center justify-center w-[40px] h-[40px] border border-[#E6F2E6]">
+              9
+            </div>
+            <div className="flex flex-row items-center justify-center w-[40px] h-[40px] border border-[#E6F2E6] border-l-none">
+              10
+            </div>
+            <div className="w-[92px] h-[40px] flex items-center justify-center border-[#E6F2E6] border-l-none">
+              Next{" "}
+              <img
+                src="https://res.cloudinary.com/dspkk9qlz/image/upload/v1717685150/arrow-right_lmffkb.svg"
+                alt="next"
+              />
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* <div className="h-12 mt-12"></div> */}
