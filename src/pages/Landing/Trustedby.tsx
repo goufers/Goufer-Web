@@ -1,4 +1,5 @@
 import Slider from "react-slick";
+import Testimonials from "./Testimonials";
 
 const Trustedby = () => {
   const cardContents = [
@@ -54,7 +55,8 @@ const Trustedby = () => {
             </div>
             <p className="text-[16px]">Hear from Our Satisfied Clients and Experts</p>
           </div>
-          <div className="mx-2 flex flex-col gap-2">
+          <Testimonials />
+          {/* <div className="mx-2 flex flex-col gap-2">
             <h1 className="font-bold">"Exceptional Service Every Time!"</h1>
             <p className="mx-auto justify-start">
               I've used Goufer multiple times for various tasks, and each expert I've hired has
@@ -74,7 +76,7 @@ const Trustedby = () => {
                 <p>Digital Marketer</p>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 
