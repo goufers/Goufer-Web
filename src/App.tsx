@@ -20,8 +20,7 @@ function App() {
       <Routes>
         <Route index path={PUBLIC_ROUTES.LANDINGPAGE} element={<Landing />} />
         <Route path={PUBLIC_ROUTES.GOUFER_PROFILE} element={<GouferProfile />} />
-        <Route path={"/search"} element={<Search />} />
-        <Route path={"/search_more"} element={<Searchmore />} />
+        <Route path={PUBLIC_ROUTES.SEARCH} element={<Search />} />
 
         <Route path={"/about_us"} element={<AboutUs />} />
         <Route path={"/faq"} element={<Faq />} />
