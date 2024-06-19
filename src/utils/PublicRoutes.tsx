@@ -1,6 +1,7 @@
 const PUBLIC_ROUTES = {
   LANDINGPAGE: "/",
   HOME: "/home",
+  
   GOUFER_PROFILE: "/goufer_profile",
 
   //NAV BAR
