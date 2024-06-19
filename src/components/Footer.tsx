@@ -30,7 +30,7 @@ const Footer = () => {
               className="px-4 py-2 w-4/6 focus:outline-none"
             />
             <button className="bg-[#007F00]   w-[99px] h-[40px] rounded-full text-white px-4 py-2 hover:bg-green-700 m-2 ">
-              Send
+              Subscribe
             </button>
           </div>
         </div>

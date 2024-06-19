@@ -7,7 +7,7 @@ const Sidebar = () => {
   const [hover, setHover] = useState<any>(null);
 
   return (
-    <div className="flex w-[250px] h-[460px] mt-[30px] ml-[100px] bg-white border rounded-xl hover-shadow-md shadow-md">
+    <div className="flex w-[250px] h-auto  ml-[100px] bg-white border rounded-xl hover-shadow-md shadow-md">
       <div className="flex flex-col pt-[10px]">
         <img
           src="https://res.cloudinary.com/dyjo2mvqb/image/upload/v1717508622/Mask_group_t0yya0.svg"
@@ -28,11 +28,11 @@ const Sidebar = () => {
         <div className="border-t-2 border-[#E6F2E6] border-b-2 w-[200px] ml-[20px] py-2">
           <h1 className="text-[14px] text-[#322F37] font-bold font-Roboto">Information</h1>
           <div className="flex flex-col w-[90px] focus-within:outline-0 focus-within:border-0 ">
-            <p className="py-1 text-[#322F37] text-[14px]">Gender</p>
+            <p className="py-2 text-[#322F37] text-[14px] ">Gender</p>
 
-            <p className="py-1text-[#322F37]  text-[14px]">Male</p>
+            <p className="py-2 text-[#322F37]  text-[14px]">Male</p>
           </div>
-          <p className="py-1 text-[#322F37] text-[14px]">Ratings</p>
+          <p className="py-2 text-[#322F37] text-[14px]">Ratings</p>
           <div className="flex flex-row justify-normal">
             {[...Array(5)].map((star, index: any) => {
               const currentRating = index + 1;
@@ -57,11 +57,11 @@ const Sidebar = () => {
               );
             })}
           </div>
-          <p className="py-1 text-[#322F37] text-[14px]">Statistics</p>
-          <p className="py-1 text-[#322F37] text-[14px]">
+          <p className="py-2 text-[#322F37] text-[14px]">Statistics</p>
+          <p className="py-2 text-[#322F37] text-[14px]">
             <span className="text-[#007F00]">50+</span>Tasks Completed
           </p>
-          <p className="py-1 text-[#322F37]  text-[14px]">Joined</p>
+          <p className="py-2 text-[#322F37]  text-[14px]">Joined</p>
           <p className="text-[#007f00] text-[14px]">2024</p>
         </div>
         <div className="flex flex-row justify-center gap-1 mt-1 py-1">
