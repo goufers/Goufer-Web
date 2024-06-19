@@ -62,7 +62,7 @@ const Nav = () => {
       </div>
       <Login auth={auth} setAuth={setAuth} />
 
-        <div className={nav ? 'absolute text-white left-0 top-16 w-full bg-[#e4dfdc] px-2 py-7 flex flex-col pl-8 space-y-3' : 'absolute left-[-100%]'}>
+        <div className={nav ? 'absolute text-black left-0 top-16 w-full bg-[#e4dfdc] px-2 py-7 flex flex-col pl-8 space-y-3 text-[16px]' : 'absolute left-[-100%]'}>
         <ul>
         <li className="transition-opacity space-x-4 ">About</li>
           <li className="transition-opacity space-x-4 ">Expert Categories</li>
