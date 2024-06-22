@@ -20,6 +20,13 @@ const EmploymentContent = () => {
 
 
 
+    <div className="flex justify-center text-[#667085] mt-6">
+      <p>© 2024 Goufer All rights reserved.</p>
+
+    </div>
+
+
+
   
 
   

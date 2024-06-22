@@ -216,20 +216,76 @@ const Employmentdata = () => {
         statusBgColor: "#F2FFF6",
         imgSrc: "./images/user-04.jpg.svg"
       },
+      {
+        name: "John Balogun Quamdeent",
+        date: "06/06/2024",
+        service: "Computer Repair",
+        duration: "3days",
+        status: "Active",
+        statusColor: "#1BA345",
+        statusBgColor: "#F2FFF6",
+        imgSrc: "./images/user-04.jpg.svg"
+      },
+      {
+        name: "John Balogun Quamdeent",
+        date: "06/06/2024",
+        service: "Computer Repair",
+        duration: "3days",
+        status: "Active",
+        statusColor: "#1BA345",
+        statusBgColor: "#F2FFF6",
+        imgSrc: "./images/user-04.jpg.svg"
+      },
+      {
+        name: "John Balogun Quamdeent",
+        date: "06/06/2024",
+        service: "Computer Repair",
+        duration: "3days",
+        status: "Active",
+        statusColor: "#1BA345",
+        statusBgColor: "#F2FFF6",
+        imgSrc: "./images/user-04.jpg.svg"
+      },
+      {
+        name: "John Balogun Quamdeent",
+        date: "06/06/2024",
+        service: "Computer Repair",
+        duration: "3days",
+        status: "Active",
+        statusColor: "#1BA345",
+        statusBgColor: "#F2FFF6",
+        imgSrc: "./images/user-04.jpg.svg"
+      },
+      {
+        name: "John Balogun Quamdeent",
+        date: "06/06/2024",
+        service: "Computer Repair",
+        duration: "3days",
+        status: "Active",
+        statusColor: "#1BA345",
+        statusBgColor: "#F2FFF6",
+        imgSrc: "./images/user-04.jpg.svg"
+      },
   
   
       // Add similar objects to repeat content 6 times
     ];
-    const itemsPerPage = 3;
+    const itemsPerPage = 5;
+
     const totalPages = Math.ceil(data.length / itemsPerPage);
+    
   
     const [currentPage, setCurrentPage] = useState(1);
     const [selectedStatus, setSelectedStatus] = useState('');
+
+
   
+
     const handleNext = () => {
-      if (currentPage < totalPages) {
-        setCurrentPage(currentPage + 1);
-      }
+        const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+        if (currentPage < totalPages) {
+            setCurrentPage(currentPage + 1);
+        }
     };
   
     const handlePrevious = () => {
@@ -239,19 +295,23 @@ const Employmentdata = () => {
     };
   
     const handleStatusChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-      setSelectedStatus(event.target.value);
-      setCurrentPage(1); // Reset to first page when status changes
+        setSelectedStatus(event.target.value);
+        setCurrentPage(1); // Reset to first page when status changes
     };
   
     const handlePageClick = (pageNumber: SetStateAction<number>) => {
       setCurrentPage(pageNumber);
     };
   
+
     const getCurrentData = () => {
-      const startIndex = (currentPage - 1) * itemsPerPage;
-      return data.slice(startIndex, startIndex + itemsPerPage);
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        return filteredData.slice(startIndex, startIndex + itemsPerPage);
     };
   
+
+
+    const filteredData = selectedStatus ? data.filter(item => item.status === selectedStatus) : data;
     const renderPageNumbers = () => {
       const pageNumbers = [];
       
@@ -294,7 +354,7 @@ const Employmentdata = () => {
 
 
 
- <p>15 Total Employments</p>
+<p>{data.length} Total Employments</p>
 
 
 
@@ -366,19 +426,18 @@ className="w-[58px] md:w-[99px] px- md:px-6 md:ml-6 py-2 text-xs md:text-sm text
 
 
 
-<div className="border rounded-[25px] w-[168px] outline-none h-[54px]  flex items-center justify-center bg-white">
-<select
-className=" items-center outline-none"
-value={selectedStatus}
-onChange={handleStatusChange}
->
-<option value="">All Status</option>
-<option value="Active">Active</option>
-<option value="Inactive">Inactive</option>
-<option value="Pending">Pending</option>
-</select>
-
-</div>
+                <div className="border rounded-[25px] w-[168px] outline-none h-[54px] flex items-center justify-center bg-white">
+                    <select
+                        className="items-center outline-none"
+                        value={selectedStatus}
+                        onChange={handleStatusChange}
+                    >
+                        <option value="">All Status</option>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                        <option value="Pending">Pending</option>
+                    </select>
+                </div>
 
 
 
@@ -508,7 +567,7 @@ onChange={handleStatusChange}
 
 <div className="flex flex-row w-full md:w-[497px] h-[40px] mx-auto items-center justify-center hover:shadow-lg shadow-md bg-white rounded-[15px] border-[#E6F2E6] mt-6">
 <div
-className={`w-[119px] h-[40px] flex items-center justify-center border-[#E6F2E6] ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
+className={`w-[119px] h-[40px] flex items-center justify-center border-[#E6F2E6] ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ' text-green-500'}`}
 onClick={handlePrevious}
 >
 <img src="https://res.cloudinary.com/dspkk9qlz/image/upload/v1717681157/arrow-left_cq1gnw.svg" alt="previous" />
@@ -518,7 +577,7 @@ Previous
 {renderPageNumbers().map((page, index) => (
 <div
 key={index}
-className={`flex flex-row items-center justify-center w-[40px] h-[40px] border border-[#E6F2E6] ${currentPage === page ? 'bg-gray-200' : ''} ${page === '...' ? 'cursor-default' : 'cursor-pointer'}`}
+className={`flex flex-row items-center justify-center w-[40px] h-[40px] border border-[#E6F2E6] ${currentPage === page ? 'bg-gray-200 text-green-500' : ''} ${page === '...' ? 'cursor-default' : 'cursor-pointer'}`}
 onClick={() => typeof page === 'number' && handlePageClick(page)}
 >
 {page}
@@ -526,7 +585,7 @@ onClick={() => typeof page === 'number' && handlePageClick(page)}
 ))}
 
 <div
-className={`w-[92px] h-[40px] flex items-center justify-center border-[#E6F2E6] border-l-none ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''}`}
+className={`w-[92px] h-[40px] flex items-center justify-center border-[#E6F2E6] border-l-none ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ' text-green-500'}`}
 onClick={handleNext}
 >
 Next
