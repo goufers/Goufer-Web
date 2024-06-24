@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../../Redux/store';
@@ -43,7 +41,7 @@ const Favorites: React.FC = () => {
         {favoriteItems.map((item) => (
           <div
             key={item.id}
-            className="mx-auto flex flex-col my-4 relative bg-white items-center w-10/12 md:w-[270px] lg:w-[250px] h-[296px] pb-4 rounded-xl shadow-sm shadow-blue-gray-300 transition duration-300 ease-in-out hover:shadow-lg hover:shadow-blue-gray-400 hover:top-[-20px]"
+            className="mx-auto flex flex-col my-4 relative bg-white items-center w-10/12 md:w-[270px] lg:w-[250px] h-[296px] pb-4 rounded-xl shadow-sm shadow-blue-gray-300 transition duration-300 ease-in-out hover:shadow-lg hover:shadow-blue-gray-400"
             onMouseOver={() => setShowExpertPop(item.id)}
             onMouseLeave={() => setShowExpertPop(null)}>
             <div className="relative">
@@ -67,7 +65,7 @@ const Favorites: React.FC = () => {
               <img
                 src={item.Shopimage}
                 alt=""
-                className="w-[400px] md:w-full h-28 rounded-md object-cover relative"
+                className="w-[400px] md:w-full h-28 rounded-md object-cover"
               />
               <img
                 src={item.Gouferimage}
@@ -76,78 +74,78 @@ const Favorites: React.FC = () => {
               />
             </div>
             <div className="pt-5 pl-3">
-              <h1 className="text-[#007F00] text-[16px] font-semibold font-Roboto cursor-pointer hover:text-[#007F00]">
+              <h1 className="text-[#007F00] text-[16px] font-semibold font-Roboto cursor-pointer hover:text-[#005000]">
                 {item.Goufername}
               </h1>
               <p className="pr-2 text-[11px] mb-2">{item.Text}</p>
-              <div className="flex flex-row justify-start items-center pb-1 transition duration-300 ease-in-out hover:text-[#007F00] hover:scale-105 hover:transition">
+              <div className="flex flex-row justify-start items-center pb-1">
                 <img
                   src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716881835/Goufer/Union_1_jrxj8w.png"
-                  className="w-4 h-4 object-contain transition duration-300 ease-in-out hover:scale-105 hover:transition"
+                  className="w-4 h-4 object-contain"
                   alt=""
                 />
-                <p className="text-[#2e332e] px-2 text-[12px] transition duration-300 ease-in-out hover:text-[#007F00] hover:scale-105 hover:transition">
-                  <span className="text-[#007F00] pr-0.5 transition duration-300 ease-in-out hover:text-[#007F00] hover:scale-105 hover:transition">
+                <p className="text-[#2e332e] px-2 text-[12px]">
+                  <span className="text-[#007F00] pr-0.5">
                     {item.Task}
                   </span>
                   Task Complete
                 </p>
               </div>
-              <div className="flex flex-row justify-start items-center pb-1 transition duration-300 ease-in-out hover:text-[#007F00] hover:scale-105 hover:transition">
+              <div className="flex flex-row justify-start items-center pb-1">
                 <img
                   src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716880091/Goufer/Vector_kvuvlc.svg"
-                  className="w-5 h-5 object-contain transition duration-300 ease-in-out hover:scale-105 hover:transition"
+                  className="w-5 h-5 object-contain"
                   alt=""
                 />
-                <p className="text-[#2a2b2a] px-2 text-[12px] transition duration-300 ease-in-out hover:text-[#007F00] hover:scale-105 hover:transition">
+                <p className="text-[#2a2b2a] px-2 text-[12px]">
                   {item.City}
                 </p>
               </div>
-              <div className="flex flex-row justify-start items-center pb-1 transition duration-300 ease-in-out hover:text-[#007F00] hover:scale-105 hover:transition">
+              <div className="flex flex-row justify-start items-center pb-1">
                 <img
                   src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716880090/Goufer/Vector_1_zcbinz.png"
-                  className="w-5 h-5 object-contain transition duration-300 ease-in-out hover:scale-105 hover:transition"
+                  className="w-5 h-5 object-contain"
                   alt=""
                 />
-                <p className="text-[#2a2b2a] px-2 text-[12px] transition duration-300 ease-in-out hover:text-[#007F00] hover:scale-105 hover:transition">
+                <p className="text-[#2a2b2a] px-2 text-[12px]">
                   {item.Rate}
                 </p>
               </div>
             </div>
             {showExpertPop === item.id && (
-              <div className="transition delay-100 duration-300 ease-in-out w-full max-h-[130px] absolute bottom-0 hover:top-39 left-0 right-0 pt-4 pl-2 rounded-b-lg bg-[#007F00] flex flex-col">
-                <div className="flex flex-row justify-start items-center pb-1 transition duration-300 ease-in-out hover:text-[#007F00] hover:scale-105 hover:transition">
+              <div className="transition delay-100 duration-300 ease-in-out w-full max-h-[130px] absolute bottom-0 left-0 right-0 pt-4 pl-2 rounded-b-lg bg-[#007F00] flex flex-col">
+                <div className="flex flex-row justify-start items-center pb-1">
                   <img
                     src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716881835/Goufer/Union_1_jrxj8w.png"
-                    className="w-5 h-5 object-contain bg-white rounded-full p-1 transition duration-300 ease-in-out hover:scale-105 hover:transition"
+                    className="w-5 h-5 object-contain bg-white rounded-full p-1"
                     alt=""
                   />
-                  <p className="text-white px-2 text-[12px] transition duration-300 ease-in-out hover:transition cursor-pointer">
+                  <p className="text-white px-2 text-[12px] cursor-pointer">
                     {item.Task} Task Completed
                   </p>
                 </div>
-                <div className="flex flex-row justify-start items-center pb-1 transition duration-300 ease-in-out hover:scale-105 hover:transition cursor-pointer">
+                <div className="flex flex-row justify-start items-center pb-1 cursor-pointer">
                   <img
                     src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716880091/Goufer/Vector_kvuvlc.svg"
-                    className="w-5 h-5 object-contain bg-white rounded-full p-1 transition duration-300 ease-in-out hover:scale-105 hover:transition cursor-pointer"
+                    className="w-5 h-5 object-contain bg-white rounded-full p-1"
                     alt=""
                   />
-                  <p className="text-white px-2 text-[12px] transition duration-300 ease-in-out hover:scale-105 hover:transition cursor-pointer">
+                  <p className="text-white px-2 text-[12px] cursor-pointer">
                     {item.City}
                   </p>
                 </div>
-                <div className="flex flex-row justify-start items-center pb-1 transition duration-300 ease-in-out hover:scale-105 hover:transition cursor-pointer">
+                <div className="flex flex-row justify-start items-center pb-1 cursor-pointer">
                   <img
                     src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716880090/Goufer/Vector_1_zcbinz.png"
-                    className="w-5 h-5 object-contain bg-white rounded-full p-1 transition duration-300 ease-in-out hover:scale-105 hover:transition cursor-pointer"
+                    className="w-5 h-5 object-contain bg-white rounded-full p-1"
                     alt=""
                   />
-                  <p className="text-white px-2 text-[12px] transition duration-300 ease-in-out hover:scale-105 hover:transition cursor-pointer">
+                  <p className="text-white px-2 text-[12px] cursor-pointer">
                     {item.Rate}
                   </p>
                 </div>
                 <div className="w-full pr-3 justify-end flex flex-row mb-6">
-                  <p className="mx-5 px-6 py-2 text-sm text-[#007F00] font-bold rounded-3xl bg-white cursor-pointer transition duration-300 ease-in-out hover:text-[#007F00] hover:scale-105 hover:transition cursor-pointer">
+                  <p className="mx-5 px-6 py-2 text-sm text-[#007F00] font-bold rounded-3xl bg-white cursor-pointer">
                     View Gofer Profile
                   </p>
                   <img

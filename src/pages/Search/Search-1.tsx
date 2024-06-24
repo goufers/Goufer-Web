@@ -286,11 +286,11 @@ const Search: React.FC = () => {
         {/* ---------------------4 cards sections----------------- */}
 
         {/* ----------------cards contents------------- */}
-        <div className=" w-full md:w-11/10 h-auto  grid grid-cols-1 md:grid-cols-2 justify-evenly  lg:grid-cols-3 items-center justify-evenly ">
+        <div className=" w-full md:w-11/10 h-auto  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-evenly ">
           {infos &&
             infos.map((info) => (
               <div
-                className="mx-auto flex flex-col my-4 relative bg-white items-center w-10/12 md:w-[270px] lg:w-[250px]  h-[296px] pb-4 rounded-xl  shadow-sm shadow-blue-gray-300  transition duration-300 ease-in-out hover:shadow-lg hover:shadow-blue-gray-400 hover:top-[-20px]"
+                  className="mx-auto flex flex-col my-4 relative bg-white items-center w-10/12 md:w-[270px] lg:w-[250px] h-[296px] pb-4 rounded-xl shadow-sm shadow-blue-gray-300 transition duration-300 ease-in-out hover:shadow-lg hover:shadow-blue-gray-400"
                 key={info.id}
                 onMouseOver={() => setShowExpertPop(info.id)}
                 onMouseLeave={() => setShowExpertPop("")}>
@@ -329,74 +329,74 @@ const Search: React.FC = () => {
                     {info.Goufername}
                   </h1>
                   <p className=" pr-2 text-[11px] mb-2 ">{info.Text}</p>
-                  <div className="flex flex-row justify-start items-center pb-1 transition duration-300 ease-in-out hover:text-[#007F00] hover:scale-105 hover:transition">
+                  <div className="flex flex-row justify-start items-center pb-1">
                     <img
                       src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716881835/Goufer/Union_1_jrxj8w.png"
-                      className="w-4 h-4 object-contain transition duration-300 ease-in-out hover:scale-105 hover:transition"
+                      className="w-4 h-4 object-contain "
                       alt=""
                     />
-                    <p className="text-[#2e332e] px-2 text-[12px] transition duration-300 ease-in-out hover:text-[#007F00] hover:scale-105 hover:transition">
-                      <span className="text-[#007F00] pr-0.5  transition duration-300 ease-in-out hover:text-[#007F00] hover:scale-105 hover:transition">
+                    <p className="text-[#2e332e] px-2 text-[12px] ">
+                      <span className="text-[#007F00] pr-0.5  ">
                         {info.Task}
                       </span>
                       Task Complete
                     </p>
                   </div>
-                  <div className="flex flex-row justify-start items-center pb-1 transition duration-300 ease-in-out hover:text-[#007F00] hover:scale-105 hover:transition">
+                  <div className="flex flex-row justify-start items-center pb-1">
                     <img
                       src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716880091/Goufer/Vector_kvuvlc.svg"
-                      className="w-5 h-5 object-contain transition duration-300 ease-in-out hover:scale-105 hover:transition"
+                      className="w-5 h-5 object-contain "
                       alt=""
                     />
-                    <p className="text-[#2a2b2a] px-2 text-[12px] transition duration-300 ease-in-out hover:text-[#007F00] hover:scale-105 hover:transition">
+                    <p className="text-[#2a2b2a] px-2 text-[12px] ">
                       {info.City}
                     </p>
                   </div>
-                  <div className="flex flex-row justify-start items-center pb-1 transition duration-300 ease-in-out hover:text-[#007F00] hover:scale-105 hover:transition">
+                  <div className="flex flex-row justify-start items-center pb-1 ">
                     <img
                       src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716880090/Goufer/Vector_1_zcbinz.png"
-                      className="w-5 h-5 object-contain transition duration-300 ease-in-out hover:scale-105 hover:transition"
+                      className="w-5 h-5 object-contain "
                       alt=""
                     />
-                    <p className="text-[#2a2b2a] px-2 text-[12px] transition duration-300 ease-in-out hover:text-[#007F00] hover:scale-105 hover:transition">
+                    <p className="text-[#2a2b2a] px-2 text-[12px] ">
                       {info.Rate}
                     </p>
                   </div>
                 </div>
                 {showExpertPop === info.id && (
-                  <div className="transition delay-100 duration-300 ease-in-out w-full max-h-[130px] absolute bottom-0 hover:top-39 left-0 right-0 pt-4 pl-2 rounded-b-lg bg-[#007F00]   flex flex-col ">
-                    <div className="flex flex-row justify-start items-center pb-1 transition duration-300 ease-in-out hover:text-[#007F00] hover:scale-105 hover:transition">
+                  <div className="transition delay-100 duration-300 ease-in-out w-full max-h-[130px] absolute bottom-0 left-0 right-0 pt-4 pl-2 rounded-b-lg bg-[#007F00] flex flex-col">
+                    <div className="flex flex-row justify-start items-center pb-1 ">
                       <img
                         src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716881835/Goufer/Union_1_jrxj8w.png"
-                        className="w-5 h-5 object-contain bg-white rounded-full p-1 transition duration-300 ease-in-out hover:scale-105 hover:transition"
+                        className="w-5 h-5 object-contain bg-white rounded-full p-1 "
                         alt=""
                       />
-                      <p className="text-white px-2 text-[12px] transition duration-300 ease-in-out    hover:transition cursor-pointer">
+                      <p className="text-white px-2 text-[12px] ">
                         {info.Task} Task Completed
                       </p>
                     </div>
-                    <div className="flex flex-row justify-start items-center pb-1 transition duration-300 ease-in-out   hover:scale-105 hover:transition cursor-pointer">
+                    <div className="flex flex-row justify-start items-center pb-1 ">
                       <img
                         src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716880091/Goufer/Vector_kvuvlc.svg"
-                        className="w-5 h-5 object-contain bg-white rounded-full p-1 transition duration-300 ease-in-out hover:scale-105 hover:transition cursor-pointer"
+                        className="w-5 h-5 object-contain bg-white rounded-full p-1 "
                         alt=""
                       />
-                      <p className="text-white px-2 text-[12px] transition duration-300 ease-in-out   hover:scale-105 hover:transition cursor-pointer">
+                      <p className="text-white px-2 text-[12px] ">
                         {info.City}
                       </p>
                     </div>
-                    <div className="flex flex-row justify-start items-center pb-1 transition duration-300 ease-in-out   hover:scale-105 hover:transition cursor-pointer">
+                    <div className="flex flex-row justify-start items-center pb-1 ">
                       <img
                         src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716880090/Goufer/Vector_1_zcbinz.png"
-                        className="w-5 h-5 object-contain bg-white rounded-full p-1 transition duration-300 ease-in-out hover:scale-105 hover:transition cursor-pointer"
+                        className="w-5 h-5 object-contain bg-white rounded-full p-1 "
                         alt=""
                       />
-                      <p className="text-white px-2 text-[12px] transition duration-300 ease-in-out  hover:scale-105 hover:transition cursor-pointer">
+                      <p className="text-white px-2 text-[12px] ">
                         {info.Rate}
                       </p>
                     </div>
                     <div className=" w-full pr-3 justify-end  flex flex-row  mb-6">
-                      <p className=" mx-5 px-6 py-2 text-sm text-[#007F00] font-bold rounded-3xl bg-white cursor-pointer transition duration-300 ease-in-out hover:text-[#007F00] hover:scale-105 hover:transition cursor-pointer">
+                      <p className=" mx-5 px-6 py-2 text-sm text-[#007F00] font-bold rounded-3xl bg-white cursor-pointer ">
                         View Gofer Profile
                       </p>
                       <img
@@ -411,49 +411,9 @@ const Search: React.FC = () => {
             ))}
         </div>
 
-        {/* ------------------buttons at the bottom to go to at prev and next page--------> */}
-        {/* <div className="w-11/12 md:w-[846px] h-[68px] mx-auto items-center justify-center mb-12 mt-6">
-          <div className="flex flex-row w-full md:w-[497px] h-[40px] mx-auto item-center justify-center hover:shadow-lg shadow-md bg-white rounded-[15px] border-[#E6F2E6]">
-            <div className="w-[119px] h-[40px] flex items-center justify-center border-[#E6F2E6]">
-              <img
-                src="https://res.cloudinary.com/dspkk9qlz/image/upload/v1717681157/arrow-left_cq1gnw.svg"
-                alt="previous"
-              />
-              Previous
-            </div>
-            <div className="flex flex-row items-center justify-center w-[40px] h-[40px] border border-[#E6F2E6]">
-              1
-            </div>
-            <div className="flex flex-row items-center justify-center w-[40px] h-[40px] border border-[#E6F2E6]">
-              2
-            </div>
-            <div className="flex flex-row items-center justify-center w-[40px] h-[40px] border border-[#E6F2E6]">
-              3
-            </div>
-            <div className="flex flex-row items-center justify-center w-[40px] h-[40px] border border-[#E6F2E6]">
-              ...
-            </div>
-            <div className="flex flex-row items-center justify-center w-[40px] h-[40px] border border-[#E6F2E6]">
-              8
-            </div>
-            <div className="flex flex-row items-center justify-center w-[40px] h-[40px] border border-[#E6F2E6]">
-              9
-            </div>
-            <div className="flex flex-row items-center justify-center w-[40px] h-[40px] border border-[#E6F2E6] border-l-none">
-              10
-            </div>
-            <div className="w-[92px] h-[40px] flex items-center justify-center border-[#E6F2E6] border-l-none">
-              Next{" "}
-              <img
-                src="https://res.cloudinary.com/dspkk9qlz/image/upload/v1717685150/arrow-right_lmffkb.svg"
-                alt="next"
-              />
-            </div>
-          </div>
-        </div> */}
+        
       </div>
 
-      {/* <div className="h-12 mt-12"></div> */}
       <Footer />
       {/* ----------------------button banner----------------- */}
     </div>
