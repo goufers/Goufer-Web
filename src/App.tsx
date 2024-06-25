@@ -16,10 +16,31 @@ import Chat from "./pages/Dashboard/Chat";
 import Dashboard from "./pages/Dashboard/Main";
 import Employment from "./pages/Dashboard/Employment";
 import Favorites from "./pages/Dashboard/Favourite";
+import AsyncOperationComponent from "./components/AsyncOperationComponent";
+import Loading from "./components/Loading";
+import { useEffect, useState } from "react";
+import SuccessCard from "./components/SuccessCard";
+import FailedCard from "./components/FailedCard";
 
 function App() {
+
+  const [loading, setLoading] = useState(true); // Initially set to true
+
+  useEffect(() => {
+    // Simulate loading delay
+    const timer = setTimeout(() => setLoading(false), 2000); // Simulate a 2-second loading delay
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
   return (
+
+
+  
     <>
+    
       <Routes>
         <Route index path={PUBLIC_ROUTES.LANDINGPAGE} element={<Landing />} />
         <Route path={PUBLIC_ROUTES.GOUFER_PROFILE} element={<GouferProfile />} />
@@ -33,10 +54,18 @@ function App() {
         <Route path={"/faq"} element={<Faq />} />
         <Route path={"/home"} element={<Home />} />
         <Route path={"/contact_us"} element={<ContactUs />} />
+  
 
         <Route path={"/verify_email"} element={<Verifyemail />} />
+        <Route path={"/successCard"} element={<SuccessCard />} />
+        <Route path={"/failedCard"} element={<FailedCard />} />
         <Route path={"*"} element={<Page404 />} />
       </Routes>
+
+
+   
+
+
     </>
   );
 }

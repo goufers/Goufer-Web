@@ -38,6 +38,8 @@ body {
   margin: 0 10px;
 }
 
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
