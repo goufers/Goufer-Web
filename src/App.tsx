@@ -5,7 +5,6 @@ import AboutUs from "./pages/AboutUs/AboutUs";
 import Faq from "./pages/Faq/Faq";
 import Home from "./pages/Home/Home";
 import ContactUs from "./pages/ContactUs/ContactUs";
-import Footer from "./components/Footer";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import PUBLIC_ROUTES from "./utils/PublicRoutes";
@@ -16,8 +15,24 @@ import Chat from "./pages/Dashboard/Chat";
 import Dashboard from "./pages/Dashboard/Main";
 import Employment from "./pages/Dashboard/Employment";
 import Favorites from "./pages/Dashboard/Favourite";
+// import Loading from "./components/Loading";
+// import { useEffect, useState } from "react";
+import SuccessCard from "./components/SuccessCard";
+import FailedCard from "./components/FailedCard";
 
 function App() {
+  // const [loading, setLoading] = useState(true); // Initially set to true
+
+  // useEffect(() => {
+  //   // Simulate loading delay
+  //   const timer = setTimeout(() => setLoading(false), 2000); // Simulate a 2-second loading delay
+  //   return () => clearTimeout(timer);
+  // }, []);
+
+  // if (loading) {
+  //   return <Loading />;
+  // }
+
   return (
     <>
       <Routes>
@@ -35,6 +50,8 @@ function App() {
         <Route path={"/contact_us"} element={<ContactUs />} />
 
         <Route path={"/verify_email"} element={<Verifyemail />} />
+        <Route path={"/successCard"} element={<SuccessCard />} />
+        <Route path={"/failedCard"} element={<FailedCard />} />
         <Route path={"*"} element={<Page404 />} />
       </Routes>
     </>

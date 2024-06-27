@@ -3,7 +3,6 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 // Define an async thunk for the API call
-
 export const Signup = createAsyncThunk(
   "register-user",
   async (data: object, { rejectWithValue }) => {
@@ -14,6 +13,10 @@ export const Signup = createAsyncThunk(
         `${import.meta.env.VITE_GOUFER_TEST_API}/users/register/`,
         data
       );
+      response.data.auth_status == "True"
+        ? localStorage.setItem(response.data.access, "G_Token")
+        : null;
+
       return response.data;
     } catch (error: any) {
       console.error(rejectWithValue);
@@ -30,13 +33,11 @@ export const Login = createAsyncThunk(
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_GOUFER_TEST_API}/users/login`,
-        data,
-        {
-          headers: {
-            Authorization: "",
-          },
-        }
+        data
       );
+      response.data.auth_status == "True"
+        ? localStorage.setItem(response.data.access, "G_token")
+        : "";
       return response.data;
     } catch (error: any) {
       return rejectWithValue(error.response ? error.response.data : error.message);
@@ -47,11 +48,16 @@ export const Login = createAsyncThunk(
 export const Logout = createAsyncThunk(
   "logout-user",
   async (data: object, { rejectWithValue }) => {
-    console.log(data);
+    const token = localStorage.getItem("G_token");
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_GOUFER_TEST_API}/users/logout-user`,
-        data
+        data,
+        {
+          headers: {
+            Authorization: `bearer ${token}`,
+          },
+        }
       );
       return response.data;
     } catch (error: any) {
@@ -103,6 +109,7 @@ export const authSlice: any = createSlice({
   name: "auth",
   initialState: initialState,
   reducers: {},
+
   extraReducers: (builder) => {
     builder
       .addCase(Signup.pending, (state) => {
@@ -116,10 +123,22 @@ export const authSlice: any = createSlice({
       .addCase(Signup.rejected, (state, action: any) => {
         state.status = "failed";
         state.error = action.payload;
+      })
+      .addCase(Login.pending, (state) => {
+        state.status = "loading";
+        state.error = null;
+      })
+      .addCase(Login.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.user = action.payload;
+      })
+      .addCase(Login.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.payload;
       });
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { signup, login, forgot_password } = authSlice.actions;
+// export const { signup, login, forgot_password } = authSlice.actions;
 export default authSlice.reducer;
