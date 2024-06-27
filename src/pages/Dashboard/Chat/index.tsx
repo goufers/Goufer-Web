@@ -4,9 +4,9 @@ import PageContent from "./ChatContent";
 
 const Chat = () => {
   return (
-    <div className="w-full h-auto">
+    <div className="w-full h-screen  bg-white">
       <DashboardNav />
-      <div className="w-full flex flex-row h-screen bg-[#F9F9F9]">
+      <div className="w-full h-full flex flex-row ">
         <Menu />
         <PageContent />
       </div>

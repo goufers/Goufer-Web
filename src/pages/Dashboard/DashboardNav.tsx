@@ -1,6 +1,6 @@
 const DashboardNav = () => {
   return (
-    <div className="w-full h-auto py-4 fixed   left-0 right-0 top-0 bg-white flex flex-row gap-2 items-center">
+    <div className="w-full h-auto py-2 fixed   left-0 right-0 top-0 bg-white flex flex-row gap-2 items-center">
       <a href="/dashboard" className="w-auto h-auto">
         <img
           src="/images/mainlogo.png"
@@ -40,12 +40,12 @@ const DashboardNav = () => {
           <img
             src="/images/Mask group.svg"
             alt="goufer logo"
-            className="mx-3  py-auto w-16 h-auto object-cover "
+            className="mx-3  py-auto w-12 h-auto object-cover "
           />
           <img
             src="/images/Vector.svg"
             alt="goufer logo"
-            className="mx-1   bg-[#F9F9F9] w-5 h-auto object-cover "
+            className="mx-1 py-1 px-0.5  bg-[#F9F9F9] w-6 h-auto object-cover rounded-full "
           />
         </div>
       </div>

@@ -13,6 +13,12 @@ export default withMT({
       xl: "1280px",
       "2xl": "1536px",
     },
+    scale: {
+      "-100": "-1",
+    },
+    backgroundImage: {
+      "chat-background": "url('/images/chatsapce-background.svg')",
+    },
     // colors: {
     //   gouferGreen: "#007F00 ",
     // },

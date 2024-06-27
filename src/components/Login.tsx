@@ -1,15 +1,34 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import { useDispatch, useSelector } from "react-redux";
+import { Signup } from "../Redux/AuthSlice";
+
 interface component {
   auth: boolean;
   setAuth: (data: any) => void;
 }
 const Login = ({ auth, setAuth }: component) => {
-  const [showPassword, setShowPassword] = useState(false);
   const [authComponent, setAuthComponent] = useState("login");
+  const dispatch = useDispatch<any>();
+  // const user = useSelector((state: any) => state.user.user);
+  // const status = useSelector((state: any) => state.user.status);
+  // const error = useSelector((state: any) => state.user.error);
+  const [showPassword, setShowPassword] = useState(false);
 
-  const [phone, setPhone] = useState("");
+  const [signupData, setSignupData] = useState({
+    first_name: "",
+    last_name: "",
+    email: "",
+    phone_number: "",
+    password: "",
+  });
+
+  const RegisterUser = () => {
+    console.log(signupData);
+    dispatch(Signup(signupData));
+  };
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -134,6 +153,9 @@ const Login = ({ auth, setAuth }: component) => {
                 type="text"
                 placeholder="Firstname"
                 className="w-[220px] h-[44px] pl-10 pr-4 py-2 rounded-full border border-gray-300 shadow-sm focus:outline-none"
+                onChange={(e) => {
+                  setSignupData((prev) => ({ ...prev, first_name: e.target.value }));
+                }}
               />
             </div>
             <div className="mb-4 relative">
@@ -144,6 +166,9 @@ const Login = ({ auth, setAuth }: component) => {
                 type="text"
                 placeholder="Lastname"
                 className="w-[220px] h-[44px] pl-10 pr-4 py-2 rounded-full border border-gray-300 shadow-sm focus:outline-none"
+                onChange={(e) => {
+                  setSignupData((prev) => ({ ...prev, last_name: e.target.value }));
+                }}
               />
             </div>
           </div>
@@ -155,9 +180,11 @@ const Login = ({ auth, setAuth }: component) => {
               </p>
             </span> */}
             <PhoneInput
-              country={"us"}
-              value={phone}
-              onChange={(phone) => setPhone(phone)}
+              country={"ng"}
+              // value={signupData.phone_number}
+              onChange={(value) => {
+                setSignupData((prev) => ({ ...prev, phone_number: `+${value}` }));
+              }}
               inputStyle={{
                 width: "455px",
                 height: "44px",
@@ -192,6 +219,9 @@ const Login = ({ auth, setAuth }: component) => {
               type="email"
               placeholder="Email"
               className="w-[455px] h-[44px] pl-10 pr-4 py-2 rounded-full border border-gray-300 shadow-sm focus:outline-none"
+              onChange={(e) => {
+                setSignupData((prev) => ({ ...prev, email: e.target.value }));
+              }}
             />
           </div>
 
@@ -201,16 +231,19 @@ const Login = ({ auth, setAuth }: component) => {
             </p>
             <i className="fas fa-lock absolute left-4 top-11   text-gray-500"></i>
             <input
-              type={showPassword ? "password" : "text"}
+              type={!showPassword ? "password" : "text"}
               placeholder="Password"
               className="w-[455px] h-[44px] pl-10 pr-10 py-2 rounded-full border border-gray-300 outline-none"
+              onChange={(e) => {
+                setSignupData((prev) => ({ ...prev, password: e.target.value }));
+              }}
             />
             <button
               type="button"
               onClick={togglePasswordVisibility}
               className="absolute right-4 top-10   text-gray-500"
             >
-              {showPassword ? (
+              {showPassword == false ? (
                 <i className="fas fa-eye-slash "></i>
               ) : (
                 <i className="fas fa-eye"></i>
@@ -218,7 +251,10 @@ const Login = ({ auth, setAuth }: component) => {
             </button>
           </div>
 
-          <button className="w-[455px] h-[40px] bg-[#218021] text-white rounded-full py-2 px-4 mb-6 hover:bg-[#2b7a2b]">
+          <button
+            onClick={() => RegisterUser()}
+            className="w-[455px] h-[40px] bg-[#218021] text-white rounded-full py-2 px-4 mb-6 hover:bg-[#2b7a2b]"
+          >
             Sign Up
           </button>
           <h3 className="text-[#344054] text-[16px]">
