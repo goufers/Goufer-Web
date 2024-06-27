@@ -11,12 +11,13 @@ export const Signup = createAsyncThunk(
 
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_GOUFER_TEST_API}/users/register`,
+        `${import.meta.env.VITE_GOUFER_TEST_API}/users/register/`,
         data
       );
       return response.data;
     } catch (error: any) {
       console.error(rejectWithValue);
+      console.log(error);
       return error.response.data;
     }
   }
@@ -94,7 +95,6 @@ export const VerifyPhone = createAsyncThunk(
 const initialState = {
   user: {},
   authkeys: { refresh: "", access: "", auth_status: "" },
-  wallet: { id: "", Balance: "" },
   status: "idle",
   error: null,
 };
@@ -102,18 +102,7 @@ const initialState = {
 export const authSlice: any = createSlice({
   name: "auth",
   initialState: initialState,
-  reducers: {
-    signup: (state: any) => {
-      return state.user;
-    },
-    login: (state: any) => {
-      return state.user;
-    },
-    forgot_password: (state: any, action: any) => {
-      return state.user;
-    },
-  },
-
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(Signup.pending, (state) => {

@@ -1,14 +1,14 @@
-import { SetStateAction, useState } from 'react';
-import PhoneInput from 'react-phone-input-2';
-import 'react-phone-input-2/lib/style.css';
+import { useState } from "react";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 import OtpInput from "./OtpInput";
 
 const PhoneValidation = () => {
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [valid, setValid] = useState(true);
   const [showOtpInput, setShowOtpInput] = useState(false);
 
-  const handleChange = (value: SetStateAction<string>) => {
+  const handleChange = (value: any) => {
     setPhoneNumber(value);
     setValid(validatePhoneNumber(value));
   };
@@ -19,16 +19,14 @@ const PhoneValidation = () => {
   };
 
   const OnOtpSubmit = (otp: any) => {
-    console.log('Login Successful', otp);
+    console.log("Login Successful", otp);
   };
 
   return (
     <div className="flex flex-col items-center justify-center h-screen w-full bg-[#f5f5f5]">
       <div className="text-center mx-auto">
         <h2 className="text-[20px] font-semibold">Phone Verification</h2>
-        <p className="text-xs">
-          We need to register phone number before getting started!
-        </p>
+        <p className="text-xs">We need to register phone number before getting started!</p>
       </div>
 
       {!showOtpInput && (
@@ -36,11 +34,11 @@ const PhoneValidation = () => {
           <label className="mb-[10px]" htmlFor="">
             Phone Number :
             <PhoneInput
-              country={'us'}
+              country={"us"}
               value={phoneNumber}
               onChange={handleChange}
               inputProps={{
-              required: true,
+                required: true,
               }}
             />
           </label>
@@ -51,8 +49,7 @@ const PhoneValidation = () => {
           )}
           <button
             className="w-[300px] text-white text-[14px] py-2 rounded-lg bg-[#007f00] cursor-pointer hover:bg-[#789178]"
-            
-            onClick={()=>setShowOtpInput(true)}
+            onClick={() => setShowOtpInput(true)}
           >
             Send the Code
           </button>
@@ -60,19 +57,15 @@ const PhoneValidation = () => {
       )}
 
       {showOtpInput && (
-        <div className='flex flex-col items-center mx-auto mt-[30px] w-[350px] space-y-3 p-[20px] bg-[#ffffff] rounded-lg shadow-lg'>
+        <div className="flex flex-col items-center mx-auto mt-[30px] w-[350px] space-y-3 p-[20px] bg-[#ffffff] rounded-lg shadow-lg">
           <p>Enter OTP sent to {phoneNumber}</p>
-          <OtpInput length={6} submit={OnOtpSubmit} />
-          <button
-            className="w-[300px] text-white text-[14px] py-2 rounded-lg bg-[#007f00] cursor-pointer hover:bg-[#789178]"
-        
-           
-          >
+          <OtpInput length={6} onComplete={OnOtpSubmit} />
+          <button className="w-[300px] text-white text-[14px] py-2 rounded-lg bg-[#007f00] cursor-pointer hover:bg-[#789178]">
             Verify Phone Number
           </button>
-          <div className='flex flex-row justify-between text-xs space-x-4 '>
-          <p className='mr-[100px]'>Edit phone number?</p>
-          <p className='ml-[100px] text-[#007f00]' >Send again</p>
+          <div className="flex flex-row justify-between text-xs space-x-4 ">
+            <p className="mr-[100px]">Edit phone number?</p>
+            <p className="ml-[100px] text-[#007f00]">Send again</p>
           </div>
         </div>
       )}
