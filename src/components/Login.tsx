@@ -12,7 +12,7 @@ interface component {
 const Login = ({ auth, setAuth }: component) => {
   const [authComponent, setAuthComponent] = useState("verify_phone");
   const dispatch = useDispatch<any>();
-  const AuthStatus = useSelector((state: any) => state.Auth.authkeys.auth_status);
+  const AuthStatus = useSelector((state: any) => state.Auth.authkeys?.auth_status);
   const [showPassword, setShowPassword] = useState(true);
   const [loading, setLoading] = useState(false);
   const [loginData, setLoginData] = useState({
