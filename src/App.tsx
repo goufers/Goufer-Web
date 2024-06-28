@@ -24,9 +24,10 @@ function App() {
 
   useEffect(() => {
     if (!localStorage.getItem("G_A_token")) {
-      if (location.pathname !== ("/" || "/search")) {
-        window.location.replace("/");
-      }
+      // if (location.pathname !== ("/" || "/search")) {
+      //   window.location.replace("/");
+      // }
+      console.log("no_token");
     } else {
       async () => {
         try {
