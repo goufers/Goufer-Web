@@ -17,24 +17,12 @@ import Dashboard from "./pages/Dashboard/Main";
 import Employment from "./pages/Dashboard/Employment";
 import Favorites from "./pages/Dashboard/Favourite";
 import AsyncOperationComponent from "./components/AsyncOperationComponent";
-import Loading from "./components/Loading";
-import { useEffect, useState } from "react";
 import SuccessCard from "./components/SuccessCard";
 import FailedCard from "./components/FailedCard";
 
 function App() {
 
-  const [loading, setLoading] = useState(true); // Initially set to true
 
-  useEffect(() => {
-    // Simulate loading delay
-    const timer = setTimeout(() => setLoading(false), 2000); // Simulate a 2-second loading delay
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (loading) {
-    return <Loading />;
-  }
   return (
 
 
