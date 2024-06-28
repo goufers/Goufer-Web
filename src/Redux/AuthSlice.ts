@@ -83,7 +83,7 @@ export const SendCode = createAsyncThunk(
 
 export const VerifyPhone = createAsyncThunk(
   "verify-phone",
-  async (data: any, { rejectWithValue }) => {
+  async (data, { rejectWithValue }) => {
     console.log(data);
     try {
       const response = await axios.post(

@@ -3,12 +3,13 @@ import { useState } from "react";
 import "react-phone-input-2/lib/style.css";
 // import { SendCode, VerifyPhone } from "../Redux/AuthSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { VerifyPhone } from "../Redux/AuthSlice";
 
 const PhoneValidation = () => {
   const dispatch = useDispatch();
   const userPhone = useSelector((state: any) => state.Auth.authkeys.phone_number);
   const [showOtpInput, setShowOtpInput] = useState(false);
-  const [Code, setCode] = useState<any>("");
+  const [Code, setCode] = useState("+2349073077717");
 
   // const sendCode = () => {
   //   dispatch(SendCode(userPhone));
@@ -30,20 +31,23 @@ const PhoneValidation = () => {
   return (
     <div className="m-auto w-full h-full flex  flex-col    items-center  bg-white">
       <div className="  mx-auto mt-44 ">
-        <h2 className="text-[20px] font-semibold">Phone Verification</h2>
-        <p className="text-xs">We need to register phone number before getting started!</p>
+        <h2 className="text-center text-[20px] font-semibold">Phone Verification</h2>
+        <p className="text-center text-xs">
+          We need to verify your phone number before getting started!
+        </p>
         {!showOtpInput && (
-          <div className="flex flex-col items-center m-auto mt-2  w-[350px] p-[20px] bg-white rounded-lg shadow-lg">
+          <div className="flex flex-col items-center m-auto mt-2  w-[350px] p-[20px] bg-white rounded-lg  ">
             <input
               value={userPhone}
               required
-              className="outline-none p-2 border  border-green-700 rounded "
+              readOnly
+              className="w-auto outline-none p-2 border  font-bold text-center border-green-700 rounded-lg "
             />
             <button
-              className="w-[300px] text-white text-[14px] py-2 rounded-lg bg-[#007f00] cursor-pointer hover:bg-[#789178]"
+              className="   text-white text-[14px] mt-4 text-center px-12 py-2 rounded-lg bg-[#007f00] cursor-pointer hover:bg-[#789178]"
               onClick={() => sendCode()}
             >
-              Send the Code
+              Send Code
             </button>
           </div>
         )}

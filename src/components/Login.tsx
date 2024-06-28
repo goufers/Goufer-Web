@@ -10,11 +10,9 @@ interface component {
   setAuth: (data: any) => void;
 }
 const Login = ({ auth, setAuth }: component) => {
-  const [authComponent, setAuthComponent] = useState("signup");
+  const [authComponent, setAuthComponent] = useState("verify_phone");
   const dispatch = useDispatch<any>();
-  // const user = useSelector((state: any) => state.user.user);
   const AuthStatus = useSelector((state: any) => state.Auth.authkeys.auth_status);
-  // const error = useSelector((state: any) => state.user.error);
   const [showPassword, setShowPassword] = useState(true);
   const [loading, setLoading] = useState(false);
   const [loginData, setLoginData] = useState({
