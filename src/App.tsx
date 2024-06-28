@@ -1,34 +1,70 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Landing from "./pages/Landing";
 import Page404 from "./pages/Page404";
 import AboutUs from "./pages/AboutUs/AboutUs";
 import Faq from "./pages/Faq/Faq";
 import Home from "./pages/Home/Home";
 import ContactUs from "./pages/ContactUs/ContactUs";
-import Footer from "./components/Footer";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import PUBLIC_ROUTES from "./utils/PublicRoutes";
 import Search from "./pages/Search/Search-1";
-import Verifyemail from "./components/Verifyemail";
 import GouferProfile from "./pages/Profile/GouferProfile";
 import Chat from "./pages/Dashboard/Chat";
 import Dashboard from "./pages/Dashboard/Main";
 import Employment from "./pages/Dashboard/Employment";
 import Favorites from "./pages/Dashboard/Favourite";
+
 import AsyncOperationComponent from "./components/AsyncOperationComponent";
 import SuccessCard from "./components/SuccessCard";
 import FailedCard from "./components/FailedCard";
 
+import { jwtDecode } from "jwt-decode";
+
+
+import axios from "axios";
+
+
+
+
 function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (!localStorage.getItem("G_A_token")) {
+      // if (location.pathname !== ("/" || "/search")) {
+      //   window.location.replace("/");
+      // }
+      console.log("no_token");
+    } else {
+      async () => {
+        try {
+          const decoded = jwtDecode(`${localStorage.getItem("G_A_token")}`);
+
+          const tokenExpDate = decoded.exp;
+          const currentDate = new Date() / 1000;
+          if (tokenExpDate! < currentDate) {
+            const response = await axios.post(
+              `${import.meta.env.VITE_GOUFER_TEST_API}/token/refresh`,
+              { refresh: localStorage.getItem("G_R_token") }
+            );
+            if (response.data) {
+              localStorage.setItem(response.data.refresh, "G_R_token");
+              localStorage.setItem(response.data.access, "G_A_token");
+            }
+            return response.data;
+          }
+        } catch (error) {
+          console.error(error);
+          return error;
+        }
+      };
+    }
+  }, []);
 
 
   return (
-
-
-  
     <>
-    
       <Routes>
         <Route index path={PUBLIC_ROUTES.LANDINGPAGE} element={<Landing />} />
         <Route path={PUBLIC_ROUTES.GOUFER_PROFILE} element={<GouferProfile />} />
@@ -42,18 +78,12 @@ function App() {
         <Route path={"/faq"} element={<Faq />} />
         <Route path={"/home"} element={<Home />} />
         <Route path={"/contact_us"} element={<ContactUs />} />
-  
 
-        <Route path={"/verify_email"} element={<Verifyemail />} />
+        {/* <Route path={"/verify_email"} element={<Verifyemail />} />
         <Route path={"/successCard"} element={<SuccessCard />} />
-        <Route path={"/failedCard"} element={<FailedCard />} />
+        <Route path={"/failedCard"} element={<FailedCard />} /> */}
         <Route path={"*"} element={<Page404 />} />
       </Routes>
-
-
-   
-
-
     </>
   );
 }
