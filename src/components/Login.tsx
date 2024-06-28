@@ -3,20 +3,24 @@ import { useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { useDispatch, useSelector } from "react-redux";
-import { Signup } from "../Redux/AuthSlice";
-
+import { LoginUser, Signup } from "../Redux/AuthSlice";
+import PhoneValidation from "../components/PhoneValidation";
 interface component {
   auth: boolean;
   setAuth: (data: any) => void;
 }
 const Login = ({ auth, setAuth }: component) => {
-  const [authComponent, setAuthComponent] = useState("login");
+  const [authComponent, setAuthComponent] = useState("signup");
   const dispatch = useDispatch<any>();
   // const user = useSelector((state: any) => state.user.user);
   const AuthStatus = useSelector((state: any) => state.Auth.authkeys.auth_status);
   // const error = useSelector((state: any) => state.user.error);
   const [showPassword, setShowPassword] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [loginData, setLoginData] = useState({
+    identifier: "",
+    password: "",
+  });
   const [signupData, setSignupData] = useState({
     first_name: "",
     last_name: "",
@@ -29,6 +33,16 @@ const Login = ({ auth, setAuth }: component) => {
     // console.log(signupData);
     setLoading(true);
     dispatch(Signup(signupData));
+    if (AuthStatus === "True") {
+      setLoading(false);
+      setAuthComponent("verify_phone");
+    }
+  };
+
+  const LoginUserAction = () => {
+    // console.log(signupData);
+    setLoading(true);
+    dispatch(LoginUser(loginData));
     if (AuthStatus === "True") {
       setLoading(false);
     }
@@ -64,8 +78,8 @@ const Login = ({ auth, setAuth }: component) => {
                 />
               </div>
 
-              <p className="text-[#344054] text-left w-[74px] h-[20px] font-inter font-medium text-[14px] leading-[20px] mb-2">
-                Input Email
+              <p className="text-[#344054] text-left  h-[20px] font-inter font-medium text-[14px] leading-[20px] mb-2">
+                Input Email or phone
               </p>
               <div className="mb-4 relative">
                 <i className="fas fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
@@ -73,9 +87,22 @@ const Login = ({ auth, setAuth }: component) => {
                   type="email"
                   placeholder="Email"
                   className="w-[455px] h-[44px] pl-10 pr-4 py-2 rounded-[50px] border border-gray-300 shadow-sm  outline-none"
+                  onChange={(e) => {
+                    setLoginData((prev) => ({ ...prev, email: e.target.value }));
+                  }}
                 />
               </div>
-
+              <div className="mb-4 relative">
+                <i className="fas fa-phone absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+                <input
+                  type="phone"
+                  placeholder="phone number"
+                  className="w-[455px] h-[44px] pl-10 pr-4 py-2 rounded-[50px] border border-gray-300 shadow-sm  outline-none"
+                  onChange={(e) => {
+                    setLoginData((prev) => ({ ...prev, email: e.target.value }));
+                  }}
+                />
+              </div>
               <p className="text-[#344054] text-left w-[74px] h-[20px] font-inter font-medium text-[14px] leading-[20px] mb-2">
                 Password
               </p>
@@ -85,6 +112,9 @@ const Login = ({ auth, setAuth }: component) => {
                   type={showPassword ? "password" : "text"}
                   placeholder="Password"
                   className="w-[455px] h-[44px] pl-10 pr-10 py-2 rounded-[50px] border border-gray-300 outline-none"
+                  onChange={(e) => {
+                    setLoginData((prev) => ({ ...prev, password: e.target.value }));
+                  }}
                 />
                 <button
                   type="button"
@@ -99,7 +129,10 @@ const Login = ({ auth, setAuth }: component) => {
                 </button>
               </div>
 
-              <button className="w-[455px] h-[40px] bg-[#218021] text-white rounded-[50px] py-2 px-4 mb-6 hover:bg-[#1b6b1b]">
+              <button
+                className="w-[455px] h-[40px] bg-[#218021] text-white rounded-[50px] py-2 px-4 mb-6 hover:bg-[#1b6b1b]"
+                onClick={() => LoginUserAction()}
+              >
                 Log In
               </button>
               <h3 className="text-[#344054] text-[16px]">
@@ -300,7 +333,7 @@ const Login = ({ auth, setAuth }: component) => {
               </p>
             </div>
           )}
-          {authComponent === "verify_phone" && <p>Verify phone</p>}
+          {authComponent === "verify_phone" && <PhoneValidation />}
           <div className=" bg-gray-700 hidden md:flex flex-col items-center bg-opacity-70  backdrop-blur-sm p-8 shadow-md w-[503px] h-full rounded-r-[25px]  ">
             <div className="w-[351px] flex flex-col items-center m-auto ">
               <img className="w-[374.5px]" src="./images/gouferbig.svg" alt="gouferl" />

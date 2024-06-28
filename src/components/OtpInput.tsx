@@ -2,9 +2,13 @@ import React, { useEffect, useRef, useState } from "react";
 
 // declare type for the props
 
-type InputProps = { length?: number; onComplete: (pin: string) => void };
+interface appState {
+  length?: number;
+  onComplete: (pin: string) => void;
+  setCode: (data: any) => void;
+}
 
-const OTPInput = ({ length = 4, onComplete }: InputProps) => {
+const OTPInput = ({ length = 4, onComplete, setCode }: appState) => {
   // if you're not using Typescript, simply do const inputRef = useRef()
 
   const inputRef = useRef<HTMLInputElement[]>(Array(length).fill(null));
@@ -16,6 +20,9 @@ const OTPInput = ({ length = 4, onComplete }: InputProps) => {
     const newPin = [...OTP];
     newPin[index] = input;
     setOTP(newPin);
+    let code = OTP.join("");
+    console.log(code);
+    setCode(code);
 
     // check if the user has entered the first digit, if yes, automatically focus on the next input field and so on.
 
@@ -35,7 +42,7 @@ const OTPInput = ({ length = 4, onComplete }: InputProps) => {
   };
 
   return (
-    <div className="grid grid-cols-6 gap-2 w-[250px]">
+    <div className="grid grid-cols-6 gap-1  h-auto w-[250px]">
       {Array.from({ length }, (_, index) => (
         <input
           key={index}
@@ -44,8 +51,8 @@ const OTPInput = ({ length = 4, onComplete }: InputProps) => {
           value={OTP[index]}
           onChange={(e) => handleTextChange(e.target.value, index)}
           ref={(ref) => (inputRef.current[index] = ref as HTMLInputElement)}
-          className="border border-solid border-black focus:border-[#007f00] rounded-full p-2 outline-none"
-          style={{ marginRight: index === length - 1 ? "0" : "5px" }}
+          className="  mb-5 text-center border border-solid border-black focus:border-[#007f00] rounded-full p-2 outline-none"
+          // style={{ marginRight: index === length - 1 ? "0" : "5px" }}
         />
       ))}
     </div>

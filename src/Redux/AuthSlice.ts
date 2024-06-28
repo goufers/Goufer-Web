@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
 // Define an async thunk for the API call
 export const Signup = createAsyncThunk(
   "register-user",
@@ -13,9 +12,10 @@ export const Signup = createAsyncThunk(
         `${import.meta.env.VITE_GOUFER_TEST_API}/users/register/`,
         data
       );
-      response.data.auth_status == "True"
-        ? localStorage.setItem(response.data.access, "G_Token")
-        : null;
+      if (response.data.auth_status == "True") {
+        localStorage.setItem(response.data.access, "G_A_Token");
+        localStorage.setItem(response.data.refresh, "G_R_Token");
+      }
 
       return response.data;
     } catch (error: any) {
@@ -26,18 +26,18 @@ export const Signup = createAsyncThunk(
   }
 );
 
-export const Login = createAsyncThunk(
+export const LoginUser = createAsyncThunk(
   "login-user",
-  async (data: object, { rejectWithValue }) => {
-    console.log(data);
+  async (data: any, { rejectWithValue }) => {
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_GOUFER_TEST_API}/users/login`,
         data
       );
-      response.data.auth_status == "True"
-        ? localStorage.setItem(response.data.access, "G_token")
-        : "";
+      if (response.data.auth_status == "True") {
+        localStorage.setItem(response.data.access, "G_A_Token");
+        localStorage.setItem(response.data.refresh, "G_R_Token");
+      }
       return response.data;
     } catch (error: any) {
       return rejectWithValue(error.response ? error.response.data : error.message);
@@ -48,7 +48,7 @@ export const Login = createAsyncThunk(
 export const Logout = createAsyncThunk(
   "logout-user",
   async (data: object, { rejectWithValue }) => {
-    const token = localStorage.getItem("G_token");
+    const token = localStorage.getItem("G_A_token");
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_GOUFER_TEST_API}/users/logout-user`,
@@ -68,8 +68,7 @@ export const Logout = createAsyncThunk(
 
 export const SendCode = createAsyncThunk(
   "send-code",
-  async (data: object, { rejectWithValue }) => {
-    console.log(data);
+  async (data: any, { rejectWithValue }) => {
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_GOUFER_TEST_API}/users/send-code`,
@@ -84,7 +83,7 @@ export const SendCode = createAsyncThunk(
 
 export const VerifyPhone = createAsyncThunk(
   "verify-phone",
-  async (data: object, { rejectWithValue }) => {
+  async (data: any, { rejectWithValue }) => {
     console.log(data);
     try {
       const response = await axios.post(
@@ -124,15 +123,15 @@ export const authSlice: any = createSlice({
         state.status = "failed";
         state.error = action.payload;
       })
-      .addCase(Login.pending, (state) => {
+      .addCase(LoginUser.pending, (state) => {
         state.status = "loading";
         state.error = null;
       })
-      .addCase(Login.fulfilled, (state, action) => {
+      .addCase(LoginUser.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.user = action.payload;
       })
-      .addCase(Login.rejected, (state, action) => {
+      .addCase(LoginUser.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.payload;
       });
