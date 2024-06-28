@@ -12,7 +12,7 @@ const reducers = combineReducers({
   favorites:favoritesReducer
 });
 
-const persistConfig = {
+const persistConfig = {  
   key: "root",
   storage: storage,
   whitelist:['favorites'],

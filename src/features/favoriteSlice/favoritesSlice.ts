@@ -5,7 +5,7 @@ import storage from 'redux-persist/lib/storage'; // defaults to localStorage for
 interface Item {
   id: number;
   GouferCategories: string;
-  Shopimage:string;
+  Shopimage:string;  
   Gouferimage:string;
   Goufername:string;
   Text:string;

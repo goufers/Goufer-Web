@@ -151,7 +151,7 @@ const Favorites: React.FC = () => {
                   <img
                     src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716892672/Goufer/Vector_2_cq2qn3.png"
                     className="w-2 h-4 justify-end"
-                    alt=""
+                    alt="" 
                   />
                 </div>
               </div>
