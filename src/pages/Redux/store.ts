@@ -3,8 +3,8 @@ import { counterSlice } from "./CounterSlice";
 import authSlice from "./AuthSlice";
 import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
-import { thunk } from "redux-thunk";
-import favoritesReducer from "../features/favoriteSlice/favoritesSlice";
+// import { thunk } from "redux-thunk";
+import  favoritesReducer from "../../features/favoriteSlice/favoritesSlice";
 
 const reducers = combineReducers({
   counter: counterSlice,

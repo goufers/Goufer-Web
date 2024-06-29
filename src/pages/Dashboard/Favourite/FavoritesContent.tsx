@@ -107,7 +107,7 @@ const Favorites: React.FC = () => {
                   className="w-5 h-5 object-contain"
                   alt=""
                 />
-                <p className="text-[#2a2b2a] px-2 text-[12px]">
+                <p className="text-[#e5ffe5] px-2 text-[12px]">
                   {item.Rate}
                 </p>
               </div>
