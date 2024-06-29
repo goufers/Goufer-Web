@@ -10,7 +10,7 @@ interface component {
   setAuth: (data: any) => void;
 }
 const Login = ({ auth, setAuth }: component) => {
-  const [authComponent, setAuthComponent] = useState("verify_phone");
+  const [authComponent, setAuthComponent] = useState("login");
   const dispatch = useDispatch<any>();
   const AuthStatus = useSelector((state: any) => state.Auth.authkeys?.auth_status);
   const [showPassword, setShowPassword] = useState(true);
@@ -82,22 +82,11 @@ const Login = ({ auth, setAuth }: component) => {
               <div className="mb-4 relative">
                 <i className="fas fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
                 <input
-                  type="email"
-                  placeholder="Email"
-                  className="w-[455px] h-[44px] pl-10 pr-4 py-2 rounded-[50px] border border-gray-300 shadow-sm  outline-none"
+                  type="text"
+                  placeholder="Email or Phone"
+                  className="w-[455px] h-[44px] pl-10 pr-4 py-2 rounded-[50px] border border-gray-300 shadow-sm outline-none"
                   onChange={(e) => {
-                    setLoginData((prev) => ({ ...prev, email: e.target.value }));
-                  }}
-                />
-              </div>
-              <div className="mb-4 relative">
-                <i className="fas fa-phone absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
-                <input
-                  type="phone"
-                  placeholder="phone number"
-                  className="w-[455px] h-[44px] pl-10 pr-4 py-2 rounded-[50px] border border-gray-300 shadow-sm  outline-none"
-                  onChange={(e) => {
-                    setLoginData((prev) => ({ ...prev, email: e.target.value }));
+                    setLoginData((prev) => ({ ...prev, identifier: e.target.value }));
                   }}
                 />
               </div>
