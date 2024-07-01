@@ -14,11 +14,19 @@ import Chat from "./pages/Dashboard/Chat";
 import Dashboard from "./pages/Dashboard/Main";
 import Employment from "./pages/Dashboard/Employment";
 import Favorites from "./pages/Dashboard/Favourite";
+
+import AsyncOperationComponent from "./components/AsyncOperationComponent";
+import SuccessCard from "./components/SuccessCard";
+import FailedCard from "./components/FailedCard";
+
 import { jwtDecode } from "jwt-decode";
-import { useEffect } from "react";
+
 
 import axios from "axios";
 import Subscription from "./pages/Dashboard/Subscripyion";
+
+
+
 
 function App() {
   const location = useLocation();
@@ -54,6 +62,7 @@ function App() {
       };
     }
   }, []);
+
 
   return (
     <>
