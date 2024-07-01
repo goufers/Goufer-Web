@@ -45,6 +45,10 @@ const Login = ({ auth, setAuth }: component) => {
       setLoading(false);
     }
   };
+  const isPhoneNumber = (value: string) => {
+    const phoneNumberRegex = /^\d+$/;
+    return phoneNumberRegex.test(value);
+  };
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -80,16 +84,45 @@ const Login = ({ auth, setAuth }: component) => {
                 Input Email or phone
               </p>
               <div className="mb-4 relative">
-                <i className="fas fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
-                <input
-                  type="text"
-                  placeholder="Email or Phone"
-                  className="w-[455px] h-[44px] pl-10 pr-4 py-2 rounded-[50px] border border-gray-300 shadow-sm outline-none"
-                  onChange={(e) => {
-                    setLoginData((prev) => ({ ...prev, identifier: e.target.value }));
-                  }}
-                />
+            {isPhoneNumber(loginData.identifier) ? (
+              <PhoneInput 
+                country={"ng"}
+                value={loginData.identifier}
+                onChange={(phone) => setLoginData((prev) => ({ ...prev, identifier: phone }))}
+                inputStyle={{
+                  width: "455px",
+                  height: "44px",
+                  paddingLeft: "65px", // Adjusted padding to ensure space for the flag and country code
+                  paddingRight: "10px",
+                  borderRadius: "9999px", // rounded-full
+                  border: "1px solid #D1D5DB", // gray-300
+                  boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
+                }}
+
+                  buttonStyle={{
+              borderTopLeftRadius: "9999px", // rounded-full
+              borderBottomLeftRadius: "9999px", // rounded-full
+              borderRight: "none",
+              height: "44px",
+              display: "flex",
+              alignItems: "center",
+              paddingLeft: "10px", // Ensuring enough space for the flag and country code
+              paddingRight: "10px",
+            }}
+                placeholder="Email or Phone"
+              />
+            ) : (
+              <input
+                type="text"
+                placeholder="Email or Phone"
+                className="w-[455px] h-[44px] pl-10 pr-10 py-2 rounded-[50px] border border-gray-300 shadow-sm outline-none"
+                onChange={(e) => {
+                  setLoginData((prev) => ({ ...prev, identifier: e.target.value }));
+                }}
+              />
+            )}
               </div>
+
               <p className="text-[#344054] text-left w-[74px] h-[20px] font-inter font-medium text-[14px] leading-[20px] mb-2">
                 Password
               </p>
