@@ -7,7 +7,7 @@ import { VerifyPhone } from "../Redux/AuthSlice";
 
 const PhoneValidation = () => {
   const dispatch = useDispatch();
-  const userPhone = useSelector((state: any) => state.Auth.authkeys.phone_number);
+  const userPhone = useSelector((state: any) => state.Auth.authkeys?.phone_number);
   const [showOtpInput, setShowOtpInput] = useState(false);
   const [Code, setCode] = useState("+2349073077717");
 
