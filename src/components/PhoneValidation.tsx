@@ -3,7 +3,7 @@ import { useState } from "react";
 import "react-phone-input-2/lib/style.css";
 // import { SendCode, VerifyPhone } from "../Redux/AuthSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { VerifyPhone } from "../Redux/AuthSlice";
+import { VerifyPhone } from "../pages/Redux/AuthSlice";
 
 const PhoneValidation = () => {
   const dispatch = useDispatch();

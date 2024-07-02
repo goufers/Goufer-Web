@@ -3,7 +3,7 @@ import { useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { useDispatch, useSelector } from "react-redux";
-import { LoginUser, Signup } from "../Redux/AuthSlice";
+import { LoginUser,Signup } from "../pages/Redux/AuthSlice";
 import PhoneValidation from "../components/PhoneValidation";
 interface component {
   auth: boolean;
