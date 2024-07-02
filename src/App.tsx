@@ -15,21 +15,14 @@ import Dashboard from "./pages/Dashboard/Main";
 import Employment from "./pages/Dashboard/Employment";
 import Favorites from "./pages/Dashboard/Favourite";
 
-import AsyncOperationComponent from "./components/AsyncOperationComponent";
-import SuccessCard from "./components/SuccessCard";
-import FailedCard from "./components/FailedCard";
-
 import { jwtDecode } from "jwt-decode";
-
 
 import axios from "axios";
 import Subscription from "./pages/Dashboard/Subscripyion";
-
-
-
+import { useEffect } from "react";
 
 function App() {
-  const location = useLocation();
+  // const location = useLocation();
 
   useEffect(() => {
     if (!localStorage.getItem("G_A_token")) {
@@ -62,7 +55,6 @@ function App() {
       };
     }
   }, []);
-
 
   return (
     <>
