@@ -18,6 +18,7 @@ import { jwtDecode } from "jwt-decode";
 import { useEffect } from "react";
 
 import axios from "axios";
+import Subscription from "./pages/Dashboard/Subscripyion";
 
 function App() {
   const location = useLocation();
@@ -64,6 +65,7 @@ function App() {
         <Route path={PUBLIC_ROUTES.CHAT} element={<Chat />} />
         <Route path={PUBLIC_ROUTES.EMPLOYMENT} element={<Employment />} />
         <Route path={PUBLIC_ROUTES.FAVORITE} element={<Favorites />} />
+        <Route path={PUBLIC_ROUTES.SUBSCRIPTION} element={<Subscription />} />
 
         <Route path={"/about_us"} element={<AboutUs />} />
         <Route path={"/faq"} element={<Faq />} />

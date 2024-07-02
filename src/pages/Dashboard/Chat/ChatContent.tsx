@@ -15,6 +15,7 @@ import { LiaUserSlashSolid } from "react-icons/lia";
 import { LuDelete } from "react-icons/lu";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import { BiTask } from "react-icons/bi";
+import { AiOutlineExclamationCircle } from "react-icons/ai";
 
 const ChatContent = () => {
   const [showChatOptions, setShowChatOptions] = useState(false);
@@ -295,7 +296,11 @@ const ChatContent = () => {
               <TbVideo size={22} color="black" className="mx-1.5 rounded-full " />
 
               <MdOutlineCall size={22} color="black" className="mx-1.5 rounded-full " />
-              <HiOutlineBell size={22} color="black" className="mx-1.5 rounded-full " />
+              <AiOutlineExclamationCircle
+                size={22}
+                color="black"
+                className="mx-1.5 rounded-full "
+              />
               <BsThreeDotsVertical
                 size={22}
                 color="black"

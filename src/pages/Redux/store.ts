@@ -3,23 +3,26 @@ import { counterSlice } from "./CounterSlice";
 import authSlice from "./AuthSlice";
 import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
+<<<<<<< HEAD:src/pages/Redux/store.ts
 // import { thunk } from "redux-thunk";
 import  favoritesReducer from "../../features/favoriteSlice/favoritesSlice";
+=======
+import favoritesReducer from "../features/favoriteSlice/favoritesSlice";
+>>>>>>> dda48a1510a7cfccec6cc1718dd25ab9731d5bef:src/Redux/store.ts
 
 const reducers = combineReducers({
   counter: counterSlice,
   Auth: authSlice,
-  favorites:favoritesReducer
+  favorites: favoritesReducer,
 });
 
 const persistConfig = {  
   key: "root",
   storage: storage,
-  whitelist:['favorites'],
+  whitelist: ["favorites"],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
-
 
 const store = configureStore({
   reducer: persistedReducer,
@@ -37,5 +40,3 @@ export const persistor = persistStore(store);
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 export default store;
-
-

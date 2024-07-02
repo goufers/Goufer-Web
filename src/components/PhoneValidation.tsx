@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState } from "react";
+import  { useState, useEffect, useRef, ChangeEvent, FC } from 'react';
 import "react-phone-input-2/lib/style.css";
-// import { SendCode, VerifyPhone } from "../Redux/AuthSlice";
+import { SendCode } from '../pages/Redux/AuthSlice';
 import { useDispatch, useSelector } from "react-redux";
 import { VerifyPhone } from "../pages/Redux/AuthSlice";
+
 
 const PhoneValidation = () => {
   const dispatch = useDispatch();
@@ -11,13 +12,13 @@ const PhoneValidation = () => {
   const [showOtpInput, setShowOtpInput] = useState(false);
   const [Code, setCode] = useState("+2349073077717");
 
-  // const sendCode = () => {
-  //   dispatch(SendCode(userPhone));
+  const sendCode = () => {
+    dispatch(SendCode(userPhone));
 
-  //   if ("codesent") {
-  //     setShowOtpInput(true);
-  //   }
-  // };
+    if ("codesent") {
+      setShowOtpInput(true);
+    }
+  };
 
   // const validatePhoneNumber = (phoneNumber: string) => {
   //   const phoneNumberPattern = /^\d{10}$/;
@@ -25,18 +26,78 @@ const PhoneValidation = () => {
   // };
 
   const VerifyCode = () => {
-    dispatch(VerifyPhone(Code));
+    // dispatch(VerifyPhone(Code));
   };
 
+  const [otp, setOtp] = useState<number>();
+  const [verified, setVerified] = useState<boolean>(false);
+  const [otpVal, setOtpVal] = useState<string[]>([]);
+  const textBase = useRef<HTMLDivElement>(null);
+
+  // Generate random OTP for each first render
+  useEffect(() => {
+    setOtp(Math.floor(100000 + Math.random() * 900000));
+  }, []);
+
+  const clearAll = () => {
+    if (textBase.current) {
+      textBase.current.classList.remove("otp-error");
+      textBase.current.childNodes.forEach((child) => {
+        (child as HTMLInputElement).value = "";
+      });
+    }
+    setOtpVal([]);
+    setVerified(false);
+  };
+
+  const getOtp = () => {
+    if (parseInt(otpVal.join("")) === otp) {
+      if (textBase.current) {
+        textBase.current.classList.remove("otp-error");
+      }
+      setVerified(true);
+    } else {
+      if (textBase.current) {
+        textBase.current.classList.add("otp-error");
+      }
+    }
+  };
+
+  const focusNext = (e: ChangeEvent<HTMLInputElement>) => {
+    if (textBase.current) {
+      const childCount = textBase.current.childElementCount;
+      const currentIndex = Array.from(e.target.parentNode?.children || []).indexOf(e.target);
+      if (currentIndex !== childCount - 1) {
+        (e.target.nextSibling as HTMLInputElement).focus();
+      } else {
+        const values: string[] = [];
+        textBase.current.childNodes.forEach((child) => {
+          values.push((child as HTMLInputElement).value);
+        });
+        if (values.length !== 0) {
+          setOtpVal(values);
+        }
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (otpVal.length === textBase.current?.childElementCount) {
+      getOtp();
+    }
+  }, [otpVal]);
+
+
   return (
-    <div className="m-auto w-full h-full flex  flex-col    items-center  bg-white">
+    <div className="m-auto w-full h-full flex flex-col items-center bg-white">
       <div className="  mx-auto mt-44 ">
-        <h2 className="text-center text-[20px] font-semibold">Phone Verification</h2>
-        <p className="text-center text-xs">
+      
+        {!showOtpInput && (
+          <div className="flex flex-col items-center m-auto mt-2  w-[400px] p-[20px] bg-white rounded-lg  ">
+              <h2 className="text-center text-[20px] font-semibold">Phone Verification</h2>
+        <p className="text-center text-xs mb-[20px]">
           We need to verify your phone number before getting started!
         </p>
-        {!showOtpInput && (
-          <div className="flex flex-col items-center m-auto mt-2  w-[350px] p-[20px] bg-white rounded-lg  ">
             <input
               value={userPhone}
               required
@@ -44,7 +105,7 @@ const PhoneValidation = () => {
               className="w-auto outline-none p-2 border  font-bold text-center border-green-700 rounded-lg "
             />
             <button
-              className="   text-white text-[14px] mt-4 text-center px-12 py-2 rounded-lg bg-[#007f00] cursor-pointer hover:bg-[#789178]"
+              className="text-white text-[14px] mt-4 text-center px-12 py-2 rounded-lg bg-[#007f00] cursor-pointer hover:bg-[#789178]"
               onClick={() => sendCode()}
             >
               Send Code
@@ -54,15 +115,32 @@ const PhoneValidation = () => {
       </div>
 
       {showOtpInput && (
-        <div className="flex flex-col items-center mx-auto mt-[30px] w-[350px] space-y-3 p-[20px] bg-[#ffffff] rounded-lg shadow-lg">
+        
+        <div className="flex flex-col items-center mx-auto mt-[30px] w-[400px] space-y-3 p-[20px] bg-[#ffffff] rounded-lg shadow-lg">
           <p>Enter OTP sent to {userPhone}</p>
-          <input
-            type="tel"
-            className=" mb-5 text-center border text-lg  border-green-400 focus:border-[#007f00] rounded-full p-2 outline-none"
-            onChange={(e) => setCode(e.target.value)}
-          />
+          <>
+          
+          <div className="w-auto flex  gap-2 " ref={textBase}>
+            {new Array(6).fill(null).map((_, index) => (
+              <input
+                className='w-[50px] h-[50px] p-3 text-xl outline-none rounded-lg focus:border-[#007f00]  border-[3px] border-solid   '
+                key={index}
+                type="text"
+                maxLength={1}
+                onChange={(e) => focusNext(e)}
+                style={{ textAlign: 'center' }}
+              />
+            ))}
+          </div>
           <button
-            className="w-[300px] text-white text-[14px] py-2 rounded-lg bg-[#007f00] cursor-pointer hover:bg-[#1cbb1c]"
+            className={`mt-6 mb-10  rounded-full  text-xs text-black border-[#afb0af] hover:border-[#007f00] border hover:text-white p-1.5 px-5 mr-[200px] cursor-pointer hover:bg-[#5b904b] ${otpVal.length > 0 ? 'visible hover:bg-[#5b904b] text-[#fff]' : ''}`}
+            onClick={clearAll}
+          >
+            Clear otp
+          </button>
+        </>
+          <button
+            className="w-[300px] text-white mt-9 text-[14px] py-2 rounded-lg bg-[#007f00] cursor-pointer hover:bg-[#1cbb1c]"
             onClick={() => VerifyCode}
           >
             Verify Phone Number
