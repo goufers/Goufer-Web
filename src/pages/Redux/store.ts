@@ -3,12 +3,7 @@ import { counterSlice } from "./CounterSlice";
 import authSlice from "./AuthSlice";
 import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
-<<<<<<< HEAD:src/pages/Redux/store.ts
-// import { thunk } from "redux-thunk";
-import  favoritesReducer from "../../features/favoriteSlice/favoritesSlice";
-=======
-import favoritesReducer from "../features/favoriteSlice/favoritesSlice";
->>>>>>> dda48a1510a7cfccec6cc1718dd25ab9731d5bef:src/Redux/store.ts
+import favoritesReducer  from "../../features/favoriteSlice/favoritesSlice";
 
 const reducers = combineReducers({
   counter: counterSlice,
