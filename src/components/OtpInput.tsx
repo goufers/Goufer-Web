@@ -1,62 +1,95 @@
-import React, { useEffect, useRef, useState } from "react";
+import  { useState, useEffect, useRef, ChangeEvent, FC } from 'react';
 
-// declare type for the props
 
-interface appState {
-  length?: number;
-  onComplete: (pin: string) => void;
-  setCode: (data: any) => void;
-}
 
-const OTPInput = ({ length = 4, onComplete, setCode }: appState) => {
-  // if you're not using Typescript, simply do const inputRef = useRef()
+const OtpInput: FC = () => {
+  const [otp, setOtp] = useState<number>();
+  const [verified, setVerified] = useState<boolean>(false);
+  const [otpVal, setOtpVal] = useState<string[]>([]);
+  const textBase = useRef<HTMLDivElement>(null);
 
-  const inputRef = useRef<HTMLInputElement[]>(Array(length).fill(null));
+  // Generate random OTP for each first render
+  useEffect(() => {
+    setOtp(Math.floor(100000 + Math.random() * 900000));
+  }, []);
 
-  // if you're not using Typescript, do useState,()
-  const [OTP, setOTP] = useState<string[]>(Array(length).fill(""));
-
-  const handleTextChange = (input: string, index: number) => {
-    const newPin = [...OTP];
-    newPin[index] = input;
-    setOTP(newPin);
-    let code = OTP.join("");
-    console.log(code);
-    setCode(code);
-
-    // check if the user has entered the first digit, if yes, automatically focus on the next input field and so on.
-
-    if (input.length === 1 && index < length - 1) {
-      inputRef.current[index + 1]?.focus();
+  const clearAll = () => {
+    if (textBase.current) {
+      textBase.current.classList.remove("otp-error");
+      textBase.current.childNodes.forEach((child) => {
+        (child as HTMLInputElement).value = "";
+      });
     }
+    setOtpVal([]);
+    setVerified(false);
+  };
 
-    if (input.length === 0 && index > 0) {
-      inputRef.current[index - 1]?.focus();
-    }
-
-    // if the user has entered all the digits, grab the digits and set as an argument to the onComplete function.
-
-    if (newPin.every((digit) => digit !== "")) {
-      onComplete(newPin.join(""));
+  const getOtp = () => {
+    if (parseInt(otpVal.join("")) === otp) {
+      if (textBase.current) {
+        textBase.current.classList.remove("otp-error");
+      }
+      setVerified(true);
+    } else {
+      if (textBase.current) {
+        textBase.current.classList.add("otp-error");
+      }
     }
   };
 
+  const focusNext = (e: ChangeEvent<HTMLInputElement>) => {
+    if (textBase.current) {
+      const childCount = textBase.current.childElementCount;
+      const currentIndex = Array.from(e.target.parentNode?.children || []).indexOf(e.target);
+      if (currentIndex !== childCount - 1) {
+        (e.target.nextSibling as HTMLInputElement).focus();
+      } else {
+        const values: string[] = [];
+        textBase.current.childNodes.forEach((child) => {
+          values.push((child as HTMLInputElement).value);
+        });
+        if (values.length !== 0) {
+          setOtpVal(values);
+        }
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (otpVal.length === textBase.current?.childElementCount) {
+      getOtp();
+    }
+  }, [otpVal]);
+
   return (
-    <div className="grid grid-cols-6 gap-1  h-auto w-[250px]">
-      {Array.from({ length }, (_, index) => (
-        <input
-          key={index}
-          type="text"
-          maxLength={1}
-          value={OTP[index]}
-          onChange={(e) => handleTextChange(e.target.value, index)}
-          ref={(ref) => (inputRef.current[index] = ref as HTMLInputElement)}
-          className="  mb-5 text-center border border-solid border-black focus:border-[#007f00] rounded-full p-2 outline-none"
-          // style={{ marginRight: index === length - 1 ? "0" : "5px" }}
-        />
-      ))}
+    <div className="m-0 p-0 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+      {!verified ? (
+        <>
+          <h1 className='text-xl mb-3 text-center'>Enter OTP send to phone number </h1>
+          <div className="w-auto flex justify-center gap-2 " ref={textBase}>
+            {new Array(6).fill(null).map((_, index) => (
+              <input
+                className='w-[50px] h-[50px] p-3 text-xl outline-none rounded-lg focus:border-[#007f00]  border-[3px] border-solid   '
+                key={index}
+                type="text"
+                maxLength={1}
+                onChange={(e) => focusNext(e)}
+                style={{ textAlign: 'center' }}
+              />
+            ))}
+          </div>
+          <button
+            className={` absolute mt-4 rounded-full text-white p-2 px-5 text-center bg-[#007f00] cursor-pointer transition-all outline-[#007f00] ${otpVal.length > 0 ? 'visible hover:bg-[#574b90] text-[#fff]' : ''}`}
+            onClick={clearAll}
+          >
+            Clear otp
+          </button>
+        </>
+      ) : (
+        <>Verified Successfully</>
+      )}
     </div>
   );
 };
 
-export default OTPInput;
+export default OtpInput;

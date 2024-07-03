@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 
 import { useDispatch } from "react-redux";
 import { fetchGouferProfile } from "../../Redux/gouferProfileSlice";
+=======
+import PUBLIC_ROUTES from "../../utils/PublicRoutes";
+>>>>>>> 1cc2dfadfa6d1952ab5b3a938109cc38ef7e705c
 import Mainbar from "./Mainbar";
 import Sidebar from "./Sidebar";
 import { useEffect } from "react";
@@ -34,9 +38,12 @@ const GouferProfile = () => {
         <button className="bg-white text-[#007F00] border border-[#007f00] rounded-full px-[25px] py-[10px] hover:bg-[#dfffdf] ">
           Add Favorite
         </button>
-        <button className="bg-[#007f00] text-white   hover:bg-[#287028] rounded-full px-[25px] py-[10px] hover:text-white ">
+        <a
+          href={PUBLIC_ROUTES.CHAT}
+          className="bg-[#007f00] text-white   hover:bg-[#287028] rounded-full px-[25px] py-[10px] hover:text-white "
+        >
           Contact Goufer
-        </button>
+        </a>
       </div>
       <div className="flex flex-row items-center">
         <Sidebar />
