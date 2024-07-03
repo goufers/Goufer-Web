@@ -14,13 +14,14 @@ import Chat from "./pages/Dashboard/Chat";
 import Dashboard from "./pages/Dashboard/Main";
 import Employment from "./pages/Dashboard/Employment";
 import Favorites from "./pages/Dashboard/Favourite";
+
 import { jwtDecode } from "jwt-decode";
-import { useEffect } from "react";
 import axios from "axios";
 import Subscription from "./pages/Dashboard/Subscripyion";
+import { useEffect } from "react";
 
 function App() {
-  const location = useLocation();
+  // const location = useLocation();
 
   useEffect(() => {
     if (!localStorage.getItem("G_A_token")) {
