@@ -14,10 +14,12 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Router>
       <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <ThemeProvider>
-        <App />
-        </ThemeProvider>
+        <PersistGate loading={null} persistor={persistor}>
+          <ThemeProvider>
+            <PersistGate loading={null} persistor={persistor}>
+              <App />
+            </PersistGate>
+          </ThemeProvider>
         </PersistGate>
       </Provider>
     </Router>

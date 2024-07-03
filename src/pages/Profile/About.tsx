@@ -1,4 +1,10 @@
+
+
+
+
 function About() {
+
+ 
   return (
     <div className="h-[350px]">
       <div className="flex flex-col space-y-7">
@@ -18,3 +24,30 @@ function About() {
 }
 
 export default About;
+
+
+
+// import React from 'react';
+
+// interface AboutProps {
+//   data: string;
+// }
+
+// const About: React.FC<AboutProps> = ({ data }) => {
+//   return (
+//     <div className="h-[350px]">
+//       <div className="flex flex-col space-y-7">
+//         <p className="font-semibold text-[20px] text-left">Bio</p>
+//         <p className="font-Roboto text-[14px] mt-10">
+//           {data}
+//         </p>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default About;
+
+
+
+

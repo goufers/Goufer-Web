@@ -1,7 +1,10 @@
+
 import Star from "./Star";
 import { FaStar } from "react-icons/fa";
 
 const Reviews = () => {
+
+
   const ReviewsData = [
     {
       image:
@@ -99,3 +102,9 @@ const Reviews = () => {
 };
 
 export default Reviews;
+
+
+
+
+
+
