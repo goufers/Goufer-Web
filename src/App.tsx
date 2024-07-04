@@ -19,6 +19,11 @@ import { useEffect } from "react";
 
 import axios from "axios";
 import Subscription from "./pages/Dashboard/Subscripyion";
+import PaymentPage from "./pages/Dashboard/Paymentmethod";
+import PaymentPageContent from "./pages/Dashboard/Paymentmethod/PaymentPageContent";
+
+
+
 
 function App() {
   const location = useLocation();
@@ -64,6 +69,7 @@ function App() {
         <Route path={PUBLIC_ROUTES.DASHBOARD} element={<Dashboard />} />
         <Route path={PUBLIC_ROUTES.CHAT} element={<Chat />} />
         <Route path={PUBLIC_ROUTES.EMPLOYMENT} element={<Employment />} />
+        <Route path={PUBLIC_ROUTES.PAYMENT} element={<PaymentPage />} />
         <Route path={PUBLIC_ROUTES.FAVORITE} element={<Favorites />} />
         <Route path={PUBLIC_ROUTES.SUBSCRIPTION} element={<Subscription />} />
 
