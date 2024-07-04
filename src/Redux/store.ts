@@ -4,11 +4,21 @@ import authSlice from "./AuthSlice";
 import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
 import favoritesReducer from "../features/favoriteSlice/favoritesSlice";
+<<<<<<< HEAD
+import gouferProfileSlice from "./gouferProfileSlice";
+
+
+=======
+>>>>>>> 1cc2dfadfa6d1952ab5b3a938109cc38ef7e705c
 
 const reducers = combineReducers({
   counter: counterSlice,
   Auth: authSlice,
   favorites: favoritesReducer,
+<<<<<<< HEAD
+  gouferProfile: gouferProfileSlice,
+=======
+>>>>>>> 1cc2dfadfa6d1952ab5b3a938109cc38ef7e705c
 });
 
 const persistConfig = {
@@ -16,6 +26,8 @@ const persistConfig = {
   storage: storage,
   whitelist: ["favorites"],
 };
+
+
 
 const persistedReducer = persistReducer(persistConfig, reducers);
 

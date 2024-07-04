@@ -8,7 +8,7 @@ const Chat = () => {
       <DashboardNav />
       <div className="w-full h-full flex flex-row ">
         <Menu />
-        <PageContent />
+        <PageContent/>
       </div>
     </div>
   );

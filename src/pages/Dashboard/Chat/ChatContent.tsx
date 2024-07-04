@@ -9,11 +9,20 @@ import { TbDotsVertical, TbVideo } from "react-icons/tb";
 import { BsPin, BsThreeDotsVertical } from "react-icons/bs";
 import { GrEmoji } from "react-icons/gr";
 import { CiMicrophoneOff } from "react-icons/ci";
+<<<<<<< HEAD
+import { RiUserForbidLine } from "react-icons/ri";
+import { LiaUserSlashSolid } from "react-icons/lia";
+import { LuDelete } from "react-icons/lu";
+import { IoIosCloseCircleOutline } from "react-icons/io";
+import { BiTask } from "react-icons/bi";
+import { AiOutlineExclamationCircle } from "react-icons/ai";
+=======
 import { AiOutlineExclamationCircle } from "react-icons/ai";
 import GoferProfile from "./GoferProfile";
 import SendFileOptions from "./SendFileOptions";
 import Icons from "./Icons";
 import ChatOptions from "./ChatOptions";
+>>>>>>> 1cc2dfadfa6d1952ab5b3a938109cc38ef7e705c
 
 const ChatContent = () => {
   const [showChatOptions, setShowChatOptions] = useState(false);
@@ -284,6 +293,13 @@ const ChatContent = () => {
                 className="mx-1.5 rounded-full cursor-pointer "
               />
 
+<<<<<<< HEAD
+              <MdOutlineCall size={22} color="black" className="mx-1.5 rounded-full " />
+              <AiOutlineExclamationCircle
+                size={22}
+                color="black"
+                className="mx-1.5 rounded-full "
+=======
               <MdOutlineCall
                 size={22}
                 color="black"
@@ -294,6 +310,7 @@ const ChatContent = () => {
                 color="black"
                 className="mx-1.5 rounded-full cursor-pointer "
                 onClick={() => setShowGouferProfile(!showGouferProfile)}
+>>>>>>> 1cc2dfadfa6d1952ab5b3a938109cc38ef7e705c
               />
               <BsThreeDotsVertical
                 size={22}
