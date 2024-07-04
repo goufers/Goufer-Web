@@ -14,7 +14,7 @@ import Chat from "./pages/Dashboard/Chat";
 import Dashboard from "./pages/Dashboard/Main";
 import Employment from "./pages/Dashboard/Employment";
 import Favorites from "./pages/Dashboard/Favourite";
-
+import Notification from "./pages/Dashboard/Notification/index";
 import { jwtDecode } from "jwt-decode";
 
 import axios from "axios";
@@ -67,6 +67,7 @@ function App() {
         <Route path={PUBLIC_ROUTES.EMPLOYMENT} element={<Employment />} />
         <Route path={PUBLIC_ROUTES.FAVORITE} element={<Favorites />} />
         <Route path={PUBLIC_ROUTES.SUBSCRIPTION} element={<Subscription />} />
+        <Route path={PUBLIC_ROUTES.NOTIFICATION} element={<Notification />} />
 
         <Route path={"/about_us"} element={<AboutUs />} />
         <Route path={"/faq"} element={<Faq />} />
