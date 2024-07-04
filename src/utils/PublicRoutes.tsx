@@ -7,8 +7,8 @@ const PUBLIC_ROUTES = {
   CHAT: "/chat",
   FAVORITE: "/favorite",
   EMPLOYMENT: "/employment",
-  SUBSCRIPTION:"/subscription",
-  ACCOUNT_SETTINGS:"/accountsettings",
+  SUBSCRIPTION: "/subscription",
+  NOTIFICATION: "/notification",
   //NAV BAR
   ABOUT_US: "/about",
   CONTACT_US: "/contact",

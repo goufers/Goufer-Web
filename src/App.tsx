@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Landing from "./pages/Landing";
 import Page404 from "./pages/Page404";
 import AboutUs from "./pages/AboutUs/AboutUs";
@@ -14,13 +14,13 @@ import Chat from "./pages/Dashboard/Chat";
 import Dashboard from "./pages/Dashboard/Main";
 import Employment from "./pages/Dashboard/Employment";
 import Favorites from "./pages/Dashboard/Favourite";
-
+import Notification from "./pages/Dashboard/Notification/index";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 import Subscription from "./pages/Dashboard/Subscripyion";
 import { useEffect } from "react";
 import AccountSettings from "./pages/Dashboard/AccountSettings";
-import CustomRoute from "./CustomRoute";
+
 import ProfileSettings from "./pages/Dashboard/AccountSettings/ProfileSettings";
 import Main from "./pages/Dashboard/AccountSettings/Main";
 
@@ -63,7 +63,7 @@ function App() {
     <>
 
       <Routes>
-      <Route path={PUBLIC_ROUTES.ACCOUNT_SETTINGS} element={<Main/>}/>
+      {/* <Route path={PUBLIC_ROUTES.ACCOUNT_SETTINGS} element={<Main/>}/> */}
         <></>
         <Route index path={PUBLIC_ROUTES.LANDINGPAGE} element={<Landing />} />
         <Route path={PUBLIC_ROUTES.GOUFER_PROFILE} element={<GouferProfile />} />
@@ -74,7 +74,8 @@ function App() {
         <Route path={PUBLIC_ROUTES.FAVORITE} element={<Favorites />} />
         {/* <Route path={PUBLIC_ROUTES.ACCOUNT_SETTINGS} element={<AccountSettings/>}/> */}
         <Route path={PUBLIC_ROUTES.SUBSCRIPTION} element={<Subscription />} />
-        <Route path='/profilesettings' element={<ProfileSettings/>}/>
+        <Route path={PUBLIC_ROUTES.NOTIFICATION} element={<Notification />} />
+
         <Route path={"/about_us"} element={<AboutUs />} />
         <Route path={"/faq"} element={<Faq />} />
         <Route path={"/home"} element={<Home />} />
