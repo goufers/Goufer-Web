@@ -2,17 +2,19 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { counterSlice } from "./CounterSlice";
 import authSlice from "./AuthSlice";
 import storage from "redux-persist/lib/storage";
-
 import { persistReducer, persistStore } from "redux-persist";
+import favoritesReducer from "../features/favoriteSlice/favoritesSlice";
 
 const reducers = combineReducers({
   counter: counterSlice,
   Auth: authSlice,
+  favorites: favoritesReducer,
 });
 
 const persistConfig = {
   key: "root",
   storage: storage,
+  whitelist: ["favorites"],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
@@ -33,5 +35,3 @@ export const persistor = persistStore(store);
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 export default store;
-
-
