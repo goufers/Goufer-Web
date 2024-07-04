@@ -11,7 +11,7 @@ const Menu = () => {
       icon: "/images/dashboard-square-remove.svg",
       url: PUBLIC_ROUTES.DASHBOARD,
     },
-    {
+    { 
       title: "Chat",
       icon: "/images/message-02.svg",
       url: PUBLIC_ROUTES.CHAT,
@@ -44,7 +44,7 @@ const Menu = () => {
     {
       title: "Account Settings",
       icon: "/images/account-setting-01.svg",
-      url: "",
+      url: PUBLIC_ROUTES.ACCOUNT_SETTINGS,
     },
     {
       title: " Log Out",

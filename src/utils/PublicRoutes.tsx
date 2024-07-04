@@ -8,6 +8,7 @@ const PUBLIC_ROUTES = {
   FAVORITE: "/favorite",
   EMPLOYMENT: "/employment",
   SUBSCRIPTION:"/subscription",
+  ACCOUNT_SETTINGS:"/accountsettings",
   //NAV BAR
   ABOUT_US: "/about",
   CONTACT_US: "/contact",

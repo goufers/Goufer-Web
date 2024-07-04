@@ -4,17 +4,19 @@ import authSlice from "./AuthSlice";
 import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
 import favoritesReducer  from "../../features/favoriteSlice/favoritesSlice";
+import dbSlice from "./dbSlice";
 
 const reducers = combineReducers({
   counter: counterSlice,
   Auth: authSlice,
   favorites: favoritesReducer,
+  db:dbSlice,
 });
 
 const persistConfig = {  
   key: "root",
   storage: storage,
-  whitelist: ["favorites"],
+  whitelist: ["favorites"]
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);

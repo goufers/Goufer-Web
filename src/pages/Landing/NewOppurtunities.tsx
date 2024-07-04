@@ -1,100 +1,25 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Slider from "./Sliders";
+import {  useSelector } from "react-redux";
+import { RootState } from "../Redux/store";
+import { fetchInfos, fetchSteps } from "../Redux/dbSlice";
+import { useDispatch } from "../Redux/useDispatch";
 
 const NewOppurtunities = () => {
   const [showExpertPop, setShowExpertPop] = useState<any>();
   const [selectedCategory, setSelectedCategory] = useState<any>();
-  const infos = [
-    {
-      id: 1,
-      Categories: "Food & Beverage",
-      Shopimage:
-        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
-      Gouferimage:
-        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
-      Goufername: "Azeez Ibrahim",
-      text: " These are professional goufer which are expertise in resturant knowledge and update",
-      Rate: "4.8",
-      City: "Lagos,Nigeria",
-      Task: " 50+ ",
-    },
-    {
-      id: 2,
-      GouferCategories: "Transport",
-      Shopimage:
-        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
-      Gouferimage:
-        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
-      Goufername: "Pius Lucky",
-      text: " These are professional goufer which are expertise in resturant knowledge and update",
-      Rate: "4.8",
-      City: "Lagos,Nigeria",
-      Task: " 50+",
-    },
-    {
-      id: 3,
-      GouferCategories: "Entertainment",
-      Shopimage:
-        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
-      Gouferimage:
-        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
-      Goufername: "Chika Chime",
 
-      text: " These are professional goufer which are expertise in resturant knowledge and update",
-      Rate: "4.8",
-      City: "Lagos,Nigeria",
-      Task: " 50+",
-    },
-    {
-      id: 4,
-      GouferCategories: "Donation",
-      Shopimage:
-        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
-      Gouferimage:
-        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
-      Goufername: "Choosen Abdullahi",
-      text: " These are professional goufer which are expertise in resturant knowledge and update",
-      Rate: "4.8",
-      City: "Lagos,Nigeria",
-      Task: " 50+",
-    },
-    // {
-    //   id: 5,
-    //   GouferCategories: "Shopper",
-    //   Shopimage:
-    //     "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
-    //   Gouferimage:
-    //     "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
-    //   Goufername: "Oladosu Teslimat",
-    //   text: " These are professional goufer which are expertise in resturant knowledge and update",
-    //   Rate: "4.8",
-    //   City: "Lagos,Nigeria",
-    //   Task: " 50+",
-    // },
-  ];
-  const steps = [
-    {
-      url: "https://res.cloudinary.com/dyjo2mvqb/image/upload/v1717413819/Frame_58_p7uxrw.svg",
-      title: "Log on to Goufer.com",
-      text: "Visit Goufer.com and create your account. Signing up is quick and easy, giving you access to access to a wide network of experts ready to assist with needs.",
-    },
-    {
-      url: "https://res.cloudinary.com/dyjo2mvqb/image/upload/v1717413819/Frame_60_poeeil.svg",
-      title: "Search for a Goufer",
-      text: "Use our power search engine to search the perfect expert for your task. Browser through detailed profiles, read reviews and select the best match for your requirements",
-    },
-    {
-      url: "https://res.cloudinary.com/dyjo2mvqb/image/upload/v1717413819/Frame_60_1_lakltd.svg",
-      title: "Negotiation",
-      text: "Enter negotiation and discuss your project details with your chosen expert through our secure platform. Reach a mutually beneficial agreement quickly and efficiently",
-    },
-    {
-      url: "https://res.cloudinary.com/dyjo2mvqb/image/upload/v1717413819/Frame_60_2_lenkg4.svg",
-      title: "Rate your Goufer",
-      text: "After experience seamless service, return to Goufer to rate and review your expert, YOur feedback helps maintain our standards and assist others in finding top-notch service providers.",
-    },
-  ];
+  const dispatch = useDispatch();
+  const { infos, steps, loading, error } = useSelector((state: RootState) => state.db);
+
+  useEffect(() => {
+    dispatch(fetchInfos());
+    dispatch(fetchSteps());
+  }, [dispatch]);
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+
   const JoinUs = [
     {
       icon: "https://res.cloudinary.com/dxnznpglg/image/upload/v1716812814/Goufer/wpf_happy_eklxev.png",

@@ -19,6 +19,10 @@ import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 import Subscription from "./pages/Dashboard/Subscripyion";
 import { useEffect } from "react";
+import AccountSettings from "./pages/Dashboard/AccountSettings";
+import CustomRoute from "./CustomRoute";
+import ProfileSettings from "./pages/Dashboard/AccountSettings/ProfileSettings";
+import Main from "./pages/Dashboard/AccountSettings/Main";
 
 function App() {
   // const location = useLocation();
@@ -57,7 +61,10 @@ function App() {
 
   return (
     <>
+
       <Routes>
+      <Route path={PUBLIC_ROUTES.ACCOUNT_SETTINGS} element={<Main/>}/>
+        <></>
         <Route index path={PUBLIC_ROUTES.LANDINGPAGE} element={<Landing />} />
         <Route path={PUBLIC_ROUTES.GOUFER_PROFILE} element={<GouferProfile />} />
         <Route path={PUBLIC_ROUTES.SEARCH} element={<Search />} />
@@ -65,13 +72,13 @@ function App() {
         <Route path={PUBLIC_ROUTES.CHAT} element={<Chat />} />
         <Route path={PUBLIC_ROUTES.EMPLOYMENT} element={<Employment />} />
         <Route path={PUBLIC_ROUTES.FAVORITE} element={<Favorites />} />
+        {/* <Route path={PUBLIC_ROUTES.ACCOUNT_SETTINGS} element={<AccountSettings/>}/> */}
         <Route path={PUBLIC_ROUTES.SUBSCRIPTION} element={<Subscription />} />
-
+        <Route path='/profilesettings' element={<ProfileSettings/>}/>
         <Route path={"/about_us"} element={<AboutUs />} />
         <Route path={"/faq"} element={<Faq />} />
         <Route path={"/home"} element={<Home />} />
         <Route path={"/contact_us"} element={<ContactUs />} />
-
         {/* <Route path={"/verify_email"} element={<Verifyemail />} />
         <Route path={"/successCard"} element={<SuccessCard />} />
         <Route path={"/failedCard"} element={<FailedCard />} /> */}
