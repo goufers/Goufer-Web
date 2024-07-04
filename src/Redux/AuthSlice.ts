@@ -139,5 +139,5 @@ export const authSlice: any = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-// export const { signup, login, forgot_password } = authSlice.actions;
+
 export default authSlice.reducer;
