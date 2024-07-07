@@ -2,7 +2,7 @@ import React from 'react';
 
 // Define the type for the 'info' prop
 type GouferInfo = {
-    id:number
+  id:number
   Goufername: string;
   text: string;
   Task: number;

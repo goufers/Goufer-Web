@@ -4,10 +4,12 @@ import authSlice from "./AuthSlice";
 import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
 import favoritesReducer from "../features/favoriteSlice/favoritesSlice";
+import SearchSlice from "./SearchSlice";
 
 const reducers = combineReducers({
   counter: counterSlice,
   Auth: authSlice,
+  SearchGoufer: SearchSlice,
   favorites: favoritesReducer,
 });
 

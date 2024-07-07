@@ -1,11 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
 import { AppDispatch, RootState } from "../../Redux/store";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleFavorite } from "../../features/favoriteSlice/favoritesSlice";
 import InputSearch from "./InputSearch";
+import { SearchGoufer } from "../../Redux/SearchSlice";
+
 
 interface Item {
   id: number;
@@ -25,114 +27,120 @@ const Search: React.FC = () => {
   const dispatch: AppDispatch = useDispatch();
   const favoriteItems = useSelector((state: RootState) => state.favorites.favoriteItems);
 
+  
   const handleIconClick = (item: Item) => {
     dispatch(toggleFavorite(item));
   };
-
-  const infos = [
-    {
-      id: 1,
-      GouferCategories: "Food & Beverage",
-      Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
-      Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
-      Goufername: "Azeez Ibrahim",
-      Text: " These are professional goufer which are expertise in resturant knowledge and update",
-      Rate: "4.8",
-      City: "Lagos,Nigeria",
-      Task: " 50+ ",
+// 
+  const goufers = useSelector((state:any) => state.SearchGoufer.goufers);
+  // const infos = [
+  //   {
+  //     id: 1,
+  //     GouferCategories: "Food & Beverage",
+  //     Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
+  //     Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+  //     Goufername: "Azeez Ibrahim",
+  //     Text: " These are professional goufer which are expertise in resturant knowledge and update",
+  //     Rate: "4.8",
+  //     City: "Lagos,Nigeria",
+  //     Task: " 50+ ",
       
-    },
-    {
-      id: 2,
-      GouferCategories: "Transport",
-      Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
-      Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
-      Goufername: "Pius Lucky",
-      Text: " These are professional goufer which are expertise in resturant knowledge and update",
-      Rate: "4.8",
-      City: "Lagos,Nigeria",
-      Task: " 50+",
+  //   },
+  //   {
+  //     id: 2,
+  //     GouferCategories: "Transport",
+  //     Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
+  //     Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+  //     Goufername: "Pius Lucky",
+  //     Text: " These are professional goufer which are expertise in resturant knowledge and update",
+  //     Rate: "4.8",
+  //     City: "Lagos,Nigeria",
+  //     Task: " 50+",
       
-    },
-    {
-      id: 3,
-      GouferCategories: "Entertainment",
-      Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
-      Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
-      Goufername: "Chika Chime",
-      Text: " These are professional goufer which are expertise in resturant knowledge and update",
-      Rate: "4.8",
-      City: "Lagos,Nigeria",
-      Task: " 50+",
+  //   },
+  //   {
+  //     id: 3,
+  //     GouferCategories: "Entertainment",
+  //     Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
+  //     Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+  //     Goufername: "Chika Chime",
+  //     Text: " These are professional goufer which are expertise in resturant knowledge and update",
+  //     Rate: "4.8",
+  //     City: "Lagos,Nigeria",
+  //     Task: " 50+",
       
-    },
-    {
-      id: 4,
-      GouferCategories: "Donation",
-      Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
-      Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
-      Goufername: "Choosen Abdullahi",
-      Text: " These are professional goufer which are expertise in resturant knowledge and update",
-      Rate: "4.8",
-      City: "Lagos,Nigeria",
-      Task: " 50+",
+  //   },
+  //   {
+  //     id: 4,
+  //     GouferCategories: "Donation",
+  //     Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
+  //     Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+  //     Goufername: "Choosen Abdullahi",
+  //     Text: " These are professional goufer which are expertise in resturant knowledge and update",
+  //     Rate: "4.8",
+  //     City: "Lagos,Nigeria",
+  //     Task: " 50+",
       
-    },
-    {
-      id: 5,
-      GouferCategories: "Shopper",
-      Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
-      Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
-      Goufername: "Oladosu Teslimat",
-      Text: " These are professional goufer which are expertise in resturant knowledge and update",
-      Rate: "4.8",
-      City: "Lagos,Nigeria",
-      Task: " 50+",
+  //   },
+  //   {
+  //     id: 5,
+  //     GouferCategories: "Shopper",
+  //     Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
+  //     Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+  //     Goufername: "Oladosu Teslimat",
+  //     Text: " These are professional goufer which are expertise in resturant knowledge and update",
+  //     Rate: "4.8",
+  //     City: "Lagos,Nigeria",
+  //     Task: " 50+",
       
-    },
-    {
-      id: 6,
-      GouferCategories: "Shopper",
-      Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
-      Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
-      Goufername: "Oladosu Teslimat",
-      Text: " These are professional goufer which are expertise in resturant knowledge and update",
-      Rate: "4.8",
-      City: "Lagos,Nigeria",
-      Task: " 50+",
+  //   },
+  //   {
+  //     id: 6,
+  //     GouferCategories: "Shopper",
+  //     Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
+  //     Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+  //     Goufername: "Oladosu Teslimat",
+  //     Text: " These are professional goufer which are expertise in resturant knowledge and update",
+  //     Rate: "4.8",
+  //     City: "Lagos,Nigeria",
+  //     Task: " 50+",
     
-    },
-    {
-      id: 7,
-      GouferCategories: "Shopper",
-      Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
-      Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
-      Goufername: "Oladosu Teslimat",
-      Text: " These are professional goufer which are expertise in resturant knowledge and update",
-      Rate: "4.8",
-      City: "Lagos,Nigeria",
-      Task: " 50+",
+  //   },
+  //   {
+  //     id: 7,
+  //     GouferCategories: "Shopper",
+  //     Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
+  //     Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+  //     Goufername: "Oladosu Teslimat",
+  //     Text: " These are professional goufer which are expertise in resturant knowledge and update",
+  //     Rate: "4.8",
+  //     City: "Lagos,Nigeria",
+  //     Task: " 50+",
      
-    },
+  //   },
 
-    {
-      id: 8, 
-      GouferCategories: "Shopper",
-      Shopimage:
-        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
-      Gouferimage:
-        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
-      Goufername: "Oladosu Teslimat",
-      Text: " These are professional goufer which are expertise in resturant knowledge and update",
-      Rate: "4.8",
-      City: "Lagos,Nigeria",
-      Task: " 50+",
-    }
-  ];
+  //   {
+  //     id: 8, 
+  //     GouferCategories: "Shopper",
+  //     Shopimage:
+  //       "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
+  //     Gouferimage:
+  //       "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+  //     Goufername: "Oladosu Teslimat",
+  //     Text: " These are professional goufer which are expertise in resturant knowledge and update",
+  //     Rate: "4.8",
+  //     City: "Lagos,Nigeria",
+  //     Task: " 50+",
+  //   }
+  // ];
   const handleStarClick = (index: number) => {
     setRating(index + 1);
   };
 
+  useEffect(() => {console.log(goufers)}
+  ,[]);
+
+  
   return (
     <div className="w-full h-auto mb-24 bg-white">
       <Nav />
@@ -193,7 +201,7 @@ const Search: React.FC = () => {
             </div>
 
             <select className="w-[230px] h-[30px] rounded-[25px] border-none pl-4 bg-white outline-none">
-              <option value="" disabled selected>
+              <option value="" disabled >
                 Select Categories
               </option>
               <option value="hurr">Food</option>
@@ -247,7 +255,7 @@ const Search: React.FC = () => {
             </div>
 
             <select className="w-[230px] h-[30px] rounded-[25px] border-none pl-4 bg-white">
-              <option value="" disabled selected>
+              <option value="" disabled >
                 Select gender
               </option>
               <option value="hurr">Male</option>
@@ -287,8 +295,8 @@ const Search: React.FC = () => {
 
         {/* ----------------cards contents------------- */}
         <div className=" w-full md:w-11/10 h-auto  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-evenly ">
-          {infos &&
-            infos.map((info) => (
+          {goufers &&
+            goufers.map((info:any) => (
               <div
                   className="mx-auto flex flex-col my-4 relative bg-white items-center w-10/12 md:w-[270px] lg:w-[250px] h-[296px] pb-4 rounded-xl shadow-sm shadow-blue-gray-300 transition duration-300 ease-in-out hover:shadow-lg hover:shadow-blue-gray-400"
                 key={info.id}
@@ -298,17 +306,13 @@ const Search: React.FC = () => {
                   <div className="relative justify-between">
                     <div className="absolute z-10 flex justify-between gap-12 w-[300px]  md:w-[230px] h-[26px] items-center  m-3">
                       <div className=" text-black text-xs h-[26px] w-[116px] rounded-full bg-white flex items-center justify-center">
-                        <p>Food and Beverage</p>
+                        <p>{info.GouferCategories}</p>
                       </div>
                       <button onClick={() => handleIconClick(info)}>
                           <img
-                            src="https://res.cloudinary.com/dspkk9qlz/image/upload/v1717687970/Vector_1_obvbdm.svg"
-                            alt="favorite"
-                            className="mr-3 mt-3 cursor-pointer"
-                            style={{
-                              filter: favoriteItems.some((favItem) =>favItem.id === info.id) ? "invert(27%) sepia(95%) saturate(2129%) hue-rotate(99deg) brightness(93%) contrast(92%)" : "none"
-                            }}
-                          />
+                          src={info.Gouferimage}
+                         alt="favorite"
+    className="mr-3 mt-3 cursor-pointer"/>
                       </button>
                     </div>
 

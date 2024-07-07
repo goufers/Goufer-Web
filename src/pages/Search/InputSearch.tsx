@@ -3,7 +3,6 @@
 const InputSearch = () => {
   return (
    
-
     <div className="mx-1 w-full md:w-[842px] h-[55px] flex flex-col-reverse md:flex-row md:items-center justify-around md:gap[73px] mt-2">
      
 
