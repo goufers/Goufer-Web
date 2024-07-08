@@ -7,8 +7,10 @@ const PUBLIC_ROUTES = {
   CHAT: "/chat",
   FAVORITE: "/favorite",
   EMPLOYMENT: "/employment",
+
   SUBSCRIPTION:"/subscription",
   PAYMENT:"/payment",
+<<<<<<< HEAD
   PAYMENT_CHANGE:"/changePayment",
   PAYMENT_UPDATE:"/PaymentUpdate",
   PAYMENT_ADD:"/PaymentAdd",
@@ -22,6 +24,12 @@ const PUBLIC_ROUTES = {
 
   SUBSCRIPTION: "/subscription",
   NOTIFICATION: "/notification",
+=======
+
+  SUBSCRIPTION: "/subscription",
+  NOTIFICATION: "/notification",
+
+>>>>>>> cd5b506c552c21895bf6821e7519bb0bbf207c80
   //NAV BAR
   ABOUT_US: "/about",
   CONTACT_US: "/contact",

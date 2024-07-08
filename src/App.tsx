@@ -16,8 +16,13 @@ import Employment from "./pages/Dashboard/Employment";
 import Favorites from "./pages/Dashboard/Favourite";
 import Notification from "./pages/Dashboard/Notification/index";
 import { jwtDecode } from "jwt-decode";
+<<<<<<< HEAD
+=======
+
+>>>>>>> cd5b506c552c21895bf6821e7519bb0bbf207c80
 import axios from "axios";
 import Subscription from "./pages/Dashboard/Subscripyion";
+
 import PaymentPage from "./pages/Dashboard/Paymentmethod";
 import PaymentPageContent from "./pages/Dashboard/Paymentmethod/PaymentPageContent";
 
@@ -25,9 +30,12 @@ import PaymentPageContent from "./pages/Dashboard/Paymentmethod/PaymentPageConte
 
 
 import { useEffect } from "react";
+<<<<<<< HEAD
 import ChangePayment from "./pages/Dashboard/Paymentmethod/ChangePayment";
 import PaymentUpdate from "./pages/Dashboard/Paymentmethod/PaymentUpdate";
 import PaymentAdd from "./pages/Dashboard/Paymentmethod/PaymentAdd";
+=======
+>>>>>>> cd5b506c552c21895bf6821e7519bb0bbf207c80
 
 
 function App() {
