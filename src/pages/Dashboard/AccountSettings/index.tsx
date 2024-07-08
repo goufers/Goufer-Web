@@ -1,6 +1,5 @@
 import DashboardNav from "../DashboardNav"
 import Menu from "../Menu"
-import Main from "./Main"
 import Settings from "./Settings"
 
 const AccountSettings = () => {
@@ -9,7 +8,7 @@ const AccountSettings = () => {
     <DashboardNav />
     <div className="w-full flex flex-row h-screen bg-[#F9F9F9]">
       <Menu />
-      <Main />
+      <Settings />
     </div>
   </div>
   )

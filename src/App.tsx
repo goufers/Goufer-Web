@@ -23,6 +23,10 @@ import AccountSettings from "./pages/Dashboard/AccountSettings";
 
 import ProfileSettings from "./pages/Dashboard/AccountSettings/ProfileSettings";
 import Main from "./pages/Dashboard/AccountSettings/Main";
+import menu from "./utils/accUtils";
+import PasswordSettings from "./pages/Dashboard/AccountSettings/PasswordSettings";
+import PrivacyAndNotification from "./pages/Dashboard/AccountSettings/PrivacyAndNotification";
+import Deactivate from "./pages/Dashboard/AccountSettings/Deactivate";
 
 function App() {
   // const location = useLocation();
@@ -63,7 +67,6 @@ function App() {
     <>
 
       <Routes>
-      {/* <Route path={PUBLIC_ROUTES.ACCOUNT_SETTINGS} element={<Main/>}/> */}
         <></>
         <Route index path={PUBLIC_ROUTES.LANDINGPAGE} element={<Landing />} />
         <Route path={PUBLIC_ROUTES.GOUFER_PROFILE} element={<GouferProfile />} />
@@ -72,7 +75,8 @@ function App() {
         <Route path={PUBLIC_ROUTES.CHAT} element={<Chat />} />
         <Route path={PUBLIC_ROUTES.EMPLOYMENT} element={<Employment />} />
         <Route path={PUBLIC_ROUTES.FAVORITE} element={<Favorites />} />
-        {/* <Route path={PUBLIC_ROUTES.ACCOUNT_SETTINGS} element={<AccountSettings/>}/> */}
+        <Route path={PUBLIC_ROUTES.ACCOUNT_SETTINGS} element={<AccountSettings/>}/>
+      
         <Route path={PUBLIC_ROUTES.SUBSCRIPTION} element={<Subscription />} />
         <Route path={PUBLIC_ROUTES.NOTIFICATION} element={<Notification />} />
 

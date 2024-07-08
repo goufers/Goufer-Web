@@ -13,6 +13,8 @@ const PUBLIC_ROUTES = {
   ABOUT_US: "/about",
   CONTACT_US: "/contact",
   CATEGORIES: "/categories",
+  ACCOUNT_SETTINGS:'accountsettings',
+ 
 
   LOGIN: "/login",
   SIGNUP: "/signup",

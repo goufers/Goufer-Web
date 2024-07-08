@@ -86,19 +86,3 @@ const dbSlice = createSlice({
 // Export actions and reducer
 export default dbSlice.reducer;
 
-
-// createAsyncThunk(
-//   "verify-phone",
-//   async (data, { rejectWithValue }) => {
-//     console.log(data);
-//     try {
-//       const response = await axios.post(
-//         `${import.meta.env.VITE_GOUFER_TEST_API}/users/verify-phone`,
-//         data
-//       );
-//       return response.data;
-//     } catch (error: any) {
-//       return rejectWithValue(error.response ? error.response.data : error.message);
-//     }
-//   }
-// )
