@@ -138,18 +138,14 @@ const PaymentPageContent : React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedStatus, setSelectedStatus] = useState("");
 
-  // const [selectedCard, setSelectedCard] = useState(null);
 
-  // const handleCardClick = (index) => {
-  //   setSelectedCard(selectedCard === index ? null : index);
-  // };
 
 
   const [selectedCard, setSelectedCard] = useState(null)
 
-  const handleCardClick=(index)=>{
+  const handleCardClick=(i)=>{
 
-    setSelectedCard(selectedCard === index?null :index);
+    setSelectedCard(selectedCard === i?null :i);
 
   }
 
@@ -169,6 +165,9 @@ const PaymentPageContent : React.FC = () => {
     }
   };
 
+  const handlePageClick = (pageNumber: SetStateAction<number>) => {
+    setCurrentPage(pageNumber);
+  };
    
 
   const filteredData = selectedStatus
@@ -225,49 +224,6 @@ const PaymentPageContent : React.FC = () => {
 
 
 
-        {/* <div className="flex flex-row w-full mt-4 gap-6">
-
-            {cardData.map((d,i)=>(
-
-         <div className="flex flex-row border border-[#E4E7EC] w-[330px] h-[114px] p-4 text- rounded-[8px] ">
-          <div key={i} className={`flex flex-row w-full h-[82px] items-star ${selectedCard===i ? ' border-[#54A954] bg-[#e3f1e3]' : 'border border-[#E4E7EC]' }`}
-          onClick={()=> handleCardClick(i)}
-          
-          >
-           <img src={d.cardImg} alt="" className="w-[42px] h-[32px]" /> 
-           <div className="flex flex-col pl-4">
-            <p className={selectedCard === i ? 'text-[#004600]' : 'text-[#344054]'}>{d.cardNumber}</p>
-            <p className={selectedCard === i ? 'text-[#007400] font-[400] pt-2': 'text-[#475467] font-[400] pt-2'}>{d.expiryDate}</p>
-
-              <div className="flex flex-row w-[137px] justify-between mt-2">
-           <span className={selectedCard ===i ? 'text-[#B3261E]' :'text-[#475467]'}>{d.removeCard}</span>
-
-           <button className="text-[#005A00] font-semibold">Edit</button>
-
-           </div>
-
-              </div>
-   
-                   </div>
-                   <div className={` flex  rounded-full w-[20px] h-[20px] items-center justify-center ${selectedCard == i ? 'bg-[#007400]' :'border border-[#D0D5DD]'}`}>
-                    <img src="./images/tick.svg" alt="" className={selectedCard === i ? '' : 'hidden'} />
-                   </div>
-
-
-
-
-                   
-
-
-    
-
-
-
-          </div>
-
-            ))}
-       
-        </div> */}
 
     <div className="flex flex-row w-full mt-4 gap-6">
       {cardData.map((d, i) => (

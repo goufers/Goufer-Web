@@ -31,6 +31,7 @@ import { useEffect } from "react";
 
 import ChangePayment from "./pages/Dashboard/Paymentmethod/ChangePayment";
 import PaymentUpdate from "./pages/Dashboard/Paymentmethod/PaymentUpdate";
+import PaymentAdd from "./pages/Dashboard/Paymentmethod/PaymentAdd";
 
 
 
