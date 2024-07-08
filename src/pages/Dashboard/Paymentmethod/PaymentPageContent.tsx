@@ -1,178 +1,124 @@
+
 import { SetStateAction, useState } from "react";
 
 
 
 
-const PaymentPageContent =()=>{
+const PaymentPageContent : React.FC = () => {
     
     const data = [
 
         {
-            name: "John Balogun Quamdeent",
+            Invoice: "#Invoice0004321",
             date: "06/06/2024",
-            service: "Computer Repair",
-            duration: "3 days",
+            transaction: "New Subscription",
+            amount:"1000",
             status: "Pending",
             statusColor: "#FFC107",
             statusBgColor: "#FFF9E8",
-            imgSrc: "./images/user-01.jpg.svg",
+           
+          },
+
+          {
+            Invoice: "#Invoice0004321",
+            date: "06/06/2024",
+            transaction: "New Subscription",
+            amount:"1000",
+            status: "Successful",
+            statusColor: "#1BA345",
+            statusBgColor: "#F2FFF6",
+           
+          },
+
+          {
+            Invoice: "#Invoice0004321",
+            date: "06/06/2024",
+            transaction: "New Subscription",
+            amount:"1000",
+            status: "Successful",
+            statusColor: "#1BA345",
+            statusBgColor: "#F2FFF6",
+           
+          },
+
+          {
+            Invoice: "#Invoice0004321",
+            date: "06/06/2024",
+            transaction: "New Subscription",
+            amount:"1000",
+            status: "Successful",
+            statusColor: "#1BA345",
+            statusBgColor: "#F2FFF6",
+          },
+
+          {
+            Invoice: "#Invoice0004321",
+            date: "06/06/2024",
+            transaction: "New Subscription",
+            amount:"1000",
+            status: "Successful",
+            statusColor: "#1BA345",
+            statusBgColor: "#F2FFF6",
+           
+          },
+
+          {
+            Invoice: "#Invoice0004321",
+            date: "06/06/2024",
+            transaction: "New Subscription",
+            amount:"1000",
+            status: "Successful",
+            statusColor: "#1BA345",
+            statusBgColor: "#F2FFF6",
+           
+          },
+
+          {
+            Invoice: "#Invoice0004321",
+            date: "06/06/2024",
+            transaction: "New Subscription",
+            amount:"1000",
+            status: "Failed",
+            statusColor: "#DC362E",
+            statusBgColor: "#FCEEEE",
+           
+          },
+
+
+          {
+            Invoice: "#Invoice0004321",
+            date: "06/06/2024",
+            transaction: "New Subscription",
+            amount:"1000",
+            status: "Successful",
+            statusColor: "#1BA345",
+            statusBgColor: "#F2FFF6",
+           
+          },
+
+          {
+            Invoice: "#Invoice0004321",
+            date: "06/06/2024",
+            transaction: "New Subscription",
+            amount:"1000",
+            status: "Successful",
+            statusColor: "#1BA345",
+            statusBgColor: "#F2FFF6",
+           
+          },
+
+          {
+            Invoice: "#Invoice0004321",
+            date: "06/06/2024",
+            transaction: "New Subscription",
+            amount:"1000",
+            status: "Successful",
+            statusColor: "#1BA345",
+            statusBgColor: "#F2FFF6",
+           
           },
       
-          {
-            name: "John Balogun Quamdeent",
-            date: "06/06/2024",
-            service: "Computer Repair",
-            duration: "3 days",
-            status: "Active",
-            statusColor: "#1BA345",
-            statusBgColor: "#F2FFF6",
-            imgSrc: "./images/user-04.jpg.svg",
-          },
-          {
-            name: "John Balogun Quamdeent",
-            date: "06/06/2024",
-            service: "Computer Repair",
-            duration: "3 days",
-            status: "Active",
-            statusColor: "#1BA345",
-            statusBgColor: "#F2FFF6",
-            imgSrc: "./images/user-05.jpg.svg",
-          },
-          {
-            name: "John Balogun Quamdeent",
-            date: "06/06/2024",
-            service: "Computer Repair",
-            duration: "3 days",
-            status: "Active",
-            statusColor: "#1BA345",
-            statusBgColor: "#F2FFF6",
-            imgSrc: "./images/user-06.jpg.svg",
-          },
-          {
-            name: "John Balogun Quamdeent",
-            date: "06/06/2024",
-            service: "Computer Repair",
-            duration: "3 days",
-            status: "Inactive",
-            statusColor: "#007BFF",
-            statusBgColor: "#F1F8FF",
-            imgSrc: "./images/user-03.jpg.svg",
-          },
-      
-          {
-            name: "John Balogun Quamdeent",
-            date: "06/06/2024",
-            service: "Computer Repair",
-            duration: "3 days",
-            status: "Inactive",
-            statusColor: "#007BFF",
-            statusBgColor: "#F1F8FF",
-            imgSrc: "./images/user-03.jpg.svg",
-          },
-      
-          {
-            name: "John Balogun Quamdeent",
-            date: "06/06/2024",
-            service: "Computer Repair",
-            duration: "3 days",
-            status: "Pending",
-            statusColor: "#FFC107",
-            statusBgColor: "#FFF9E8",
-            imgSrc: "./images/user-01.jpg.svg",
-          },
-          {
-            name: "John Balogun Quamdeent",
-            date: "06/06/2024",
-            service: "Computer Repair",
-            duration: "3 days",
-            status: "Pending",
-            statusColor: "#FFC107",
-            statusBgColor: "#FFF9E8",
-            imgSrc: "./images/user-04.jpg.svg",
-          },
-      
-          {
-            name: "John Balogun Quamdeent",
-            date: "06/06/2024",
-            service: "Computer Repair",
-            duration: "3 days",
-            status: "Active",
-            statusColor: "#1BA345",
-            statusBgColor: "#F2FFF6",
-            imgSrc: "./images/user-05.jpg.svg",
-          },
-          {
-            name: "John Balogun Quamdeent",
-            date: "06/06/2024",
-            service: "Computer Repair",
-            duration: "3days",
-            status: "Active",
-            statusColor: "#1BA345",
-            statusBgColor: "#F2FFF6",
-            imgSrc: "./images/user-04.jpg.svg",
-          },
-          {
-            name: "John Balogun Quamdeent",
-            date: "06/06/2024",
-            service: "Computer Repair",
-            duration: "3 days",
-            status: "Pending",
-            statusColor: "#FFC107",
-            statusBgColor: "#FFF9E8",
-            imgSrc: "./images/user-01.jpg.svg",
-          },
-      
-          {
-            name: "John Balogun Quamdeent",
-            date: "06/06/2024",
-            service: "Computer Repair",
-            duration: "3 days",
-            status: "Active",
-            statusColor: "#1BA345",
-            statusBgColor: "#F2FFF6",
-            imgSrc: "./images/user-04.jpg.svg",
-          },
-          {
-            name: "John Balogun Quamdeent",
-            date: "06/06/2024",
-            service: "Computer Repair",
-            duration: "3 days",
-            status: "Active",
-            statusColor: "#1BA345",
-            statusBgColor: "#F2FFF6",
-            imgSrc: "./images/user-05.jpg.svg",
-          },
-          {
-            name: "John Balogun Quamdeent",
-            date: "06/06/2024",
-            service: "Computer Repair",
-            duration: "3 days",
-            status: "Active",
-            statusColor: "#1BA345",
-            statusBgColor: "#F2FFF6",
-            imgSrc: "./images/user-06.jpg.svg",
-          },
-          {
-            name: "John Balogun Quamdeent",
-            date: "06/06/2024",
-            service: "Computer Repair",
-            duration: "3 days",
-            status: "Inactive",
-            statusColor: "#007BFF",
-            statusBgColor: "#F1F8FF",
-            imgSrc: "./images/user-03.jpg.svg",
-          },
-      
-          {
-            name: "John Balogun Quamdeent",
-            date: "06/06/2024",
-            service: "Computer Repair",
-            duration: "3 days",
-            status: "Inactive",
-            statusColor: "#007BFF",
-            statusBgColor: "#F1F8FF",
-            imgSrc: "./images/user-03.jpg.svg",
-          },
+        
 
 
 
@@ -180,8 +126,8 @@ const PaymentPageContent =()=>{
 
     const cardData = [
         {cardImg:"./images/visa.svg", cardNumber:"*************1234", expiryDate:"Expiry 06/2024", removeCard:"Remove",  },
-        {cardImg:"./images/visa.svg", cardNumber:"Visa ending in 1234", expiryDate:"Expiry 06/2024", removeCard:"Remove",  },
-        {cardImg:"./images/visa.svg", cardNumber:"Mastercard ending in 1234", expiryDate:"Expiry 06/2024", removeCard:"Remove", }
+        {cardImg:"./images/applepay.svg", cardNumber:"Apple ending in 1234", expiryDate:"Expiry 06/2024", removeCard:"Remove",  },
+        {cardImg:"./images/masta.svg", cardNumber:"Mastercard ending in 1234", expiryDate:"Expiry 06/2024", removeCard:"Remove", }
     ]
 
 
@@ -191,6 +137,24 @@ const PaymentPageContent =()=>{
 
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedStatus, setSelectedStatus] = useState("");
+
+  // const [selectedCard, setSelectedCard] = useState(null);
+
+  // const handleCardClick = (index) => {
+  //   setSelectedCard(selectedCard === index ? null : index);
+  // };
+
+
+  const [selectedCard, setSelectedCard] = useState(null)
+
+  const handleCardClick=(index)=>{
+
+    setSelectedCard(selectedCard === index?null :index);
+
+  }
+
+  
+  
 
   const handleNext = () => {
     const totalPages = Math.ceil(filteredData.length / itemsPerPage);
@@ -205,19 +169,7 @@ const PaymentPageContent =()=>{
     }
   };
 
-  const handleStatusChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedStatus(event.target.value);
-    setCurrentPage(1); // Reset to first page when status changes
-  };
-
-  const handlePageClick = (pageNumber: SetStateAction<number>) => {
-    setCurrentPage(pageNumber);
-  };
-
-  const getCurrentData = () => {
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    return filteredData.slice(startIndex, startIndex + itemsPerPage);
-  };
+   
 
   const filteredData = selectedStatus
     ? data.filter((item) => item.status === selectedStatus)
@@ -247,6 +199,7 @@ const PaymentPageContent =()=>{
       pageNumbers.push(totalPages - 2, totalPages - 1, totalPages);
     }
 
+
     return pageNumbers;
   };
 
@@ -272,19 +225,22 @@ const PaymentPageContent =()=>{
 
 
 
-        <div className="flex flex-row w-full mt-4 gap-6">
+        {/* <div className="flex flex-row w-full mt-4 gap-6">
 
             {cardData.map((d,i)=>(
 
          <div className="flex flex-row border border-[#E4E7EC] w-[330px] h-[114px] p-4 text- rounded-[8px] ">
-          <div key={i} className="flex flex-row w-full h-[82px] items-start">
-           <img src={d.cardImg} alt="" className="w-[42px] h-[32px]" />
+          <div key={i} className={`flex flex-row w-full h-[82px] items-star ${selectedCard===i ? ' border-[#54A954] bg-[#e3f1e3]' : 'border border-[#E4E7EC]' }`}
+          onClick={()=> handleCardClick(i)}
+          
+          >
+           <img src={d.cardImg} alt="" className="w-[42px] h-[32px]" /> 
            <div className="flex flex-col pl-4">
-            <p className="text-[#344054]">{d.cardNumber}</p>
-            <p className="text-[#475467] font-[400] pt-2">{d.expiryDate}</p>
+            <p className={selectedCard === i ? 'text-[#004600]' : 'text-[#344054]'}>{d.cardNumber}</p>
+            <p className={selectedCard === i ? 'text-[#007400] font-[400] pt-2': 'text-[#475467] font-[400] pt-2'}>{d.expiryDate}</p>
 
               <div className="flex flex-row w-[137px] justify-between mt-2">
-           <span className="text-[#475467]">{d.removeCard}</span>
+           <span className={selectedCard ===i ? 'text-[#B3261E]' :'text-[#475467]'}>{d.removeCard}</span>
 
            <button className="text-[#005A00] font-semibold">Edit</button>
 
@@ -293,7 +249,17 @@ const PaymentPageContent =()=>{
               </div>
    
                    </div>
-            <input type="checkbox" className="form-checkbox rounded-full w-5 h-5 border border-[#D0D5DD] bg-green-500" />
+                   <div className={` flex  rounded-full w-[20px] h-[20px] items-center justify-center ${selectedCard == i ? 'bg-[#007400]' :'border border-[#D0D5DD]'}`}>
+                    <img src="./images/tick.svg" alt="" className={selectedCard === i ? '' : 'hidden'} />
+                   </div>
+
+
+
+
+                   
+
+
+    
 
 
 
@@ -301,7 +267,51 @@ const PaymentPageContent =()=>{
 
             ))}
        
+        </div> */}
+
+    <div className="flex flex-row w-full mt-4 gap-6">
+      {cardData.map((d, i) => (
+        <div
+          key={i}
+          className={`flex flex-row w-[330px] h-[114px] p-4 rounded-[8px] ${
+            selectedCard === i ? 'border-[#54A954] bg-[#e3f1e3]' : 'border border-[#E4E7EC]'
+          }`}
+          onClick={() => handleCardClick(i)}
+        >
+          <div className="flex flex-row w-full h-[82px] items-start">
+            <img src={d.cardImg} alt="" className="w-[42px] h-[32px]" />
+            <div className="flex flex-col pl-4">
+              <p className={selectedCard === i ? 'text-[#004600]' : 'text-[#344054]'}>
+                {d.cardNumber}
+              </p>
+              <p className={`font-[400] pt-2 ${
+                selectedCard === i ? 'text-[#007400]' : 'text-[#475467]'
+              }`}>
+                {d.expiryDate}
+              </p>
+              <div className="flex flex-row w-[137px] justify-between mt-2">
+                <span className={selectedCard === i ? 'text-[#B3261E]' : 'text-[#475467]'}>
+                  {d.removeCard}
+                </span>
+                <button className="text-[#005A00] font-semibold">Edit</button>
+              </div>
+            </div>
+          </div>
+          <div
+            className={`flex border rounded-full w-[20px] h-[20px] items-center justify-center ${
+              selectedCard === i ? 'bg-[#007400] border-[#007400]' : 'border-[#D0D5DD]'
+            }`}
+          >
+            <img
+              src="./images/tick.svg"
+              alt=""
+              className={selectedCard === i ? '' : 'hidden'}
+            />
+          </div>
         </div>
+      ))}
+    </div>
+
         <p className="text-[#605D66] pt-3">Notes: Please note that the payment method selected as default will be used in your in app transactions</p>
        
 
@@ -315,10 +325,11 @@ const PaymentPageContent =()=>{
         <div className="flex w-[1,135px] mt-4 items-center justify-between ">
           <p>Payment History (24)</p>
 
-          <div className="relative inline-block w-[102px]">
-            <select className="block appearance-none w-full h-[36px] rounded-[25px] border border-[#AEA9B4] bg-white text-[#605D66] outline-none text-center pr-6">
+         <div className="flex flex-row w-[249px] justify-between">
+         <div className="relative inline-block w-[102px]">
+            <select className="block appearance-none w-[104px] h-[40px] rounded-[25px] border border-[#AEA9B4] bg-white text-[#605D66] outline-none text-center pr-6">
               <option value="" disabled selected>
-                Default
+                Newest
               </option>
               <option value="option1">option1</option>
               <option value="option2">option2</option>
@@ -334,6 +345,13 @@ const PaymentPageContent =()=>{
               </svg>
             </div>
           </div>
+
+          <button className="flex flex-row w-[129px] h-[40px] bg-[#007F00] rounded-[50px] text-[#FFFFFF] text-center text-[14px] items-center justify-center gap-2 hover:bg-[#005f00] focus:outline-none">
+             
+             <span>Download</span>
+             <img src="./images/download-05.svg" alt="download" className="w-4 h-4" />
+          </button>
+         </div>
         </div>
 
         {/* titile head */}
@@ -341,7 +359,7 @@ const PaymentPageContent =()=>{
 
 
 
-            <div className="flex flex-row w-[840px] items-center justify-between">
+            <div className="flex flex-row w-[860px] items-center justify-between">
             <div className="w-[526px] flex flex-row justify-between items-center">
 
 
@@ -362,13 +380,17 @@ const PaymentPageContent =()=>{
 
                <div className="flex flex-row w-[266px] justify-between pr-6">
 
-                <p>Amount</p>
-               <p>Status</p>
+                <p className="pl-6">Amount</p>
+               <p className="pr-4">Status</p>
 
                 </div>
 
+              
+
 
             </div>
+
+            
           
             
 
@@ -376,35 +398,114 @@ const PaymentPageContent =()=>{
         
         </div>
         {/* ------------------first content----------- */}
+          
+        <div className="flex flex-col gap-4 w-full text-[#9ca3c3]">
+          
+          
 
-        <div className="flex flex-row w-full items-center justify-between">
-            <div className="w-[526px] flex flex-row justify-between items-center">
+          
+
+          {data.map((d,i)=>(
+
+          <div key={i} className="flex flex-col">
+         <div className="flex flex-row w-full items-center justify-between">
+            <div className="w-[530px] flex flex-row justify-between items-center">
 
 
             <div className="flex flex-row items-center justify-between w-[299px]">
 
-              <div className="flex flex-row p-2">
+               <div className="flex flex-row p-2">
            <input type="checkbox" name="" id="" />
-              <span className="pl-2">#Invoice0004321</span>
-            </div>
+               <span className="pl-2 text-[#49454F]">{d.Invoice}</span>
+                  </div>
 
-             <p className="pr-4">06/06/2024</p>
+           <p className="pr-4">{d.date}</p>
 
-               </div>
+                 </div>
 
-               <p>New Subscription</p>
+              <p className="pr-7">{d.transaction}</p>
 
-               </div>
+              </div>
 
                <div className="flex flex-row w-[266px] justify-between pr-6">
 
-                <p>Amount</p>
-               <p>Status</p>
+               <p className="pl-4">${d.amount}</p>
+
+                   <div
+                      className="w-[88px] h-[28px] flex justify-center items-center ml-6"
+                      style={{ backgroundColor: d.statusBgColor }}>
+                    
+                      <p className="text-[15px]" style={{ color: d.statusColor }}>
+                        {d.status}
+                      </p>
+                    </div>
+
+      
+   
+
+               </div>
+
+
+             <div className="flex flex-row w-[100px] justify-between">
+
+            <img src="./images/delete.svg" alt="delete" />
+              <img src="./images/download.svg" alt="download" />
 
                 </div>
 
 
+              </div>
+              <hr className="bg-[#AEA9B4] w-full mt-2" />
+             </div>
+
+               ))}
+
+            <div className="flex flex-row w-full md:w-[497px] h-[40px] mx-auto items-center justify-center hover:shadow-lg shadow-md bg-white rounded-[15px] border-[#E6F2E6] mt-6">
+            <div
+              className={`w-[119px] h-[40px] flex items-center justify-center border-[#E6F2E6] ${
+                currentPage === 1 ? "opacity-50 cursor-not-allowed" : " text-green-500"
+              }`}
+              onClick={handlePrevious}
+            >
+              <img
+                src="https://res.cloudinary.com/dspkk9qlz/image/upload/v1717681157/arrow-left_cq1gnw.svg"
+                alt="previous"
+              />
+              Previous
             </div>
+
+            {renderPageNumbers().map((page, index) => (
+              <div
+                key={index}
+                className={`flex flex-row items-center justify-center w-[40px] h-[40px] border border-[#E6F2E6] ${
+                  currentPage === page ? "bg-gray-200 text-green-500" : ""
+                } ${page === "..." ? "cursor-default" : "cursor-pointer"}`}
+                onClick={() => typeof page === "number" && handlePageClick(page)}
+              >
+                {page}
+              </div>
+            ))}
+
+            <div
+              className={`w-[92px] h-[40px] flex items-center justify-center border-[#E6F2E6] border-l-none ${
+                currentPage === totalPages
+                  ? "opacity-50 cursor-not-allowed"
+                  : " text-green-500"
+              }`}
+              onClick={handleNext}
+            >
+              Next
+              <img
+                src="https://res.cloudinary.com/dspkk9qlz/image/upload/v1717685150/arrow-right_lmffkb.svg"
+                alt="next"
+              />
+            </div>
+          </div>
+
+          
+
+              </div>
+     
 
        
       </div>

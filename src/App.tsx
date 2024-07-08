@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Landing from "./pages/Landing";
 import Page404 from "./pages/Page404";
 import AboutUs from "./pages/AboutUs/AboutUs";
@@ -14,9 +14,8 @@ import Chat from "./pages/Dashboard/Chat";
 import Dashboard from "./pages/Dashboard/Main";
 import Employment from "./pages/Dashboard/Employment";
 import Favorites from "./pages/Dashboard/Favourite";
+import Notification from "./pages/Dashboard/Notification/index";
 import { jwtDecode } from "jwt-decode";
-import { useEffect } from "react";
-
 import axios from "axios";
 import Subscription from "./pages/Dashboard/Subscripyion";
 import PaymentPage from "./pages/Dashboard/Paymentmethod";
@@ -25,8 +24,14 @@ import PaymentPageContent from "./pages/Dashboard/Paymentmethod/PaymentPageConte
 
 
 
+import { useEffect } from "react";
+import ChangePayment from "./pages/Dashboard/Paymentmethod/ChangePayment";
+import PaymentUpdate from "./pages/Dashboard/Paymentmethod/PaymentUpdate";
+import PaymentAdd from "./pages/Dashboard/Paymentmethod/PaymentAdd";
+
+
 function App() {
-  const location = useLocation();
+  // const location = useLocation();
 
   useEffect(() => {
     if (!localStorage.getItem("G_A_token")) {
@@ -70,8 +75,12 @@ function App() {
         <Route path={PUBLIC_ROUTES.CHAT} element={<Chat />} />
         <Route path={PUBLIC_ROUTES.EMPLOYMENT} element={<Employment />} />
         <Route path={PUBLIC_ROUTES.PAYMENT} element={<PaymentPage />} />
+        <Route path={PUBLIC_ROUTES.PAYMENT_CHANGE} element={<ChangePayment />} />
+        <Route path={PUBLIC_ROUTES.PAYMENT_UPDATE} element={<PaymentUpdate />} />
+        <Route path={PUBLIC_ROUTES.PAYMENT_ADD} element={<PaymentAdd />} />
         <Route path={PUBLIC_ROUTES.FAVORITE} element={<Favorites />} />
         <Route path={PUBLIC_ROUTES.SUBSCRIPTION} element={<Subscription />} />
+        <Route path={PUBLIC_ROUTES.NOTIFICATION} element={<Notification />} />
 
         <Route path={"/about_us"} element={<AboutUs />} />
         <Route path={"/faq"} element={<Faq />} />
