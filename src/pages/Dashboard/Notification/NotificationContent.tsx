@@ -3,6 +3,7 @@ import Select, { SingleValue } from 'react-select';
 import { IoMdArrowForward } from "react-icons/io";
 import { GoTrash } from "react-icons/go";
 import { HiOutlineFlag } from "react-icons/hi2";
+import { IoMdArrowBack } from "react-icons/io";
 
 
 interface OptionType {
@@ -278,8 +279,9 @@ const NotificationContent = () => {
               }`}
               onClick={handlePrevious}
             >
-              
+              <IoMdArrowBack/>
               Previous
+              
             </div>
 
             {renderPageNumbers().map((page, index) => (
