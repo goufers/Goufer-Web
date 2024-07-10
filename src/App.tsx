@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Landing from "./pages/Landing";
 import Page404 from "./pages/Page404";
 import AboutUs from "./pages/AboutUs/AboutUs";
@@ -14,14 +14,19 @@ import Chat from "./pages/Dashboard/Chat";
 import Dashboard from "./pages/Dashboard/Main";
 import Employment from "./pages/Dashboard/Employment";
 import Favorites from "./pages/Dashboard/Favourite";
+<<<<<<< HEAD
 import Notification from "./pages/Dashboard/Notification/Notification";
+=======
+import Notification from "./pages/Dashboard/Notification/index";
+>>>>>>> 1791adbde3902f9ee6f463c9c3556ff55c5e4073
 import { jwtDecode } from "jwt-decode";
-import { useEffect } from "react";
 
 import axios from "axios";
+import Subscription from "./pages/Dashboard/Subscripyion";
+import { useEffect } from "react";
 
 function App() {
-  const location = useLocation();
+  // const location = useLocation();
 
   useEffect(() => {
     if (!localStorage.getItem("G_A_token")) {
@@ -65,7 +70,13 @@ function App() {
         <Route path={PUBLIC_ROUTES.CHAT} element={<Chat />} />
         <Route path={PUBLIC_ROUTES.EMPLOYMENT} element={<Employment />} />
         <Route path={PUBLIC_ROUTES.FAVORITE} element={<Favorites />} />
+<<<<<<< HEAD
         <Route path={"/notification"} element={<Notification />} />
+=======
+        <Route path={PUBLIC_ROUTES.SUBSCRIPTION} element={<Subscription />} />
+        <Route path={PUBLIC_ROUTES.NOTIFICATION} element={<Notification />} />
+
+>>>>>>> 1791adbde3902f9ee6f463c9c3556ff55c5e4073
         <Route path={"/about_us"} element={<AboutUs />} />
         <Route path={"/faq"} element={<Faq />} />
         <Route path={"/home"} element={<Home />} />
