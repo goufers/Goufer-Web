@@ -3,6 +3,7 @@ import Banner from "./Banner";
 import Trustedby from "./Trustedby";
 
 import NewOppurtunities from "./NewOppurtunities";
+import Footer from "../../components/Footer";
 
 const Landing = () => {
   return (
@@ -11,6 +12,7 @@ const Landing = () => {
       <Banner />
       <NewOppurtunities />
       <Trustedby />
+      <Footer />
     </div>
   );
 };

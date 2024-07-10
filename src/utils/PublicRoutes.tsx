@@ -1,9 +1,14 @@
 const PUBLIC_ROUTES = {
   LANDINGPAGE: "/",
   HOME: "/home",
-  
-  GOUFER_PROFILE: "/goufer_profile",
 
+  GOUFER_PROFILE: "/goufer_profile",
+  DASHBOARD: "/dashboard",
+  CHAT: "/chat",
+  FAVORITE: "/favorite",
+  EMPLOYMENT: "/employment",
+  SUBSCRIPTION: "/subscription",
+  NOTIFICATION: "/notification",
   //NAV BAR
   ABOUT_US: "/about",
   CONTACT_US: "/contact",
