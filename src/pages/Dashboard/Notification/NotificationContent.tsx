@@ -256,10 +256,10 @@ const NotificationContent = () => {
           defaultValue={selectedOption}
           onChange={setSelectedOption}
           options={options}
-          className='mr-5'
+          className='mr-7 rounded-md'
         />
       </div>
-      <div className="flex flex-col w-auto mx-auto pr-3 border border-[#E6F2E6] rounded-lg py-4">
+      <div className="flex flex-col w-full mx-auto pr-3 border border-[#E6F2E6] rounded-lg py-3">
         {data.map((item, index) => (
             <div key={index} className="flex flex-row justify-between px-4  items-center py-2 w-auto hover:bg-[#d2e7d2] text-[12px] ml-3 border-b border-[#AEA9B4]">
                   <img src={item.imgSrc} alt="user" className="" />
