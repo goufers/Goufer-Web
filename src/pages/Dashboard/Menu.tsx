@@ -34,7 +34,7 @@ const Menu = () => {
     {
       title: "Subscription",
       icon: "/images/invoice-01.svg",
-      url: "",
+      url: PUBLIC_ROUTES.SUBSCRIPTION,
     },
     {
       title: "Payment",

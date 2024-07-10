@@ -15,18 +15,12 @@ import Dashboard from "./pages/Dashboard/Main";
 import Employment from "./pages/Dashboard/Employment";
 import Favorites from "./pages/Dashboard/Favourite";
 import Notification from "./pages/Dashboard/Notification/index";
-
 import axios from "axios";
 import Subscription from "./pages/Dashboard/Subscripyion";
 
 import PaymentPage from "./pages/Dashboard/Paymentmethod";
-import PaymentPageContent from "./pages/Dashboard/Paymentmethod/PaymentPageContent";
 
 import { useEffect } from "react";
-
-import ChangePayment from "./pages/Dashboard/Paymentmethod/ChangePayment";
-import PaymentUpdate from "./pages/Dashboard/Paymentmethod/PaymentUpdate";
-import PaymentAdd from "./pages/Dashboard/Paymentmethod/PaymentAdd";
 
 function App() {
   // const location = useLocation();
