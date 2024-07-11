@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
@@ -10,16 +11,20 @@ export const Signup = createAsyncThunk(
         `${import.meta.env.VITE_GOUFER_TEST_API}/users/register/`,
         data
       );
+      console.log(data);
+
       if (response.data.auth_status == "True") {
         localStorage.setItem(response.data.access, "G_A_Token");
         localStorage.setItem(response.data.refresh, "G_R_Token");
       }
-      console.log(response.data);
-      return response.data;
+      console.log(response.data.response);
+      return { ...response.data, status_code: response.data.response.status };
     } catch (error: any) {
       console.error(rejectWithValue);
       console.log(error);
-      return error.response.data;
+      // return error.status;
+      // return { ...error.data, rejectWithValue };
+      return rejectWithValue(error.response ? error.response.data : error.message);
     }
   }
 );
@@ -95,9 +100,32 @@ export const VerifyPhone = createAsyncThunk(
   }
 );
 
+export const VerifyEmail = createAsyncThunk(
+  "verify-phone",
+  async (data, { rejectWithValue }) => {
+    console.log(data);
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_GOUFER_TEST_API}/users/send-verificattion-email`,
+        data
+      );
+      return response.data;
+    } catch (error: any) {
+      return rejectWithValue(error.response ? error.response.data : error.message);
+    }
+  }
+);
+export const ResetState = createAsyncThunk("reset-state", async () => {
+  try {
+    return {};
+  } catch (error: any) {
+    return error;
+  }
+});
+
 const initialState = {
   user: {},
-  authkeys: { refresh: "", access: "", auth_status: "" },
+  authkeys: {},
   status: "idle",
   error: null,
 };
@@ -105,7 +133,11 @@ const initialState = {
 export const authSlice: any = createSlice({
   name: "auth",
   initialState: initialState,
-  reducers: {},
+  reducers: {
+    reset_state: (state) => {
+      state.authkeys = {};
+    },
+  },
 
   extraReducers: (builder) => {
     builder
@@ -129,9 +161,12 @@ export const authSlice: any = createSlice({
         state.status = "succeeded";
         state.user = action.payload;
       })
-      .addCase(LoginUser.rejected, (state, action) => {
+      .addCase(LoginUser.rejected, (state: any, action) => {
         state.status = "failed";
         state.error = action.payload;
+      })
+      .addCase(ResetState.rejected, (state: any, action) => {
+        state.authkeys = action.payload;
       });
   },
 });
