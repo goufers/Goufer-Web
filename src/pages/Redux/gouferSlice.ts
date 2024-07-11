@@ -14,43 +14,37 @@ interface Info {
   Task: string;
 }
 
-interface Step {
-  url: string;
-  title: string;
-  text: string;
-}
-
 interface DbState {
   infos: Info[];
-  steps: Step[];
   loading: boolean;
   error: string | null;
 }
 const initialState: DbState = {
   infos: [],
-  steps: [],
   loading: false,
   error: null,
 };
-export const fetchInfos = 
-createAsyncThunk(
+export const fetchInfos =
+  createAsyncThunk(
     "fetch-gofers",
     async () => {
       try {
-        const response = await axios.get('/api/infos');
+        const response = await axios.get(`${import.meta.env.VITE_GOUFER_TEST_API}/main/gofers/?`);
+        // console.log(response)
+
         return response.data;
       }
-  catch (error: any) {
-         return error;
-   }
-});
+      catch (error: any) {
+        return error;
+      }
+    });
 
-export const fetchSteps = createAsyncThunk('db/fetchSteps', async () => {
-  const response = await axios.get('/api/infos');
-  return response.data;
-});
-const dbSlice = createSlice({
-  name: 'db',
+// export const fetchSteps = createAsyncThunk('goufer/fetchSteps', async () => {
+//   const response = await axios.get(`${import.meta.env.VITE_GOUFER_TEST_API}/main/gofers/`);
+//   return response.data;
+// });
+const gouferSlice = createSlice({
+  name: 'gofers',
   initialState,
   reducers: {
   },
@@ -68,21 +62,21 @@ const dbSlice = createSlice({
         state.loading = false;
         state.error = action.error.message || 'Failed to fetch infos';
       })
-      .addCase(fetchSteps.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(fetchSteps.fulfilled, (state, action) => {
-        state.loading = false;
-        state.steps = action.payload;
-      })
-      .addCase(fetchSteps.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.error.message || 'Failed to fetch steps';
-      });
+    // .addCase(fetchSteps.pending, (state) => {
+    //   state.loading = true;
+    //   state.error = null;
+    // })
+    // .addCase(fetchSteps.fulfilled, (state, action) => {
+    //   state.loading = false;
+    //   state.steps = action.payload;
+    // })
+    // .addCase(fetchSteps.rejected, (state, action) => {
+    //   state.loading = false;
+    //   state.error = action.error.message || 'Failed to fetch steps';
+    // });
   },
 });
 
 // Export actions and reducer
-export default dbSlice.reducer;
+export default gouferSlice.reducer;
 

@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from "react";
 import Slider from "./Sliders";
-import {  useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootState } from "../Redux/store";
-import { fetchInfos, fetchSteps } from "../Redux/dbSlice";
+import { fetchInfos } from "../Redux/gouferSlice";
 import { useDispatch } from "../Redux/useDispatch";
 
 const NewOppurtunities = () => {
@@ -11,11 +11,10 @@ const NewOppurtunities = () => {
   const [selectedCategory, setSelectedCategory] = useState<any>();
 
   const dispatch = useDispatch();
-  const { infos, steps, loading, error } = useSelector((state: RootState) => state.db);
+  const { infos, loading, error } = useSelector((state: RootState) => state.goufer.infos);
 
   useEffect(() => {
     dispatch(fetchInfos());
-    dispatch(fetchSteps());
   }, [dispatch]);
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
@@ -81,9 +80,8 @@ const NewOppurtunities = () => {
           <div className="w-full hidden md:flex md:flex-row pb-4 border-b-2 border-gray-600">
             {Categories.map((i, n) => (
               <h1
-                className={` mx-auto text-[15px] md:text-[17px] hover:text-[#007F00] hover:font-bold cursor-pointer ${
-                  selectedCategory === i ? "text-[#007F00] font-bold " : "text-[#46444b]"
-                }`}
+                className={` mx-auto text-[15px] md:text-[17px] hover:text-[#007F00] hover:font-bold cursor-pointer ${selectedCategory === i ? "text-[#007F00] font-bold " : "text-[#46444b]"
+                  }`}
                 key={n}
                 onClick={() => setSelectedCategory(i)}
               >
@@ -96,9 +94,8 @@ const NewOppurtunities = () => {
           <div className=" w-full flex md:hidden md:flex-row pb-3 border-b-2 border-gray-600">
             {Categories.slice(0, 4).map((i, n) => (
               <h1
-                className={` mx-auto text-[14px] md:text-[17px] hover:text-[#007F00] hover:font-bold cursor-pointer ${
-                  selectedCategory === i ? "text-[#007F00] font-bold " : "text-[#46444b]"
-                }`}
+                className={` mx-auto text-[14px] md:text-[17px] hover:text-[#007F00] hover:font-bold cursor-pointer ${selectedCategory === i ? "text-[#007F00] font-bold " : "text-[#46444b]"
+                  }`}
                 key={n}
                 onClick={() => setSelectedCategory(i)}
               >
@@ -109,7 +106,7 @@ const NewOppurtunities = () => {
           {/* Desktop Component */}
           <div className="w-full hidden md:flex  flex-row gap-2   my-10 items-center   ">
             {infos &&
-              infos.slice(0, 4).map((info: any, index: number) => (
+              infos.map((info: any, index: number) => (
                 <div
                   className="mx-auto flex flex-col relative items-center w md:w-60 pb-4 rounded-xl bg-white  shadow-sm shadow-blue-gray-300  "
                   key={index}
@@ -130,7 +127,7 @@ const NewOppurtunities = () => {
                     <h1 className="text-[#007F00] text-[16px] font-semibold font-Roboto ">
                       Restaurants Goufers
                     </h1>
-                    <p className=" pr-2 text-[11px] text-[#605D66] mb-2">{info.text}</p>
+                    <p className=" pr-2 text-[11px] text-[#605D66] mb-2">email</p>
                     <div className="flex flex-row justify-start items-center pb-1 ">
                       <img
                         src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716880091/Goufer/Vector_kvuvlc.svg"
@@ -327,7 +324,7 @@ const NewOppurtunities = () => {
             </p>
           </div>
 
-          {steps.map((item, index) => (
+          {/* {steps.map((item, index) => (
             <div
               key={index}
               className="flex flex-row justify-evenly items-center py-4 px-3 md:px-0 md:ml-[30px] my-[10px] w-full md:w-[600px]"
@@ -340,7 +337,7 @@ const NewOppurtunities = () => {
                 <div className="text-[14px]">{item.text}</div>
               </div>
             </div>
-          ))}
+          ))} */}
         </div>
       </div>
 

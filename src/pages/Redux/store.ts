@@ -3,17 +3,17 @@ import { counterSlice } from "./CounterSlice";
 import authSlice from "./AuthSlice";
 import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
-import favoritesReducer  from "../../features/favoriteSlice/favoritesSlice";
-import dbSlice from "./dbSlice";
+import favoritesReducer from "../../features/favoriteSlice/favoritesSlice";
+import gouferSlice from "./gouferSlice";
 
 const reducers = combineReducers({
   counter: counterSlice,
   Auth: authSlice,
   favorites: favoritesReducer,
-  db:dbSlice,
+  goufer: gouferSlice,
 });
 
-const persistConfig = {  
+const persistConfig = {
   key: "root",
   storage: storage,
   whitelist: ["favorites"]
