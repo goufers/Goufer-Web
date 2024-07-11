@@ -15,10 +15,11 @@ import Dashboard from "./pages/Dashboard/Main";
 import Employment from "./pages/Dashboard/Employment";
 import Favorites from "./pages/Dashboard/Favourite";
 import Notification from "./pages/Dashboard/Notification/index";
-import { jwtDecode } from "jwt-decode";
-
 import axios from "axios";
 import Subscription from "./pages/Dashboard/Subscripyion";
+
+import PaymentPage from "./pages/Dashboard/Paymentmethod";
+
 import { useEffect } from "react";
 
 function App() {
@@ -65,6 +66,10 @@ function App() {
         <Route path={PUBLIC_ROUTES.DASHBOARD} element={<Dashboard />} />
         <Route path={PUBLIC_ROUTES.CHAT} element={<Chat />} />
         <Route path={PUBLIC_ROUTES.EMPLOYMENT} element={<Employment />} />
+        <Route path={PUBLIC_ROUTES.PAYMENT} element={<PaymentPage />} />
+        {/* <Route path={PUBLIC_ROUTES.PAYMENT_CHANGE} element={<ChangePayment />} />
+        <Route path={PUBLIC_ROUTES.PAYMENT_UPDATE} element={<PaymentUpdate />} />
+        <Route path={PUBLIC_ROUTES.PAYMENT_ADD} element={<PaymentAdd />} /> */}
         <Route path={PUBLIC_ROUTES.FAVORITE} element={<Favorites />} />
         <Route path={PUBLIC_ROUTES.SUBSCRIPTION} element={<Subscription />} />
         <Route path={PUBLIC_ROUTES.NOTIFICATION} element={<Notification />} />
@@ -73,7 +78,6 @@ function App() {
         <Route path={"/faq"} element={<Faq />} />
         <Route path={"/home"} element={<Home />} />
         <Route path={"/contact_us"} element={<ContactUs />} />
-
 
         {/* <Route path={"/verify_email"} element={<Verifyemail />} />
         <Route path={"/successCard"} element={<SuccessCard />} />
