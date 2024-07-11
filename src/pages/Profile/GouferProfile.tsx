@@ -1,7 +1,19 @@
+
+import { useEffect } from "react";
+import { fetchGouferProfile } from "../../Redux/GouferProfileSlice";
+
+import PUBLIC_ROUTES from "../../utils/PublicRoutes";
 import Mainbar from "./Mainbar";
 import Sidebar from "./Sidebar";
+import { useDispatch } from "react-redux";
 
 const GouferProfile = () => {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchGouferProfile());
+  }, [dispatch]);
   return (
     <div className="w-full items-center">
       <div className="bg-[url(https://res.cloudinary.com/dyjo2mvqb/image/upload/v1717427096/Rectangle_10_1_swotsr.png)] bg-contain w-full h-[181px] relative ">
@@ -18,9 +30,12 @@ const GouferProfile = () => {
         <button className="bg-white text-[#007F00] border border-[#007f00] rounded-full px-[25px] py-[10px] hover:bg-[#dfffdf] ">
           Add Favorite
         </button>
-        <button className="bg-[#007f00] text-white   hover:bg-[#287028] rounded-full px-[25px] py-[10px] hover:text-white ">
+        <a
+          href={PUBLIC_ROUTES.CHAT}
+          className="bg-[#007f00] text-white   hover:bg-[#287028] rounded-full px-[25px] py-[10px] hover:text-white "
+        >
           Contact Goufer
-        </button>
+        </a>
       </div>
       <div className="flex flex-row items-center">
         <Sidebar />
