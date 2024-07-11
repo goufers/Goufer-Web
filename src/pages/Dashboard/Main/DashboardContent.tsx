@@ -39,6 +39,24 @@ const notification = [
     time: "9:00pm",
     url: "https://res.cloudinary.com/dyjo2mvqb/image/upload/v1718905516/Img_margin_n2jdwk.png",
   },
+  {
+    name: "Adesola Adesola",
+    date: "34-12-2024",
+    time: "9:00pm",
+    url: "https://res.cloudinary.com/dyjo2mvqb/image/upload/v1718905516/Img_margin_n2jdwk.png",
+  },
+  {
+    name: "Adesola Adesola",
+    date: "34-12-2024",
+    time: "9:00pm",
+    url: "https://res.cloudinary.com/dyjo2mvqb/image/upload/v1718905516/Img_margin_n2jdwk.png",
+  },
+  {
+    name: "Adesola Adesola",
+    date: "34-12-2024",
+    time: "9:00pm",
+    url: "https://res.cloudinary.com/dyjo2mvqb/image/upload/v1718905516/Img_margin_n2jdwk.png",
+  },
 ];
 
 const data = [
@@ -226,7 +244,8 @@ const DashboardContent = () => {
               <p className="mr-14">Service</p>
               <p className="mr-20">Status</p>
             </div>
-            <div className="flex flex-col w-full">
+            <div className="h-[510px] w-full overflow-y-scroll">
+              <div className="w-full h-auto flex flex-col ">
               {data.map((item, index) => (
                 <div key={index} className="flex flex-col cursor-pointer">
                   <div className="flex justify-between py-2 items-center space-y-4 w-full hover:bg-[#d2e7d2] text-[14px]">
@@ -251,6 +270,7 @@ const DashboardContent = () => {
                   </div>
                 </div>
               ))}
+            </div>
             </div>
           </div>
         </div>
@@ -285,7 +305,8 @@ const DashboardContent = () => {
                   <IoIosArrowRoundForward color="#007f00" size={15} />
                 </p>
               </div>
-              <div className="w-full">
+              <div className="h-[300px] w-full overflow-y-scroll">
+                <div className="w-full h-auto">
                 {notification.map((notification) => (
                   <div className="flex flex-row items-center mx-1 py-1 text-xs hover:bg-green-50/100 cursor-pointer w-full">
                     <img
@@ -307,6 +328,7 @@ const DashboardContent = () => {
                     </div>
                   </div>
                 ))}
+              </div>
               </div>
             </div>
           </div>

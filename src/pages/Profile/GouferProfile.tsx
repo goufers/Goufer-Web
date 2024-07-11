@@ -1,8 +1,19 @@
+
+import { useEffect } from "react";
+import { fetchGouferProfile } from "../Redux/GouferProfileSlice";
+
 import PUBLIC_ROUTES from "../../utils/PublicRoutes";
 import Mainbar from "./Mainbar";
 import Sidebar from "./Sidebar";
+import { useDispatch } from "react-redux";
 
 const GouferProfile = () => {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchGouferProfile());
+  }, [dispatch]);
   return (
     <div className="w-full items-center">
       <div className="bg-[url(https://res.cloudinary.com/dyjo2mvqb/image/upload/v1717427096/Rectangle_10_1_swotsr.png)] bg-contain w-full h-[181px] relative ">

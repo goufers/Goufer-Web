@@ -1,28 +1,9 @@
-import { useRef, useState } from 'react';
-import ReactImagePickerEditor, { ImagePickerConf } from 'react-image-picker-editor';
-import 'react-image-picker-editor/dist/index.css'
 
 
 
 const ProfileSettings = () => {
 
-   const [imageSrc, setImageSrc] = useState('/images/goufer.png')
 
-   const config2: ImagePickerConf = {
-      borderRadius: '100%',
-      language: 'en',
-      width: '200px',
-      height: '200px',
-      objectFit: 'contain',
-      compressInitial: null,
-      hideAddBtn: false,
-      hideDeleteBtn: false,
-      hideDownloadBtn: false,
-      hideEditBtn: false
-
-   };
-
-   const initialImage = '';
 
    return (
       <div>
@@ -30,21 +11,15 @@ const ProfileSettings = () => {
             <div className="flex flex-col gap-2">
                <h1 className='font-bold text-base'>Personal Information</h1>
                <div className="flex flex-row items-center gap-8 p-2">
-                  <div>
-                     <ReactImagePickerEditor
-                        config={config2}
-                        imageSrcProp={initialImage}
-                        imageChanged={(newDataUri: any) => { setImageSrc(newDataUri) }}
-                     />
-                  </div>
-                  {/* <div className="flex flex-col gap-2">
+                  <img src="/images/user-05.jpg.svg" alt="" width={200} />
+                  <div className="flex flex-col gap-2">
                      <div className=" p-2 rounded-full w-56 text-center bg-green-500 text-white">
-                        <button onChange={handleImageChangeClick}>Change Image</button>
+                        <button >Change Image</button>
                      </div>
                      <div className="border-gray-400 border-2 p-2 rounded-full w-56 text-center text-green-700">
-                        <button onClick={handleDeleteImageClick}>Delete Image</button>
+                        <button>Delete Image</button>
                      </div>
-                  </div> */}
+                  </div>
                </div>
                <div className="flex flex-row gap-16 text-sm">
                   <div className="flex flex-col gap-1">

@@ -5,8 +5,6 @@ import axios from "axios";
 export const Signup = createAsyncThunk(
   "register-user",
   async (data: object, { rejectWithValue }) => {
-    console.log(data);
-
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_GOUFER_TEST_API}/users/register/`,
@@ -16,7 +14,7 @@ export const Signup = createAsyncThunk(
         localStorage.setItem(response.data.access, "G_A_Token");
         localStorage.setItem(response.data.refresh, "G_R_Token");
       }
-
+      console.log(response.data);
       return response.data;
     } catch (error: any) {
       console.error(rejectWithValue);

@@ -18,15 +18,12 @@ import Notification from "./pages/Dashboard/Notification/index";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 import Subscription from "./pages/Dashboard/Subscripyion";
+
+import PaymentPage from "./pages/Dashboard/Paymentmethod";
+
 import { useEffect } from "react";
 import AccountSettings from "./pages/Dashboard/AccountSettings";
 
-import ProfileSettings from "./pages/Dashboard/AccountSettings/ProfileSettings";
-import Main from "./pages/Dashboard/AccountSettings/Main";
-import menu from "./utils/accUtils";
-import PasswordSettings from "./pages/Dashboard/AccountSettings/PasswordSettings";
-import PrivacyAndNotification from "./pages/Dashboard/AccountSettings/PrivacyAndNotification";
-import Deactivate from "./pages/Dashboard/AccountSettings/Deactivate";
 
 function App() {
   // const location = useLocation();
@@ -74,9 +71,13 @@ function App() {
         <Route path={PUBLIC_ROUTES.DASHBOARD} element={<Dashboard />} />
         <Route path={PUBLIC_ROUTES.CHAT} element={<Chat />} />
         <Route path={PUBLIC_ROUTES.EMPLOYMENT} element={<Employment />} />
+        <Route path={PUBLIC_ROUTES.PAYMENT} element={<PaymentPage />} />
+        {/* <Route path={PUBLIC_ROUTES.PAYMENT_CHANGE} element={<ChangePayment />} />
+        <Route path={PUBLIC_ROUTES.PAYMENT_UPDATE} element={<PaymentUpdate />} />
+        <Route path={PUBLIC_ROUTES.PAYMENT_ADD} element={<PaymentAdd />} /> */}
         <Route path={PUBLIC_ROUTES.FAVORITE} element={<Favorites />} />
-        <Route path={PUBLIC_ROUTES.ACCOUNT_SETTINGS} element={<AccountSettings/>}/>
-      
+        <Route path={PUBLIC_ROUTES.ACCOUNT_SETTINGS} element={<AccountSettings />} />
+
         <Route path={PUBLIC_ROUTES.SUBSCRIPTION} element={<Subscription />} />
         <Route path={PUBLIC_ROUTES.NOTIFICATION} element={<Notification />} />
 
