@@ -7,13 +7,12 @@ import Mainbar from "./Mainbar";
 import Sidebar from "./Sidebar";
 import { useDispatch } from "react-redux";
 
-const GouferProfile = () => {
-
+const GouferProfile = ({ id }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchGouferProfile());
-  }, [dispatch]);
+    dispatch(fetchGouferProfile(id));
+  }, [dispatch, id]);
   return (
     <div className="w-full items-center">
       <div className="bg-[url(https://res.cloudinary.com/dyjo2mvqb/image/upload/v1717427096/Rectangle_10_1_swotsr.png)] bg-contain w-full h-[181px] relative ">

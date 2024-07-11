@@ -1,7 +1,10 @@
+ interface updatepayState{
+
+    setUpdatePayment :(item:any) => void
+ }
 
 
-
-const PaymentUpdate : React.FC = () =>{
+const PaymentUpdate = ({ setUpdatePayment }:updatepayState) =>{
 
   
    
@@ -79,8 +82,9 @@ const PaymentUpdate : React.FC = () =>{
         </div>
 
         <div className="flex  flex-row items-center justify-center gap-4 w-[432px] h-[45px] mt-2"> 
-         <button className="w-[210px] h-[40px] rounded-[50px] text-[#49454F] bg-white border border-[#79747E] hover:bg-gray-300 transition-colors duration-300">Cancel</button>
-        <button className="w-[210px] h-[40px] rounded-[50px] bg-[#007F00] hover:bg-green-500 transition-colors duration-300 text-white">Update</button>
+         <button className="w-[210px] h-[40px] rounded-[50px] text-[#49454F] bg-white border border-[#79747E] hover:bg-gray-300 transition-colors duration-300"
+         onClick={()=>setUpdatePayment ("none")}>Cancel</button>
+        <button className="w-[210px] h-[40px] rounded-[50px] bg-[#007F00] hover:bg-green-500 transition-colors duration-300 text-white" >Update</button>
        </div>
 
       </div>

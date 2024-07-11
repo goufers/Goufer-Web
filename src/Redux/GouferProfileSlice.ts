@@ -4,10 +4,10 @@ import axios from "axios";
 // Async thunk for fetching the Goufer profile
 export const fetchGouferProfile = createAsyncThunk(
   "gouferProfile/fetchGouferProfile",
-  async (_, { rejectWithValue }) => {
+  async (id, { rejectWithValue }) => {
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_GOUFER_TEST_API}/goufer/profile`
+        `${import.meta.env.VITE_GOUFER_TEST_API}/main/gofers/${id}/`
       );
       return response.data;
     } catch (error) {
@@ -15,6 +15,7 @@ export const fetchGouferProfile = createAsyncThunk(
     }
   }
 );
+
 
 // Initial state
 const initialState = {

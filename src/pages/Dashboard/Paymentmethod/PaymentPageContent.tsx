@@ -5,6 +5,8 @@ import PaymentUpdate from "./PaymentUpdate";
 
 const PaymentPageContent: React.FC = () => {
   const [showComponent, setShowComponent] = useState("none");
+
+  const [updatePayment, setUpdatePayment] = useState("none")
   const data = [
     {
       Invoice: "#Invoice0004321",
@@ -252,7 +254,8 @@ const PaymentPageContent: React.FC = () => {
                       >
                         {d.removeCard}
                       </span>
-                      <button className="text-[#005A00] font-semibold">
+                      <button className="text-[#005A00] font-semibold"
+                      onClick={()=>setUpdatePayment("update_payment_method")}>
                         Edit
                       </button>
                     </div>
@@ -442,7 +445,7 @@ const PaymentPageContent: React.FC = () => {
 
       {showComponent == "add_payment_method" && <PaymentAdd  setShowComponent={setShowComponent}/>}
       {showComponent == "select_payment_method" && <ChangePayment />}
-      {showComponent == "update_payment_method" && <PaymentUpdate />}
+      {showComponent == "update_payment_method" && <PaymentUpdate setUpdatePayment={setUpdatePayment}/>}
     </div>
   );
 };
