@@ -12,7 +12,6 @@ const reducers = combineReducers({
   counter: counterSlice,
   Auth: authSlice,
   favorites: favoritesReducer,
-
   gouferProfile: GouferProfileSlice,
 
 });

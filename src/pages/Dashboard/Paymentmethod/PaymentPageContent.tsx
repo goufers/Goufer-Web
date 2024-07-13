@@ -225,7 +225,7 @@ const PaymentPageContent: React.FC = () => {
                     ? "border-[#54A954] bg-[#e3f1e3]"
                     : "border border-[#E4E7EC]"
                 }`}
-                onClick={() => handleCardClick(i)}
+               
               >
                 <div className="flex flex-row w-full h-[82px] items-start">
                   <img src={d.cardImg} alt="" className="w-[42px] h-[32px]" />
@@ -267,6 +267,7 @@ const PaymentPageContent: React.FC = () => {
                       ? "bg-[#007400] border-[#007400]"
                       : "border-[#D0D5DD]"
                   }`}
+                  onClick={() => handleCardClick(i)}
                 >
                   <img
                     src="./images/tick.svg"
@@ -364,11 +365,11 @@ const PaymentPageContent: React.FC = () => {
                       <p className="pr-7">{d.transaction}</p>
                     </div>
 
-                    <div className="flex flex-row w-[266px] justify-between pr-6">
-                      <p className="pl-4">${d.amount}</p>
+                    <div className="flex flex-row w-[290px] justify-between pr-8 ml-5">
+                      <p className="pl-7">${d.amount}</p>
 
                       <div
-                        className="w-[88px] h-[28px] flex justify-center items-center ml-6"
+                        className="w-[90px] h-[28px] flex justify-center items-center"
                         style={{ backgroundColor: d.statusBgColor }}
                       >
                         <p
@@ -445,7 +446,7 @@ const PaymentPageContent: React.FC = () => {
 
       {showComponent == "add_payment_method" && <PaymentAdd  setShowComponent={setShowComponent}/>}
       {showComponent == "select_payment_method" && <ChangePayment />}
-      {showComponent == "update_payment_method" && <PaymentUpdate setUpdatePayment={setUpdatePayment}/>}
+      {updatePayment == "update_payment_method" && <PaymentUpdate setUpdatePayment={setUpdatePayment}/>}
     </div>
   );
 };

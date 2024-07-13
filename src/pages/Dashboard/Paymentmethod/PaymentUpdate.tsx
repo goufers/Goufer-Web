@@ -10,7 +10,9 @@ const PaymentUpdate = ({ setUpdatePayment }:updatepayState) =>{
    
     return (
 
-      <div className="flex flex-col items-center  mx-auto w-[480px] h-[412px] hover:shadow-lg shadow-md bg-white rounded-[15px] mt-12 gap-2">
+      <div className="w-full h-full flex flex-col items-center z-10 fixed left-0 right-0 top-0 bottom-0 backdrop-blur-sm  bg-[#101c161d]">
+
+      <div className="flex flex-col items-center  mx-auto w-[480px] h-[400px] z-10 fixed left-0 right-0 bottom-0 top-0 backdrop-blur-sm hover:shadow-lg shadow-md bg-white rounded-[15px] mt-24 gap-2 bg-[#101c161d]">
 
          <div className="flex flex-col items-center  w-[432px] h-[292px] mt-6">
          <img className="w-[48px] h-[48px]"  src="./images/cardz.svg" alt="verify email" />
@@ -88,6 +90,8 @@ const PaymentUpdate = ({ setUpdatePayment }:updatepayState) =>{
        </div>
 
       </div>
+      </div>
+
     )
   
 }

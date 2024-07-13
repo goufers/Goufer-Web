@@ -1,18 +1,23 @@
-
 import { useEffect } from "react";
 import { fetchGouferProfile } from "../../Redux/GouferProfileSlice";
-
 import PUBLIC_ROUTES from "../../utils/PublicRoutes";
 import Mainbar from "./Mainbar";
 import Sidebar from "./Sidebar";
 import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../Redux/store";
 
-const GouferProfile = ({ id }) => {
-  const dispatch = useDispatch();
+
+interface GouferProfileProps {
+  id: number; 
+}
+
+const GouferProfile: React.FC<GouferProfileProps> = ({ id }) => {
+  const dispatch: AppDispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchGouferProfile(id));
   }, [dispatch, id]);
+
   return (
     <div className="w-full items-center">
       <div className="bg-[url(https://res.cloudinary.com/dyjo2mvqb/image/upload/v1717427096/Rectangle_10_1_swotsr.png)] bg-contain w-full h-[181px] relative ">
@@ -22,7 +27,6 @@ const GouferProfile = ({ id }) => {
         <p className="text-left text-white text-[16px] ml-[150px] pt-[20px]">
           Home / Goufer Profile
         </p>
-
         <div className="bg-[url(https://res.cloudinary.com/dyjo2mvqb/image/upload/v1717427098/Rectangle_7_hitjl4.svg)] bg-contain w-[636px] h-[181px] bottom-[0px] absolute right-[0px]"></div>
       </div>
       <div className="flex flex-row justify-end items-end mr-[100px] gap-4 mt-[20px]">
@@ -31,7 +35,7 @@ const GouferProfile = ({ id }) => {
         </button>
         <a
           href={PUBLIC_ROUTES.CHAT}
-          className="bg-[#007f00] text-white   hover:bg-[#287028] rounded-full px-[25px] py-[10px] hover:text-white "
+          className="bg-[#007f00] text-white hover:bg-[#287028] rounded-full px-[25px] py-[10px] hover:text-white"
         >
           Contact Goufer
         </a>

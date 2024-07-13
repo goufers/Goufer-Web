@@ -9,6 +9,10 @@ import { useSelector } from "react-redux";
 function Mainbar() {
   const [active, setActive] = useState("About");
   const gouferData = useSelector((state:any) => state.gouferProfile.profile);
+
+  if (!gouferData) {
+    return <div>Loading...</div>; // Replace with your loading component or message
+  }
   const Menu = [
     { title: "About" },
     { title: "Work Experience" },

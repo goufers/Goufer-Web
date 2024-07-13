@@ -1,8 +1,19 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// Async thunk for fetching the Goufer profile
-export const fetchGouferProfile = createAsyncThunk(
+interface GouferProfileState {
+  profile: Record<string, any> | null;
+  status: "idle" | "loading" | "succeeded" | "failed";
+  error: string | null;
+}
+
+const initialState: GouferProfileState = {
+  profile: null,
+  status: "idle",
+  error: null,
+};
+
+export const fetchGouferProfile = createAsyncThunk<any, number, { rejectValue: string }>(
   "gouferProfile/fetchGouferProfile",
   async (id, { rejectWithValue }) => {
     try {
@@ -10,21 +21,12 @@ export const fetchGouferProfile = createAsyncThunk(
         `${import.meta.env.VITE_GOUFER_TEST_API}/main/gofers/${id}/`
       );
       return response.data;
-    } catch (error) {
+    } catch (error: any) {
       return rejectWithValue(error.response ? error.response.data : error.message);
     }
   }
 );
 
-
-// Initial state
-const initialState = {
-  profile: {},
-  status: "idle",
-  error: null,
-};
-
-// GouferProfile slice
 const gouferProfileSlice = createSlice({
   name: "gouferProfile",
   initialState,
@@ -35,13 +37,13 @@ const gouferProfileSlice = createSlice({
         state.status = "loading";
         state.error = null;
       })
-      .addCase(fetchGouferProfile.fulfilled, (state, action) => {
+      .addCase(fetchGouferProfile.fulfilled, (state, action: PayloadAction<Record<string, any>>) => {
         state.status = "succeeded";
         state.profile = action.payload;
       })
-      .addCase(fetchGouferProfile.rejected, (state, action) => {
+      .addCase(fetchGouferProfile.rejected, (state, action: PayloadAction<string | undefined>) => {
         state.status = "failed";
-        state.error = action.payload;
+        state.error = action.payload || null;
       });
   },
 });

@@ -61,7 +61,7 @@ function App() {
     <>
       <Routes>
         <Route index path={PUBLIC_ROUTES.LANDINGPAGE} element={<Landing />} />
-        <Route path={PUBLIC_ROUTES.GOUFER_PROFILE} element={<GouferProfile />} />
+        <Route path={PUBLIC_ROUTES.GOUFER_PROFILE} element={<GouferProfile id={0} />} />
         <Route path={PUBLIC_ROUTES.SEARCH} element={<Search />} />
         <Route path={PUBLIC_ROUTES.DASHBOARD} element={<Dashboard />} />
         <Route path={PUBLIC_ROUTES.CHAT} element={<Chat />} />
