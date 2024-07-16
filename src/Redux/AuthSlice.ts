@@ -11,7 +11,8 @@ export const Signup = createAsyncThunk(
         `${import.meta.env.VITE_GOUFER_TEST_API}/users/register/`,
         data
       );
-      if (response.data.auth_status !== "True") {
+      console.log(response);
+      if (!response.data.auth_status) {
         return { ...response.data, success: false };
       }
 
@@ -22,7 +23,7 @@ export const Signup = createAsyncThunk(
       }
       // console.log(response.data);
     } catch (error: any) {
-      console.error(rejectWithValue);
+      // console.error(rejectWithValue);
       console.log(error);
       // return error.status;
       // return { ...error.data, rejectWithValue };
@@ -33,10 +34,10 @@ export const Signup = createAsyncThunk(
 
 export const LoginUser = createAsyncThunk(
   "login-user",
-  async (data: any, { rejectWithValue }) => {
+  async (data: object, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_GOUFER_TEST_API}/users/login`,
+        `${import.meta.env.VITE_GOUFER_TEST_API}/users/login/`,
         data
       );
       if (response.data.auth_status == "True") {
@@ -140,34 +141,27 @@ export const authSlice: any = createSlice({
       state.authkeys = {};
     },
   },
-
   extraReducers: (builder) => {
     builder
-      // .addCase(Signup.pending, (state) => {
-      //   state.status = "loading";
-      //   state.error = null;
-      // })
-      // .addCase(Signup.fulfilled, (state, action: any) => {
-      //   state.status = "succeeded";
-      //   state.authkeys = action.payload;
-      // })
-      // .addCase(Signup.rejected, (state, action: any) => {
-      //   state.status = "failed";
-      //   state.error = action.payload;
-      // })
-      // this is for testing because the status code is returning 400 due to failure to get verification code
-      .addCase(Signup.rejected, (state, action: any) => {
+      .addCase(Signup.pending, (state) => {
+        state.status = "loading";
+        state.error = null;
+      })
+      .addCase(Signup.fulfilled, (state, action: any) => {
         state.status = "succeeded";
-        state.authkeys = action.payload;
+        state.authkeys = { ...action.payload };
+      })
+      .addCase(Signup.rejected, (state, action: any) => {
+        state.status = "failed";
+        state.error = action.payload;
       })
       .addCase(LoginUser.pending, (state) => {
         state.status = "loading";
         state.error = null;
       })
-
       .addCase(LoginUser.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.user = action.payload;
+        state.authkeys = { ...action.payload };
       })
       .addCase(LoginUser.rejected, (state: any, action) => {
         state.status = "failed";

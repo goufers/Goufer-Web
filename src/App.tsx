@@ -16,6 +16,7 @@ import Employment from "./pages/Dashboard/Employment";
 import Favorites from "./pages/Dashboard/Favourite";
 import Notification from "./pages/Dashboard/Notification/index";
 import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 import Subscription from "./pages/Dashboard/Subscripyion";
 
 import PaymentPage from "./pages/Dashboard/Paymentmethod";
