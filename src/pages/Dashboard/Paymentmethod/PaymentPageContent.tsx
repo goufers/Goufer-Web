@@ -1,7 +1,10 @@
-import { SetStateAction, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 import PaymentAdd from "./PaymentAdd";
 import ChangePayment from "./ChangePayment";
 import PaymentUpdate from "./PaymentUpdate";
+import { RootState } from "../../../Redux/store";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchPayments } from "../../../Redux/paymentSlice";
 
 const PaymentPageContent: React.FC = () => {
   const [showComponent, setShowComponent] = useState("none");
@@ -133,6 +136,14 @@ const PaymentPageContent: React.FC = () => {
   const itemsPerPage = 5;
 
   const totalPages = Math.ceil(data.length / itemsPerPage);
+
+
+  useSelector((state: RootState) => state.payment);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchPayments());
+  }, [dispatch]);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedStatus, setSelectedStatus] = useState("");
@@ -452,3 +463,5 @@ const PaymentPageContent: React.FC = () => {
 };
 
 export default PaymentPageContent;
+
+

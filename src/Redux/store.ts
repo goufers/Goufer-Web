@@ -5,6 +5,9 @@ import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
 import favoritesReducer from "../features/favoriteSlice/favoritesSlice";
 import GouferProfileSlice from "./GouferProfileSlice";
+import paymentSlice from "./paymentSlice";
+
+
 
 
 
@@ -13,6 +16,7 @@ const reducers = combineReducers({
   Auth: authSlice,
   favorites: favoritesReducer,
   gouferProfile: GouferProfileSlice,
+  payment: paymentSlice,
 
 });
 

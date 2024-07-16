@@ -1,8 +1,25 @@
+import { useState } from "react";
+
 interface appState {
     setShowComponent:(item:any) =>void
 }
 
 const PaymentAdd = ({ setShowComponent }:appState) => {
+
+  const [expiryDate, setExpiryDate] = useState('');
+
+  const handleExpiryChange = (e: { target: { value: string; }; }) => {
+    let value = e.target.value.replace(/\D/g, ''); // Remove all non-digit characters
+    if (value.length > 4) {
+      value = value.slice(0, 4); // Limit to 4 digits
+    }
+    if (value.length > 2) {
+      value = value.slice(0, 2) + '/' + value.slice(2);
+    }
+    setExpiryDate(value);
+  };
+
+
   return (
     <div className="w-full h-full flex flex-col items-center z-10 fixed left-0 right-0 top-0 bottom-0 backdrop-blur-sm  bg-[#101c161d]">
       <div className="m-auto flex flex-col items-center  mx-auto w-[480px] h-[626px] hover:shadow-lg shadow-md bg-white rounded-[15px] mt-12 gap-2">
@@ -64,15 +81,18 @@ const PaymentAdd = ({ setShowComponent }:appState) => {
               </div>
 
               <div className="flex flex-col w-[112px] h-[66px]">
-                <h2 className="text-[#49454F] text-[14px]">Expiry</h2>
-
-                <div className="flex flex-row w-[112px] h-[40px] border border-[#9eabbf] items-center justify-center rounded-[8px] mt-2">
-                  <input
-                    type="text"
-                    className="w-[84px] h-[20px] outline-none text-[#322F37]"
-                  />
-                </div>
-              </div>
+          <h2 className="text-[#49454F] text-[14px]">Expiry</h2>
+          <div className="flex flex-row w-[112px] h-[40px] border border-[#9eabbf] items-center justify-center rounded-[8px] mt-2">
+            <input
+              type="text"
+              value={expiryDate}
+              onChange={handleExpiryChange}
+              className="w-[84px] h-[20px] outline-none text-[#453e4f] pl-4"
+              placeholder="MM/YY"
+              maxLength={5}
+            />
+          </div>
+        </div>
             </div>
 
             <div className="flex flex-row w-[432px] h-[70px] justify-between items-center pt-4">

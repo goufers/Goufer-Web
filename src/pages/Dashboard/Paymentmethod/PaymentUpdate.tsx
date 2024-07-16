@@ -1,3 +1,5 @@
+import { useState } from "react";
+
  interface updatepayState{
 
     setUpdatePayment :(item:any) => void
@@ -5,6 +7,19 @@
 
 
 const PaymentUpdate = ({ setUpdatePayment }:updatepayState) =>{
+
+  const [expiryDate, setExpiryDate] = useState('');
+
+  const handleExpiryChange = (e: { target: { value: string; }; }) => {
+    let value = e.target.value.replace(/\D/g, ''); // Remove all non-digit characters
+    if (value.length > 4) {
+      value = value.slice(0, 4); // Limit to 4 digits
+    }
+    if (value.length > 2) {
+      value = value.slice(0, 2) + '/' + value.slice(2);
+    }
+    setExpiryDate(value);
+  };
 
   
    
@@ -24,56 +39,49 @@ const PaymentUpdate = ({ setUpdatePayment }:updatepayState) =>{
          </div>
 
 
-           <div className="flex flex-col items-center justify-center text-[#c7c7c8] mt-4">
-
-             <div className="flex flex-row w-[432px] h-[70px] justify-between items-center">
-              <div className="flex flex-col w-[304px] h-[66px]">
-       <h2 className="text-[#49454F] text-[14px]">Name on card</h2>
-
-       <div className="flex flex-row w-[304px] h-[40px] border border-[#9eabbf] items-center justify-center rounded-[8px] mt-2">
-           <input type="text"  className="w-[276px] h-[20px] outline-none text-[#786596]"/>
-       </div>
-            </div>
-
-             <div className="flex flex-col w-[112px] h-[66px]">
-             <h2 className="text-[#49454F] text-[14px]">Expiry</h2>
-
-             <div className="flex flex-row w-[112px] h-[40px] border border-[#9eabbf] items-center justify-center rounded-[8px] mt-2">
-           <input type="text"  className="w-[84px] h-[20px] outline-none text-[#453e4f] pl-4"/>
-            </div>
-             </div>
-           </div>
-   
-
-           <div className="flex flex-row w-[432px] h-[70px] justify-between items-center pt-4">
-           <div className="flex flex-col w-[304px] h-[66px] text-[14px]">
-          <p className="text-[#49454F]">Card number</p>
-      
-
-         <div className="flex flex-row w-[304px] h-[40px] border border-[#9eabbf] items-center justify-center  rounded-[8px] mt-2">
-          <div className="flex  w-[280px] h-[24px] gap-2">
-         <img src="public/images/masta.svg" alt="card" />  <input type="text"  className=" outline-none text-[#322F37] w-[260px]"/>
+         <div className="flex flex-col items-center justify-center text-[#c7c7c8] mt-4">
+      <div className="flex flex-row w-[432px] h-[70px] justify-between items-center">
+        <div className="flex flex-col w-[304px] h-[66px]">
+          <h2 className="text-[#49454F] text-[14px]">Name on card</h2>
+          <div className="flex flex-row w-[304px] h-[40px] border border-[#9eabbf] items-center justify-center rounded-[8px] mt-2">
+            <input type="text" className="w-[276px] h-[20px] outline-none text-[#786596]" />
           </div>
-         </div>
-    
-       </div>
-
-         <div className="flex flex-col w-[112px] h-[66px]  text-[14px]">
-           <p className="text-[#49454F] font-Roboto">CVV</p>
-
-          <div className="flex flex-row w-[112px] h-[40px] border border-[#9eabbf] items-center justify-center rounded-[8px] mt-2">
-           <input type="text"  className="w-[84px] h-[20px] outline-none text-[#322F37]"/>
-          </div>
-           </div>
         </div>
 
+        <div className="flex flex-col w-[112px] h-[66px]">
+          <h2 className="text-[#49454F] text-[14px]">Expiry</h2>
+          <div className="flex flex-row w-[112px] h-[40px] border border-[#9eabbf] items-center justify-center rounded-[8px] mt-2">
+            <input
+              type="text"
+              value={expiryDate}
+              onChange={handleExpiryChange}
+              className="w-[84px] h-[20px] outline-none text-[#453e4f] pl-4"
+              placeholder="MM/YY"
+              maxLength={5}
+            />
+          </div>
+        </div>
+      </div>
 
-
-
-
-
-
+      <div className="flex flex-row w-[432px] h-[70px] justify-between items-center pt-4">
+        <div className="flex flex-col w-[304px] h-[66px] text-[14px]">
+          <p className="text-[#49454F]">Card number</p>
+          <div className="flex flex-row w-[304px] h-[40px] border border-[#9eabbf] items-center justify-center rounded-[8px] mt-2">
+            <div className="flex w-[280px] h-[24px] gap-2">
+              <img src="public/images/masta.svg" alt="card" />
+              <input type="text" className="outline-none text-[#322F37] w-[260px]" />
             </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col w-[112px] h-[66px] text-[14px]">
+          <p className="text-[#49454F] font-Roboto">CVV</p>
+          <div className="flex flex-row w-[112px] h-[40px] border border-[#9eabbf] items-center justify-center rounded-[8px] mt-2">
+            <input type="text" className="w-[84px] h-[20px] outline-none text-[#322F37]" />
+          </div>
+        </div>
+      </div>
+    </div>
 
 
       
