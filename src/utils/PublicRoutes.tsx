@@ -8,21 +8,11 @@ const PUBLIC_ROUTES = {
   FAVORITE: "/favorite",
   EMPLOYMENT: "/employment",
 
+  PAYMENT: "/payment",
 
-  PAYMENT:"/payment",
-
-  PAYMENT_CHANGE:"/changePayment",
-  PAYMENT_UPDATE:"/PaymentUpdate",
-  PAYMENT_ADD:"/PaymentAdd",
-
- 
-
-
-
-
-
-
-
+  PAYMENT_CHANGE: "/changePayment",
+  PAYMENT_UPDATE: "/PaymentUpdate",
+  PAYMENT_ADD: "/PaymentAdd",
 
   SUBSCRIPTION: "/subscription",
   NOTIFICATION: "/notification",
@@ -31,8 +21,7 @@ const PUBLIC_ROUTES = {
   ABOUT_US: "/about",
   CONTACT_US: "/contact",
   CATEGORIES: "/categories",
-  ACCOUNT_SETTINGS:'accountsettings',
- 
+  ACCOUNT_SETTINGS: "account_settings",
 
   LOGIN: "/login",
   SIGNUP: "/signup",

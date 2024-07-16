@@ -24,7 +24,6 @@ import PaymentPage from "./pages/Dashboard/Paymentmethod";
 import { useEffect } from "react";
 import AccountSettings from "./pages/Dashboard/AccountSettings";
 
-
 function App() {
   // const location = useLocation();
 
@@ -62,9 +61,7 @@ function App() {
 
   return (
     <>
-
       <Routes>
-        <></>
         <Route index path={PUBLIC_ROUTES.LANDINGPAGE} element={<Landing />} />
         <Route path={PUBLIC_ROUTES.GOUFER_PROFILE} element={<GouferProfile />} />
         <Route path={PUBLIC_ROUTES.SEARCH} element={<Search />} />
