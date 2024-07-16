@@ -11,14 +11,16 @@ export const Signup = createAsyncThunk(
         `${import.meta.env.VITE_GOUFER_TEST_API}/users/register/`,
         data
       );
-      console.log(data);
+      if (response.data.auth_status !== "True") {
+        return { ...response.data, success: false };
+      }
 
       if (response.data.auth_status == "True") {
         localStorage.setItem(response.data.access, "G_A_Token");
         localStorage.setItem(response.data.refresh, "G_R_Token");
+        return { ...response.data, success: true };
       }
-      console.log(response.data.response);
-      return { ...response.data, status_code: response.data.response.status };
+      // console.log(response.data);
     } catch (error: any) {
       console.error(rejectWithValue);
       console.log(error);
@@ -141,22 +143,28 @@ export const authSlice: any = createSlice({
 
   extraReducers: (builder) => {
     builder
-      .addCase(Signup.pending, (state) => {
-        state.status = "loading";
-        state.error = null;
-      })
-      .addCase(Signup.fulfilled, (state, action: any) => {
+      // .addCase(Signup.pending, (state) => {
+      //   state.status = "loading";
+      //   state.error = null;
+      // })
+      // .addCase(Signup.fulfilled, (state, action: any) => {
+      //   state.status = "succeeded";
+      //   state.authkeys = action.payload;
+      // })
+      // .addCase(Signup.rejected, (state, action: any) => {
+      //   state.status = "failed";
+      //   state.error = action.payload;
+      // })
+      // this is for testing because the status code is returning 400 due to failure to get verification code
+      .addCase(Signup.rejected, (state, action: any) => {
         state.status = "succeeded";
         state.authkeys = action.payload;
-      })
-      .addCase(Signup.rejected, (state, action: any) => {
-        state.status = "failed";
-        state.error = action.payload;
       })
       .addCase(LoginUser.pending, (state) => {
         state.status = "loading";
         state.error = null;
       })
+
       .addCase(LoginUser.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.user = action.payload;
