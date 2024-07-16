@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect} from "react";
+import { useDispatch } from "react-redux";
+import { SearchGoufer } from "../../Redux/SearchSlice";
+import { AppDispatch } from "../../Redux/store";
 
 // Define the type for info objects
-interface Info {
+interface SearchGoufer {
   id: number;
   GouferCategories: string;
   Shopimage: string;
@@ -13,9 +16,12 @@ interface Info {
   Task: string;
 }
 
-const infos: Info[] = [
-  // Add 30 sample info objects for two pages
+const infos: [] = [
+  
+// Add 30 sample info objects for two pages
   // Page 1
+ 
+  
   {
     id: 1,
     GouferCategories: "Food & Beverage",
@@ -31,6 +37,8 @@ const infos: Info[] = [
   },
   // Repeat the same object with different ids for simplicity
   // Add more objects to reach a total of 30
+ 
+ 
   {
     id: 2,
     GouferCategories: "Delivery",
@@ -233,23 +241,29 @@ const infos: Info[] = [
   // Add more objects...
 ];
 
-const SearchPage: React.FC = () => {
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const [showExpertPop, setShowExpertPop] = useState<number | null>(null);
+const SearchPage: React.FC = ({}) => {
+  const dispatch: AppDispatch = useDispatch();
 
-  const cardsPerPage = 15;
-  const totalPages = Math.ceil(infos.length / cardsPerPage);
+  useEffect(() => {
+    dispatch(SearchGoufer(?expertise=Cooked));
+  }, [dispatch]);
+  
+  // const [currentPage, setCurrentPage] = useState<number>(1);
+  // const [showExpertPop, setShowExpertPop] = useState<number | null>(null);
 
-  const handlePageChange = (page: number | string) => {
-    if (typeof page === "number") {
-      setCurrentPage(page);
-    }
-  };
+  // const cardsPerPage = 15;
+  // const totalPages = Math.ceil(infos.length / cardsPerPage);
 
-  const displayInfos = infos.slice(
-    (currentPage - 1) * cardsPerPage,
-    currentPage * cardsPerPage
-  );
+  // const handlePageChange = (page: number | string) => {
+  //   if (typeof page === "number") {
+  //     setCurrentPage(page);
+  //   }
+  // };
+
+  // const displayInfos = infos.slice(
+  //   (currentPage - 1) * cardsPerPage,
+  //   currentPage * cardsPerPage
+  // );
 
   return (
     <div className="w-full flex flex-col items-center">
@@ -377,7 +391,7 @@ const SearchPage: React.FC = () => {
       </div>
 
       {/* Pagination */}
-      <div className="w-full flex items-center justify-center mb-12 mt-6">
+      {/* <div className="w-full flex items-center justify-center mb-12 mt-6">
         <div className="flex flex-row items-center justify-center hover:shadow-lg shadow-md bg-white rounded-[15px] border-[#E6F2E6]">
           <div className="w-[119px] h-[40px] flex items-center justify-center border-[#E6F2E6]">
             <button onClick={() => handlePageChange(Math.max(currentPage - 1, 1))}>
@@ -410,7 +424,7 @@ const SearchPage: React.FC = () => {
             </button>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

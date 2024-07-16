@@ -8,7 +8,6 @@ import { toggleFavorite } from "../../features/favoriteSlice/favoritesSlice";
 import InputSearch from "./InputSearch";
 import { SearchGoufer } from "../../Redux/SearchSlice";
 
-
 interface Item {
   id: number;
   GouferCategories: string;
@@ -24,121 +23,136 @@ interface Item {
 const Search: React.FC = () => {
   const [rating, setRating] = useState(0);
   const [showExpertPop, setShowExpertPop] = useState<any>();
+  const goufers = useSelector((state:any) => state.SearchGoufers);
+
+  const [searchParams,setSearchParams]=useState({
+    keyword:"",
+    category: "",
+    rating:"",
+    location:"",
+    gender:"",
+    presence:""
+  })
   const dispatch: AppDispatch = useDispatch();
-  const favoriteItems = useSelector((state: RootState) => state.favorites.favoriteItems);
+
+
+  // const favoriteItems = useSelector((state: RootState) => state.favorites.favoriteItems);
+  
+
 
   
-  const handleIconClick = (item: Item) => {
-    dispatch(toggleFavorite(item));
-  };
-// 
-  const goufers = useSelector((state:any) => state.SearchGoufer.goufers);
-  // const infos = [
-  //   {
-  //     id: 1,
-  //     GouferCategories: "Food & Beverage",
-  //     Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
-  //     Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
-  //     Goufername: "Azeez Ibrahim",
-  //     Text: " These are professional goufer which are expertise in resturant knowledge and update",
-  //     Rate: "4.8",
-  //     City: "Lagos,Nigeria",
-  //     Task: " 50+ ",
+  const infos = [
+    {
+      id: 1,
+      GouferCategories: "Food & Beverage",
+      Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
+      Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+      Goufername: "Azeez Ibrahim",
+      Text: " These are professional goufer which are expertise in resturant knowledge and update",
+      Rate: "4.8",
+      City: "Lagos,Nigeria",
+      Task: " 50+ ",
       
-  //   },
-  //   {
-  //     id: 2,
-  //     GouferCategories: "Transport",
-  //     Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
-  //     Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
-  //     Goufername: "Pius Lucky",
-  //     Text: " These are professional goufer which are expertise in resturant knowledge and update",
-  //     Rate: "4.8",
-  //     City: "Lagos,Nigeria",
-  //     Task: " 50+",
+    },
+    {
+      id: 2,
+      GouferCategories: "Transport",
+      Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
+      Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+      Goufername: "Pius Lucky",
+      Text: " These are professional goufer which are expertise in resturant knowledge and update",
+      Rate: "4.8",
+      City: "Lagos,Nigeria",
+      Task: " 50+",
       
-  //   },
-  //   {
-  //     id: 3,
-  //     GouferCategories: "Entertainment",
-  //     Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
-  //     Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
-  //     Goufername: "Chika Chime",
-  //     Text: " These are professional goufer which are expertise in resturant knowledge and update",
-  //     Rate: "4.8",
-  //     City: "Lagos,Nigeria",
-  //     Task: " 50+",
+    },
+    {
+      id: 3,
+      GouferCategories: "Entertainment",
+      Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
+      Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+      Goufername: "Chika Chime",
+      Text: " These are professional goufer which are expertise in resturant knowledge and update",
+      Rate: "4.8",
+      City: "Lagos,Nigeria",
+      Task: " 50+",
       
-  //   },
-  //   {
-  //     id: 4,
-  //     GouferCategories: "Donation",
-  //     Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
-  //     Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
-  //     Goufername: "Choosen Abdullahi",
-  //     Text: " These are professional goufer which are expertise in resturant knowledge and update",
-  //     Rate: "4.8",
-  //     City: "Lagos,Nigeria",
-  //     Task: " 50+",
+    },
+    {
+      id: 4,
+      GouferCategories: "Donation",
+      Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
+      Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+      Goufername: "Choosen Abdullahi",
+      Text: " These are professional goufer which are expertise in resturant knowledge and update",
+      Rate: "4.8",
+      City: "Lagos,Nigeria",
+      Task: " 50+",
       
-  //   },
-  //   {
-  //     id: 5,
-  //     GouferCategories: "Shopper",
-  //     Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
-  //     Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
-  //     Goufername: "Oladosu Teslimat",
-  //     Text: " These are professional goufer which are expertise in resturant knowledge and update",
-  //     Rate: "4.8",
-  //     City: "Lagos,Nigeria",
-  //     Task: " 50+",
+    },
+    {
+      id: 5,
+      GouferCategories: "Shopper",
+      Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
+      Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+      Goufername: "Oladosu Teslimat",
+      Text: " These are professional goufer which are expertise in resturant knowledge and update",
+      Rate: "4.8",
+      City: "Lagos,Nigeria",
+      Task: " 50+",
       
-  //   },
-  //   {
-  //     id: 6,
-  //     GouferCategories: "Shopper",
-  //     Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
-  //     Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
-  //     Goufername: "Oladosu Teslimat",
-  //     Text: " These are professional goufer which are expertise in resturant knowledge and update",
-  //     Rate: "4.8",
-  //     City: "Lagos,Nigeria",
-  //     Task: " 50+",
+    },
+    {
+      id: 6,
+      GouferCategories: "Shopper",
+      Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
+      Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+      Goufername: "Oladosu Teslimat",
+      Text: " These are professional goufer which are expertise in resturant knowledge and update",
+      Rate: "4.8",
+      City: "Lagos,Nigeria",
+      Task: " 50+",
     
-  //   },
-  //   {
-  //     id: 7,
-  //     GouferCategories: "Shopper",
-  //     Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
-  //     Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
-  //     Goufername: "Oladosu Teslimat",
-  //     Text: " These are professional goufer which are expertise in resturant knowledge and update",
-  //     Rate: "4.8",
-  //     City: "Lagos,Nigeria",
-  //     Task: " 50+",
+    },
+    {
+      id: 7,
+      GouferCategories: "Shopper",
+      Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
+      Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+      Goufername: "Oladosu Teslimat",
+      Text: " These are professional goufer which are expertise in resturant knowledge and update",
+      Rate: "4.8",
+      City: "Lagos,Nigeria",
+      Task: " 50+",
      
-  //   },
+    },
 
-  //   {
-  //     id: 8, 
-  //     GouferCategories: "Shopper",
-  //     Shopimage:
-  //       "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
-  //     Gouferimage:
-  //       "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
-  //     Goufername: "Oladosu Teslimat",
-  //     Text: " These are professional goufer which are expertise in resturant knowledge and update",
-  //     Rate: "4.8",
-  //     City: "Lagos,Nigeria",
-  //     Task: " 50+",
-  //   }
-  // ];
+    {
+      id: 8, 
+      GouferCategories: "Shopper",
+      Shopimage:
+        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
+      Gouferimage:
+        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+      Goufername: "Oladosu Teslimat",
+      Text: " These are professional goufer which are expertise in resturant knowledge and update",
+      Rate: "4.8",
+      City: "Lagos,Nigeria",
+      Task: " 50+",
+    }
+  ];
   const handleStarClick = (index: number) => {
     setRating(index + 1);
   };
 
-  useEffect(() => {console.log(goufers)}
-  ,[]);
+
+  useEffect(()=> {
+    dispatch(SearchGoufer(searchParams));
+  },[dispatch]);
+  
+  const handleIconClick = (item: Item) => {
+    dispatch(toggleFavorite(item));
+  };
 
   
   return (
@@ -192,17 +206,20 @@ const Search: React.FC = () => {
             <input
               type="text"
               className="w-[230px] h-[30px] rounded-[25px] border-none pl-4 outline-green-400"
+              onChange={(e)=>setSearchParams((prev)=>({...prev,keyword:e.target.value}))}
             />
           </div>
 
           <div className="flex flex-col w-[245px] h-[78px] bg-gray-200 items-center justify-center gap-2 rounded-[15px]  mt-4">
             <div className="flex justify-between w-[233px]">
-              <h1 className="w-[65px] h-[24px]">Categories</h1>
+              <h1 className="w-[65px] h-[24px]">Category</h1>
             </div>
 
-            <select className="w-[230px] h-[30px] rounded-[25px] border-none pl-4 bg-white outline-none">
+            <select className="w-[230px] h-[30px] rounded-[25px] border-none pl-4 bg-white outline-none" 
+            onChange={(e)=>setSearchParams((prev)=>({...prev,category:e.target.value}))}
+            >
               <option value="" disabled >
-                Select Categories
+                Select Category
               </option>
               <option value="hurr">Food</option>
               <option value="hurr">Transport</option>
@@ -217,6 +234,8 @@ const Search: React.FC = () => {
             <input
               type="text"
               className="w-[230px] h-[30px] rounded-[25px] border-none pl-4  outline-green-400"
+              onChange={(e)=>setSearchParams((prev)=>({...prev,location:e.target.value}))}
+
             />
           </div>
 
@@ -234,7 +253,10 @@ const Search: React.FC = () => {
                     stroke="currentColor"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
-                    onClick={() => handleStarClick(index)}
+                    onClick={() => {handleStarClick(index);
+                    setSearchParams((prev)=>({...prev,rating:index + 1}))
+
+                    }}
                   >
                     <path
                       strokeLinecap="round"
@@ -244,7 +266,7 @@ const Search: React.FC = () => {
                     />
                   </svg>
                 ))}
-              </div>
+              {/* </div> */}
               <span className="w-[65px] h-[24px] text-right">{rating}</span>
             </div>
           </div>
@@ -254,7 +276,9 @@ const Search: React.FC = () => {
               <h1 className="w-[65px] h-[24px]">Gender</h1>
             </div>
 
-            <select className="w-[230px] h-[30px] rounded-[25px] border-none pl-4 bg-white">
+            <select className="w-[230px] h-[30px] rounded-[25px] border-none pl-4 bg-white" 
+             onClick={(e)=>{setSearchParams((prev)=>({...prev,gender:e.target.value}))}}                   
+>
               <option value="" disabled >
                 Select gender
               </option>
@@ -270,15 +294,21 @@ const Search: React.FC = () => {
             </div>
             <div className="flex flex-col items-start gap-2 w-[233px] h-[94px]">
               <label className="flex items-center gap-2">
-                <input type="checkbox" className="form-checkbox" />
+                <input type="checkbox" className="form-checkbox"
+                onClick={(e)=>{setSearchParams((prev)=>({...prev,presence:e.target.value}))}}                   
+ />
                 Available Now
               </label>
               <label className="flex items-center gap-2">
-                <input type="checkbox" className="form-checkbox" />
+                <input type="checkbox" className="form-checkbox"
+                onClick={(e)=>{setSearchParams((prev)=>({...prev,presence:e.target.value}))}}                   
+ />
                 Online
               </label>
               <label className="flex items-center gap-2">
-                <input type="checkbox" className="form-checkbox" />
+                <input type="checkbox" className="form-checkbox"
+                onClick={(e)=>{setSearchParams((prev)=>({...prev,presence:e.target.value}))}}                   
+ />
                 Offline
               </label>
             </div>
@@ -287,7 +317,17 @@ const Search: React.FC = () => {
             <button className="w-[248px] h-[30px] rounded-full bg-[#007F00] mb-12 text-white hover:bg-green-900 transition-colors duration-300">
               Search Criteria
             </button>
-            <h1 className="mb-6">Clear all Filters</h1>
+            <h1 className="mb-6"
+           onClick={(e)=>{setSearchParams( {
+                        keyword:"",
+                        category: "",
+                        rating:"",
+                        location:"",
+                        gender:"",
+                        presence:""
+            })}}                   
+
+            >Clear all Filters</h1>
           </div>
         </div>
 
@@ -420,6 +460,7 @@ const Search: React.FC = () => {
 
       <Footer />
       {/* ----------------------button banner----------------- */}
+    </div>
     </div>
   );
 };
