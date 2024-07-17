@@ -6,14 +6,11 @@ import { persistReducer, persistStore } from "redux-persist";
 import favoritesReducer from "../features/favoriteSlice/favoritesSlice";
 import GouferProfileSlice from "./GouferProfileSlice";
 
-
-
 const reducers = combineReducers({
   counter: counterSlice,
   Auth: authSlice,
   favorites: favoritesReducer,
-  gouferProfile: GouferProfileSlice,
-
+  GouferProfile: GouferProfileSlice,
 });
 
 const persistConfig = {
@@ -38,5 +35,5 @@ const store = configureStore({
 export const persistor = persistStore(store);
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export type AppDisp atch = typeof store.dispatch;
 export default store;

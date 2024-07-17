@@ -8,21 +8,11 @@ const PUBLIC_ROUTES = {
   FAVORITE: "/favorite",
   EMPLOYMENT: "/employment",
 
+  PAYMENT: "/payment",
 
-  PAYMENT:"/payment",
-
-  PAYMENT_CHANGE:"/changePayment",
-  PAYMENT_UPDATE:"/PaymentUpdate",
-  PAYMENT_ADD:"/PaymentAdd",
-
- 
-
-
-
-
-
-
-
+  PAYMENT_CHANGE: "/changePayment",
+  PAYMENT_UPDATE: "/PaymentUpdate",
+  PAYMENT_ADD: "/PaymentAdd",
 
   SUBSCRIPTION: "/subscription",
   NOTIFICATION: "/notification",
