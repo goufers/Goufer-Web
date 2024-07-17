@@ -9,15 +9,17 @@ import paymentSlice from "./paymentSlice";
 
 
 
-
-
 const reducers = combineReducers({
   counter: counterSlice,
   Auth: authSlice,
   favorites: favoritesReducer,
+<<<<<<< HEAD
   gouferProfile: GouferProfileSlice,
   payment: paymentSlice,
 
+=======
+  GouferProfile: GouferProfileSlice,
+>>>>>>> 419fe72b2878e016bb8f7cad2e0604490752b2a2
 });
 
 const persistConfig = {
@@ -42,5 +44,5 @@ const store = configureStore({
 export const persistor = persistStore(store);
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export type AppDisp atch = typeof store.dispatch;
 export default store;

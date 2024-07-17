@@ -1,18 +1,11 @@
-// src/components/Loading.tsx
-
-const Loading: React.FC = () => {
+export const Loading = () => {
   return (
-    <div className="fixed  m-auto top-0 bottom-0 left-0 right-0 bg-transparent backdrop-blur-md  w-full h-full">
-      <div className="w-[70px] h-[300px] m-auto relative">
-        <div className="w-[50px] h-[50px] rounded-[50px] bg-gradient-to-r bg-[#007f00] absolute bottom-[0px] left-[10px] animate-ping duration-100">
-          <div className="w-[50px] h-[50px] rounded-[50px] bg-gradient-to-r bg-[#249324] absolute bottom-[0px] left-[0px] animate-ping duration-75">
-            {/* <div className="w-[50px] h-[50px] rounded-[50px] bg-gradient-to-r bg-[#1b701b] absolute bottom-[0px] left-[0px] animate-ping duration-50"></div> */}
-          </div>
+    <>
+      <div className="m-auto w-full h-full flex flex-col items-center fixed top-0 left-0 right-0 bottom-0 z-30 bg-[#290a0aaf]   backdrop-blur-sm">
+        <div className="m-auto w-[250px] h-[250px] flex flex-col items-center     bg-[#ffffffd0] rounded-xl ">
+          <img src="/images/fade-stagger-circles.svg" alt="" className="m-auto w-40 h-40" />
         </div>
-        <p className="absolute bottom-8 text-[#ffffff00] text-2xl font-bold">.</p>
       </div>
-    </div>
+    </>
   );
 };
-
-export default Loading;

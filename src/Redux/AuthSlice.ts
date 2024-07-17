@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
@@ -10,16 +11,22 @@ export const Signup = createAsyncThunk(
         `${import.meta.env.VITE_GOUFER_TEST_API}/users/register/`,
         data
       );
+      if (response.data.auth_status !== "True") {
+        return { ...response.data, success: false };
+      }
+
       if (response.data.auth_status == "True") {
         localStorage.setItem(response.data.access, "G_A_Token");
         localStorage.setItem(response.data.refresh, "G_R_Token");
+        return { ...response.data, success: true };
       }
-      console.log(response.data);
-      return response.data;
+      // console.log(response.data);
     } catch (error: any) {
       console.error(rejectWithValue);
       console.log(error);
-      return error.response.data;
+      // return error.status;
+      // return { ...error.data, rejectWithValue };
+      return rejectWithValue(error.response ? error.response.data : error.message);
     }
   }
 );
@@ -95,9 +102,32 @@ export const VerifyPhone = createAsyncThunk(
   }
 );
 
+export const VerifyEmail = createAsyncThunk(
+  "verify-phone",
+  async (data, { rejectWithValue }) => {
+    console.log(data);
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_GOUFER_TEST_API}/users/send-verificattion-email`,
+        data
+      );
+      return response.data;
+    } catch (error: any) {
+      return rejectWithValue(error.response ? error.response.data : error.message);
+    }
+  }
+);
+export const ResetState = createAsyncThunk("reset-state", async () => {
+  try {
+    return {};
+  } catch (error: any) {
+    return error;
+  }
+});
+
 const initialState = {
   user: {},
-  authkeys: { refresh: "", access: "", auth_status: "" },
+  authkeys: {},
   status: "idle",
   error: null,
 };
@@ -105,33 +135,46 @@ const initialState = {
 export const authSlice: any = createSlice({
   name: "auth",
   initialState: initialState,
-  reducers: {},
+  reducers: {
+    reset_state: (state) => {
+      state.authkeys = {};
+    },
+  },
 
   extraReducers: (builder) => {
     builder
-      .addCase(Signup.pending, (state) => {
-        state.status = "loading";
-        state.error = null;
-      })
-      .addCase(Signup.fulfilled, (state, action: any) => {
+      // .addCase(Signup.pending, (state) => {
+      //   state.status = "loading";
+      //   state.error = null;
+      // })
+      // .addCase(Signup.fulfilled, (state, action: any) => {
+      //   state.status = "succeeded";
+      //   state.authkeys = action.payload;
+      // })
+      // .addCase(Signup.rejected, (state, action: any) => {
+      //   state.status = "failed";
+      //   state.error = action.payload;
+      // })
+      // this is for testing because the status code is returning 400 due to failure to get verification code
+      .addCase(Signup.rejected, (state, action: any) => {
         state.status = "succeeded";
         state.authkeys = action.payload;
-      })
-      .addCase(Signup.rejected, (state, action: any) => {
-        state.status = "failed";
-        state.error = action.payload;
       })
       .addCase(LoginUser.pending, (state) => {
         state.status = "loading";
         state.error = null;
       })
+
       .addCase(LoginUser.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.user = action.payload;
       })
-      .addCase(LoginUser.rejected, (state, action) => {
+      .addCase(LoginUser.rejected, (state: any, action) => {
         state.status = "failed";
         state.error = action.payload;
+      })
+      .addCase(ResetState.rejected, (state: any, action) => {
+        state.authkeys = action.payload;
       });
   },
 });

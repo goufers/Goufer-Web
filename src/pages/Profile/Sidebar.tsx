@@ -1,17 +1,9 @@
-
-import { useSelector } from 'react-redux';
-
-import { FaStar } from 'react-icons/fa';
-import { RootState } from '../../Redux/store';
-
-const Sidebar = () => {
-  const gouferData = useSelector((state: RootState) => state.gouferProfile.profile);
-
- 
-  if (!gouferData) {
-    return <div>Loading...</div>; 
-  }
-
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { FaStar } from "react-icons/fa";
+interface compData {
+  gouferData: any;
+}
+const Sidebar = ({ gouferData }: compData) => {
   return (
     <div className="flex w-[250px] h-auto ml-[100px] bg-white border rounded-xl hover-shadow-md shadow-md">
       <div className="flex flex-col pt-[10px]">
@@ -28,7 +20,6 @@ const Sidebar = () => {
           <p className="text-[#007F00] border-r-2 border-[#a4e0a4] pr-2">
             {gouferData.availability || "Available"}
           </p>
-
           <img
             src="https://res.cloudinary.com/dyjo2mvqb/image/upload/v1717594238/material-symbols-light_my-location-outline_lontt0.svg"
             alt="shopimage"
@@ -67,9 +58,7 @@ const Sidebar = () => {
           <div className="flex flex-col mt-4">
             <h1 className="text-[#322F37] text-[14px]">Statistics</h1>
             <p className="mt-1 text-[#322F37] text-[14px]">
-              <span className="text-[#007F00]">
-                {gouferData.tasksCompleted || "50+"}
-              </span>
+              <span className="text-[#007F00]">{gouferData.tasksCompleted || "50+"}</span>
               Tasks Completed
             </p>
             <div className="flex flex-col pt-1">
@@ -85,7 +74,8 @@ const Sidebar = () => {
             alt="main logo"
           />
           <p className="text-xs text-[#322F37] text-center">
-            Goufer <span className="text-[#007F00]">{gouferData.Verified || "Verified"}</span> User.
+            Goufer <span className="text-[#007F00]">{gouferData.Verified || "Verified"}</span>{" "}
+            User.
           </p>
         </div>
       </div>
