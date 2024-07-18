@@ -4,7 +4,7 @@ interface compData {
   gouferData: any;
 }
 const Sidebar = ({ gouferData }: compData) => {
-  
+
   return (
     <div className="flex w-[250px] h-auto ml-[100px] bg-white border rounded-xl hover-shadow-md shadow-md">
       <div className="flex flex-col pt-[10px]">
@@ -59,6 +59,7 @@ const Sidebar = ({ gouferData }: compData) => {
           <div className="flex flex-col mt-4">
             <h1 className="text-[#322F37] text-[14px]">Statistics</h1>
             <p className="mt-1 text-[#322F37] text-[14px]">
+
               <span className="text-[#007F00]">{gouferData?.tasksCompleted || "50+"}</span>
               Tasks Completed
             </p>
@@ -75,7 +76,9 @@ const Sidebar = ({ gouferData }: compData) => {
             alt="main logo"
           />
           <p className="text-xs text-[#322F37] text-center">
+
             Goufer <span className="text-[#007F00]">{gouferData?.Verified || "Verified"}</span>{" "}
+
             User.
           </p>
         </div>

@@ -7,16 +7,16 @@ import favoritesReducer from "../features/favoriteSlice/favoritesSlice";
 import paymentSlice from "./paymentSlice";
 import goferProfileReducer from "./GouferProfileSlice";
 
-
-
 const reducers = combineReducers({
   counter: counterSlice,
   Auth: authSlice,
   favorites: favoritesReducer,
+
   goferProfile: goferProfileReducer,
 
   payment: paymentSlice,
  
+
 
 
 

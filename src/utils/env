@@ -1,8 +1,0 @@
-VITE_SOME_KEY=123
-
-VITE_GOUFER_TEST_API=https://goufer-test-f4c572ee80c2.herokuapp.com/api/v1
-
-VITE_F_SERVER=http://54.147.58.183/api/v1 
-
-VITE_GOUFER_DETAIL_API=https://goufer-test-f4c572ee80c2.herokuapp.com/api/v1/main/gofers/3
-
