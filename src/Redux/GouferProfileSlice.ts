@@ -1,52 +1,51 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+// 
 
-interface GouferProfileState {
-  profile: Record<string, any> | null;
-  status: "idle" | "loading" | "succeeded" | "failed";
-  error: string | null;
-}
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
-const initialState: GouferProfileState = {
-  profile: null,
-  status: "idle",
-  error: null,
-};
-
-export const fetchGouferProfile = createAsyncThunk(
-  "goufer-profile",
-  async (id: any, { rejectWithValue }) => {
+// Async thunk to fetch gofer profile data
+export const fetchData = createAsyncThunk(
+  'goferProfile/fetchData', // Action type prefixed with slice name
+  async (_, { rejectWithValue }) => {  // No payload needed here
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_GOUFER_TEST_API}/main/gofers/${id}/`
+        
+        'https://goufer-test-f4c572ee80c2.herokuapp.com/api/v1/main/gofers/1/'
       );
-      return response.data;
-    } catch (error: any) {
+      return response.data; // Return response data on success
+    } catch (error) {
+      // Handle errors
       return rejectWithValue(error.response ? error.response.data : error.message);
     }
   }
 );
 
-const gouferProfileSlice = createSlice({
-  name: "gouferProfile",
-  initialState,
-  reducers: {},
+const goferProfileSlice = createSlice({
+  name: 'goferProfile',
+  initialState: {
+    profile: null,      // Profile data
+    status: 'idle',     // Status of the request (idle, loading, succeeded, failed)
+    error: null,        // Error messages
+  },
+  reducers: {
+    // Add any synchronous reducers if needed
+  },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchGouferProfile.pending, (state) => {
-        state.status = "loading";
-        state.error = null;
+      .addCase(fetchData.pending, (state) => {
+        state.status = 'loading';  // Set status to loading when request starts
       })
-      .addCase(fetchGouferProfile.fulfilled, (state, action) => {
-        state.status = "succeeded";
-        state.profile = action.payload;
+      .addCase(fetchData.fulfilled, (state, action) => {
+        state.status = 'succeeded';  // Set status to succeeded when request succeeds
+        state.profile = action.payload; // Store the profile data from the request
       })
-      .addCase(fetchGouferProfile.rejected, (state, action) => {
-        state.status = "failed";
-        state.error = action.payload;
+      .addCase(fetchData.rejected, (state, action) => {
+        state.status = 'failed';  // Set status to failed if request fails
+        state.error = action.payload;  // Store the error message
       });
   },
 });
 
-export default gouferProfileSlice.reducer;
+
+
+export default goferProfileSlice.reducer;
