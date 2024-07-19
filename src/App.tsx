@@ -16,10 +16,20 @@ import Employment from "./pages/Dashboard/Employment";
 import Favorites from "./pages/Dashboard/Favourite";
 import Notification from "./pages/Dashboard/Notification/index";
 import axios from "axios";
+
+
 import { jwtDecode } from "jwt-decode";
 import Subscription from "./pages/Dashboard/Subscripyion";
 
-import PaymentPage from "./pages/Dashboard/Paymentmethod";
+
+import Subscription from "./pages/Dashboard/Subscription";
+import { jwtDecode } from "jwt-decode";
+import PaymentPage from "./pages/Dashboard/Payment";
+
+
+
+
+
 
 import { useEffect } from "react";
 
@@ -62,7 +72,11 @@ function App() {
     <>
       <Routes>
         <Route index path={PUBLIC_ROUTES.LANDINGPAGE} element={<Landing />} />
+
         <Route path={PUBLIC_ROUTES.GOUFER_PROFILE} element={<GouferProfile />} />
+
+        <Route path={PUBLIC_ROUTES.GOUFER_PROFILE} element={<GouferProfile />} />
+
         <Route path={PUBLIC_ROUTES.SEARCH} element={<Search />} />
         <Route path={PUBLIC_ROUTES.DASHBOARD} element={<Dashboard />} />
         <Route path={PUBLIC_ROUTES.CHAT} element={<Chat />} />

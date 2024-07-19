@@ -1,10 +1,15 @@
-import { SetStateAction, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 import PaymentAdd from "./PaymentAdd";
 import ChangePayment from "./ChangePayment";
 import PaymentUpdate from "./PaymentUpdate";
+import { RootState } from "../../../Redux/store";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchPayments } from "../../../Redux/paymentSlice";
 
 const PaymentPageContent: React.FC = () => {
   const [showComponent, setShowComponent] = useState("none");
+
+  const [updatePayment, setUpdatePayment] = useState("none")
   const data = [
     {
       Invoice: "#Invoice0004321",
@@ -132,6 +137,14 @@ const PaymentPageContent: React.FC = () => {
 
   const totalPages = Math.ceil(data.length / itemsPerPage);
 
+
+  useSelector((state: RootState) => state.payment);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchPayments());
+  }, [dispatch]);
+
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedStatus, setSelectedStatus] = useState("");
 
@@ -223,7 +236,7 @@ const PaymentPageContent: React.FC = () => {
                     ? "border-[#54A954] bg-[#e3f1e3]"
                     : "border border-[#E4E7EC]"
                 }`}
-                onClick={() => handleCardClick(i)}
+               
               >
                 <div className="flex flex-row w-full h-[82px] items-start">
                   <img src={d.cardImg} alt="" className="w-[42px] h-[32px]" />
@@ -252,7 +265,8 @@ const PaymentPageContent: React.FC = () => {
                       >
                         {d.removeCard}
                       </span>
-                      <button className="text-[#005A00] font-semibold">
+                      <button className="text-[#005A00] font-semibold"
+                      onClick={()=>setUpdatePayment("update_payment_method")}>
                         Edit
                       </button>
                     </div>
@@ -264,6 +278,7 @@ const PaymentPageContent: React.FC = () => {
                       ? "bg-[#007400] border-[#007400]"
                       : "border-[#D0D5DD]"
                   }`}
+                  onClick={() => handleCardClick(i)}
                 >
                   <img
                     src="./images/tick.svg"
@@ -361,11 +376,11 @@ const PaymentPageContent: React.FC = () => {
                       <p className="pr-7">{d.transaction}</p>
                     </div>
 
-                    <div className="flex flex-row w-[266px] justify-between pr-6">
-                      <p className="pl-4">${d.amount}</p>
+                    <div className="flex flex-row w-[290px] justify-between pr-8 ml-5">
+                      <p className="pl-7">${d.amount}</p>
 
                       <div
-                        className="w-[88px] h-[28px] flex justify-center items-center ml-6"
+                        className="w-[90px] h-[28px] flex justify-center items-center"
                         style={{ backgroundColor: d.statusBgColor }}
                       >
                         <p
@@ -442,9 +457,11 @@ const PaymentPageContent: React.FC = () => {
 
       {showComponent == "add_payment_method" && <PaymentAdd  setShowComponent={setShowComponent}/>}
       {showComponent == "select_payment_method" && <ChangePayment />}
-      {showComponent == "update_payment_method" && <PaymentUpdate />}
+      {updatePayment == "update_payment_method" && <PaymentUpdate setUpdatePayment={setUpdatePayment}/>}
     </div>
   );
 };
 
 export default PaymentPageContent;
+
+
