@@ -3,9 +3,12 @@ import { useEffect, useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { useDispatch, useSelector } from "react-redux";
-import { LoginUser, ResetState, Signup } from "../Redux/AuthSlice";
-import PhoneValidation from "../components/PhoneValidation";
-import { Loading } from "./Loading";
+import { LoginUser, ResetState, Signup } from "../../Redux/AuthSlice";
+import PhoneValidation from "./PhoneValidation";
+import { Loading } from "../../components/Loading";
+import delay from "delay";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 interface component {
   auth: boolean;
   setAuth: (data: any) => void;
@@ -13,7 +16,8 @@ interface component {
 const Login = ({ auth, setAuth }: component) => {
   const [authComponent, setAuthComponent] = useState("signup");
   const dispatch = useDispatch<any>();
-  const AuthStatus = useSelector((state: any) => state.Auth.authkeys);
+  const AuthStatus = useSelector((state: any) => state.Auth);
+
   const [showPassword, setShowPassword] = useState(true);
   const [loading, setLoading] = useState(false);
   const [loginData, setLoginData] = useState({
@@ -30,25 +34,31 @@ const Login = ({ auth, setAuth }: component) => {
 
   const RegisterUser = async () => {
     setLoading(true);
-    dispatch(Signup(signupData)).then(() => {
-      setLoading(false);
-      if (AuthStatus.auth_status === "True") {
-        setAuthComponent("verify_phone");
-      } else if (AuthStatus.password === "This password is too common.") {
-        alert(AuthStatus.password);
-      } else if (AuthStatus.status === "failed") {
-        alert("Registration failed");
-      }
-    });
+    dispatch(Signup(signupData));
+    await delay(3000);
+    setLoading(false);
+    // console.log(AuthStatus);
+
+    // if (reduxState.authkeys.auth_status == "True") {
+    //   toast("Your account has been created successfully!");
+    //   // setAuthComponent("verify_phone");
+    // }
+
+    // if (reduxState.status == "failed") {
+    //   reduxState.error.email && toast.warn(`${reduxState.error.email[0]}`);
+    //   reduxState.error.phone_number && toast.warn(`${reduxState.error.phone_number[0]}`);
+    // } else if (reduxState.authkeys.success == false) {
+    //   toast.warn("Registration failed");
+    // }
   };
 
-  const LoginUserAction = () => {
-    // console.log(signupData);
+  const LoginUserAction = async () => {
+    console.log(signupData);
+
     setLoading(true);
     dispatch(LoginUser(loginData));
-    if (AuthStatus.auth_status === "True") {
-      setLoading(false);
-    }
+    await delay(3000);
+    setLoading(false);
   };
   const isPhoneNumber = (value: string) => {
     const phoneNumberRegex = /^\d+$/;
@@ -64,19 +74,22 @@ const Login = ({ auth, setAuth }: component) => {
   }, []);
 
   useEffect(() => {
-    // if (AuthStatus.auth_status) {
-    //   setLoading(false);
-    //   setAuthComponent("verify_phone");
-    // } else
-
-    if (AuthStatus.password == "This password is too common.") {
-      setLoading(false);
-      alert(AuthStatus.password);
-    } else if (AuthStatus.status == "failed") {
-      setLoading(false);
-      alert("Registration failed");
+    if (AuthStatus.authkeys?.auth_status == "True") {
+      toast.success("Your account has been created successfully!");
+      setAuthComponent("verify_phone");
     }
-  }, [AuthStatus]);
+
+    if (AuthStatus.status == "failed") {
+      AuthStatus.error.email && toast.warn(`${AuthStatus.error.email[0]}`);
+      AuthStatus.error.phone_number && toast.warn(`${AuthStatus.error.phone_number[0]}`);
+    } else if (AuthStatus.authkeys.success == false) {
+      toast.warn("Registration failed");
+    }
+
+    if (AuthStatus.error == "Network Error") {
+      toast.warning("Network Error");
+    }
+  }, [AuthStatus, dispatch]);
 
   return (
     <>
@@ -376,7 +389,7 @@ const Login = ({ auth, setAuth }: component) => {
           </div>
         )}
         {authComponent === "verify_phone" && <PhoneValidation />}
-        <div className=" bg-gray-700 hidden md:flex flex-col items-center bg-opacity-70  backdrop-blur-sm p-8 shadow-md w-[503px] h-full rounded-r-[25px]  ">
+        <div className=" bg-[#24362354] hidden md:flex flex-col items-center backdrop-blur-sm p-8  w-[503px] h-full rounded-r-[25px]  ">
           <div className="w-[351px] flex flex-col items-center m-auto ">
             <img className="w-[374.5px]" src="./images/gouferbig.svg" alt="gouferl" />
             <h1 className="w-[351px] ml-14 text-white">
@@ -385,6 +398,7 @@ const Login = ({ auth, setAuth }: component) => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 };
