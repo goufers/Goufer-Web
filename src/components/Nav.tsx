@@ -1,15 +1,14 @@
-import { useState } from 'react';
-import Login from './Login';
-import { IoCloseCircleOutline } from 'react-icons/io5';
-import { login } from '../Redux/AuthSlice';
+import { useState } from "react";
+import Login from "../pages/Auth/Login";
+import { IoCloseCircleOutline } from "react-icons/io5";
 
 const Nav = () => {
   const [auth, setAuth] = useState(false);
   const Menu = [
-    { title: 'About', url: '' },
-    { title: 'Expert Categories', url: '' },
-    { title: 'Faq', url: '' },
-    { title: 'Contact Us', url: '' },
+    { title: "About", url: "" },
+    { title: "Expert Categories", url: "" },
+    { title: "Faq", url: "" },
+    { title: "Contact Us", url: "" },
   ];
 
   const [nav, setNav] = useState(false);
@@ -36,9 +35,9 @@ const Nav = () => {
           {Menu.map((i, n) => (
             <p
               className={`{ text-[16px]   px-2 font-roboto cursor-pointer hover:text-green-800 ${
-                i.title == ('Expert Categories' || 'Faq')
-                  ? 'text-[#007F00]'
-                  : ' text-[#322F35]'
+                i.title == ("Expert Categories" || "Faq")
+                  ? "text-[#007F00]"
+                  : " text-[#322F35]"
               }}`}
               key={n}
             >
@@ -49,13 +48,13 @@ const Nav = () => {
 
         <div className=" mx-auto h-full  pl-12 w-auto md:w-1/3 flex flex-row  ">
           <p
-            className="hidden lg:flex text-[12px] md:text-[16px] text-[#007F00] text-center mx-auto px-10 md:py-2 bg-white hover:bg-gray-100 font-roboto font-semibold rounded-full border border-[#322F35] cursor-pointer"
+            className="hidden  lg:flex   w-auto  text-[12px] md:text-[14px] text-[#007F00] text-center mx-auto px-5 md:py-2 bg-white hover:bg-gray-100 font-roboto font-semibold rounded-full border border-[#322F35] cursor-pointer"
             onClick={() => setAuth(true)}
           >
-            Login
+            Signup or Login
           </p>
 
-          <p className="text-[12px] md:text-[16px] text-white text-center mx-auto px-3 md:px-10 py-1.5 md:py-2 bg-[#007F00]  hover:bg-[#158815]  font-roboto font-semibold rounded-full  cursor-pointer">
+          <p className="  w-auto text-[12px] md:text-[16px] text-white text-center mx-auto px-3 md:px-10 py-1.5 md:py-2 bg-[#007F00]  hover:bg-[#158815]  font-roboto font-semibold rounded-full  cursor-pointer">
             Use a Goufer
           </p>
         </div>
@@ -78,8 +77,8 @@ const Nav = () => {
         <div
           className={
             nav
-              ? 'absolute right-0 top-[72px] w-1/2 h-screen bg-white px-5 flex flex-col pl-8 z-10 duration-200 '
-              : 'absolute left-[-100%] z-10 duration-200'
+              ? "absolute right-0 top-[72px] w-1/2 h-screen bg-white px-5 flex flex-col pl-8 z-10 duration-200 "
+              : "absolute left-[-100%] z-10 duration-200"
           }
         >
           <ul className="space-y-4 pt-3 text-[16px] text-black cursor-pointer">
