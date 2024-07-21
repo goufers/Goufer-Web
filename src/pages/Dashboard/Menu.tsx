@@ -29,17 +29,17 @@ const Menu = () => {
     {
       title: "Notifications",
       icon: "/images/notification-02 (1).svg",
-      url: "",
+      url: PUBLIC_ROUTES.NOTIFICATION,
     },
     {
       title: "Subscription",
       icon: "/images/invoice-01.svg",
-      url: "",
+      url: PUBLIC_ROUTES.SUBSCRIPTION,
     },
     {
       title: "Payment",
       icon: "/images/credit-card-pos.svg",
-      url: "",
+      url: PUBLIC_ROUTES.PAYMENT,
     },
     {
       title: "Account Settings",
