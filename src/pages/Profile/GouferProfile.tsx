@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import { fetchGouferProfile } from "../../Redux/GouferProfileSlice";
 
@@ -8,7 +7,6 @@ import Sidebar from "./Sidebar";
 import { useDispatch } from "react-redux";
 
 const GouferProfile = () => {
-
   const dispatch = useDispatch();
 
   useEffect(() => {

@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect, useRef, ChangeEvent, FC } from "react";
 import "react-phone-input-2/lib/style.css";
+import { SendCode } from "../../Redux/AuthSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { VerifyPhone } from "../../Redux/AuthSlice";
-
 const PhoneValidation = () => {
   const dispatch = useDispatch();
   const userPhone = useSelector((state: any) => state.Auth.authkeys?.phone_number);
@@ -119,18 +119,14 @@ const PhoneValidation = () => {
                   key={index}
                   type="text"
                   maxLength={1}
-                  onChange={(e) => {
-                    focusNext(e);
-                    setCode(e.target.value);
-                  }}
+                  onChange={(e) => focusNext(e)}
                   style={{ textAlign: "center" }}
                 />
               ))}
             </div>
             <button
-              className={`mt-6 mb-10  rounded-full  text-xs text-black border-[#afb0af] hover:border-[#007f00] border hover:text-white p-1.5 px-5 mr-[200px] cursor-pointer hover:bg-[#5b904b] ${
-                otpVal.length > 0 ? "visible hover:bg-[#5b904b] text-[#fff]" : ""
-              }`}
+              className={`mt-6 mb-10  rounded-full  text-xs text-black border-[#afb0af] hover:border-[#007f00] border hover:text-white p-1.5 px-5 mr-[200px] cursor-pointer hover:bg-[#5b904b] ${otpVal.length > 0 ? "visible hover:bg-[#5b904b] text-[#fff]" : ""
+                }`}
               onClick={clearAll}
             >
               Clear otp
