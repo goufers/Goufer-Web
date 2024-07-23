@@ -7,7 +7,7 @@ const PUBLIC_ROUTES = {
   CHAT: "/chat",
   FAVORITE: "/favorite",
   EMPLOYMENT: "/employment",
-
+  TASK:"/task_record",
 
   PAYMENT:"/payment",
 

@@ -22,6 +22,10 @@ import Subscription from "./pages/Dashboard/Subscripyion";
 import PaymentPage from "./pages/Dashboard/Paymentmethod";
 
 import { useEffect } from "react";
+import Taskrecord from "./pages/Dashboard/Task/Taskrecord";
+import TaskrecordContent from "./pages/Dashboard/Task";
+import SatusCard from "./pages/Dashboard/Task/SatusCard";
+import SearchPage from "./pages/Search/SearchPage";
 
 function App() {
   // const location = useLocation();
@@ -62,12 +66,16 @@ function App() {
     <>
       <Routes>
         <Route index path={PUBLIC_ROUTES.LANDINGPAGE} element={<Landing />} />
-        <Route path={PUBLIC_ROUTES.GOUFER_PROFILE} element={<GouferProfile />} />
+        <Route
+          path={PUBLIC_ROUTES.GOUFER_PROFILE}
+          element={<GouferProfile />}
+        />
         <Route path={PUBLIC_ROUTES.SEARCH} element={<Search />} />
         <Route path={PUBLIC_ROUTES.DASHBOARD} element={<Dashboard />} />
         <Route path={PUBLIC_ROUTES.CHAT} element={<Chat />} />
         <Route path={PUBLIC_ROUTES.EMPLOYMENT} element={<Employment />} />
         <Route path={PUBLIC_ROUTES.PAYMENT} element={<PaymentPage />} />
+        <Route path={PUBLIC_ROUTES.TASK} element={<TaskrecordContent />} />
         {/* <Route path={PUBLIC_ROUTES.PAYMENT_CHANGE} element={<ChangePayment />} />
         <Route path={PUBLIC_ROUTES.PAYMENT_UPDATE} element={<PaymentUpdate />} />
         <Route path={PUBLIC_ROUTES.PAYMENT_ADD} element={<PaymentAdd />} /> */}
