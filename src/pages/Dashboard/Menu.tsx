@@ -29,22 +29,22 @@ const Menu = () => {
     {
       title: "Notifications",
       icon: "/images/notification-02 (1).svg",
-      url: "",
+      url: PUBLIC_ROUTES.NOTIFICATION,
     },
     {
       title: "Subscription",
       icon: "/images/invoice-01.svg",
-      url: "",
+      url: PUBLIC_ROUTES.SUBSCRIPTION,
     },
     {
       title: "Payment",
       icon: "/images/credit-card-pos.svg",
-      url: "",
+      url: PUBLIC_ROUTES.PAYMENT,
     },
     {
       title: "Account Settings",
       icon: "/images/account-setting-01.svg",
-      url: "",
+      url: PUBLIC_ROUTES.ACCOUNT_SETTINGS,
     },
     {
       title: " Log Out",
@@ -63,17 +63,15 @@ const Menu = () => {
         {MenuItem.map((d, i) => (
           <a
             href={d.url}
-            className={`w-full  h-auto my-1 py-4 flex rounded-r-full flex-row items-center cursor-pointer ${
-              location == d.url ? "bg-[#007F00]  " : ""
-            }`}
+            className={`w-full  h-auto my-1 py-4 flex rounded-r-full flex-row items-center cursor-pointer ${location == d.url ? "bg-[#007F00]  " : ""
+              }`}
             key={i}
             onClick={() => setMenuState(d.title)}
           >
             <img src={d.icon} alt="" className="mx-2 w-[18px] h-[18px] object-cover" />
             <p
-              className={`px-4 font-Roboto text-[16px] font-bold text-[#49454F] ${
-                location == d.url ? "  text-white" : ""
-              } `}
+              className={`px-4 font-Roboto text-[16px] font-bold text-[#49454F] ${location == d.url ? "  text-white" : ""
+                } `}
             >
               {d.title}
             </p>

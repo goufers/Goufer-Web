@@ -14,8 +14,7 @@ const options = [
   { value: 'oldest', label: 'Oldest' },
 ];
 
-
-const NotificationContent = () => {
+const Notification = () => {
   const [selectedOption, setSelectedOption] = useState<SingleValue<OptionType>>(null);
 
   
@@ -181,12 +180,12 @@ const NotificationContent = () => {
     return pageNumbers;
   };
 
-  return (
-    <div className="w-3/4 h-screen mt-16 overflow-y-scroll">
-      <div className='w-full h-auto '>
-       <h1 className="text-[24px] font-[500px] ml-2">Notification</h1>
 
-      <div className="mx-auto w-full md:w-[842px] h-[55px] flex flex-col-reverse md:flex-row md:items-center justify-around md:gap[73px] mt-2 pb-10 border-b border-[#E6F2E6]">
+  return (
+    <div className="w-3/4 h-auto  mt-[60px] bg-white mx-auto overflow-auto ">
+      <h1 className="text-[24px] font-[500px] ml-2">Notification</h1>
+
+      <div className="mx-auto w-full md:w-[842px] h-[55px] flex flex-col-reverse md:flex-row md:items-center justify-around md:gap[73px] mt-2 border-b border-[#E6F2E6]">
       <h2 className="text-[16px]">104 Total Notification</h2>
         <div className="mx-auto w-full md:w-[644px] h-[55px] p-4 bg-white rounded-full shadow-md hover:shadow-lg flex flex-row items-center ">
           <div className="w-4/5 flex flex-row justify-center md:gap-3 items-center  ">
@@ -249,25 +248,24 @@ const NotificationContent = () => {
         </div>
       </div>
 
-      <div className="flex flex-row justify-between mx-auto py-3 mt-4 ">
+      <div className="flex flex-row justify-between mx-auto mt-4 ">
         <p className="ml-3 text-xl">All Notification</p>
 
         <Select
           defaultValue={selectedOption}
           onChange={setSelectedOption}
           options={options}
-          className='mr-5'
         />
       </div>
-      <div className="flex flex-col w-auto mx-auto pr-3 border border-[#E6F2E6] rounded-lg py-4">
+      <div className="flex flex-col w-auto mx-auto pr-3 border border-[#E6F2E6]">
         {data.map((item, index) => (
-            <div key={index} className="flex flex-row justify-between px-4  items-center py-2 w-auto hover:bg-[#d2e7d2] text-[12px] ml-3 border-b border-[#AEA9B4]">
+            <div key={index} className="flex flex-row justify-between items-center py-2 w-auto hover:bg-[#d2e7d2] text-[12px] ml-3 border border-[#AEA9B4]">
                   <img src={item.imgSrc} alt="user" className="" />
                   <p className="truncate text-[15px] font-[400]">{item.name}</p>
                   <p className="text-[15px]">{item.message}</p>
                   <p className="text-[15px]">{item.date}</p>
-                  <HiOutlineFlag className='rounded-full  w-5 h-4' />
-                  <GoTrash  className='rounded-full w-5 h-4  '/>
+                  <HiOutlineFlag className='rounded-full bg-white w-5 h-4' />
+                  <GoTrash  className='rounded-full bg-white w-5 h-4  '/>
             </div>
         ))}
       </div>
@@ -306,9 +304,8 @@ const NotificationContent = () => {
               <IoMdArrowForward/>
             </div>
           </div>
-          </div>
-    </div>    
+    </div>
   );
 };
 
-export default NotificationContent;
+export default Notification;

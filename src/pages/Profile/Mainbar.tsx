@@ -4,9 +4,11 @@ import WorkExperience from "./WorkExperience";
 import HonoursAwards from "./HonoursAwards";
 import Reviews from "./Reviews";
 import Media from "./Media";
+import { useSelector } from "react-redux";
  
 function Mainbar() {
   const [active, setActive] = useState("About");
+  const gouferData = useSelector((state:any) => state.gouferProfile.profile);
   const Menu = [
     { title: "About" },
     { title: "Work Experience" },
@@ -35,11 +37,13 @@ function Mainbar() {
         ))}
       </div>
       <div className=" h-full   w-full   bg-white   px-[20px] py-[20px] ">
-        {active === "About" && <About  />}
-        {active === "Work Experience" && <WorkExperience  />}
-        {active === "Honours & Awards" && <HonoursAwards />}
-        {active === "Reviews" && <Reviews />}
-        {active === "Media" && <Media />}
+      {active === "About" && <About data={gouferData.about} />}
+        {active === "Work Experience" && <WorkExperience data={gouferData.workExperience} />}
+        {active === "Honours & Awards" && (
+          <HonoursAwards honours={gouferData.honours} awards={gouferData.awards} />
+        )}
+        {active === "Reviews" && <Reviews reviewsData={gouferData.reviews} />}
+        {active === "Media" && <Media mediaData={gouferData.media} />}
       </div>
     </div>
   );

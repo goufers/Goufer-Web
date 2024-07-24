@@ -1,7 +1,6 @@
 import Nav from "../../components/Nav";
 import Banner from "./Banner";
 import Trustedby from "./Trustedby";
-
 import NewOppurtunities from "./NewOppurtunities";
 import Footer from "../../components/Footer";
 
