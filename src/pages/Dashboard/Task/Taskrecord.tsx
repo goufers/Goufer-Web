@@ -1,5 +1,5 @@
 import { SetStateAction, useState } from "react";
-import StatusCard from "./SatusCard";
+import StatusCard from "../../Dashboard/Task/StatusCard";
 import { Select } from "@mui/material";
 
 const Taskrecord = () => {
