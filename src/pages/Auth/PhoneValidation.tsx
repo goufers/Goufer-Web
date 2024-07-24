@@ -1,22 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect, useRef, ChangeEvent, FC } from "react";
 import "react-phone-input-2/lib/style.css";
-import { SendCode } from "../Redux/AuthSlice";
+import { SendCode } from "../../Redux/AuthSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { VerifyPhone } from "../Redux/AuthSlice";
-
+import { VerifyPhone } from "../../Redux/AuthSlice";
 const PhoneValidation = () => {
   const dispatch = useDispatch();
   const userPhone = useSelector((state: any) => state.Auth.authkeys?.phone_number);
   const [showOtpInput, setShowOtpInput] = useState(false);
-  const [Code, setCode] = useState("+2349073077717");
+  const [Code, setCode] = useState(userPhone);
 
   const sendCode = () => {
-    dispatch(SendCode(userPhone));
+    // dispatch(SendCode(userPhone));
 
-    if ("codesent") {
-      setShowOtpInput(true);
-    }
+    setShowOtpInput(true);
   };
 
   // const validatePhoneNumber = (phoneNumber: string) => {
@@ -25,7 +22,7 @@ const PhoneValidation = () => {
   // };
 
   const VerifyCode = () => {
-    // dispatch(VerifyPhone(Code));
+    dispatch(VerifyPhone(Code));
   };
 
   const [otp, setOtp] = useState<number>();
@@ -99,7 +96,7 @@ const PhoneValidation = () => {
               value={userPhone}
               required
               readOnly
-              className="w-auto outline-none p-2 border  font-bold text-center border-green-700 rounded-lg "
+              className="w-auto outline-none p-2 text-lg text-gray-800 border  font-bold text-center border-green-700 rounded-lg "
             />
             <button
               className="text-white text-[14px] mt-4 text-center px-12 py-2 rounded-lg bg-[#007f00] cursor-pointer hover:bg-[#789178]"
@@ -128,9 +125,8 @@ const PhoneValidation = () => {
               ))}
             </div>
             <button
-              className={`mt-6 mb-10  rounded-full  text-xs text-black border-[#afb0af] hover:border-[#007f00] border hover:text-white p-1.5 px-5 mr-[200px] cursor-pointer hover:bg-[#5b904b] ${
-                otpVal.length > 0 ? "visible hover:bg-[#5b904b] text-[#fff]" : ""
-              }`}
+              className={`mt-6 mb-10  rounded-full  text-xs text-black border-[#afb0af] hover:border-[#007f00] border hover:text-white p-1.5 px-5 mr-[200px] cursor-pointer hover:bg-[#5b904b] ${otpVal.length > 0 ? "visible hover:bg-[#5b904b] text-[#fff]" : ""
+                }`}
               onClick={clearAll}
             >
               Clear otp

@@ -7,12 +7,21 @@ const PUBLIC_ROUTES = {
   CHAT: "/chat",
   FAVORITE: "/favorite",
   EMPLOYMENT: "/employment",
-
+  ACCOUNT_SETTINGS: '/accountsettings',
   PAYMENT: "/payment",
 
   PAYMENT_CHANGE: "/changePayment",
   PAYMENT_UPDATE: "/PaymentUpdate",
   PAYMENT_ADD: "/PaymentAdd",
+
+
+
+
+
+
+
+
+
 
   SUBSCRIPTION: "/subscription",
   NOTIFICATION: "/notification",
@@ -21,7 +30,6 @@ const PUBLIC_ROUTES = {
   ABOUT_US: "/about",
   CONTACT_US: "/contact",
   CATEGORIES: "/categories",
-  ACCOUNT_SETTINGS: "account_settings",
 
   LOGIN: "/login",
   SIGNUP: "/signup",

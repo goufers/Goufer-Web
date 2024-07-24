@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Slider from "./Sliders";
 import { useSelector } from "react-redux";
 import { RootState } from "../../Redux/store";
@@ -9,16 +9,96 @@ import { useDispatch } from "../../Redux/useDispatch";
 const NewOppurtunities = () => {
   const [showExpertPop, setShowExpertPop] = useState<any>();
   const [selectedCategory, setSelectedCategory] = useState<any>();
+  const infos = [
+    {
+      id: 1,
+      Categories: "Food & Beverage",
+      Shopimage:
+        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
+      Gouferimage:
+        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+      Goufername: "Azeez Ibrahim",
+      text: " These are professional goufer which are expertise in resturant knowledge and update",
+      Rate: "4.8",
+      City: "Lagos,Nigeria",
+      Task: " 50+ ",
+    },
+    {
+      id: 2,
+      GouferCategories: "Transport",
+      Shopimage:
+        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
+      Gouferimage:
+        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+      Goufername: "Pius Lucky",
+      text: " These are professional goufer which are expertise in resturant knowledge and update",
+      Rate: "4.8",
+      City: "Lagos,Nigeria",
+      Task: " 50+",
+    },
+    {
+      id: 3,
+      GouferCategories: "Entertainment",
+      Shopimage:
+        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
+      Gouferimage:
+        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+      Goufername: "Chika Chime",
 
-  const dispatch = useDispatch();
-  const { infos, loading, error } = useSelector((state: RootState) => state.goufer.infos);
-
-  useEffect(() => {
-    dispatch(fetchInfos());
-  }, [dispatch]);
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
-
+      text: " These are professional goufer which are expertise in resturant knowledge and update",
+      Rate: "4.8",
+      City: "Lagos,Nigeria",
+      Task: " 50+",
+    },
+    {
+      id: 4,
+      GouferCategories: "Donation",
+      Shopimage:
+        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
+      Gouferimage:
+        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+      Goufername: "Choosen Abdullahi",
+      text: " These are professional goufer which are expertise in resturant knowledge and update",
+      Rate: "4.8",
+      City: "Lagos,Nigeria",
+      Task: " 50+",
+    },
+    // {
+    //   id: 5,
+    //   GouferCategories: "Shopper",
+    //   Shopimage:
+    //     "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
+    //   Gouferimage:
+    //     "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+    //   Goufername: "Oladosu Teslimat",
+    //   text: " These are professional goufer which are expertise in resturant knowledge and update",
+    //   Rate: "4.8",
+    //   City: "Lagos,Nigeria",
+    //   Task: " 50+",
+    // },
+  ];
+  const steps = [
+    {
+      url: "https://res.cloudinary.com/dyjo2mvqb/image/upload/v1717413819/Frame_58_p7uxrw.svg",
+      title: "Log on to Goufer.com",
+      text: "Visit Goufer.com and create your account. Signing up is quick and easy, giving you access to access to a wide network of experts ready to assist with needs.",
+    },
+    {
+      url: "https://res.cloudinary.com/dyjo2mvqb/image/upload/v1717413819/Frame_60_poeeil.svg",
+      title: "Search for a Goufer",
+      text: "Use our power search engine to search the perfect expert for your task. Browser through detailed profiles, read reviews and select the best match for your requirements",
+    },
+    {
+      url: "https://res.cloudinary.com/dyjo2mvqb/image/upload/v1717413819/Frame_60_1_lakltd.svg",
+      title: "Negotiation",
+      text: "Enter negotiation and discuss your project details with your chosen expert through our secure platform. Reach a mutually beneficial agreement quickly and efficiently",
+    },
+    {
+      url: "https://res.cloudinary.com/dyjo2mvqb/image/upload/v1717413819/Frame_60_2_lenkg4.svg",
+      title: "Rate your Goufer",
+      text: "After experience seamless service, return to Goufer to rate and review your expert, YOur feedback helps maintain our standards and assist others in finding top-notch service providers.",
+    },
+  ];
   const JoinUs = [
     {
       icon: "https://res.cloudinary.com/dxnznpglg/image/upload/v1716812814/Goufer/wpf_happy_eklxev.png",
@@ -80,9 +160,8 @@ const NewOppurtunities = () => {
           <div className="w-full hidden md:flex md:flex-row pb-4 border-b-2 border-gray-600">
             {Categories.map((i, n) => (
               <h1
-                className={` mx-auto text-[15px] md:text-[17px] hover:text-[#007F00] hover:font-bold cursor-pointer ${
-                  selectedCategory === i ? "text-[#007F00] font-bold " : "text-[#46444b]"
-                }`}
+                className={` mx-auto text-[15px] md:text-[17px] hover:text-[#007F00] hover:font-bold cursor-pointer ${selectedCategory === i ? "text-[#007F00] font-bold " : "text-[#46444b]"
+                  }`}
                 key={n}
                 onClick={() => setSelectedCategory(i)}
               >
@@ -95,9 +174,8 @@ const NewOppurtunities = () => {
           <div className=" w-full flex md:hidden md:flex-row pb-3 border-b-2 border-gray-600">
             {Categories.slice(0, 4).map((i, n) => (
               <h1
-                className={` mx-auto text-[14px] md:text-[17px] hover:text-[#007F00] hover:font-bold cursor-pointer ${
-                  selectedCategory === i ? "text-[#007F00] font-bold " : "text-[#46444b]"
-                }`}
+                className={` mx-auto text-[14px] md:text-[17px] hover:text-[#007F00] hover:font-bold cursor-pointer ${selectedCategory === i ? "text-[#007F00] font-bold " : "text-[#46444b]"
+                  }`}
                 key={n}
                 onClick={() => setSelectedCategory(i)}
               >
@@ -108,7 +186,7 @@ const NewOppurtunities = () => {
           {/* Desktop Component */}
           <div className="w-full hidden md:flex  flex-row gap-2   my-10 items-center   ">
             {infos &&
-              infos.map((info: any, index: number) => (
+              infos.slice(0, 4).map((info: any, index: number) => (
                 <div
                   className="mx-auto flex flex-col relative items-center w md:w-60 pb-4 rounded-xl bg-white  shadow-sm shadow-blue-gray-300  "
                   key={index}
@@ -129,7 +207,7 @@ const NewOppurtunities = () => {
                     <h1 className="text-[#007F00] text-[16px] font-semibold font-Roboto ">
                       Restaurants Goufers
                     </h1>
-                    <p className=" pr-2 text-[11px] text-[#605D66] mb-2">email</p>
+                    <p className=" pr-2 text-[11px] text-[#605D66] mb-2">{info.text}</p>
                     <div className="flex flex-row justify-start items-center pb-1 ">
                       <img
                         src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716880091/Goufer/Vector_kvuvlc.svg"
@@ -326,7 +404,7 @@ const NewOppurtunities = () => {
             </p>
           </div>
 
-          {/* {steps.map((item, index) => (
+          {steps.map((item, index) => (
             <div
               key={index}
               className="flex flex-row justify-evenly items-center py-4 px-3 md:px-0 md:ml-[30px] my-[10px] w-full md:w-[600px]"
@@ -339,7 +417,7 @@ const NewOppurtunities = () => {
                 <div className="text-[14px]">{item.text}</div>
               </div>
             </div>
-          ))} */}
+          ))}
         </div>
       </div>
 

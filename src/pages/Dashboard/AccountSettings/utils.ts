@@ -1,13 +1,13 @@
-export interface ImagePickerConf {
-    width?: string;
-    height?: string;
-    borderRadius?: string;
-    aspectRatio?: number | null;
-    objectFit?: "cover" | "contain" | "fill" | "revert" | "scale-down";
-    compressInitial?: number; // Range from [1-100]
-    language?: string;
-    hideDeleteBtn?: boolean;
-    hideDownloadBtn?: boolean;
-    hideEditBtn?: boolean;
-    hideAddBtn?: boolean;
-}
+export const privacyLabels = [
+    "Show my profile publicly",
+    "Allow search engines to index my profile",
+    "Share my data with third parties",
+    "Allow targeted ads"
+];
+
+export const notificationLabels = [
+    "Show my profile publicly",
+    "Allow search engines to index my profile",
+    "Share my data with third parties",
+    "Allow targeted ads"
+];

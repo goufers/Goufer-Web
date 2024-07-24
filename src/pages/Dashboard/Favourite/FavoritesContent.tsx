@@ -107,7 +107,7 @@ const Favorites: React.FC = () => {
                   className="w-5 h-5 object-contain"
                   alt=""
                 />
-                <p className="text-[#e5ffe5] px-2 text-[12px]">
+                <p className="text-[#2a2b2a] px-2 text-[12px]">
                   {item.Rate}
                 </p>
               </div>
@@ -151,7 +151,7 @@ const Favorites: React.FC = () => {
                   <img
                     src="https://res.cloudinary.com/dxnznpglg/image/upload/v1716892672/Goufer/Vector_2_cq2qn3.png"
                     className="w-2 h-4 justify-end"
-                    alt="" 
+                    alt=""
                   />
                 </div>
               </div>

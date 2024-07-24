@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
