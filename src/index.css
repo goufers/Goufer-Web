@@ -66,30 +66,6 @@
   display: block;
 }
 
-#btn-off {
-  position: absolute;
-  background: #ccc;
-  width: 45px;
-  border-radius: 15px;
-  padding: 2px 3px;
-  cursor: pointer;
-  display: flex;
-  transition: padding-left 0.5s, background #179922;
-}
-
-#btn-off span {
-  width: 18px;
-  height: 18px;
-  background: #fff;
-  border-radius: 50%;
-  display: inline-block;
-
-}
-
-#btn-off.btn-to-off {
-  padding-left: 23px;
-  background: #179922;
-}
 
 @tailwind base;
 @tailwind components;

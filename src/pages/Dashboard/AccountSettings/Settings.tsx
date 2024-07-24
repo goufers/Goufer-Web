@@ -14,6 +14,7 @@ const AccountSettings: React.FC = () => {
     tabcontents.current = document.getElementsByClassName("tab-contents");
   }, []);
 
+
   const opentab = (tabname: string) => (event: React.MouseEvent<HTMLParagraphElement>) => {
     if (tablinks.current && tabcontents.current) {
       Array.from(tablinks.current).forEach((tab) => tab.classList.remove("active-link"));
@@ -23,8 +24,9 @@ const AccountSettings: React.FC = () => {
     }
   };
 
+
   return (
-    <div className="container mx-auto ml-4 h-full mt-20 bg-white rounded-lg">
+    <div className="container mx-auto ml-4 h-full mt-20 bg-white font-Roboto  rounded-lg">
       <div className="p-4">
         <h2>Account Settings</h2>
         <div className="tab-titles">
