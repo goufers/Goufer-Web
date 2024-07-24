@@ -10,13 +10,7 @@ const reducers = combineReducers({
   counter: counterSlice,
   Auth: authSlice,
   favorites: favoritesReducer,
-
-<<<<<<< HEAD
   gouferProfile: gouferProfileReducer,
-
-=======
-  gouferProfile: GouferProfileSlice,
->>>>>>> 8ca59d5a5264b31c3dc26c16116ac3ed44c29032
 });
 
 const persistConfig = {

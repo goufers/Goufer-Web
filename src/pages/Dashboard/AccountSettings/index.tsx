@@ -4,7 +4,7 @@ import Settings from "./Settings";
 
 const AccountSettings = () => {
   return (
-    <div className="w-full h-auto">
+    <div className="w-full h-screen  bg-white">
       <DashboardNav />
       <div className="w-full flex flex-row h-screen bg-[#F9F9F9]">
         <Menu />
