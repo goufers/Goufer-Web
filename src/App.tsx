@@ -22,6 +22,7 @@ import Subscription from "./pages/Dashboard/Subscripyion";
 import PaymentPage from "./pages/Dashboard/Paymentmethod";
 
 import { useEffect } from "react";
+import AccountSettings from "./pages/Dashboard/AccountSettings";
 
 function App() {
   // const location = useLocation();
@@ -74,6 +75,7 @@ function App() {
         <Route path={PUBLIC_ROUTES.FAVORITE} element={<Favorites />} />
         <Route path={PUBLIC_ROUTES.SUBSCRIPTION} element={<Subscription />} />
         <Route path={PUBLIC_ROUTES.NOTIFICATION} element={<Notification />} />
+        <Route path={PUBLIC_ROUTES.ACCOUNT_SETTINGS} element={<AccountSettings />} />
 
         <Route path={"/about_us"} element={<AboutUs />} />
         <Route path={"/faq"} element={<Faq />} />
