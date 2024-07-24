@@ -40,7 +40,7 @@ const Trustedby = () => {
         </Slider>
       </div>
 
-      <div className="bg-white flex flex-col my-20 items-center md:flex-row gap-10 md:gap-20 mt-12 mx-auto">
+      <div className="bg-white flex flex-col my-20 items-center md:flex-row gap-10 md:gap-20 mt-12 mx-auto ml-40">
         <img
           src="./images/ppl.svg"
           alt=""
