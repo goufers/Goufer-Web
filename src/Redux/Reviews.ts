@@ -2,20 +2,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const UserData = createAsyncThunk("user-profile", async (_, { rejectWithValue }) => {
-  const token = localStorage.getItem("G_A_token");
-
+export const GetReviews = createAsyncThunk("get-erandboy", async (_, { rejectWithValue }) => {
   try {
-    const response = await axios.post(`${import.meta.env.VITE_GOUFER_TEST_API}/users/me/`, {
-      headers: {
-        Authorization: `bearer ${token}`,
-      },
-    });
+    const response = await axios.post(`${import.meta.env.VITE_GOUFER_TEST_API}/main/reviews/`);
     if (response.data.messages) {
       return { ...response.data, success: false };
     }
 
-    if (response.data.email) {
+    if (response.data) {
       return { ...response.data, success: true };
     }
   } catch (error: any) {
@@ -24,16 +18,13 @@ export const UserData = createAsyncThunk("user-profile", async (_, { rejectWithV
   }
 });
 
-export const UpdateUserData = createAsyncThunk(
-  "update-user",
+export const UpdateReviews = createAsyncThunk(
+  "update-erandboy-details",
   async (data: object, { rejectWithValue }) => {
-    const token = localStorage.getItem("G_A_token");
-
     try {
       const response = await axios.put(
-        `${import.meta.env.VITE_GOUFER_TEST_API}/users/update/`,
-        data,
-        { headers: { Authorization: `Bearer ${token}` } }
+        `${import.meta.env.VITE_GOUFER_TEST_API}/users/erandboy/<pk>`,
+        data
       );
       if (response.data.message) {
         return { ...response.data, success: false };
@@ -46,52 +37,52 @@ export const UpdateUserData = createAsyncThunk(
 );
 
 const initialState = {
-  user: {},
-  authkeys: {},
+  reviews: {},
+
   status: "idle",
   error: null,
 };
 
-export const userSlice: any = createSlice({
+export const reviewsSlice = createSlice({
   name: "auth",
   initialState: initialState,
   reducers: {
-    reset_state: (state) => {
-      state.authkeys = {};
-    },
+    // reset_state: (state) => {
+    //   state.authkeys = {};
+    // },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(UserData.pending, (state) => {
+      .addCase(GetReviews.pending, (state) => {
         state.status = "loading";
         state.error = null;
       })
-      .addCase(UserData.fulfilled, (state, action: any) => {
+      .addCase(GetReviews.fulfilled, (state, action: any) => {
         state.status = "succeeded";
-        state.user = { ...action.payload };
+        state.reviews = { ...action.payload };
       })
-      .addCase(UserData.rejected, (state, action: any) => {
+      .addCase(GetReviews.rejected, (state, action: any) => {
         state.status = "failed";
         state.error = action.payload;
       })
-      .addCase(UpdateUserData.pending, (state) => {
+      .addCase(UpdateReviews.pending, (state) => {
         state.status = "loading";
         state.error = null;
       })
-      .addCase(UpdateUserData.fulfilled, (state, action) => {
+      .addCase(UpdateReviews.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.user = { ...action.payload };
+        state.reviews = { ...action.payload };
       })
-      .addCase(UpdateUserData.rejected, (state: any, action) => {
+      .addCase(UpdateReviews.rejected, (state: any, action) => {
         state.status = "failed";
         state.error = action.payload;
       });
-    // .addCase(ResetState.rejected, (state: any, action) => {
-    //   state.authkeys = action.payload;
-    // });
+    //   .addCase(ResetState.rejected, (state: any, action) => {
+    //     state.authkeys = action.payload;
+    //   });
   },
 });
 
 // Action creators are generated for each case reducer function
 
-export default userSlice.reducer;
+export default reviewsSlice.reducer;
