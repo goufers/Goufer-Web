@@ -8,7 +8,7 @@ import ContactUs from "./pages/ContactUs/ContactUs";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import PUBLIC_ROUTES from "./utils/PublicRoutes";
-import Search from "./pages/Search/Search-1";
+import Search from "./pages/Search/Search";
 import GouferProfile from "./pages/Profile/GouferProfile";
 import Chat from "./pages/Dashboard/Chat";
 import Dashboard from "./pages/Dashboard/Main";
@@ -21,6 +21,7 @@ import Subscription from "./pages/Dashboard/Subscripyion";
 import PaymentPage from "./pages/Dashboard/Paymentmethod";
 
 import { useEffect } from "react";
+
 
 function App() {
   // const location = useLocation();

@@ -10,7 +10,7 @@ export const fetchGouferProfile = createAsyncThunk(
         `${import.meta.env.VITE_GOUFER_TEST_API}/goufer/profile`
       );
       return response.data;
-    } catch (error) {
+    } catch (error:any) {
       return rejectWithValue(error.response ? error.response.data : error.message);
     }
   }
@@ -38,7 +38,7 @@ const gouferProfileSlice = createSlice({
         state.status = "succeeded";
         state.profile = action.payload;
       })
-      .addCase(fetchGouferProfile.rejected, (state, action) => {
+      .addCase(fetchGouferProfile.rejected, (state:any, action) => {
         state.status = "failed";
         state.error = action.payload;
       });

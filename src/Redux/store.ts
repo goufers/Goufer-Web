@@ -5,7 +5,7 @@ import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
 import favoritesReducer from "../features/favoriteSlice/favoritesSlice";
 import GouferProfileSlice from "./GouferProfileSlice";
-import SearchSlice from "./SearchSlice";
+import { SearchGoufers } from "./SearchGoufersSlice";
 
 
 
@@ -13,7 +13,7 @@ import SearchSlice from "./SearchSlice";
 const reducers = combineReducers({
   counter: counterSlice,
   Auth: authSlice,
-  SearchGoufers: SearchSlice,
+  searchGoufer: SearchGoufers,
   favorites: favoritesReducer,
 
   gouferProfile: GouferProfileSlice,
