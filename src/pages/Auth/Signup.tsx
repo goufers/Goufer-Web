@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
+
+
+
+
 const SignUp: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [phone, setPhone] = useState("");
@@ -9,6 +13,10 @@ const SignUp: React.FC = () => {
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+
+
+
+
 
   return (
     <div className="mx-auto fixed top-6 left-0 right-0 w-[1006px] h-[800px] justify-center flex flex-row items-center min-h-screen z-30">
@@ -118,7 +126,8 @@ const SignUp: React.FC = () => {
 
         <hr className="w-[450px] border border-[#dfdfe0] mb-6" />
 
-        <button className="w-full h-[44px] bg-white text-black border border-[#49454F] rounded-md px-4 mb-4 flex items-center justify-center shadow-sm gap-2 hover:bg-gray-100">
+        <button className="w-full h-[44px] bg-white text-black border border-[#49454F] rounded-md px-4 mb-4 flex items-center justify-center shadow-sm gap-2 hover:bg-gray-100"
+     >
           <img src="/images/google.svg" alt="google" />
           Continue with Google
         </button>

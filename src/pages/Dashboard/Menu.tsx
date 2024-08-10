@@ -17,6 +17,12 @@ const Menu = () => {
       url: PUBLIC_ROUTES.CHAT,
     },
     {
+      title: "Task Record",
+      icon: "/images/briefcase.svg",
+      url: PUBLIC_ROUTES.TASK,
+    },
+
+    {
       title: "Favorites",
       icon: "/images/favourite.svg",
       url: PUBLIC_ROUTES.FAVORITE,

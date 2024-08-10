@@ -9,6 +9,9 @@ import { Loading } from "../../components/Loading";
 import delay from "delay";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { appleProvider, googleProvider } from "../../firebase/authmethod";
+import socialMediaAuth from "../../firebase/authService";
+import { AuthProvider } from "firebase/auth";
 interface component {
   auth: boolean;
   setAuth: (data: any) => void;
@@ -58,6 +61,15 @@ const Login = ({ auth, setAuth }: component) => {
       toast.warning("Network Error");
     }
   }, [AuthStatus, dispatch]);
+
+
+
+  const handleonClick = async (provider: AuthProvider) => {
+
+    const res = await socialMediaAuth(provider);
+    console.log(res);
+   
+  };
 
   return (
     <>
@@ -169,14 +181,16 @@ const Login = ({ auth, setAuth }: component) => {
             </h3>
             <hr className="w-[450px] border border-[#dfdfe0] my-5 mt-10" />
 
-            <button className="w-full h-[44px] bg-white text-black border border-[#49454F] rounded-[10px] px-4 mb-4 flex items-center justify-center shadow-sm gap-2  hover:bg-gray-100">
+            <button className="w-full h-[44px] bg-white text-black border border-[#49454F] rounded-[10px] px-4 mb-4 flex items-center justify-center shadow-sm gap-2  hover:bg-gray-100"
+            onClick={() => handleonClick(googleProvider)}>
               <img src="./images/google.svg" alt="google" />
               Continue with Google
             </button>
 
-            <button className="w-full h-[44px] bg-white text-black border border-[#49454F] rounded-[10px] px-4 mb-4 flex items-center justify-center shadow-sm gap-2  hover:bg-gray-100">
-              <img src="./images/fbk.svg" alt="" />
-              Continue with Facebook
+            <button className="w-full h-[44px] bg-white text-black border border-[#49454F] rounded-[10px] px-4 mb-4 flex items-center justify-center shadow-sm gap-2  hover:bg-gray-100"
+            onClick={() => handleonClick(appleProvider)}>
+              <img src="./images/apple.png" alt="" className="w-[30px] h-[30px]" />
+              Continue with Apple
             </button>
 
             <button className="w-full h-[44px] bg-white text-black border border-[#49454F] rounded-[10px] px-4 mb-6 flex items-center justify-center shadow-sm gap-2 hover:bg-gray-100 hover:text-gray-800 hover:border-gray-700 transition-colors duration-300">
@@ -196,7 +210,48 @@ const Login = ({ auth, setAuth }: component) => {
             </p>
           </div>
         )}
+            <button
+              onClick={() => RegisterUser()}
+              className="w-[455px] h-[40px] bg-[#218021] text-white rounded-full py-2 px-4 mb-6 hover:bg-[#2b7a2b]"
+            >
+              Sign Up
+            </button>
+            <h3 className="text-[#344054] text-[16px]">
+              Already have an account?
+              <span
+                className="px-2 text-[#007F00] cursor-pointer"
+                onClick={() => setAuthComponent("login")}
+              >
+                Login
+              </span>
+            </h3>
+            <hr className="w-[450px] border border-[#dfdfe0] my-5" />
 
+            <button className="w-full h-[44px] bg-white text-black border border-[#49454F] rounded-md px-4 mb-4 flex items-center justify-center shadow-sm gap-2 hover:bg-gray-100"
+               onClick={() => handleonClick(googleProvider)}>
+              <img src="/images/google.svg" alt="google" />
+              Continue with Google
+            </button>
+
+            <button className="w-full h-[44px] bg-white text-black border border-[#49454F] rounded-md px-4 mb-4 flex items-center justify-center shadow-sm gap-2 hover:bg-gray-100"
+               onClick={() => handleonClick(appleProvider)}>
+              <img src="./images/apple.png" alt="apple" className="[30px] h-[30px]" />
+              Continue with Apple
+            </button>
+
+            <p className="text-[#344054] text-left w-[444px] h-[32px] font-roboto font-normal text-[13px] leading-[16px]">
+              By clicking ‘continue’, you confirm that you accept our
+              <span className="text-[#218021]">
+                <a href="">Terms and Conditions</a>
+              </span>
+              and have read our
+              <span className="text-[#218021]">
+                <a href="">Privacy Policy</a>
+              </span>
+            </p>
+          </div>
+        )}
+        {authComponent === "verify_phone" && <PhoneValidation />}
         <div className=" bg-[#24362354] hidden md:flex flex-col items-center backdrop-blur-sm p-8  w-[503px] h-full rounded-r-[25px]  ">
           <div className="w-[351px] flex flex-col items-center m-auto ">
             <img className="w-[374.5px]" src="./images/gouferbig.svg" alt="goufer_url" />
