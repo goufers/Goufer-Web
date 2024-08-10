@@ -27,10 +27,13 @@ export const UserData = createAsyncThunk("user-profile", async (_, { rejectWithV
 export const UpdateUserData = createAsyncThunk(
   "update-user",
   async (data: object, { rejectWithValue }) => {
+    const token = localStorage.getItem("G_A_token");
+
     try {
       const response = await axios.put(
         `${import.meta.env.VITE_GOUFER_TEST_API}/users/update/`,
-        data
+        data,
+        { headers: { Authorization: `Bearer ${token}` } }
       );
       if (response.data.message) {
         return { ...response.data, success: false };
@@ -71,21 +74,21 @@ export const userSlice: any = createSlice({
         state.status = "failed";
         state.error = action.payload;
       })
-      .addCase(LoginUser.pending, (state) => {
+      .addCase(UpdateUserData.pending, (state) => {
         state.status = "loading";
         state.error = null;
       })
-      .addCase(LoginUser.fulfilled, (state, action) => {
+      .addCase(UpdateUserData.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.authkeys = { ...action.payload };
+        state.user = { ...action.payload };
       })
-      .addCase(LoginUser.rejected, (state: any, action) => {
+      .addCase(UpdateUserData.rejected, (state: any, action) => {
         state.status = "failed";
         state.error = action.payload;
-      })
-      .addCase(ResetState.rejected, (state: any, action) => {
-        state.authkeys = action.payload;
       });
+    // .addCase(ResetState.rejected, (state: any, action) => {
+    //   state.authkeys = action.payload;
+    // });
   },
 });
 

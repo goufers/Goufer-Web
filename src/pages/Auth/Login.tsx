@@ -27,37 +27,8 @@ const Login = ({ auth, setAuth }: component) => {
     identifier: "",
     password: "",
   });
-  const [signupData, setSignupData] = useState({
-    first_name: "",
-    last_name: "",
-    email: "",
-    phone_number: "",
-    password: "",
-  });
-
-  const RegisterUser = async () => {
-    setLoading(true);
-    dispatch(Signup(signupData));
-    await delay(3000);
-    setLoading(false);
-    // console.log(AuthStatus);
-
-    // if (reduxState.authkeys.auth_status == "True") {
-    //   toast("Your account has been created successfully!");
-    //   // setAuthComponent("verify_phone");
-    // }
-
-    // if (reduxState.status == "failed") {
-    //   reduxState.error.email && toast.warn(`${reduxState.error.email[0]}`);
-    //   reduxState.error.phone_number && toast.warn(`${reduxState.error.phone_number[0]}`);
-    // } else if (reduxState.authkeys.success == false) {
-    //   toast.warn("Registration failed");
-    // }
-  };
 
   const LoginUserAction = async () => {
-    console.log(signupData);
-
     setLoading(true);
     dispatch(LoginUser(loginData));
     await delay(3000);
@@ -73,10 +44,6 @@ const Login = ({ auth, setAuth }: component) => {
   };
 
   useEffect(() => {
-    dispatch(ResetState());
-  }, []);
-
-  useEffect(() => {
     if (AuthStatus.authkeys?.auth_status == "True") {
       toast.success("Your account has been created successfully!");
       setAuthComponent("verify_phone");
@@ -85,7 +52,8 @@ const Login = ({ auth, setAuth }: component) => {
     if (AuthStatus.status == "failed") {
       AuthStatus.error.email && toast.warn(`${AuthStatus.error.email[0]}`);
       AuthStatus.error.phone_number && toast.warn(`${AuthStatus.error.phone_number[0]}`);
-    } else if (AuthStatus.authkeys.success == false) {
+    }
+    if (AuthStatus.authkeys.success == false) {
       toast.warn("Registration failed");
     }
 
@@ -242,127 +210,6 @@ const Login = ({ auth, setAuth }: component) => {
             </p>
           </div>
         )}
-        {authComponent === "signup" && (
-          <div className="bg-white p-8 shadow-md w-[503px] h-full rounded-tl-[25px] rounded-bl-[25px] gap-4">
-            <div className="flex justify-between w-[446px]">
-              <h1 className="text-[#1D1A22] text-2xl w-full h-[28px] font-roboto font-medium text-[22px] leading-[28px] mb-6">
-                Sign up to Goufer
-              </h1>
-              <img
-                className="w-[22px] h-[22px]"
-                src="./images/exit.jpg"
-                alt="exit"
-                onClick={() => setAuth(false)}
-              />
-            </div>
-
-            <div className="flex gap-2">
-              <div className="mb-4 relative">
-                <p className="text-[#344054] text-left w-[74px] h-[20px] font-inter font-medium text-[14px] leading-[20px] mb-2">
-                  First name
-                </p>
-                <input
-                  type="text"
-                  placeholder="Firstname"
-                  className="w-[220px] h-[44px] pl-10 pr-4 py-2 rounded-full border border-gray-300 shadow-sm focus:outline-none"
-                  onChange={(e) => {
-                    setSignupData((prev) => ({ ...prev, first_name: e.target.value }));
-                  }}
-                />
-              </div>
-              <div className="mb-4 relative">
-                <p className="text-[#344054] text-left w-[74px] h-[20px] font-inter font-medium text-[14px] leading-[20px] mb-2">
-                  Last name
-                </p>
-                <input
-                  type="text"
-                  placeholder="Lastname"
-                  className="w-[220px] h-[44px] pl-10 pr-4 py-2 rounded-full border border-gray-300 shadow-sm focus:outline-none"
-                  onChange={(e) => {
-                    setSignupData((prev) => ({ ...prev, last_name: e.target.value }));
-                  }}
-                />
-              </div>
-            </div>
-
-            <div className="mb-4 relative flex flex-col">
-              {/* <span>
-              <p className="text-[#344054] text-left w-[74px] h-[20px] font-inter font-medium text-[14px] leading-[20px] mb-2">
-                Phone
-              </p>
-            </span> */}
-              <PhoneInput
-                country={"ng"}
-                // value={signupData.phone_number}
-                onChange={(value) => {
-                  setSignupData((prev) => ({ ...prev, phone_number: `+${value}` }));
-                }}
-                inputStyle={{
-                  width: "455px",
-                  height: "44px",
-                  paddingLeft: "65px", // Adjusted padding to ensure space for the flag and country code
-                  paddingRight: "10px",
-                  borderRadius: "9999px", // rounded-full
-                  border: "1px solid #D1D5DB", // gray-300
-                  boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
-                }}
-                buttonStyle={{
-                  borderTopLeftRadius: "9999px", // rounded-full
-                  borderBottomLeftRadius: "9999px", // rounded-full
-                  borderRight: "none",
-                  height: "44px",
-                  display: "flex",
-                  alignItems: "center",
-                  paddingLeft: "10px", // Ensuring enough space for the flag and country code
-                  paddingRight: "10px",
-                  outline: "none",
-                }}
-                containerClass="phone-input-container"
-                buttonClass="phone-input-button"
-              />
-            </div>
-
-            <div className="mb-4 relative">
-              <p className="text-[#344054] text-left w-[74px] h-[20px] font-inter font-medium text-[14px] leading-[20px] mb-2">
-                Input Email
-              </p>
-              <i className="fas fa-envelope absolute left-4 top-11   text-gray-500"></i>
-              <input
-                type="email"
-                placeholder="Email"
-                className="w-[455px] h-[44px] pl-10 pr-4 py-2 rounded-full border border-gray-300 shadow-sm focus:outline-none"
-                onChange={(e) => {
-                  setSignupData((prev) => ({ ...prev, email: e.target.value }));
-                }}
-              />
-            </div>
-
-            <div className="mb-4 relative">
-              <p className="text-[#344054] text-left w-[74px] h-[20px] font-inter font-medium text-[14px] leading-[20px] mb-2">
-                Password
-              </p>
-              <i className="fas fa-lock absolute left-4 top-11   text-gray-500"></i>
-              <input
-                type={!showPassword ? "password" : "text"}
-                placeholder="Password"
-                className="w-[455px] h-[44px] pl-10 pr-10 py-2 rounded-full border border-gray-300 outline-none"
-                onChange={(e) => {
-                  setSignupData((prev) => ({ ...prev, password: e.target.value }));
-                }}
-              />
-              <button
-                type="button"
-                onClick={togglePasswordVisibility}
-                className="absolute right-4 top-10   text-gray-500"
-              >
-                {showPassword == false ? (
-                  <i className="fas fa-eye-slash "></i>
-                ) : (
-                  <i className="fas fa-eye"></i>
-                )}
-              </button>
-            </div>
-
             <button
               onClick={() => RegisterUser()}
               className="w-[455px] h-[40px] bg-[#218021] text-white rounded-full py-2 px-4 mb-6 hover:bg-[#2b7a2b]"
@@ -407,7 +254,7 @@ const Login = ({ auth, setAuth }: component) => {
         {authComponent === "verify_phone" && <PhoneValidation />}
         <div className=" bg-[#24362354] hidden md:flex flex-col items-center backdrop-blur-sm p-8  w-[503px] h-full rounded-r-[25px]  ">
           <div className="w-[351px] flex flex-col items-center m-auto ">
-            <img className="w-[374.5px]" src="./images/gouferbig.svg" alt="gouferl" />
+            <img className="w-[374.5px]" src="./images/gouferbig.svg" alt="goufer_url" />
             <h1 className="w-[351px] ml-14 text-white">
               Experienced Assistance at your finger tips
             </h1>

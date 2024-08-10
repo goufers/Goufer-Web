@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Login from "../pages/Auth/Login";
 import { IoCloseCircleOutline } from "react-icons/io5";
+import Auth from "../pages/Auth";
 
 const Nav = () => {
   const [auth, setAuth] = useState(false);
@@ -17,11 +17,6 @@ const Nav = () => {
     setNav(!nav);
   };
 
-  // const [isOpen, setIsOpen] = useState(false);
-  // const toggle = () => {
-  //   setIsOpen(!isOpen);
-  // };
-
   return (
     <>
       <div className=" fixed top-0 left-0 right-0 flex flex-row  w-full h-auto px-4 py-4 shadow-md bg-white items-center z-20">
@@ -30,7 +25,6 @@ const Nav = () => {
           alt="goufer logo"
           className="mx-3 md:mx-6 py-auto w-28 md:w-44 h-auto object-cover"
         />
-
         <div className="w-auto mx-auto hidden md:flex flex-row">
           {Menu.map((i, n) => (
             <p
@@ -45,7 +39,6 @@ const Nav = () => {
             </p>
           ))}
         </div>
-
         <div className=" mx-auto h-full  pl-12 w-auto md:w-1/3 flex flex-row  ">
           <p
             className="hidden  lg:flex   w-auto  text-[12px] md:text-[14px] text-[#007F00] text-center mx-auto px-5 md:py-2 bg-white hover:bg-gray-100 font-roboto font-semibold rounded-full border border-[#322F35] cursor-pointer"
@@ -72,8 +65,6 @@ const Nav = () => {
             <IoCloseCircleOutline size={40} font-bold color="#007f00" />
           )}
         </div>
-        <Login auth={auth} setAuth={setAuth} />
-
         <div
           className={
             nav
@@ -100,12 +91,10 @@ const Nav = () => {
             >
               Login
             </li>
-            {auth && <Login setAuth={setAuth} auth={auth} />}
           </ul>
-        </div>
+        </div>{" "}
+        {auth && <Auth setAuth={setAuth} auth={auth} />}
       </div>
-
-      {auth && <Login setAuth={setAuth} auth={auth} />}
     </>
   );
 };

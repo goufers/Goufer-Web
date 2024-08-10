@@ -23,6 +23,7 @@ const PUBLIC_ROUTES = {
 
 
 
+  ACCOUNT_SETTINGS: "/account_settings",
 
   SUBSCRIPTION: "/subscription",
   NOTIFICATION: "/notification",

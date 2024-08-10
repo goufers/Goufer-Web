@@ -118,6 +118,37 @@ export const VerifyEmail = createAsyncThunk(
     }
   }
 );
+
+export const PasswordReset = createAsyncThunk(
+  "password-reset",
+  async (data, { rejectWithValue }) => {
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_GOUFER_TEST_API}/users/password_reset`,
+        data
+      );
+      return response.data;
+    } catch (error: any) {
+      return rejectWithValue(error.response ? error.response.data : error.message);
+    }
+  }
+);
+
+export const PasswordResetConfirm = createAsyncThunk(
+  "password-reset-confirm",
+  async (data, { rejectWithValue }) => {
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_GOUFER_TEST_API}/users/password_reset_confirm`,
+        data
+      );
+      return response.data;
+    } catch (error: any) {
+      return rejectWithValue(error.response ? error.response.data : error.message);
+    }
+  }
+);
+
 export const ResetState = createAsyncThunk("reset-state", async () => {
   try {
     return {};
@@ -128,6 +159,7 @@ export const ResetState = createAsyncThunk("reset-state", async () => {
 
 const initialState = {
   user: {},
+  PasswordReset: {},
   authkeys: {},
   status: "idle",
   error: null,
@@ -167,12 +199,34 @@ export const authSlice: any = createSlice({
         state.status = "failed";
         state.error = action.payload;
       })
+      .addCase(PasswordReset.pending, (state) => {
+        state.status = "loading";
+        state.error = null;
+      })
+      .addCase(PasswordReset.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.PasswordReset = { ...action.payload };
+      })
+      .addCase(PasswordReset.rejected, (state: any, action) => {
+        state.status = "failed";
+        state.error = action.payload;
+      })
+      .addCase(PasswordResetConfirm.pending, (state) => {
+        state.status = "loading";
+        state.error = null;
+      })
+      .addCase(PasswordResetConfirm.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.PasswordReset = { ...action.payload };
+      })
+      .addCase(PasswordResetConfirm.rejected, (state: any, action) => {
+        state.status = "failed";
+        state.error = action.payload;
+      })
       .addCase(ResetState.rejected, (state: any, action) => {
         state.authkeys = action.payload;
       });
   },
 });
-
-// Action creators are generated for each case reducer function
 
 export default authSlice.reducer;
