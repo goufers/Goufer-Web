@@ -9,6 +9,9 @@ import { Loading } from "../../components/Loading";
 import delay from "delay";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { appleProvider, googleProvider } from "../../firebase/authmethod";
+import socialMediaAuth from "../../firebase/authService";
+import { AuthProvider } from "firebase/auth";
 interface component {
   auth: boolean;
   setAuth: (data: any) => void;
@@ -90,6 +93,15 @@ const Login = ({ auth, setAuth }: component) => {
       toast.warning("Network Error");
     }
   }, [AuthStatus, dispatch]);
+
+
+
+  const handleonClick = async (provider: AuthProvider) => {
+
+    const res = await socialMediaAuth(provider);
+    console.log(res);
+   
+  };
 
   return (
     <>
@@ -201,14 +213,16 @@ const Login = ({ auth, setAuth }: component) => {
             </h3>
             <hr className="w-[450px] border border-[#dfdfe0] my-5 mt-10" />
 
-            <button className="w-full h-[44px] bg-white text-black border border-[#49454F] rounded-[10px] px-4 mb-4 flex items-center justify-center shadow-sm gap-2  hover:bg-gray-100">
+            <button className="w-full h-[44px] bg-white text-black border border-[#49454F] rounded-[10px] px-4 mb-4 flex items-center justify-center shadow-sm gap-2  hover:bg-gray-100"
+            onClick={() => handleonClick(googleProvider)}>
               <img src="./images/google.svg" alt="google" />
               Continue with Google
             </button>
 
-            <button className="w-full h-[44px] bg-white text-black border border-[#49454F] rounded-[10px] px-4 mb-4 flex items-center justify-center shadow-sm gap-2  hover:bg-gray-100">
-              <img src="./images/fbk.svg" alt="" />
-              Continue with Facebook
+            <button className="w-full h-[44px] bg-white text-black border border-[#49454F] rounded-[10px] px-4 mb-4 flex items-center justify-center shadow-sm gap-2  hover:bg-gray-100"
+            onClick={() => handleonClick(appleProvider)}>
+              <img src="./images/apple.png" alt="" className="w-[30px] h-[30px]" />
+              Continue with Apple
             </button>
 
             <button className="w-full h-[44px] bg-white text-black border border-[#49454F] rounded-[10px] px-4 mb-6 flex items-center justify-center shadow-sm gap-2 hover:bg-gray-100 hover:text-gray-800 hover:border-gray-700 transition-colors duration-300">
@@ -366,14 +380,16 @@ const Login = ({ auth, setAuth }: component) => {
             </h3>
             <hr className="w-[450px] border border-[#dfdfe0] my-5" />
 
-            <button className="w-full h-[44px] bg-white text-black border border-[#49454F] rounded-md px-4 mb-4 flex items-center justify-center shadow-sm gap-2 hover:bg-gray-100">
+            <button className="w-full h-[44px] bg-white text-black border border-[#49454F] rounded-md px-4 mb-4 flex items-center justify-center shadow-sm gap-2 hover:bg-gray-100"
+               onClick={() => handleonClick(googleProvider)}>
               <img src="/images/google.svg" alt="google" />
               Continue with Google
             </button>
 
-            <button className="w-full h-[44px] bg-white text-black border border-[#49454F] rounded-md px-4 mb-4 flex items-center justify-center shadow-sm gap-2 hover:bg-gray-100">
-              <img src="./images/fbk.svg" alt="facebook" />
-              Continue with Facebook
+            <button className="w-full h-[44px] bg-white text-black border border-[#49454F] rounded-md px-4 mb-4 flex items-center justify-center shadow-sm gap-2 hover:bg-gray-100"
+               onClick={() => handleonClick(appleProvider)}>
+              <img src="./images/apple.png" alt="apple" className="[30px] h-[30px]" />
+              Continue with Apple
             </button>
 
             <p className="text-[#344054] text-left w-[444px] h-[32px] font-roboto font-normal text-[13px] leading-[16px]">

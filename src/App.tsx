@@ -27,6 +27,7 @@ import TaskrecordContent from "./pages/Dashboard/Task";
 import SatusCard from "./pages/Dashboard/Task/SatusCard";
 import SearchPage from "./pages/Search/SearchPage";
 
+
 function App() {
   // const location = useLocation();
 
@@ -87,6 +88,7 @@ function App() {
         <Route path={"/faq"} element={<Faq />} />
         <Route path={"/home"} element={<Home />} />
         <Route path={"/contact_us"} element={<ContactUs />} />
+      
 
         {/* <Route path={"/verify_email"} element={<Verifyemail />} />
         <Route path={"/successCard"} element={<SuccessCard />} />
