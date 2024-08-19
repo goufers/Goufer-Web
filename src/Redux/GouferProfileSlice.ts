@@ -20,9 +20,10 @@ export const CreateGouferAccount = createAsyncThunk(
     }
   }
 );
+
 // Async thunk for fetching the Goufer profile
 export const fetchGouferProfile = createAsyncThunk(
-  "get-goufer-profile",
+  "get_goufer_profile",
   async (_, { rejectWithValue }) => {
     const token = localStorage.getItem("G_A_token");
 
@@ -39,7 +40,7 @@ export const fetchGouferProfile = createAsyncThunk(
 );
 
 export const UpdateGouferProfile = createAsyncThunk(
-  "gouferProfile/fetchGouferProfile",
+  "update_gouferProfile",
   async (data, { rejectWithValue }) => {
     const token = localStorage.getItem("G_A_token");
 
@@ -60,7 +61,7 @@ export const UpdateGouferProfile = createAsyncThunk(
 );
 
 export const DeleteGouferProfile = createAsyncThunk(
-  "gouferProfile/fetchGouferProfile",
+  "delete_gouferProfile",
   async (_, { rejectWithValue }) => {
     const token = localStorage.getItem("G_A_token");
 
