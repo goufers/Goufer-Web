@@ -11,7 +11,6 @@ import PUBLIC_ROUTES from "./utils/PublicRoutes";
 import Search from "./pages/Search/Search-1";
 import GouferProfile from "./pages/Profile/GouferProfile";
 import Chat from "./pages/Dashboard/Chat";
-import Dashboard from "./pages/Dashboard/Main";
 import Employment from "./pages/Dashboard/Employment";
 import Favorites from "./pages/Dashboard/Favourite";
 import Notification from "./pages/Dashboard/Notification/index";
@@ -22,11 +21,19 @@ import Subscription from "./pages/Dashboard/Subscripyion";
 import PaymentPage from "./pages/Dashboard/Paymentmethod";
 
 import { useEffect } from "react";
+<<<<<<< HEAD
 import Taskrecord from "./pages/Dashboard/Task/Taskrecord";
 import TaskrecordContent from "./pages/Dashboard/Task";
 import SatusCard from "./pages/Dashboard/Task/SatusCard";
 import SearchPage from "./pages/Search/SearchPage";
 
+=======
+import AccountSettings from "./pages/Dashboard/AccountSettings";
+import NewDashboard from "./pages/NewDashboard/Main";
+import Dashboard from "./pages/Dashboard/Main";
+import NewChat from "./pages/NewDashboard/Chat";
+import NewAccountSettings from "./pages/NewDashboard/AccountSettings";
+>>>>>>> 47cfd80eb19da401f26541fc454fd9da2350405e
 
 function App() {
   // const location = useLocation();
@@ -83,6 +90,15 @@ function App() {
         <Route path={PUBLIC_ROUTES.FAVORITE} element={<Favorites />} />
         <Route path={PUBLIC_ROUTES.SUBSCRIPTION} element={<Subscription />} />
         <Route path={PUBLIC_ROUTES.NOTIFICATION} element={<Notification />} />
+        <Route path={PUBLIC_ROUTES.ACCOUNT_SETTINGS} element={<AccountSettings />} />
+
+        {/* New Dashboard */}
+        <Route path={`new${PUBLIC_ROUTES.DASHBOARD}`} element={<NewDashboard />} />
+        <Route path={`new${PUBLIC_ROUTES.CHAT}`} element={<NewChat />} />
+        <Route
+          path={`new${PUBLIC_ROUTES.ACCOUNT_SETTINGS}`}
+          element={<NewAccountSettings />}
+        />
 
         <Route path={"/about_us"} element={<AboutUs />} />
         <Route path={"/faq"} element={<Faq />} />
