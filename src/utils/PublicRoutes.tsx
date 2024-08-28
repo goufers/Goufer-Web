@@ -3,11 +3,11 @@ const PUBLIC_ROUTES = {
   HOME: "/home",
 
   GOUFER_PROFILE: "/goufer_profile",
-  DASHBOARD: "/dashboard",
+  DASHBOARD: "/newdashboard",
   CHAT: "/chat",
   FAVORITE: "/favorite",
   EMPLOYMENT: "/employment",
-<<<<<<< HEAD
+
   TASK:"/task_record",
 
   PAYMENT:"/payment",
@@ -24,14 +24,8 @@ const PUBLIC_ROUTES = {
 
 
 
-=======
   ACCOUNT_SETTINGS: "/account_settings",
-  PAYMENT: "/payment",
 
-  PAYMENT_CHANGE: "/changePayment",
-  PAYMENT_UPDATE: "/PaymentUpdate",
-  PAYMENT_ADD: "/PaymentAdd",
->>>>>>> 47cfd80eb19da401f26541fc454fd9da2350405e
 
   SUBSCRIPTION: "/subscription",
   NOTIFICATION: "/notification",

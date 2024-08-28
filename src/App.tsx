@@ -21,19 +21,17 @@ import Subscription from "./pages/Dashboard/Subscripyion";
 import PaymentPage from "./pages/Dashboard/Paymentmethod";
 
 import { useEffect } from "react";
-<<<<<<< HEAD
-import Taskrecord from "./pages/Dashboard/Task/Taskrecord";
-import TaskrecordContent from "./pages/Dashboard/Task";
-import SatusCard from "./pages/Dashboard/Task/SatusCard";
-import SearchPage from "./pages/Search/SearchPage";
 
-=======
+import TaskrecordContent from "./pages/Dashboard/Task";
+
 import AccountSettings from "./pages/Dashboard/AccountSettings";
 import NewDashboard from "./pages/NewDashboard/Main";
 import Dashboard from "./pages/Dashboard/Main";
 import NewChat from "./pages/NewDashboard/Chat";
 import NewAccountSettings from "./pages/NewDashboard/AccountSettings";
->>>>>>> 47cfd80eb19da401f26541fc454fd9da2350405e
+import Dashboards from "./pages/NewDashboard/Dashbordcategories/Dashboard";
+import Dashbordcategories from "./pages/NewDashboard/Dashbordcategories";
+
 
 function App() {
   // const location = useLocation();
@@ -90,7 +88,7 @@ function App() {
         <Route path={PUBLIC_ROUTES.FAVORITE} element={<Favorites />} />
         <Route path={PUBLIC_ROUTES.SUBSCRIPTION} element={<Subscription />} />
         <Route path={PUBLIC_ROUTES.NOTIFICATION} element={<Notification />} />
-        <Route path={PUBLIC_ROUTES.ACCOUNT_SETTINGS} element={<AccountSettings />} />
+        {/* <Route path={PUBLIC_ROUTES.ACCOUNT_SETTINGS} element={<AccountSettings />} /> */}
 
         {/* New Dashboard */}
         <Route path={`new${PUBLIC_ROUTES.DASHBOARD}`} element={<NewDashboard />} />
@@ -104,6 +102,7 @@ function App() {
         <Route path={"/faq"} element={<Faq />} />
         <Route path={"/home"} element={<Home />} />
         <Route path={"/contact_us"} element={<ContactUs />} />
+        <Route path={"/dashboards"} element={<Dashbordcategories />} />
       
 
         {/* <Route path={"/verify_email"} element={<Verifyemail />} />

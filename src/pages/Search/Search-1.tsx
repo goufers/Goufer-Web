@@ -23,7 +23,7 @@ const Search: React.FC = () => {
   const [rating, setRating] = useState(0);
   const [showExpertPop, setShowExpertPop] = useState<any>();
   const dispatch: AppDispatch = useDispatch();
-  const favoriteItems = useSelector((state: RootState) => state.favorites.favoriteItems);
+  const favoriteItems = useSelector((state: RootState) => state.Favorites.favoriteItems);
 
   const handleIconClick = (item: Item) => {
     dispatch(toggleFavorite(item));
