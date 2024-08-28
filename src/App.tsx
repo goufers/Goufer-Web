@@ -11,16 +11,21 @@ import PUBLIC_ROUTES from "./utils/PublicRoutes";
 import Search from "./pages/Search/Search";
 import GouferProfile from "./pages/Profile/GouferProfile";
 import Chat from "./pages/Dashboard/Chat";
-import Dashboard from "./pages/Dashboard/Main";
 import Employment from "./pages/Dashboard/Employment";
 import Favorites from "./pages/Dashboard/Favourite";
 import Notification from "./pages/Dashboard/Notification/index";
 import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 import Subscription from "./pages/Dashboard/Subscripyion";
 
 import PaymentPage from "./pages/Dashboard/Paymentmethod";
 
 import { useEffect } from "react";
+import AccountSettings from "./pages/Dashboard/AccountSettings";
+import NewDashboard from "./pages/NewDashboard/Main";
+import Dashboard from "./pages/Dashboard/Main";
+import NewChat from "./pages/NewDashboard/Chat";
+import NewAccountSettings from "./pages/NewDashboard/AccountSettings";
 
 
 function App() {
@@ -74,6 +79,15 @@ function App() {
         <Route path={PUBLIC_ROUTES.FAVORITE} element={<Favorites />} />
         <Route path={PUBLIC_ROUTES.SUBSCRIPTION} element={<Subscription />} />
         <Route path={PUBLIC_ROUTES.NOTIFICATION} element={<Notification />} />
+        <Route path={PUBLIC_ROUTES.ACCOUNT_SETTINGS} element={<AccountSettings />} />
+
+        {/* New Dashboard */}
+        <Route path={`new${PUBLIC_ROUTES.DASHBOARD}`} element={<NewDashboard />} />
+        <Route path={`new${PUBLIC_ROUTES.CHAT}`} element={<NewChat />} />
+        <Route
+          path={`new${PUBLIC_ROUTES.ACCOUNT_SETTINGS}`}
+          element={<NewAccountSettings />}
+        />
 
         <Route path={"/about_us"} element={<AboutUs />} />
         <Route path={"/faq"} element={<Faq />} />

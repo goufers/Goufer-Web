@@ -1,23 +1,40 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { counterSlice } from "./CounterSlice";
 import authSlice from "./AuthSlice";
 import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
 import favoritesReducer from "../features/favoriteSlice/favoritesSlice";
+<<<<<<< HEAD
 import GouferProfileSlice from "./GouferProfileSlice";
 import { SearchGoufers } from "./SearchGoufersSlice";
 
 
 
+=======
+import gouferProfileReducer from "./GouferProfileSlice";
+import { erandboySlice } from "./ErandBoySlice";
+import vendorsSlice from "./vendorsSlice";
+import { reviewsSlice } from "./Reviews";
+import { generalSlice } from "./General";
+import { locationSlice } from "./LocationSlice";
+>>>>>>> 47cfd80eb19da401f26541fc454fd9da2350405e
 
 const reducers = combineReducers({
-  counter: counterSlice,
   Auth: authSlice,
+<<<<<<< HEAD
   searchGoufer: SearchGoufers,
   favorites: favoritesReducer,
 
   gouferProfile: GouferProfileSlice,
 
+=======
+  VendorsSlice: vendorsSlice,
+  ErandboySlice: erandboySlice,
+  GouferProfile: gouferProfileReducer,
+  Location: locationSlice,
+  Reviews: reviewsSlice,
+  General: generalSlice,
+  Favorites: favoritesReducer,
+>>>>>>> 47cfd80eb19da401f26541fc454fd9da2350405e
 });
 
 const persistConfig = {

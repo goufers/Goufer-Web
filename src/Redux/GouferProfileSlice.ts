@@ -1,16 +1,84 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
+export const CreateGouferAccount = createAsyncThunk(
+  "get-goufer-profile",
+  async (data, { rejectWithValue }) => {
+    const token = localStorage.getItem("G_A_token");
+
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_GOUFER_TEST_API}/main/gofers/1`,
+        data,
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+
+      return response.data;
+    } catch (error: any) {
+      return rejectWithValue(error.response ? error.response.data : error.message);
+    }
+  }
+);
+
 // Async thunk for fetching the Goufer profile
 export const fetchGouferProfile = createAsyncThunk(
-  "gouferProfile/fetchGouferProfile",
+  "get_goufer_profile",
   async (_, { rejectWithValue }) => {
+    const token = localStorage.getItem("G_A_token");
+
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_GOUFER_TEST_API}/goufer/profile`
+        `${import.meta.env.VITE_GOUFER_TEST_API}/main/gofers/1`,
+        { headers: { Authorization: `Bearer ${token}` } }
       );
       return response.data;
+<<<<<<< HEAD
     } catch (error:any) {
+=======
+    } catch (error: any) {
+      return rejectWithValue(error.response ? error.response.data : error.message);
+    }
+  }
+);
+
+export const UpdateGouferProfile = createAsyncThunk(
+  "update_gouferProfile",
+  async (data, { rejectWithValue }) => {
+    const token = localStorage.getItem("G_A_token");
+
+    try {
+      console.log("Fetching Goufer Profile...");
+      const response = await axios.put(
+        `${import.meta.env.VITE_GOUFER_TEST_API}/main/gofers/1`,
+        data,
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      console.log("Response:", response.data); // Log response data
+      return response.data;
+    } catch (error: any) {
+      console.error("Error fetching Goufer Profile:", error);
+      return rejectWithValue(error.response ? error.response.data : error.message);
+    }
+  }
+);
+
+export const DeleteGouferProfile = createAsyncThunk(
+  "delete_gouferProfile",
+  async (_, { rejectWithValue }) => {
+    const token = localStorage.getItem("G_A_token");
+
+    try {
+      console.log("Fetching Goufer Profile...");
+      const response = await axios.delete(
+        `${import.meta.env.VITE_GOUFER_TEST_API}/main/gofers/1`,
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      console.log("Response:", response.data); // Log response data
+      return response.data;
+    } catch (error: any) {
+      console.error("Error fetching Goufer Profile:", error);
+>>>>>>> 47cfd80eb19da401f26541fc454fd9da2350405e
       return rejectWithValue(error.response ? error.response.data : error.message);
     }
   }
@@ -18,7 +86,7 @@ export const fetchGouferProfile = createAsyncThunk(
 
 // Initial state
 const initialState = {
-  profile: {},
+  goufer_profile: {},
   status: "idle",
   error: null,
 };
@@ -36,9 +104,37 @@ const gouferProfileSlice = createSlice({
       })
       .addCase(fetchGouferProfile.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.profile = action.payload;
+        state.goufer_profile = action.payload;
       })
+<<<<<<< HEAD
       .addCase(fetchGouferProfile.rejected, (state:any, action) => {
+=======
+      .addCase(fetchGouferProfile.rejected, (state: any, action) => {
+        state.status = "failed";
+        state.error = action.payload;
+      })
+      .addCase(UpdateGouferProfile.pending, (state) => {
+        state.status = "loading";
+        state.error = null;
+      })
+      .addCase(UpdateGouferProfile.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.goufer_profile = action.payload;
+      })
+      .addCase(UpdateGouferProfile.rejected, (state: any, action) => {
+        state.status = "failed";
+        state.error = action.payload;
+      })
+      .addCase(DeleteGouferProfile.pending, (state) => {
+        state.status = "loading";
+        state.error = null;
+      })
+      .addCase(DeleteGouferProfile.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.goufer_profile = action.payload;
+      })
+      .addCase(DeleteGouferProfile.rejected, (state: any, action) => {
+>>>>>>> 47cfd80eb19da401f26541fc454fd9da2350405e
         state.status = "failed";
         state.error = action.payload;
       });
