@@ -1,100 +1,107 @@
+import { useState } from "react";
 import DashboardNav from "../DashboardNav";
 import DashboardSubNav from "../DashboardSubNav";
 import InputSearch from "../InputSearch";
 import DashboardFooter from "../d.footer";
 import CountryDropdown from "./CountryDropdown";
-import Dashboards from "./Dashboard";
+import Dashboards from "./Dashboardd";
+import { useNavigate } from "react-router-dom";
 
 const Dashbordcategories = () => {
   const cardData = [
     {
-      title: "Food & Beverages",
+      category: "Food & Beverages",
       description: "3,245 Goufers Available",
-      subCategories: "2 Sub-Categories",
+      subCategories: 3,
       imageUrl: "/images/Rectangle 249.svg",
     },
     // Add more card data objects as needed
     {
-      title: "Real Estate / Housing",
+      category: "Real Estate / Housing",
       description: "3,245 Goufers Available",
-      subCategories: "3 Sub-Categories",
+      subCategories: 3,
       imageUrl: "/images/Housing.svg",
     },
     {
-      title: "Fashion / Beauty / Lifestyle",
+      category: "Fashion / Beauty / Lifestyle",
       description: "3,245 Goufers Available",
-      subCategories: "4 Sub-Categories",
+      subCategories: 3,
       imageUrl: "/images/fashion.svg",
     },
     {
-      title: "Electronic/ Gadget/Technology",
+      category: "Electronic/ Gadget/Technology",
       description: "3,245 Goufers Available",
-      subCategories: "3 Sub-Categories",
+      subCategories: 0,
       imageUrl: "/images/electronics.svg",
     },
     {
-      title: "Vocation/ Handyman/Services",
+      category: "Vocation/ Handyman/Services",
       description: "3,245 Goufers Available",
-      subCategories: "6 Sub-Categories",
+      subCategories: 7,
       imageUrl: "/images/vocation.svg",
     },
     {
-      title: "Pets / Animal Husb/ Livestocks",
+      category: "Pets / Animal Husb/ Livestocks",
       description: "3,245 Goufers Available",
-      subCategories: "3 Sub-Categories",
+      subCategories: 6,
       imageUrl: "/images/livestok.svg",
     },
     {
-      title: "Automotive & Services",
+      category: "Automotive & Services",
       description: "3,245 Goufers Available",
-      subCategories: "6 Sub-Categories",
+      subCategories: 0,
       imageUrl: "/images/automotives.svg",
     },
     {
-      title: "Travels & Tourism",
+      category: "Travels & Tourism",
       description: "3,245 Goufers Available",
-      subCategories: "2 Sub-Categories",
+      subCategories: 4,
       imageUrl: "/images/travels.svg",
     },
     // Add more card data objects as needed
     {
-      title: "Event/ Entertainment/Celebrity",
+      category: "Event/ Entertainment/Celebrity",
       description: "3,245 Goufers Available",
-      subCategories: "14 Sub-Categories",
+      subCategories: 7,
       imageUrl: "/images/events.svg",
     },
     {
-      title: "Health & Wellness",
+      category: "Health & Wellness",
       description: "3,245 Goufers Available",
-      subCategories: "7 Sub-Categories",
+      subCategories: 5,
       imageUrl: "/images/health.svg",
     },
     {
-      title: "Construction / Architecture",
+      category: "Construction / Architecture",
       description: "3,245 Goufers Available",
-      subCategories: "3 Sub-Categories",
+      subCategories: 3,
       imageUrl: "/images/construction.svg",
     },
     {
-      title: "Car Rentals/ Road Travels/Transportation",
+      category: "Car Rentals/ Road Travels/Transportation",
       description: "3,245 Goufers Available",
-      subCategories: "6 Sub-Categories",
+      subCategories: 6,
       imageUrl: "/images/carrentals.svg",
     },
     {
-      title: "Employment/ Vacancy",
+      category: "Employment/ Vacancy",
       description: "3,245 Goufers Available",
-      subCategories: "3 Sub-Categories",
+      subCategories: 3,
       imageUrl: "/images/fashion.svg",
     },
     {
-      title: "Outreach / Religious Charity",
+      category: "Outreach / Religious Charity",
       description: "3,245 Goufers Available",
-      subCategories: "6 Sub-Categories",
+      subCategories: 6,
       imageUrl: "/images/charity.svg",
     },
   ];
 
+  const navigate = useNavigate();
+
+  const handleCardClick = (category: string) => {
+    navigate("/subcategories", { state: { selectedCategory: category } });
+  };
   return (
     <div className="mx-auto w-full flex flex-col bg-[#F9F9F9]">
       <DashboardNav />
@@ -141,24 +148,27 @@ const Dashbordcategories = () => {
             {cardData.map((card, index) => (
               <div
                 key={index}
-                className="w-[264px] h-[282px] border-[0.31px] rounded-[5px] border-green-200 flex flex-col items-center m-2"
+                className="w-[264px] h-[282px] border-[0.31px] rounded-[5px] border-green-200 flex flex-col items-center m-2 shadow-md overflow-hidden hover:shadow-lg hover:-translate-y-2 transition-transform duration-300"
+                onClick={() => handleCardClick(card.category)}
               >
                 <div className="w-[244px] h-[266px] flex flex-col items-center mt-2 bg-white">
                   <div className="flex flex-col items-center w-[240px] h-[217px]">
                     <div className="w-[240px] h-[181px] m-4">
                       <div className="text-[#605D66] pl-3 w-[22opx]">
-                        <p className="text-[16px]">{card.title}</p>
+                        <p className="text-[16px]">{card.category}</p>
                         <p className="font-[Roboto] text-[12px]">
                           {card.description}
                         </p>
                       </div>
                       <img
                         src={card.imageUrl}
-                        alt={card.title}
+                        alt={card.category}
                         className="mt-3"
                       />
                     </div>
-                    <p className="text-[#007F00]">{card.subCategories}</p>
+                    <p className="text-[#007F00]">
+                      {card.subCategories} Sub-Categories
+                    </p>
                   </div>
                 </div>
               </div>
@@ -167,7 +177,7 @@ const Dashbordcategories = () => {
         </div>
       </div>
 
-      <DashboardFooter/>
+      <DashboardFooter />
     </div>
   );
 };

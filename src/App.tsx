@@ -31,6 +31,7 @@ import NewChat from "./pages/NewDashboard/Chat";
 import NewAccountSettings from "./pages/NewDashboard/AccountSettings";
 import Dashboards from "./pages/NewDashboard/Dashbordcategories/Dashboard";
 import Dashbordcategories from "./pages/NewDashboard/Dashbordcategories";
+import Subcategories from "./pages/NewDashboard/Dashbordcategories/Subcategories";
 
 
 function App() {
@@ -103,6 +104,7 @@ function App() {
         <Route path={"/home"} element={<Home />} />
         <Route path={"/contact_us"} element={<ContactUs />} />
         <Route path={"/dashboards"} element={<Dashbordcategories />} />
+        <Route path={"/subcategories"} element={<Subcategories />} />
       
 
         {/* <Route path={"/verify_email"} element={<Verifyemail />} />
