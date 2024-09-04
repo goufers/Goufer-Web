@@ -78,7 +78,8 @@ function App() {
           element={<GouferProfile />}
         />
         <Route path={PUBLIC_ROUTES.SEARCH} element={<Search />} />
-        <Route path={PUBLIC_ROUTES.DASHBOARD} element={<Dashboard />} />
+        <Route path={PUBLIC_ROUTES.DASHBOARD} element={<Dashbordcategories />} />
+        <Route path={PUBLIC_ROUTES.SUBDASHBOARD} element={<Subcategories />} />
         <Route path={PUBLIC_ROUTES.CHAT} element={<Chat />} />
         <Route path={PUBLIC_ROUTES.EMPLOYMENT} element={<Employment />} />
         <Route path={PUBLIC_ROUTES.PAYMENT} element={<PaymentPage />} />
@@ -92,7 +93,7 @@ function App() {
         {/* <Route path={PUBLIC_ROUTES.ACCOUNT_SETTINGS} element={<AccountSettings />} /> */}
 
         {/* New Dashboard */}
-        <Route path={`new${PUBLIC_ROUTES.DASHBOARD}`} element={<NewDashboard />} />
+        <Route path={`new${PUBLIC_ROUTES.DASHBOARD}`} element={<Dashbordcategories />} />
         <Route path={`new${PUBLIC_ROUTES.CHAT}`} element={<NewChat />} />
         <Route
           path={`new${PUBLIC_ROUTES.ACCOUNT_SETTINGS}`}
@@ -103,8 +104,7 @@ function App() {
         <Route path={"/faq"} element={<Faq />} />
         <Route path={"/home"} element={<Home />} />
         <Route path={"/contact_us"} element={<ContactUs />} />
-        <Route path={"/dashboards"} element={<Dashbordcategories />} />
-        <Route path={"/subcategories"} element={<Subcategories />} />
+
       
 
         {/* <Route path={"/verify_email"} element={<Verifyemail />} />

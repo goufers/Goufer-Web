@@ -4,6 +4,7 @@ const PUBLIC_ROUTES = {
 
   GOUFER_PROFILE: "/goufer_profile",
   DASHBOARD: "/newdashboard",
+  SUBDASHBOARD: "/subcategories",
   CHAT: "/chat",
   FAVORITE: "/favorite",
   EMPLOYMENT: "/employment",
