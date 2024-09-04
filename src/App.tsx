@@ -10,29 +10,16 @@ import "slick-carousel/slick/slick-theme.css";
 import PUBLIC_ROUTES from "./utils/PublicRoutes";
 import Search from "./pages/Search/Search-1";
 import GouferProfile from "./pages/Profile/GouferProfile";
-import Chat from "./pages/Dashboard/Chat";
-import Employment from "./pages/Dashboard/Employment";
 import Favorites from "./pages/Dashboard/Favourite";
 import Notification from "./pages/Dashboard/Notification/index";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import Subscription from "./pages/Dashboard/Subscripyion";
-
-import PaymentPage from "./pages/Dashboard/Paymentmethod";
-
 import { useEffect } from "react";
 
-import TaskrecordContent from "./pages/Dashboard/Task";
-
-import AccountSettings from "./pages/Dashboard/AccountSettings";
 import NewDashboard from "./pages/NewDashboard/Main";
-import Dashboard from "./pages/Dashboard/Main";
 import NewChat from "./pages/NewDashboard/Chat";
 import NewAccountSettings from "./pages/NewDashboard/AccountSettings";
-import Dashboards from "./pages/NewDashboard/Dashbordcategories/Dashboard";
-import Dashbordcategories from "./pages/NewDashboard/Dashbordcategories";
-import Subcategories from "./pages/NewDashboard/Dashbordcategories/Subcategories";
-
 
 function App() {
   // const location = useLocation();
@@ -73,27 +60,16 @@ function App() {
     <>
       <Routes>
         <Route index path={PUBLIC_ROUTES.LANDINGPAGE} element={<Landing />} />
-        <Route
-          path={PUBLIC_ROUTES.GOUFER_PROFILE}
-          element={<GouferProfile />}
-        />
+        <Route path={PUBLIC_ROUTES.GOUFER_PROFILE} element={<GouferProfile />} />
         <Route path={PUBLIC_ROUTES.SEARCH} element={<Search />} />
-        <Route path={PUBLIC_ROUTES.DASHBOARD} element={<Dashbordcategories />} />
-        <Route path={PUBLIC_ROUTES.SUBDASHBOARD} element={<Subcategories />} />
-        <Route path={PUBLIC_ROUTES.CHAT} element={<Chat />} />
-        <Route path={PUBLIC_ROUTES.EMPLOYMENT} element={<Employment />} />
-        <Route path={PUBLIC_ROUTES.PAYMENT} element={<PaymentPage />} />
-        <Route path={PUBLIC_ROUTES.TASK} element={<TaskrecordContent />} />
-        {/* <Route path={PUBLIC_ROUTES.PAYMENT_CHANGE} element={<ChangePayment />} />
-        <Route path={PUBLIC_ROUTES.PAYMENT_UPDATE} element={<PaymentUpdate />} />
-        <Route path={PUBLIC_ROUTES.PAYMENT_ADD} element={<PaymentAdd />} /> */}
+
         <Route path={PUBLIC_ROUTES.FAVORITE} element={<Favorites />} />
         <Route path={PUBLIC_ROUTES.SUBSCRIPTION} element={<Subscription />} />
         <Route path={PUBLIC_ROUTES.NOTIFICATION} element={<Notification />} />
         {/* <Route path={PUBLIC_ROUTES.ACCOUNT_SETTINGS} element={<AccountSettings />} /> */}
 
         {/* New Dashboard */}
-        <Route path={`new${PUBLIC_ROUTES.DASHBOARD}`} element={<Dashbordcategories />} />
+        <Route path={PUBLIC_ROUTES.DASHBOARD} element={<NewDashboard />} />
         <Route path={`new${PUBLIC_ROUTES.CHAT}`} element={<NewChat />} />
         <Route
           path={`new${PUBLIC_ROUTES.ACCOUNT_SETTINGS}`}
@@ -104,8 +80,6 @@ function App() {
         <Route path={"/faq"} element={<Faq />} />
         <Route path={"/home"} element={<Home />} />
         <Route path={"/contact_us"} element={<ContactUs />} />
-
-      
 
         {/* <Route path={"/verify_email"} element={<Verifyemail />} />
         <Route path={"/successCard"} element={<SuccessCard />} />

@@ -1,10 +1,11 @@
 import { MdManageAccounts, MdOutlineDashboard, MdOutlineMessage } from "react-icons/md";
+import PUBLIC_ROUTES from "../../utils/PublicRoutes";
 const DashboardSubNav = () => {
   return (
     <div className="w-full h-auto  mt-24 items-center flex flex-row">
       <div className=" mx-auto w-[600px] bg-blue-gray-100 flex flex-row items-center rounded-full p-2 py-1">
         <a
-          href={`${"dashboard"}`}
+          href={PUBLIC_ROUTES.DASHBOARD}
           className="text-center w-[150px] mx-auto py-2 items-center flex flex-row bg-white rounded-full hover:bg-gray-200 cursor-pointer"
         >
           <MdOutlineDashboard size={24} color="green" className="ml-4" />
