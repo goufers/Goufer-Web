@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 interface appState {
-    setShowComponent:(item:any) =>void
+  setShowComponent: (item: any) => void;
 }
 
-const PaymentAdd = ({ setShowComponent }:appState) => {
+const PaymentAdd = ({ setShowComponent }: appState) => {
   return (
     <div className="w-full h-full flex flex-col items-center z-10 fixed left-0 right-0 top-0 bottom-0 backdrop-blur-sm  bg-[#101c161d]">
       <div className="m-auto flex flex-col items-center  mx-auto w-[480px] h-[626px] hover:shadow-lg shadow-md bg-white rounded-[15px] mt-12 gap-2">
@@ -16,18 +17,12 @@ const PaymentAdd = ({ setShowComponent }:appState) => {
                     alt="Goufer"
                     className="w-[42px] h-[13px]"
                   />
-                  <img
-                    src="./images/PayPass icon.svg"
-                    alt=""
-                    className="w-[20px] h-[24px]"
-                  />
+                  <img src="./images/PayPass icon.svg" alt="" className="w-[20px] h-[24px]" />
                 </div>
 
                 <div className="flex flex-row  justify-between w-[280px]">
                   <div className="flex flex-col text-white">
-                    <h1 className="font-Manrope text-[16px]">
-                      1234 1234 1234 1234
-                    </h1>
+                    <h1 className="font-Manrope text-[16px]">1234 1234 1234 1234</h1>
                     <p className="font-Manrope text-[12px]">06/24</p>
                   </div>
                   <img
@@ -41,13 +36,9 @@ const PaymentAdd = ({ setShowComponent }:appState) => {
           </div>
 
           <div className="flex flex-col  mt-4 w-[432px] h-[65px]">
-            <h1 className=" text-[#322F37] text-[18px] ">
-              Update payment method
-            </h1>
+            <h1 className=" text-[#322F37] text-[18px] ">Update payment method</h1>
 
-            <p className="pt-3 text-[#605D66]  text-[14px]">
-              Update your card details.
-            </p>
+            <p className="pt-3 text-[#605D66]  text-[14px]">Update your card details.</p>
           </div>
 
           <div className="flex flex-col items-center justify-center text-[#c7c7c8] mt-4">
@@ -82,10 +73,7 @@ const PaymentAdd = ({ setShowComponent }:appState) => {
                 <div className="flex flex-row w-[304px] h-[40px] border border-[#9eabbf] items-center justify-center  rounded-[8px] mt-2">
                   <div className="flex  w-[280px] h-[24px] gap-2">
                     <img src="public/images/masta.svg" alt="card" />{" "}
-                    <input
-                      type="text"
-                      className=" outline-none text-[#322F37] w-[260px]"
-                    />
+                    <input type="text" className=" outline-none text-[#322F37] w-[260px]" />
                   </div>
                 </div>
               </div>

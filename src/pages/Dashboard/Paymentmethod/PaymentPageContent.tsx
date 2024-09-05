@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { SetStateAction, useState } from "react";
 import PaymentAdd from "./PaymentAdd";
 import ChangePayment from "./ChangePayment";
@@ -133,11 +134,11 @@ const PaymentPageContent: React.FC = () => {
   const totalPages = Math.ceil(data.length / itemsPerPage);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [selectedStatus, setSelectedStatus] = useState("");
+  const [selectedStatus] = useState("");
 
   const [selectedCard, setSelectedCard] = useState(null);
 
-  const handleCardClick = (i) => {
+  const handleCardClick = (i: any) => {
     setSelectedCard(selectedCard === i ? null : i);
   };
 
@@ -192,24 +193,20 @@ const PaymentPageContent: React.FC = () => {
   return (
     <div className="w-3/4 h-screen   mt-20">
       <div className="flew flex-col p-4 justify-center items-center">
-        <h1 className="font-[500] text-[24px] text-[#322F37]">
-          Payment Method
-        </h1>
+        <h1 className="font-[500] text-[24px] text-[#322F37]">Payment Method</h1>
 
         <div className="flex flex-col w-full mt-2">
           <div className="flex flex-row justify-between items-center">
             <p className="text-[#49454F]">
-              Update your payment information or change your preferred payment
-              method mode.
+              Update your payment information or change your preferred payment method mode.
             </p>
 
-            <button className="flex flex-row w-[200px] h-[40px] bg-[#007F00] rounded-[50px] text-[#FFFFFF] text-center text-[14px] items-center justify-center gap-2 hover:bg-[#005f00] focus:outline-none
-            " onClick={()=>setShowComponent("add_payment_method")}>
-              <img
-                src="./images/plusicon.svg"
-                alt="Add icon"
-                className="w-4 h-4"
-              />
+            <button
+              className="flex flex-row w-[200px] h-[40px] bg-[#007F00] rounded-[50px] text-[#FFFFFF] text-center text-[14px] items-center justify-center gap-2 hover:bg-[#005f00] focus:outline-none
+            "
+              onClick={() => setShowComponent("add_payment_method")}
+            >
+              <img src="./images/plusicon.svg" alt="Add icon" className="w-4 h-4" />
               <span>Add Payment Method</span>
             </button>
           </div>
@@ -228,11 +225,7 @@ const PaymentPageContent: React.FC = () => {
                 <div className="flex flex-row w-full h-[82px] items-start">
                   <img src={d.cardImg} alt="" className="w-[42px] h-[32px]" />
                   <div className="flex flex-col pl-4">
-                    <p
-                      className={
-                        selectedCard === i ? "text-[#004600]" : "text-[#344054]"
-                      }
-                    >
+                    <p className={selectedCard === i ? "text-[#004600]" : "text-[#344054]"}>
                       {d.cardNumber}
                     </p>
                     <p
@@ -244,25 +237,17 @@ const PaymentPageContent: React.FC = () => {
                     </p>
                     <div className="flex flex-row w-[137px] justify-between mt-2">
                       <span
-                        className={
-                          selectedCard === i
-                            ? "text-[#B3261E]"
-                            : "text-[#475467]"
-                        }
+                        className={selectedCard === i ? "text-[#B3261E]" : "text-[#475467]"}
                       >
                         {d.removeCard}
                       </span>
-                      <button className="text-[#005A00] font-semibold">
-                        Edit
-                      </button>
+                      <button className="text-[#005A00] font-semibold">Edit</button>
                     </div>
                   </div>
                 </div>
                 <div
                   className={`flex border rounded-full w-[20px] h-[20px] items-center justify-center ${
-                    selectedCard === i
-                      ? "bg-[#007400] border-[#007400]"
-                      : "border-[#D0D5DD]"
+                    selectedCard === i ? "bg-[#007400] border-[#007400]" : "border-[#D0D5DD]"
                   }`}
                 >
                   <img
@@ -276,8 +261,8 @@ const PaymentPageContent: React.FC = () => {
           </div>
 
           <p className="text-[#605D66] pt-3">
-            Notes: Please note that the payment method selected as default will
-            be used in your in app transactions
+            Notes: Please note that the payment method selected as default will be used in your
+            in app transactions
           </p>
         </div>
 
@@ -309,11 +294,7 @@ const PaymentPageContent: React.FC = () => {
 
                 <button className="flex flex-row w-[129px] h-[40px] bg-[#007F00] rounded-[50px] text-[#FFFFFF] text-center text-[14px] items-center justify-center gap-2 hover:bg-[#005f00] focus:outline-none">
                   <span>Download</span>
-                  <img
-                    src="./images/download-05.svg"
-                    alt="download"
-                    className="w-4 h-4"
-                  />
+                  <img src="./images/download-05.svg" alt="download" className="w-4 h-4" />
                 </button>
               </div>
             </div>
@@ -350,9 +331,7 @@ const PaymentPageContent: React.FC = () => {
                       <div className="flex flex-row items-center justify-between w-[299px]">
                         <div className="flex flex-row p-2">
                           <input type="checkbox" name="" id="" />
-                          <span className="pl-2 text-[#49454F]">
-                            {d.Invoice}
-                          </span>
+                          <span className="pl-2 text-[#49454F]">{d.Invoice}</span>
                         </div>
 
                         <p className="pr-4">{d.date}</p>
@@ -368,10 +347,7 @@ const PaymentPageContent: React.FC = () => {
                         className="w-[88px] h-[28px] flex justify-center items-center ml-6"
                         style={{ backgroundColor: d.statusBgColor }}
                       >
-                        <p
-                          className="text-[15px]"
-                          style={{ color: d.statusColor }}
-                        >
+                        <p className="text-[15px]" style={{ color: d.statusColor }}>
                           {d.status}
                         </p>
                       </div>
@@ -389,9 +365,7 @@ const PaymentPageContent: React.FC = () => {
               <div className="flex flex-row w-full md:w-[497px] h-[40px] mx-auto items-center justify-center hover:shadow-lg shadow-md bg-white rounded-[15px] border-[#E6F2E6] mt-6">
                 <div
                   className={`w-[119px] h-[40px] flex items-center justify-center border-[#E6F2E6] ${
-                    currentPage === 1
-                      ? "opacity-50 cursor-not-allowed"
-                      : " text-green-500"
+                    currentPage === 1 ? "opacity-50 cursor-not-allowed" : " text-green-500"
                   }`}
                   onClick={handlePrevious}
                 >
@@ -408,9 +382,7 @@ const PaymentPageContent: React.FC = () => {
                     className={`flex flex-row items-center justify-center w-[40px] h-[40px] border border-[#E6F2E6] ${
                       currentPage === page ? "bg-gray-200 text-green-500" : ""
                     } ${page === "..." ? "cursor-default" : "cursor-pointer"}`}
-                    onClick={() =>
-                      typeof page === "number" && handlePageClick(page)
-                    }
+                    onClick={() => typeof page === "number" && handlePageClick(page)}
                   >
                     {page}
                   </div>
@@ -440,7 +412,9 @@ const PaymentPageContent: React.FC = () => {
         </div>
       </div>
 
-      {showComponent == "add_payment_method" && <PaymentAdd  setShowComponent={setShowComponent}/>}
+      {showComponent == "add_payment_method" && (
+        <PaymentAdd setShowComponent={setShowComponent} />
+      )}
       {showComponent == "select_payment_method" && <ChangePayment />}
       {showComponent == "update_payment_method" && <PaymentUpdate />}
     </div>
