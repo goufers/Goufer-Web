@@ -42,9 +42,7 @@ const DashboardContent = () => {
       )}
       {selectionState == "subcategory" && (
         <Subcategories
-          selectionState={selectionState}
           selectedCategory={selectedCategory}
-          setSelectionState={setSelectionState}
           setSelectionState={setSelectionState}
         />
       )}
