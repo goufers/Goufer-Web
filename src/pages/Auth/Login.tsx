@@ -3,8 +3,7 @@ import { useEffect, useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { useDispatch, useSelector } from "react-redux";
-import { LoginUser, ResetState, Signup } from "../../Redux/AuthSlice";
-import PhoneValidation from "./PhoneValidation";
+import { LoginUser } from "../../Redux/AuthSlice";
 import { Loading } from "../../components/Loading";
 import delay from "delay";
 import { ToastContainer, toast } from "react-toastify";
@@ -62,13 +61,9 @@ const Login = ({ auth, setAuth }: component) => {
     }
   }, [AuthStatus, dispatch]);
 
-
-
-  const handleonClick = async (provider: AuthProvider) => {
-
+  const handleAutoLogin = async (provider: AuthProvider) => {
     const res = await socialMediaAuth(provider);
     console.log(res);
-   
   };
 
   return (
@@ -181,14 +176,18 @@ const Login = ({ auth, setAuth }: component) => {
             </h3>
             <hr className="w-[450px] border border-[#dfdfe0] my-5 mt-10" />
 
-            <button className="w-full h-[44px] bg-white text-black border border-[#49454F] rounded-[10px] px-4 mb-4 flex items-center justify-center shadow-sm gap-2  hover:bg-gray-100"
-            onClick={() => handleonClick(googleProvider)}>
+            <button
+              className="w-full h-[44px] bg-white text-black border border-[#49454F] rounded-[10px] px-4 mb-4 flex items-center justify-center shadow-sm gap-2  hover:bg-gray-100"
+              onClick={() => handleAutoLogin(googleProvider)}
+            >
               <img src="./images/google.svg" alt="google" />
               Continue with Google
             </button>
 
-            <button className="w-full h-[44px] bg-white text-black border border-[#49454F] rounded-[10px] px-4 mb-4 flex items-center justify-center shadow-sm gap-2  hover:bg-gray-100"
-            onClick={() => handleonClick(appleProvider)}>
+            <button
+              className="w-full h-[44px] bg-white text-black border border-[#49454F] rounded-[10px] px-4 mb-4 flex items-center justify-center shadow-sm gap-2  hover:bg-gray-100"
+              onClick={() => handleAutoLogin(appleProvider)}
+            >
               <img src="./images/apple.png" alt="" className="w-[30px] h-[30px]" />
               Continue with Apple
             </button>
@@ -211,51 +210,6 @@ const Login = ({ auth, setAuth }: component) => {
           </div>
         )}
 
-<<<<<<< HEAD
-            <button
-              onClick={() => RegisterUser()}
-              className="w-[455px] h-[40px] bg-[#218021] text-white rounded-full py-2 px-4 mb-6 hover:bg-[#2b7a2b]"
-            >
-              Sign Up
-            </button>
-            <h3 className="text-[#344054] text-[16px]">
-              Already have an account?
-              <span
-                className="px-2 text-[#007F00] cursor-pointer"
-                onClick={() => setAuthComponent("login")}
-              >
-                Login
-              </span>
-            </h3>
-            <hr className="w-[450px] border border-[#dfdfe0] my-5" />
-
-            <button className="w-full h-[44px] bg-white text-black border border-[#49454F] rounded-md px-4 mb-4 flex items-center justify-center shadow-sm gap-2 hover:bg-gray-100"
-               onClick={() => handleonClick(googleProvider)}>
-              <img src="/images/google.svg" alt="google" />
-              Continue with Google
-            </button>
-
-            <button className="w-full h-[44px] bg-white text-black border border-[#49454F] rounded-md px-4 mb-4 flex items-center justify-center shadow-sm gap-2 hover:bg-gray-100"
-               onClick={() => handleonClick(appleProvider)}>
-              <img src="./images/apple.png" alt="apple" className="[30px] h-[30px]" />
-              Continue with Apple
-            </button>
-
-            <p className="text-[#344054] text-left w-[444px] h-[32px] font-roboto font-normal text-[13px] leading-[16px]">
-              By clicking ‘continue’, you confirm that you accept our
-              <span className="text-[#218021]">
-                <a href="">Terms and Conditions</a>
-              </span>
-              and have read our
-              <span className="text-[#218021]">
-                <a href="">Privacy Policy</a>
-              </span>
-            </p>
-          </div>
-        )}
-        {authComponent === "verify_phone" && <PhoneValidation />}
-=======
->>>>>>> 47cfd80eb19da401f26541fc454fd9da2350405e
         <div className=" bg-[#24362354] hidden md:flex flex-col items-center backdrop-blur-sm p-8  w-[503px] h-full rounded-r-[25px]  ">
           <div className="w-[351px] flex flex-col items-center m-auto ">
             <img className="w-[374.5px]" src="./images/gouferbig.svg" alt="goufer_url" />
