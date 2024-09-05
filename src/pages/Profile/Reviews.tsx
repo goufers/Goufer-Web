@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // import Star from "./Star";
 // import { FaStar } from "react-icons/fa";
 
@@ -100,31 +101,24 @@
 
 // export default Reviews;
 
-
-
-
-import React from "react";
-import Star from "./Star";
 import { FaStar } from "react-icons/fa";
 
-interface Review {
-  image: string;
-  name: string;
-  review: string;
-  date: string;
-  rating: React.ReactNode; // Assuming it's a component or JSX for rating
-}
+// interface Review {
+//   image: string;
+//   name: string;
+//   review: string;
+//   date: string;
+//   rating: React.ReactNode; // Assuming it's a component or JSX for rating
+// }
 
-interface ReviewsProps {
-  reviewsData: Review[];
-}
+// interface ReviewsProps {
+//   reviewsData: Review[];
+// }
 
-
-
-  const Reviews = ({ reviewsData }: { reviewsData: any[] }) => {
-    if (!reviewsData) {
-      return null; // Or handle loading state or error condition
-    }
+const Reviews = ({ reviewsData }: { reviewsData: any[] }) => {
+  if (!reviewsData) {
+    return null; // Or handle loading state or error condition
+  }
 
   return (
     <div className="mx-0 space-y-2">
@@ -165,5 +159,3 @@ interface ReviewsProps {
 };
 
 export default Reviews;
-
-

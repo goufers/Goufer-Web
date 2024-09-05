@@ -1,4 +1,5 @@
-import React, { useRef, useState } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useRef, useState } from "react";
 import Flatpickr from "react-flatpickr";
 import "flatpickr/dist/themes/material_blue.css";
 
@@ -10,8 +11,8 @@ interface statusState {
 const StatusCard = ({ setShowStatusCard, currentStatus }: statusState) => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [taskStatus, setTaskStatus] = useState(currentStatus);
-  const [startDate, setStartDate] = useState<Date | null>(null);
-  const [dueDate, setDueDate] = useState<Date | null>(null);
+  const [startDate, setStartDate] = useState<any>("204-2-11");
+  const [dueDate, setDueDate] = useState<any>("204-12-11");
 
   // Ref for Flatpickr instances
   const startDatePickerRef = useRef<Flatpickr | null>(null);
@@ -36,9 +37,7 @@ const StatusCard = ({ setShowStatusCard, currentStatus }: statusState) => {
     },
   ];
 
-  const currentStatusStyle = statusOptions.find(
-    (option) => option.label === taskStatus
-  ) || {
+  const currentStatusStyle = statusOptions.find((option) => option.label === taskStatus) || {
     textColor: "text-black", // Default color
     bgColor: "bg-white", // Default background color
   };
@@ -67,14 +66,8 @@ const StatusCard = ({ setShowStatusCard, currentStatus }: statusState) => {
       <div className="flex flex-col w-[972px] h-[595px] mx-auto mt-24 hover:shadow-lg shadow-md bg-white items-center rounded-[20px] z-10 fixed left-0 right-0 bottom-0 top-0 backdrop-blur-sm  bg-[#101c161d]">
         <div className="flex flex-row w-[928px] h-[124px] mt-6 justify-between">
           <div className="flex flex-col w-[432px] h-[124px] gap-[15px]">
-            <img
-              src="/images/boxb.svg"
-              alt="task record"
-              className="w-[48px] h-[48px]"
-            />
-            <h1 className="text-[#322F37] font-[600px] text-[18px]">
-              Task Details
-            </h1>
+            <img src="/images/boxb.svg" alt="task record" className="w-[48px] h-[48px]" />
+            <h1 className="text-[#322F37] font-[600px] text-[18px]">Task Details</h1>
             <p className="text-[#605D66] font-[400px] text-[14px]">
               View and update your task.
             </p>
@@ -88,16 +81,12 @@ const StatusCard = ({ setShowStatusCard, currentStatus }: statusState) => {
               onClick={() => setShowStatusCard("none")}
             />
             <div className="flex flex-row w-[194px] h-[28px]">
-              <p className="text-[#322F37] font-normal text-[12px] pt-1">
-                Task Status:
-              </p>
+              <p className="text-[#322F37] font-normal text-[12px] pt-1">Task Status:</p>
               <div className="flex w-[120px] h-[28px] relative ml-2">
                 <div
                   className={`w-[90px] h-[28px] flex justify-center items-center ${currentStatusStyle.bgColor}`}
                 >
-                  <p className={`text-[15px] ${currentStatusStyle.textColor}`}>
-                    {taskStatus}
-                  </p>
+                  <p className={`text-[15px] ${currentStatusStyle.textColor}`}>{taskStatus}</p>
                 </div>
                 <img
                   src="/images/chevron-down.svg"
@@ -113,9 +102,7 @@ const StatusCard = ({ setShowStatusCard, currentStatus }: statusState) => {
                         className={`flex justify-center items-center h-[28px] w-[100px] cursor-pointer border border-[#AEA9B4] rounded-[4px] ${option.bgColor}`}
                         onClick={() => handleStatusChange(option.label)}
                       >
-                        <p className={`text-[15px] ${option.textColor}`}>
-                          {option.label}
-                        </p>
+                        <p className={`text-[15px] ${option.textColor}`}>{option.label}</p>
                       </div>
                     ))}
                   </div>
@@ -209,15 +196,11 @@ const StatusCard = ({ setShowStatusCard, currentStatus }: statusState) => {
                   placeholder="Upload File"
                   className="w-[427px] h-[24px] focus:outline-none pl-3 text-[#344054]"
                 />
-                <img
-                  src="/images/upload.svg"
-                  alt="upload file"
-                  className="pr-3"
-                />
+                <img src="/images/upload.svg" alt="upload file" className="pr-3" />
               </div>
               <p className="w-[455px] h-[20px] text-[12px] pt-2">
-                <span className="text-[#007F00]">Click to upload </span>or drag
-                and drop SVG, PNG, JPEG OR GIF (max. 800x 400px)
+                <span className="text-[#007F00]">Click to upload </span>or drag and drop SVG,
+                PNG, JPEG OR GIF (max. 800x 400px)
               </p>
             </div>
           </div>
@@ -237,8 +220,8 @@ const StatusCard = ({ setShowStatusCard, currentStatus }: statusState) => {
 
         <div className="flex flex-row w-[928px] h-[40px]  mb-6 justify-between">
           <p className="text-[#B3261E] text-[14px] font-[Roboto]  font-[400]">
-            Please note that when task status is changed, the affected person(s){" "}
-            <br /> will be notified.
+            Please note that when task status is changed, the affected person(s) <br /> will be
+            notified.
           </p>
 
           <button className="w-[455px] h-[40px] bg-[#007F00] text-white rounded-full py-2 px-4 mb-6 hover:bg-green-500">

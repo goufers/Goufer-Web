@@ -1,5 +1,4 @@
 // const Media = () => {
-     
 
 //     const data = [
 //       {ImgalT:"man",Image:"https://res.cloudinary.com/dyjo2mvqb/image/upload/v1718282501/image_17_fq7kgb.png"},
@@ -14,38 +13,29 @@
 //       {ImgalT:"man", Image:"https://res.cloudinary.com/dyjo2mvqb/image/upload/v1718283008/image_29_umnpmh.svg"},
 //       {ImgalT:"man", Image:"https://res.cloudinary.com/dyjo2mvqb/image/upload/v1718283003/image_7_fhsoda.svg"},
 //       {ImgalT:"man", Image:"https://res.cloudinary.com/dyjo2mvqb/image/upload/v1718282999/image_31_brahga.svg"},
-  
+
 //            ]
-  
+
 //       return (
-  
-  
+
 //         <div className="grid grid-cols-4 gap-2 ">
-  
+
 //           {data.map((d,i)=>(
-//           <div key={i} className="">     
+//           <div key={i} className="">
 //                  <img src={d.Image} alt={d.ImgalT} />
 //           </div>
 //           ))}
-  
+
 //         </div>
-  
-         
+
 //        );
 //   }
-   
-//   export default Media;
-  
-  
-  
-  
-  
-  
-import React from "react";
 
-interface MediaProps {
-  mediaData: { Image: string; ImgalT: string }[];
-}
+//   export default Media;
+
+// interface MediaProps {
+//   mediaData: { Image: string; ImgalT: string }[];
+// }
 
 const Media = ({ mediaData }: { mediaData: { Image: string; ImgalT: string }[] }) => {
   if (!mediaData) {
@@ -64,4 +54,3 @@ const Media = ({ mediaData }: { mediaData: { Image: string; ImgalT: string }[] }
 };
 
 export default Media;
-

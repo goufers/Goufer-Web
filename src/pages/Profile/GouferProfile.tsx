@@ -1,28 +1,26 @@
-import { useEffect } from "react";
-import { fetchGouferProfile } from "../../Redux/GouferProfileSlice";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import PUBLIC_ROUTES from "../../utils/PublicRoutes";
 import Sidebar from "./Sidebar";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Loading } from "../../components/Loading";
 
 const GouferProfile = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const { profile, status, error } = useSelector((state: any) => state.gouferProfile); // Correct state slice name
-  
-  console.log(profile)
 
+  console.log(profile);
 
-  useEffect(() => {
-    if (status === 'idle') {
-      dispatch(fetchGouferProfile()); // Dispatch fetchData when the component mounts
-    }
-  }, [status, dispatch]);
+  // useEffect(() => {
+  //   if (status === 'idle') {
+  //     dispatch(fetchGouferProfile()); // Dispatch fetchData when the component mounts
+  //   }
+  // }, [status, dispatch]);
 
-  if (status === 'loading') {
+  if (status === "loading") {
     return <Loading />; // Display loading state directly
   }
 
-  if (status === 'failed') {
+  if (status === "failed") {
     return <div>Error: {error}</div>; // Display error message
   }
 
@@ -58,4 +56,3 @@ const GouferProfile = () => {
 };
 
 export default GouferProfile;
-

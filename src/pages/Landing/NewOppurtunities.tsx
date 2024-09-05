@@ -1,10 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import Slider from "./Sliders";
-import { useSelector } from "react-redux";
-import { RootState } from "../../Redux/store";
-import { fetchInfos } from "../../Redux/gouferSlice";
-import { useDispatch } from "../../Redux/useDispatch";
 
 const NewOppurtunities = () => {
   const [showExpertPop, setShowExpertPop] = useState<any>();
@@ -160,8 +156,9 @@ const NewOppurtunities = () => {
           <div className="w-full hidden md:flex md:flex-row pb-4 border-b-2 border-gray-600">
             {Categories.map((i, n) => (
               <h1
-                className={` mx-auto text-[15px] md:text-[17px] hover:text-[#007F00] hover:font-bold cursor-pointer ${selectedCategory === i ? "text-[#007F00] font-bold " : "text-[#46444b]"
-                  }`}
+                className={` mx-auto text-[15px] md:text-[17px] hover:text-[#007F00] hover:font-bold cursor-pointer ${
+                  selectedCategory === i ? "text-[#007F00] font-bold " : "text-[#46444b]"
+                }`}
                 key={n}
                 onClick={() => setSelectedCategory(i)}
               >
@@ -174,8 +171,9 @@ const NewOppurtunities = () => {
           <div className=" w-full flex md:hidden md:flex-row pb-3 border-b-2 border-gray-600">
             {Categories.slice(0, 4).map((i, n) => (
               <h1
-                className={` mx-auto text-[14px] md:text-[17px] hover:text-[#007F00] hover:font-bold cursor-pointer ${selectedCategory === i ? "text-[#007F00] font-bold " : "text-[#46444b]"
-                  }`}
+                className={` mx-auto text-[14px] md:text-[17px] hover:text-[#007F00] hover:font-bold cursor-pointer ${
+                  selectedCategory === i ? "text-[#007F00] font-bold " : "text-[#46444b]"
+                }`}
                 key={n}
                 onClick={() => setSelectedCategory(i)}
               >

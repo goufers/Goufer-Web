@@ -1,6 +1,5 @@
 import { SetStateAction, useState } from "react";
 import StatusCard from "../../Dashboard/Task/StatusCard";
-import { Select } from "@mui/material";
 
 const Taskrecord = () => {
   const data = [
@@ -481,9 +480,7 @@ const Taskrecord = () => {
                     <div className="flex w-[400px] justify-between items-center gap-12">
                       <div className="flex flex-row gap-4 items-center">
                         <img src={item.imgSrc} alt="user" />
-                        <p className="truncate text-[15px] font-[400]">
-                          {item.name}
-                        </p>
+                        <p className="truncate text-[15px] font-[400]">{item.name}</p>
                       </div>
                       <div className="flex justify-between gap-6">
                         <p className="text-[15px]">{item.date}</p>
@@ -492,9 +489,7 @@ const Taskrecord = () => {
                     </div>
                     <div className="flex w-[400px] justify-between items-center">
                       <div className="flex flex-row gap-2 pl-6 items-center">
-                        <p className="truncate text-[15px] font-[400]">
-                          {item.service}
-                        </p>
+                        <p className="truncate text-[15px] font-[400]">{item.service}</p>
                       </div>
                       <div className="flex justify-around gap-9">
                         <p className="text-[15px]">{item.duration}</p>
@@ -502,10 +497,7 @@ const Taskrecord = () => {
                           className="w-[80px] h-[28px] flex justify-center items-center ml-6"
                           style={{ backgroundColor: item.statusBgColor }}
                         >
-                          <p
-                            className="text-[15px]"
-                            style={{ color: item.statusColor }}
-                          >
+                          <p className="text-[15px]" style={{ color: item.statusColor }}>
                             {item.status}
                           </p>
                         </div>
@@ -530,9 +522,7 @@ const Taskrecord = () => {
               <div className="flex flex-row w-full md:w-[497px] h-[40px] mx-auto items-center justify-center hover:shadow-lg shadow-md bg-white rounded-[15px] border-[#E6F2E6] mt-6">
                 <div
                   className={`w-[119px] h-[40px] flex items-center justify-center border-[#E6F2E6] ${
-                    currentPage === 1
-                      ? "opacity-50 cursor-not-allowed"
-                      : " text-green-500"
+                    currentPage === 1 ? "opacity-50 cursor-not-allowed" : " text-green-500"
                   }`}
                   onClick={handlePrevious}
                 >
@@ -549,9 +539,7 @@ const Taskrecord = () => {
                     className={`flex flex-row items-center justify-center w-[40px] h-[40px] border border-[#E6F2E6] ${
                       currentPage === page ? "bg-gray-200 text-green-500" : ""
                     } ${page === "..." ? "cursor-default" : "cursor-pointer"}`}
-                    onClick={() =>
-                      typeof page === "number" && handlePageClick(page)
-                    }
+                    onClick={() => typeof page === "number" && handlePageClick(page)}
                   >
                     {page}
                   </div>
@@ -582,10 +570,7 @@ const Taskrecord = () => {
       </div>
 
       {showStatusCard === "show_status_card" && (
-        <StatusCard
-          setShowStatusCard={setShowStatusCard}
-          currentStatus={currentStatus}
-        />
+        <StatusCard setShowStatusCard={setShowStatusCard} currentStatus={currentStatus} />
       )}
 
       {/* {showStatusCard =="show_status_card" && <StatusCard setShowStatusCard={setShowStatusCard}/>}  */}

@@ -19,9 +19,6 @@
 
 // export default About;
 
-
-
-
 // About.tsx
 import React from "react";
 

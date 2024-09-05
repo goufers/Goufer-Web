@@ -30,12 +30,17 @@ const ChatOptions = () => {
   const [isOpen, setIsOpen] = useState(true);
   const modalRef = useRef(null);
 
+  // const handleClickOutside = (event: any) => {
+  //   if (modalRef.current && !modalRef.current.contains(event.target)) {
+  //     setIsOpen(false);
+  //   }
+  // };
   const handleClickOutside = (event: any) => {
-    if (modalRef.current && !modalRef.current.contains(event.target)) {
+    const node = modalRef.current as HTMLElement | null;
+    if (node && !node.contains(event.target)) {
       setIsOpen(false);
     }
   };
-
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {

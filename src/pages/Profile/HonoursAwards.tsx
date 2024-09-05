@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // const HonoursAwards = () => {
 //   return (
 //     <div className="h-[350px]">
@@ -38,26 +39,22 @@
 
 // export default HonoursAwards;
 
+// interface HonoursAwardsProps {
+//   honours: {
+//     title: string;
+//     type: string;
+//     date: string;
+//     institution: string;
+//   }[];
+//   awards: {
+//     title: string;
+//     type: string;
+//     date: string;
+//     institution: string;
+//   }[];
+// }
 
-
-import React from "react";
-
-interface HonoursAwardsProps {
-  honours: {
-    title: string;
-    type: string;
-    date: string;
-    institution: string;
-  }[];
-  awards: {
-    title: string;
-    type: string;
-    date: string;
-    institution: string;
-  }[];
-}
-
-const HonoursAwards = ({ honours, awards }: { honours: any[], awards: any[] }) => {
+const HonoursAwards = ({ honours, awards }: { honours: any[]; awards: any[] }) => {
   if (!honours || !awards) {
     return null; // Or render a loading indicator or error message
   }
@@ -98,5 +95,3 @@ const HonoursAwards = ({ honours, awards }: { honours: any[], awards: any[] }) =
 };
 
 export default HonoursAwards;
-
-
