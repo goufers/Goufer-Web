@@ -122,16 +122,16 @@ const NewOppurtunities = () => {
       text: "Collecting to showcase your expertise and more clients",
     },
   ];
-  const availableCategories = [
-    "Food & Beverages",
-    "Housing",
-    "Entertainment",
-    "Medical",
-    "Employment",
-    "Beauty & Fashion",
-    "Car Rental",
-    "Services",
-  ];
+  // const availableCategories = [
+  //   "Food & Beverages",
+  //   "Housing",
+  //   "Entertainment",
+  //   "Medical",
+  //   "Employment",
+  //   "Beauty & Fashion",
+  //   "Car Rental",
+  //   "Services",
+  // ];
 
   return (
     <div className="w-full items-center ">
