@@ -1,14 +1,14 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState, useEffect, useRef, ChangeEvent, FC } from "react";
+import { useState, useEffect, useRef, ChangeEvent } from "react";
 import "react-phone-input-2/lib/style.css";
-import { SendCode } from "../../Redux/AuthSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { VerifyPhone } from "../../Redux/AuthSlice";
+import { useSelector } from "react-redux";
+// import { SendCode, VerifyPhone } from "../../Redux/AuthSlice";
 const PhoneValidation = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const userPhone = useSelector((state: any) => state.Auth.authkeys?.phone_number);
   const [showOtpInput, setShowOtpInput] = useState(false);
-  const [Code, setCode] = useState(userPhone);
+  // const [Code, setCode] = useState(userPhone);
 
   const sendCode = () => {
     // dispatch(SendCode(userPhone));
@@ -21,12 +21,12 @@ const PhoneValidation = () => {
   //   return phoneNumberPattern.test(phoneNumber);
   // };
 
-  const VerifyCode = () => {
-    dispatch(VerifyPhone(Code));
-  };
+  // const VerifyCode = () => {
+  //   dispatch(VerifyPhone(Code));
+  // };
 
   const [otp, setOtp] = useState<number>();
-  const [verified, setVerified] = useState<boolean>(false);
+  const [_, setVerified] = useState<boolean>(false);
   const [otpVal, setOtpVal] = useState<string[]>([]);
   const textBase = useRef<HTMLDivElement>(null);
 
@@ -81,6 +81,7 @@ const PhoneValidation = () => {
     if (otpVal.length === textBase.current?.childElementCount) {
       getOtp();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [otpVal]);
 
   return (
@@ -125,8 +126,9 @@ const PhoneValidation = () => {
               ))}
             </div>
             <button
-              className={`mt-6 mb-10  rounded-full  text-xs text-black border-[#afb0af] hover:border-[#007f00] border hover:text-white p-1.5 px-5 mr-[200px] cursor-pointer hover:bg-[#5b904b] ${otpVal.length > 0 ? "visible hover:bg-[#5b904b] text-[#fff]" : ""
-                }`}
+              className={`mt-6 mb-10  rounded-full  text-xs text-black border-[#afb0af] hover:border-[#007f00] border hover:text-white p-1.5 px-5 mr-[200px] cursor-pointer hover:bg-[#5b904b] ${
+                otpVal.length > 0 ? "visible hover:bg-[#5b904b] text-[#fff]" : ""
+              }`}
               onClick={clearAll}
             >
               Clear otp
@@ -134,7 +136,7 @@ const PhoneValidation = () => {
           </>
           <button
             className="w-[300px] text-white mt-9 text-[14px] py-2 rounded-lg bg-[#007f00] cursor-pointer hover:bg-[#1cbb1c]"
-            onClick={() => VerifyCode}
+            // onClick={() => VerifyCode}
           >
             Verify Phone Number
           </button>
