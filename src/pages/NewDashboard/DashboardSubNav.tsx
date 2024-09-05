@@ -12,14 +12,14 @@ const DashboardSubNav = () => {
           <span className="  text-sm ml-2 text-black ">Dashboard</span>
         </a>
         <a
-          href={`${"chat"}`}
+          href={PUBLIC_ROUTES.CHAT}
           className="text-center w-[150px] mx-auto py-2 items-center flex flex-row rounded-full hover:bg-gray-200 cursor-pointer"
         >
           <MdOutlineMessage size={24} color="green" className="ml-4" />
           <span className="  text-sm ml-2 text-gray-700 hover:text-black">Chat Room</span>
         </a>
         <a
-          href={`${"account_settings"}`}
+          href={PUBLIC_ROUTES.ACCOUNT_SETTINGS}
           className="text-center w-[150px] mx-auto py-2 items-center flex flex-row rounded-full hover:bg-gray-200 cursor-pointer"
         >
           <MdManageAccounts size={24} color="green" className="ml-2" />

@@ -1,18 +1,16 @@
 import React from "react";
-import DashboardNav from "../DashboardNav";
-import DashboardSubNav from "../DashboardSubNav";
-import InputSearch from "../InputSearch";
 import DashboardFooter from "../d.footer";
-import CountryDropdown from "./CountryDropdown";
-import { useLocation } from "react-router-dom";
+import { MdOutlineArrowBackIos } from "react-icons/md";
 
-const Subcategories = () => {
-  const location = useLocation();
+interface SubcategoriesProps {
+  setSelectionState: (state: string) => void;
+  selectedCategory: string;
+}
 
-  const { selectedCategory } = location.state as {
-    selectedCategory: string;
-  };
-
+const Subcategories: React.FC<SubcategoriesProps> = ({
+  selectedCategory,
+  setSelectionState,
+}) => {
   const subCardData = [
     {
       backgroundImage: "/images/food&brev.svg",
@@ -126,40 +124,27 @@ const Subcategories = () => {
     },
   ];
 
-  const filteredSubcategories = subCardData.filter(
-    (sub) => sub.category === selectedCategory
-  );
+  const filteredSubcategories = subCardData.filter((sub) => sub.category === selectedCategory);
 
   const subCategoryCount = filteredSubcategories.length;
 
   return (
     <div className="mx-auto w-full flex flex-col bg-[#F9F9F9]">
-      <DashboardNav />
-
-      <div className="mt-16 flex flex-col">
-        <div className="w-[1125px] flex flex-row mt-6 items-center mx-auto justify-center">
-          <button className="w-[200px] h-[40px] rounded-[50px] mt-3 bg-[#333E78] hover:bg-[#778ae8] transition-colors duration-300 text-white">
-            Send Errand Now!
-          </button>
-
-          <InputSearch />
-
-          <button className="w-[200px] h-[40px] mt-3 rounded-[50px] bg-[#B82820] hover:bg-[#bd5551] transition-colors duration-300 text-white">
-            Use Emergency
-          </button>
+      <div className="w-full ml-10 h-auto mt-10  ">
+        <div
+          className=" my-6 flex flex-row items-center cursor-pointer"
+          onClick={() => setSelectionState("category")}
+        >
+          <MdOutlineArrowBackIos color="#007F00" size={24} />
+          <span className="text-[#007F00] text-md"> Back to categories</span>
         </div>
-      </div>
-
-      <div className="w-[1130px] h-auto mt-10 mx-auto">
         <div className="flex ">
           <img src="/images/greenline.svg" alt="" />
 
           <div className="flex flex-col ml-2">
-            <p className="text-[24px] text-[#322F35]">{selectedCategory}</p>
+            <p className="text-[20px] text-[#322F35]">{selectedCategory}</p>
 
-            <p className="text-[14px] text-[#605D64]">
-              {subCategoryCount} Sub-categories
-            </p>
+            <p className="text-[14px] text-[#605D64]">{subCategoryCount} Sub-categories</p>
           </div>
         </div>
 
@@ -176,15 +161,11 @@ const Subcategories = () => {
                 >
                   <div className="absolute flex pt-3 w-[255px] h-[26px] justify-between items-center pl-2">
                     <div className="flex items-center justify-center bg-[#F5F5F5] rounded-full mt-2 w-[116px] h-[26px] ">
-                      <p className="mb-2 w-[96px] h-[16px] font-thin overflow-hidden text-ellipsis whitespace-nowrap">
+                      <p className=" pl-1  text-[11px] font-thin overflow-hidden text-ellipsis whitespace-nowrap">
                         {d.category}
                       </p>
                     </div>
-                    <img
-                      src="/images/Fav Icon.png"
-                      alt=""
-                      className="w-[24px] h-[24px]"
-                    />
+                    <img src="/images/Fav Icon.png" alt="" className="w-[24px] h-[24px]" />
                   </div>
                 </div>
 
@@ -218,29 +199,16 @@ const Subcategories = () => {
                     </p>
                     <div className="w-[161px] h-[40px] flex flex-col pt-4 pl-2">
                       <div className="w-[161px] h-[20px] flex flex-row justify-between items-center text-[#FFFFFF]">
-                        <img
-                          src="/images/lez.svg"
-                          alt=""
-                          className="w-[20px] h-[20px]"
-                        />
-                        <p className="text-[12px]">
-                          Available in your location
-                        </p>
+                        <img src="/images/lez.svg" alt="" className="w-[20px] h-[20px]" />
+                        <p className="text-[12px]">Available in your location</p>
                       </div>
 
                       <div className="w-[161px] h-[20px] flex flex-row items-center pt-1">
-                        <img
-                          src="/images/goU.svg"
-                          alt=""
-                          className="w-[20px] h-[20px]"
-                        />
+                        <img src="/images/goU.svg" alt="" className="w-[20px] h-[20px]" />
                         {d.availableGoufers.map((goufer, index) => (
-                          <p
-                            className="text-[12px] text-[#FFFF] pl-2"
-                            key={index}
-                          >
-                            <span className="text-white">{goufer.count}+</span>{" "}
-                            Available Goufers
+                          <p className="text-[12px] text-[#FFFF] pl-2" key={index}>
+                            <span className="text-white">{goufer.count}+</span> Available
+                            Goufers
                           </p>
                         ))}
                       </div>
@@ -250,27 +218,16 @@ const Subcategories = () => {
 
                 <div className="w-[161px] h-[40px] flex flex-col pt-6 pl-2">
                   <div className="w-[161px] h-[20px] flex flex-row justify-between items-center text-[#49454F]">
-                    <img
-                      src="/images/lez.svg"
-                      alt=""
-                      className="w-[20px] h-[20px]"
-                    />
+                    <img src="/images/lez.svg" alt="" className="w-[20px] h-[20px]" />
                     <p className="text-[12px]">Available in your location</p>
                   </div>
 
                   <div className="w-[161px] h-[20px] flex flex-row items-center pt-1">
-                    <img
-                      src="/images/goU.svg"
-                      alt=""
-                      className="w-[20px] h-[20px]"
-                    />
+                    <img src="/images/goU.svg" alt="" className="w-[20px] h-[20px]" />
                     {d.availableGoufers.map((goufer, index) => (
-                      <p
-                        className="text-[12px] text-[#49454F] pl-2"
-                        key={index}
-                      >
-                        <span className="text-[#007F00]">{goufer.count}+</span>{" "}
-                        Available Goufers
+                      <p className="text-[12px] text-[#49454F] pl-2" key={index}>
+                        <span className="text-[#007F00]">{goufer.count}+</span> Available
+                        Goufers
                       </p>
                     ))}
                   </div>

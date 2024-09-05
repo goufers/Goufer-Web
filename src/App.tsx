@@ -70,11 +70,8 @@ function App() {
 
         {/* New Dashboard */}
         <Route path={PUBLIC_ROUTES.DASHBOARD} element={<NewDashboard />} />
-        <Route path={`new${PUBLIC_ROUTES.CHAT}`} element={<NewChat />} />
-        <Route
-          path={`new${PUBLIC_ROUTES.ACCOUNT_SETTINGS}`}
-          element={<NewAccountSettings />}
-        />
+        <Route path={PUBLIC_ROUTES.CHAT} element={<NewChat />} />
+        <Route path={PUBLIC_ROUTES.ACCOUNT_SETTINGS} element={<NewAccountSettings />} />
 
         <Route path={"/about_us"} element={<AboutUs />} />
         <Route path={"/faq"} element={<Faq />} />
