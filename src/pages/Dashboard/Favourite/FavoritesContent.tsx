@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '../../../Redux/store';
-import { toggleFavorite } from '../../../features/favoriteSlice/favoritesSlice';
-import InputSearch from '../../Search/InputSearch';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch } from "../../../Redux/store";
+import { toggleFavorite } from "../../../features/favoriteSlice/favoritesSlice";
+import InputSearch from "../../Search/InputSearch";
 
 interface Item {
   id: number;
@@ -18,7 +19,7 @@ interface Item {
 
 const Favorites: React.FC = () => {
   const [showExpertPop, setShowExpertPop] = useState<number | null>(null);
-  const favoriteItems = useSelector((state: RootState) => state.favorites.favoriteItems);
+  const favoriteItems = useSelector((state: any) => state.favorites.favoriteItems);
   const dispatch: AppDispatch = useDispatch();
 
   const handleIconClick = (item: Item) => {
@@ -38,12 +39,13 @@ const Favorites: React.FC = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-evenly items-center">
-        {favoriteItems.map((item) => (
+        {favoriteItems.map((item: any) => (
           <div
             key={item.id}
             className="mx-auto flex flex-col my-4 relative bg-white items-center w-10/12 md:w-[270px] lg:w-[250px] h-[296px] pb-4 rounded-xl shadow-sm shadow-blue-gray-300 transition duration-300 ease-in-out hover:shadow-lg hover:shadow-blue-gray-400"
             onMouseOver={() => setShowExpertPop(item.id)}
-            onMouseLeave={() => setShowExpertPop(null)}>
+            onMouseLeave={() => setShowExpertPop(null)}
+          >
             <div className="relative">
               <div className="absolute z-10 flex justify-between gap-12 w-[300px] md:w-[230px] h-[26px] items-center m-3">
                 <div className="text-black text-xs h-[26px] w-[116px] rounded-full bg-white flex items-center justify-center">
@@ -55,9 +57,9 @@ const Favorites: React.FC = () => {
                     alt="favorite"
                     className="mr-3 mt-3 cursor-pointer"
                     style={{
-                      filter: favoriteItems.some((favItem) => favItem.id === item.id)
-                        ? 'invert(27%) sepia(95%) saturate(2129%) hue-rotate(99deg) brightness(93%) contrast(92%)'
-                        : 'none',
+                      filter: favoriteItems.some((favItem: any) => favItem.id === item.id)
+                        ? "invert(27%) sepia(95%) saturate(2129%) hue-rotate(99deg) brightness(93%) contrast(92%)"
+                        : "none",
                     }}
                   />
                 </button>
@@ -85,9 +87,7 @@ const Favorites: React.FC = () => {
                   alt=""
                 />
                 <p className="text-[#2e332e] px-2 text-[12px]">
-                  <span className="text-[#007F00] pr-0.5">
-                    {item.Task}
-                  </span>
+                  <span className="text-[#007F00] pr-0.5">{item.Task}</span>
                   Task Complete
                 </p>
               </div>
@@ -97,9 +97,7 @@ const Favorites: React.FC = () => {
                   className="w-5 h-5 object-contain"
                   alt=""
                 />
-                <p className="text-[#2a2b2a] px-2 text-[12px]">
-                  {item.City}
-                </p>
+                <p className="text-[#2a2b2a] px-2 text-[12px]">{item.City}</p>
               </div>
               <div className="flex flex-row justify-start items-center pb-1">
                 <img
@@ -107,9 +105,7 @@ const Favorites: React.FC = () => {
                   className="w-5 h-5 object-contain"
                   alt=""
                 />
-                <p className="text-[#2a2b2a] px-2 text-[12px]">
-                  {item.Rate}
-                </p>
+                <p className="text-[#2a2b2a] px-2 text-[12px]">{item.Rate}</p>
               </div>
             </div>
             {showExpertPop === item.id && (
@@ -130,9 +126,7 @@ const Favorites: React.FC = () => {
                     className="w-5 h-5 object-contain bg-white rounded-full p-1"
                     alt=""
                   />
-                  <p className="text-white px-2 text-[12px] cursor-pointer">
-                    {item.City}
-                  </p>
+                  <p className="text-white px-2 text-[12px] cursor-pointer">{item.City}</p>
                 </div>
                 <div className="flex flex-row justify-start items-center pb-1 cursor-pointer">
                   <img
@@ -140,9 +134,7 @@ const Favorites: React.FC = () => {
                     className="w-5 h-5 object-contain bg-white rounded-full p-1"
                     alt=""
                   />
-                  <p className="text-white px-2 text-[12px] cursor-pointer">
-                    {item.Rate}
-                  </p>
+                  <p className="text-white px-2 text-[12px] cursor-pointer">{item.Rate}</p>
                 </div>
                 <div className="w-full pr-3 justify-end flex flex-row mb-6">
                   <p className="mx-5 px-6 py-2 text-sm text-[#007F00] font-bold rounded-3xl bg-white cursor-pointer">

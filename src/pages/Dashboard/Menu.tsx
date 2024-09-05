@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { useState } from "react";
 import PUBLIC_ROUTES from "../../utils/PublicRoutes";
 import { useLocation } from "react-router-dom";
 
 const Menu = () => {
-  const [menuState, setMenuState] = useState("Dashboard");
+  const [_, setMenuState] = useState("Dashboard");
   const location = useLocation().pathname;
   const MenuItem = [
     {
@@ -17,6 +18,12 @@ const Menu = () => {
       url: PUBLIC_ROUTES.CHAT,
     },
     {
+      title: "Task Record",
+      icon: "/images/briefcase.svg",
+      url: PUBLIC_ROUTES.TASK,
+    },
+
+    {
       title: "Favorites",
       icon: "/images/favourite.svg",
       url: PUBLIC_ROUTES.FAVORITE,
@@ -29,22 +36,22 @@ const Menu = () => {
     {
       title: "Notifications",
       icon: "/images/notification-02 (1).svg",
-      url: "",
+      url: PUBLIC_ROUTES.NOTIFICATION,
     },
     {
       title: "Subscription",
       icon: "/images/invoice-01.svg",
-      url: "",
+      url: PUBLIC_ROUTES.SUBSCRIPTION,
     },
     {
       title: "Payment",
       icon: "/images/credit-card-pos.svg",
-      url: "",
+      url: PUBLIC_ROUTES.PAYMENT,
     },
     {
       title: "Account Settings",
       icon: "/images/account-setting-01.svg",
-      url: "",
+      url: PUBLIC_ROUTES.ACCOUNT_SETTINGS,
     },
     {
       title: " Log Out",
@@ -52,10 +59,6 @@ const Menu = () => {
       url: "",
     },
   ];
-
-  useEffect(() => {
-    console.log(location);
-  }, []);
 
   return (
     <div className="w-1/4  h-screen   ">

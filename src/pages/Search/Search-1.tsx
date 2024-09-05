@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
-import { AppDispatch, RootState } from "../../Redux/store";
+import { AppDispatch } from "../../Redux/store";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleFavorite } from "../../features/favoriteSlice/favoritesSlice";
 import InputSearch from "./InputSearch";
@@ -10,20 +10,20 @@ import InputSearch from "./InputSearch";
 interface Item {
   id: number;
   GouferCategories: string;
-  Shopimage:string;
-  Gouferimage:string;
-  Goufername:string;
-  Text:string;
-  Rate:string;
-  City:string;
-  Task:string;
+  Shopimage: string;
+  Gouferimage: string;
+  Goufername: string;
+  Text: string;
+  Rate: string;
+  City: string;
+  Task: string;
 }
 
 const Search: React.FC = () => {
   const [rating, setRating] = useState(0);
   const [showExpertPop, setShowExpertPop] = useState<any>();
   const dispatch: AppDispatch = useDispatch();
-  const favoriteItems = useSelector((state: RootState) => state.favorites.favoriteItems);
+  const favoriteItems = useSelector((state: any) => state.Favorites.favoriteItems);
 
   const handleIconClick = (item: Item) => {
     dispatch(toggleFavorite(item));
@@ -33,90 +33,57 @@ const Search: React.FC = () => {
     {
       id: 1,
       GouferCategories: "Food & Beverage",
-      Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
-      Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+      Shopimage:
+        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
+      Gouferimage:
+        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
       Goufername: "Azeez Ibrahim",
       Text: " These are professional goufer which are expertise in resturant knowledge and update",
       Rate: "4.8",
       City: "Lagos,Nigeria",
       Task: " 50+ ",
-      
     },
     {
       id: 2,
       GouferCategories: "Transport",
-      Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
-      Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+      Shopimage:
+        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
+      Gouferimage:
+        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
       Goufername: "Pius Lucky",
       Text: " These are professional goufer which are expertise in resturant knowledge and update",
       Rate: "4.8",
       City: "Lagos,Nigeria",
       Task: " 50+",
-      
     },
     {
       id: 3,
       GouferCategories: "Entertainment",
-      Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
-      Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+      Shopimage:
+        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
+      Gouferimage:
+        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
       Goufername: "Chika Chime",
       Text: " These are professional goufer which are expertise in resturant knowledge and update",
       Rate: "4.8",
       City: "Lagos,Nigeria",
       Task: " 50+",
-      
     },
     {
       id: 4,
       GouferCategories: "Donation",
-      Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
-      Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+      Shopimage:
+        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
+      Gouferimage:
+        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
       Goufername: "Choosen Abdullahi",
       Text: " These are professional goufer which are expertise in resturant knowledge and update",
       Rate: "4.8",
       City: "Lagos,Nigeria",
       Task: " 50+",
-      
     },
     {
       id: 5,
-      GouferCategories: "Shopper",
-      Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
-      Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
-      Goufername: "Oladosu Teslimat",
-      Text: " These are professional goufer which are expertise in resturant knowledge and update",
-      Rate: "4.8",
-      City: "Lagos,Nigeria",
-      Task: " 50+",
-      
-    },
-    {
-      id: 6,
-      GouferCategories: "Shopper",
-      Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
-      Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
-      Goufername: "Oladosu Teslimat",
-      Text: " These are professional goufer which are expertise in resturant knowledge and update",
-      Rate: "4.8",
-      City: "Lagos,Nigeria",
-      Task: " 50+",
-    
-    },
-    {
-      id: 7,
-      GouferCategories: "Shopper",
-      Shopimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
-      Gouferimage:"https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
-      Goufername: "Oladosu Teslimat",
-      Text: " These are professional goufer which are expertise in resturant knowledge and update",
-      Rate: "4.8",
-      City: "Lagos,Nigeria",
-      Task: " 50+",
-     
-    },
-
-    {
-      id: 8, 
       GouferCategories: "Shopper",
       Shopimage:
         "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
@@ -127,7 +94,47 @@ const Search: React.FC = () => {
       Rate: "4.8",
       City: "Lagos,Nigeria",
       Task: " 50+",
-    }
+    },
+    {
+      id: 6,
+      GouferCategories: "Shopper",
+      Shopimage:
+        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
+      Gouferimage:
+        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+      Goufername: "Oladosu Teslimat",
+      Text: " These are professional goufer which are expertise in resturant knowledge and update",
+      Rate: "4.8",
+      City: "Lagos,Nigeria",
+      Task: " 50+",
+    },
+    {
+      id: 7,
+      GouferCategories: "Shopper",
+      Shopimage:
+        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
+      Gouferimage:
+        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+      Goufername: "Oladosu Teslimat",
+      Text: " These are professional goufer which are expertise in resturant knowledge and update",
+      Rate: "4.8",
+      City: "Lagos,Nigeria",
+      Task: " 50+",
+    },
+
+    {
+      id: 8,
+      GouferCategories: "Shopper",
+      Shopimage:
+        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820381/Goufer/Rectangle_7_ygy8q0.png",
+      Gouferimage:
+        "https://res.cloudinary.com/dxnznpglg/image/upload/v1716820309/Goufer/image_28_ttiibp.png",
+      Goufername: "Oladosu Teslimat",
+      Text: " These are professional goufer which are expertise in resturant knowledge and update",
+      Rate: "4.8",
+      City: "Lagos,Nigeria",
+      Task: " 50+",
+    },
   ];
   const handleStarClick = (index: number) => {
     setRating(index + 1);
@@ -156,22 +163,20 @@ const Search: React.FC = () => {
         />
       </div>
       <div className="w-full px-1 md:w-[1127px] flex flex-col md:flex-row  item-center md:justify-between mx-auto md:gap[206px] mt-10">
-       <div className="flex flex-row justify-between w-[390px]  items-center p-2">
-       <h1 className="text-gray-800 w-auto md:w-[125px] h-[24px] md:py-auto mt-3 ">Filter by</h1>
-        <p className="text-gray-800 w-auto py-4 md:py-auto md:w-[125px] h-[24px]">
-          Found 8 Goufers
-        </p>
+        <div className="flex flex-row justify-between w-[390px]  items-center p-2">
+          <h1 className="text-gray-800 w-auto md:w-[125px] h-[24px] md:py-auto mt-3 ">
+            Filter by
+          </h1>
+          <p className="text-gray-800 w-auto py-4 md:py-auto md:w-[125px] h-[24px]">
+            Found 8 Goufers
+          </p>
 
-        <button className="flex item-center h-[24px] w-[100px] border border-green-500 rounded-[50px] font-[400] text-xs gap-2 p-1 md:hidden mt-3">
-          <img
-            src="/images/Filters lines.svg"
-            alt="filter"
-            className="w-[11px] h-[11px]"
-          />{" "}
-          Filter Search
-        </button>
-      </div>
-      <InputSearch />
+          <button className="flex item-center h-[24px] w-[100px] border border-green-500 rounded-[50px] font-[400] text-xs gap-2 p-1 md:hidden mt-3">
+            <img src="/images/Filters lines.svg" alt="filter" className="w-[11px] h-[11px]" />{" "}
+            Filter Search
+          </button>
+        </div>
+        <InputSearch />
       </div>
       {/* ----------------------3 filter and categories----------------------------------- */}
 
@@ -290,10 +295,11 @@ const Search: React.FC = () => {
           {infos &&
             infos.map((info) => (
               <div
-                  className="mx-auto flex flex-col my-4 relative bg-white items-center w-10/12 md:w-[270px] lg:w-[250px] h-[296px] pb-4 rounded-xl shadow-sm shadow-blue-gray-300 transition duration-300 ease-in-out hover:shadow-lg hover:shadow-blue-gray-400"
+                className="mx-auto flex flex-col my-4 relative bg-white items-center w-10/12 md:w-[270px] lg:w-[250px] h-[296px] pb-4 rounded-xl shadow-sm shadow-blue-gray-300 transition duration-300 ease-in-out hover:shadow-lg hover:shadow-blue-gray-400"
                 key={info.id}
                 onMouseOver={() => setShowExpertPop(info.id)}
-                onMouseLeave={() => setShowExpertPop("")}>
+                onMouseLeave={() => setShowExpertPop("")}
+              >
                 <div className="">
                   <div className="relative justify-between">
                     <div className="absolute z-10 flex justify-between gap-12 w-[300px]  md:w-[230px] h-[26px] items-center  m-3">
@@ -301,14 +307,18 @@ const Search: React.FC = () => {
                         <p>Food and Beverage</p>
                       </div>
                       <button onClick={() => handleIconClick(info)}>
-                          <img
-                            src="https://res.cloudinary.com/dspkk9qlz/image/upload/v1717687970/Vector_1_obvbdm.svg"
-                            alt="favorite"
-                            className="mr-3 mt-3 cursor-pointer"
-                            style={{
-                              filter: favoriteItems.some((favItem) =>favItem.id === info.id) ? "invert(27%) sepia(95%) saturate(2129%) hue-rotate(99deg) brightness(93%) contrast(92%)" : "none"
-                            }}
-                          />
+                        <img
+                          src="https://res.cloudinary.com/dspkk9qlz/image/upload/v1717687970/Vector_1_obvbdm.svg"
+                          alt="favorite"
+                          className="mr-3 mt-3 cursor-pointer"
+                          style={{
+                            filter: favoriteItems.some(
+                              (favItem: any) => favItem.id === info.id
+                            )
+                              ? "invert(27%) sepia(95%) saturate(2129%) hue-rotate(99deg) brightness(93%) contrast(92%)"
+                              : "none",
+                          }}
+                        />
                       </button>
                     </div>
 
@@ -336,9 +346,7 @@ const Search: React.FC = () => {
                       alt=""
                     />
                     <p className="text-[#2e332e] px-2 text-[12px] ">
-                      <span className="text-[#007F00] pr-0.5  ">
-                        {info.Task}
-                      </span>
+                      <span className="text-[#007F00] pr-0.5  ">{info.Task}</span>
                       Task Complete
                     </p>
                   </div>
@@ -348,9 +356,7 @@ const Search: React.FC = () => {
                       className="w-5 h-5 object-contain "
                       alt=""
                     />
-                    <p className="text-[#2a2b2a] px-2 text-[12px] ">
-                      {info.City}
-                    </p>
+                    <p className="text-[#2a2b2a] px-2 text-[12px] ">{info.City}</p>
                   </div>
                   <div className="flex flex-row justify-start items-center pb-1 ">
                     <img
@@ -358,9 +364,7 @@ const Search: React.FC = () => {
                       className="w-5 h-5 object-contain "
                       alt=""
                     />
-                    <p className="text-[#2a2b2a] px-2 text-[12px] ">
-                      {info.Rate}
-                    </p>
+                    <p className="text-[#2a2b2a] px-2 text-[12px] ">{info.Rate}</p>
                   </div>
                 </div>
                 {showExpertPop === info.id && (
@@ -381,9 +385,7 @@ const Search: React.FC = () => {
                         className="w-5 h-5 object-contain bg-white rounded-full p-1 "
                         alt=""
                       />
-                      <p className="text-white px-2 text-[12px] ">
-                        {info.City}
-                      </p>
+                      <p className="text-white px-2 text-[12px] ">{info.City}</p>
                     </div>
                     <div className="flex flex-row justify-start items-center pb-1 ">
                       <img
@@ -391,9 +393,7 @@ const Search: React.FC = () => {
                         className="w-5 h-5 object-contain bg-white rounded-full p-1 "
                         alt=""
                       />
-                      <p className="text-white px-2 text-[12px] ">
-                        {info.Rate}
-                      </p>
+                      <p className="text-white px-2 text-[12px] ">{info.Rate}</p>
                     </div>
                     <div className=" w-full pr-3 justify-end  flex flex-row  mb-6">
                       <p className=" mx-5 px-6 py-2 text-sm text-[#007F00] font-bold rounded-3xl bg-white cursor-pointer ">
@@ -410,8 +410,6 @@ const Search: React.FC = () => {
               </div>
             ))}
         </div>
-
-        
       </div>
 
       <Footer />

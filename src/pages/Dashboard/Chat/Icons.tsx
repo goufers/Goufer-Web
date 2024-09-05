@@ -4,9 +4,17 @@ import { useRef, useEffect } from "react";
 const Icons = ({ setShowIcons }: any) => {
   const modalRef = useRef(null);
 
+  // const handleClickOutside = (event: any) => {
+  //   if (modalRef.current && !modalRef.current.contains(event.target)) {
+  //     setShowIcons(false);
+  //   }
+  // };
+
   const handleClickOutside = (event: any) => {
-    if (modalRef.current && !modalRef.current.contains(event.target)) {
+    const node = modalRef.current as HTMLElement | null;
+    if (node && !node.contains(event.target)) {
       setShowIcons(false);
+      false;
     }
   };
 
