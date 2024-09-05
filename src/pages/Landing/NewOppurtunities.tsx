@@ -1,10 +1,15 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import Slider from "./Sliders";
-
+import Categories from "../NewDashboard/Main/Categories";
+import Subcategories from "../NewDashboard/Main/Subcategories";
 const NewOppurtunities = () => {
   const [showExpertPop, setShowExpertPop] = useState<any>();
-  const [selectedCategory, setSelectedCategory] = useState<any>();
+  // const [selectedCategory, setSelectedCategory] = useState<any>();
+  const [selectedCategory, setSelectedCategory] = useState(" ");
+  const [selectionState, setSelectionState] = useState("category");
+
   const infos = [
     {
       id: 1,
@@ -117,7 +122,7 @@ const NewOppurtunities = () => {
       text: "Collecting to showcase your expertise and more clients",
     },
   ];
-  const Categories = [
+  const availableCategories = [
     "Food & Beverages",
     "Housing",
     "Entertainment",
@@ -127,6 +132,7 @@ const NewOppurtunities = () => {
     "Car Rental",
     "Services",
   ];
+
   return (
     <div className="w-full items-center ">
       <div className="p-3 md:pl-10 w-full h-auto bg-white">
@@ -151,10 +157,21 @@ const NewOppurtunities = () => {
             />
           </div>
         </div>
-
-        <div className=" w-full md:w-11/12 h-auto py-4 flex flex-col items-center">
-          <div className="w-full hidden md:flex md:flex-row pb-4 border-b-2 border-gray-600">
-            {Categories.map((i, n) => (
+        {selectionState == "category" && (
+          <Categories
+            setSelectionState={setSelectionState}
+            setSelectedCategory={setSelectedCategory}
+          />
+        )}
+        {selectionState == "subcategory" && (
+          <Subcategories
+            selectedCategory={selectedCategory}
+            setSelectionState={setSelectionState}
+          />
+        )}
+        {/* <div className=" w-full md:w-11/12 h-auto py-4 flex flex-col items-center"> */}
+        {/* <div className="w-full hidden md:flex md:flex-row pb-4 border-b-2 border-gray-600">
+            {availableCategories.map((i, n) => (
               <h1
                 className={` mx-auto text-[15px] md:text-[17px] hover:text-[#007F00] hover:font-bold cursor-pointer ${
                   selectedCategory === i ? "text-[#007F00] font-bold " : "text-[#46444b]"
@@ -165,11 +182,11 @@ const NewOppurtunities = () => {
                 {i}
               </h1>
             ))}
-          </div>
+          </div> */}
 
-          {/* Mobile component */}
-          <div className=" w-full flex md:hidden md:flex-row pb-3 border-b-2 border-gray-600">
-            {Categories.slice(0, 4).map((i, n) => (
+        {/* Mobile component */}
+        {/* <div className=" w-full flex md:hidden md:flex-row pb-3 border-b-2 border-gray-600">
+            {availableCategories.slice(0, 4).map((i, n) => (
               <h1
                 className={` mx-auto text-[14px] md:text-[17px] hover:text-[#007F00] hover:font-bold cursor-pointer ${
                   selectedCategory === i ? "text-[#007F00] font-bold " : "text-[#46444b]"
@@ -180,9 +197,10 @@ const NewOppurtunities = () => {
                 {i}
               </h1>
             ))}
-          </div>
-          {/* Desktop Component */}
-          <div className="w-full hidden md:flex  flex-row gap-2   my-10 items-center   ">
+          </div> */}
+
+        {/* Desktop Component */}
+        {/* <div className="w-full hidden md:flex  flex-row gap-2   my-10 items-center   ">
             {infos &&
               infos.slice(0, 4).map((info: any, index: number) => (
                 <div
@@ -279,10 +297,10 @@ const NewOppurtunities = () => {
                 alt=""
               />
             </div>
-          </div>
+          </div> */}
 
-          {/* Mobile Component */}
-          <div className="w-screen flex md:hidden  flex-row my-3 items-center overflow-x-scroll  ">
+        {/* Mobile Component */}
+        {/* <div className="w-screen flex md:hidden  flex-row my-3 items-center overflow-x-scroll  ">
             <div className="w-auto h-auto py-6 flex flex-row items-center ">
               {infos &&
                 infos.slice(0, 4).map((info: any, index: number) => (
@@ -381,20 +399,21 @@ const NewOppurtunities = () => {
                 />
               </div>
             </div>
-          </div>
-        </div>
+          </div> */}
+        {/* </div> */}
       </div>
 
-      <div className="flex flex-col md:flex-row justify-around items-center w-full mx-auto mt-10">
-        <div className="mx-aut w-full md:w-[500px] md:h-[500px]  md:ml-[180px]">
+      <div className="flex flex-col md:flex-row justify-around items-center w-full mx-auto mt-16">
+        <div className="mx-auto w-full md:w-2/5 md:h-[500px] flex flex-row items-center  ">
           <img
             src="https://res.cloudinary.com/dyjo2mvqb/image/upload/v1717150319/Frame_70_1_xmtogr.png"
             alt=""
+            className="mx-auto w-[400px] h-auto ml-10"
           />
         </div>
         <div className="flex flex-col justify-evenly items-center mx-auto   w-full">
           <div className="w-full md:w-[600px] py-[1px] ml-6 md:ml-0">
-            <h1 className="text-[30px] md:text-[40px] text-[#322F35] font-bold pl-3 border-l-4  border-blue-gray-800">
+            <h1 className="text-[24px] md:text-[40px] text-[#322F35] font-bold pl-3 border-l-4  border-blue-gray-800">
               Seamless Step Of getting a <span className="text-[#007F00]">Goufer</span> Service
             </h1>
             <p className="text-[14px]">
