@@ -23,20 +23,19 @@ const AccountSettings: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto  h-full mt-20 bg-white font-Roboto  rounded-lg">
-      <div className="p-4">
-        <h2>Account Settings</h2>
-        <div className="tab-titles">
-          <p className="tab-links active-link" onClick={opentab("profile")}>
+    <div className="container mx-auto w-full  h-full mt-6 bg-white font-Roboto  rounded-lg">
+      <div className="px-4">
+        <div className="tab-titles flex flex-row items-center">
+          <p className=" mx-auto text-sm tab-links active-link" onClick={opentab("profile")}>
             Profile Settings
           </p>
-          <p className="tab-links" onClick={opentab("password")}>
+          <p className="mx-auto text-sm tab-links" onClick={opentab("password")}>
             Password Settings
           </p>
-          <p className="tab-links" onClick={opentab("privacy")}>
+          <p className="mx-auto text-sm tab-links" onClick={opentab("privacy")}>
             Privacy & Notification
           </p>
-          <p className="tab-links" onClick={opentab("deactivate")}>
+          <p className="mx-auto text-sm tab-links" onClick={opentab("deactivate")}>
             Deactivate Account
           </p>
         </div>

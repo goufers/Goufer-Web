@@ -1,7 +1,6 @@
-import React from 'react';
-
-const Pagination = ({ currentPage, totalPages, setPage }) => {
-  const handlePageClick = (page) => {
+/* eslint-disable @typescript-eslint/no-explicit-any */
+const Pagination = ({ currentPage, totalPages, setPage }: any) => {
+  const handlePageClick = (page: any) => {
     setPage(page);
   };
 
@@ -15,7 +14,7 @@ const Pagination = ({ currentPage, totalPages, setPage }) => {
           <div
             key={page}
             className={`w-[40px] h-[40px] flex items-center justify-center border-[#E6F2E6] cursor-pointer ${
-              currentPage === page ? 'bg-gray-300' : ''
+              currentPage === page ? "bg-gray-300" : ""
             }`}
             onClick={() => handlePageClick(page)}
           >

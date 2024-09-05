@@ -28,8 +28,8 @@ const Nav = () => {
         <div className="w-auto mx-auto hidden md:flex flex-row">
           {Menu.map((i, n) => (
             <p
-              className={`{ text-[16px]   px-2 font-roboto cursor-pointer hover:text-green-800 ${
-                i.title == ("Expert Categories" || "Faq")
+              className={`{ text-[16px] px-2 font-roboto cursor-pointer hover:text-green-800 ${
+                i.title === "Expert Categories" || i.title === "Faq"
                   ? "text-[#007F00]"
                   : " text-[#322F35]"
               }}`}

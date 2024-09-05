@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
-import { AppDispatch, RootState } from "../../Redux/store";
+import { AppDispatch } from "../../Redux/store";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleFavorite } from "../../features/favoriteSlice/favoritesSlice";
 import InputSearch from "./InputSearch";
@@ -23,7 +23,7 @@ const Search: React.FC = () => {
   const [rating, setRating] = useState(0);
   const [showExpertPop, setShowExpertPop] = useState<any>();
   const dispatch: AppDispatch = useDispatch();
-  const favoriteItems = useSelector((state: RootState) => state.Favorites.favoriteItems);
+  const favoriteItems = useSelector((state: any) => state.Favorites.favoriteItems);
 
   const handleIconClick = (item: Item) => {
     dispatch(toggleFavorite(item));
@@ -312,7 +312,9 @@ const Search: React.FC = () => {
                           alt="favorite"
                           className="mr-3 mt-3 cursor-pointer"
                           style={{
-                            filter: favoriteItems.some((favItem) => favItem.id === info.id)
+                            filter: favoriteItems.some(
+                              (favItem: any) => favItem.id === info.id
+                            )
                               ? "invert(27%) sepia(95%) saturate(2129%) hue-rotate(99deg) brightness(93%) contrast(92%)"
                               : "none",
                           }}

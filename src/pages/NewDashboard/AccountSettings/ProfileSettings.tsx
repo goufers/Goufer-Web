@@ -21,7 +21,7 @@ const ProfileSettings = () => {
               <input
                 type="text"
                 placeholder="johndoe@goufer.com"
-                className="w-96 rounded-lg p-2 border-gray-400 outline-none border-2"
+                className="w-[250px] rounded-lg p-2 border-gray-400 outline-none border-2"
               />
             </div>
             <div className="flex flex-col gap-1">
@@ -29,7 +29,7 @@ const ProfileSettings = () => {
               <input
                 type="text"
                 placeholder="johndoe@goufer.com"
-                className="w-96 rounded-lg p-2 border-gray-400 outline-none border-2"
+                className="w-[250px] rounded-lg p-2 border-gray-400 outline-none border-2"
               />
             </div>
             <div className="flex flex-col gap-1">
@@ -37,7 +37,7 @@ const ProfileSettings = () => {
               <input
                 type="text"
                 placeholder="johndoe@goufer.com"
-                className="w-96 rounded-lg p-2 border-gray-400 outline-none border-2"
+                className="w-[250px] rounded-lg p-2 border-gray-400 outline-none border-2"
               />
             </div>
           </div>
@@ -47,7 +47,7 @@ const ProfileSettings = () => {
               <input
                 type="email"
                 placeholder="johndoe@goufer.com"
-                className="w-96 rounded-lg p-2 border-gray-400 outline-none border-2"
+                className="w-[250px] rounded-lg p-2 border-gray-400 outline-none border-2"
               />
             </div>
             <div className="flex flex-col gap-1">
@@ -55,7 +55,7 @@ const ProfileSettings = () => {
               <input
                 type="text"
                 placeholder="johndoe@goufer.com"
-                className="w-96 rounded-lg p-2 border-gray-400 outline-none border-2"
+                className="w-[250px] rounded-lg p-2 border-gray-400 outline-none border-2"
               />
             </div>
             <div className="flex flex-col gap-1">
@@ -63,7 +63,7 @@ const ProfileSettings = () => {
               <input
                 type="text"
                 placeholder="johndoe@goufer.com"
-                className="w-96 rounded-lg p-2 border-gray-400 outline-none border-2"
+                className="w-[250px] rounded-lg p-2 border-gray-400 outline-none border-2"
               />
             </div>
           </div>
@@ -73,7 +73,7 @@ const ProfileSettings = () => {
               <input
                 type="text"
                 placeholder="johndoe@goufer.com"
-                className="w-96 rounded-lg p-2 border-gray-400 outline-none border-2"
+                className="w-[250px] rounded-lg p-2 border-gray-400 outline-none border-2"
               />
             </div>
             <div className="flex flex-col gap-1">
@@ -81,11 +81,11 @@ const ProfileSettings = () => {
               <input
                 type="text"
                 placeholder="johndoe@goufer.com"
-                className="w-96 rounded-lg p-2 border-gray-400 outline-none border-2"
+                className="w-[250px] rounded-lg p-2 border-gray-400 outline-none border-2"
               />
             </div>
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col mt-7">
             <h2 className="text-gray-800 ">Full Address</h2>
             <textarea
               name=""

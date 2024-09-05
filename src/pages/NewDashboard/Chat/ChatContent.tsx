@@ -15,6 +15,7 @@ const ChatContent = () => {
   const [showGouferProfile, setShowGouferProfile] = useState(false);
   const [showSendFileOptions, setShowSendFileOptions] = useState(false);
   const [showIcons, setShowIcons] = useState(false);
+
   // const onlineChats = [
   //   { image: "/images/Mask group.svg", name: "James Christopher" },
   //   { image: "/images/Mask group.svg", name: "James Christopher" },
@@ -316,7 +317,7 @@ const ChatContent = () => {
                         d.user !== "me" ? "justify-start" : "justify-end"
                       }`}
                     >
-                      <p
+                      <h3
                         className={`text-[13px] font-light m-6 p-3 pb-1 text-black shadow-md  ${
                           d.user !== "me"
                             ? "bg-[#affcaf]  rounded-t-lg rounded-l-lg"
@@ -327,7 +328,7 @@ const ChatContent = () => {
                         <p className=" text-[10px] m-1 text-right text-[#222222b0] ">
                           {d.time}
                         </p>
-                      </p>
+                      </h3>
                     </div>
                   </div>
                 ))}
