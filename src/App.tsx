@@ -36,7 +36,7 @@ function App() {
           const decoded = jwtDecode(`${localStorage.getItem("G_A_token")}`);
 
           const tokenExpDate = decoded.exp;
-          const currentDate = new Date() / 1000;
+          const currentDate = new Date().getTime() / 1000;
           if (tokenExpDate! < currentDate) {
             const response = await axios.post(
               `${import.meta.env.VITE_GOUFER_TEST_API}/token/refresh`,
